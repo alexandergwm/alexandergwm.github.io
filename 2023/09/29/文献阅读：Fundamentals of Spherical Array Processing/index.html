@@ -1,0 +1,1383 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>文献阅读:Fundamentals of Spherical Array Processing | Gavin</title><meta name="author" content="Gavin"><meta name="copyright" content="Gavin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基本信息论文地址：Fundamentals of Spherical Array Processing | SpringerLink引用格式：@book{Rafaely,    author &#x3D; {Rafaely, Boaz},    title &#x3D; {Fundamentals of Spherical Array Processing},    journal &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文献阅读:Fundamentals of Spherical Array Processing">
+<meta property="og:url" content="http://example.com/2023/09/29/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/index.html">
+<meta property="og:site_name" content="Gavin">
+<meta property="og:description" content="基本信息论文地址：Fundamentals of Spherical Array Processing | SpringerLink引用格式：@book{Rafaely,    author &#x3D; {Rafaely, Boaz},    title &#x3D; {Fundamentals of Spherical Array Processing},    journal &#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.ibb.co/pRR1S1b/Eigenmike.jpg">
+<meta property="article:published_time" content="2023-09-29T15:32:04.000Z">
+<meta property="article:modified_time" content="2023-09-29T15:32:04.000Z">
+<meta property="article:author" content="Gavin">
+<meta property="article:tag" content="Spherical Harmonic">
+<meta property="article:tag" content="Array Signal Processing">
+<meta property="article:tag" content="Spherical microphone array">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.ibb.co/pRR1S1b/Eigenmike.jpg"><link rel="shortcut icon" href="https://i.ibb.co/3BGBwps/2c8b98a62fbc3615.png"><link rel="canonical" href="http://example.com/2023/09/29/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '文献阅读:Fundamentals of Spherical Array Processing',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-29 23:32:04'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.ibb.co/ch2RrDp/20230822001522.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.ibb.co/pRR1S1b/Eigenmike.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Gavin"><img class="site-icon" src="https://i.ibb.co/3BGBwps/2c8b98a62fbc3615.png"/><span class="site-name">Gavin</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">文献阅读:Fundamentals of Spherical Array Processing</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-29T15:32:04.000Z" title="发表于 2023-09-29 23:32:04">2023-09-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-29T15:32:04.000Z" title="更新于 2023-09-29 23:32:04">2023-09-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9F%B3%E9%A2%91%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/">音频信号处理</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9F%B3%E9%A2%91%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9F%B3%E9%A2%91%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E9%98%B5%E5%88%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/">阵列信号处理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="文献阅读:Fundamentals of Spherical Array Processing"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>论文地址：<a target="_blank" rel="noopener" href="https://link.springer.com/book/10.1007/978-3-319-99561-8">Fundamentals of Spherical Array Processing | SpringerLink</a><br>引用格式：<br>@book{Rafaely,<br>    author &#x3D; {Rafaely, Boaz},<br>    title &#x3D; {Fundamentals of Spherical Array Processing},<br>    journal &#x3D; {SpringerLink},<br>    isbn &#x3D; {978-3-319-99561-8},<br>    publisher &#x3D; {Springer International Publishing},<br>    address &#x3D; {Cham, Switzerland},<br>    url &#x3D; {<a target="_blank" rel="noopener" href="https://link.springer.com/book/10.1007/978-3-319-99561-8%7D">https://link.springer.com/book/10.1007/978-3-319-99561-8}</a><br>}</p>
+<h2 id="第一章-数学基础"><a href="#第一章-数学基础" class="headerlink" title="第一章 数学基础"></a>第一章 数学基础</h2><p>在单位球上的函数可以用一系列带权值的基本函数表示，而这些基本函数就是球谐函数，定义如下：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230421201643082.png" alt="image-20230421201643082" style="zoom:40%;" />
+
+<p>这里的$P_n^m(cos\theta)$ 为连带勒让德函数，关于勒让德函数，贝塞尔函数相关的知识如下：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/258444208">贝塞尔函数、勒让德函数及其性质 - 知乎 (zhihu.com)</a></p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230421201800345.png" alt="image-20230421201800345" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230421202014005.png" alt="image-20230421202014005" style="zoom: 33%;" />
+
+
+
+<h3 id="1、球谐函数的性质"><a href="#1、球谐函数的性质" class="headerlink" title="1、球谐函数的性质"></a>1、球谐函数的性质</h3><p>球谐函数有许多性质，先介绍一些基础的：</p>
+<ul>
+<li><p>复共轭性： 因为在球谐函数的定义中，存在$e^{im\phi}$ 这一项，而连带勒让德函数为全实，那么就有球谐函数的共轭性：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423202108673.png" alt="image-20230423202108673" style="zoom:40%;" />
+</li>
+<li><p>受degree的值限制性：根据定义，若球谐函数具有比order 大的 degree，那么其值为0：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423202251005.png" alt="image-20230423202251005" style="zoom:40%;" />
+</li>
+<li><p>球谐函数的零点： 因为根据表1.1里面所示的球谐函数在不同orders 和 degrees下的展开形式，可以看到，除了0 degree的球谐函数，其余的m均带有$sin ^{|m|} \theta$ 项，也就是</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423214706861.png" alt="image-20230423214706861" style="zoom:40%;" />
+</li>
+<li><p>在m &#x3D; 0 degree的球谐函数：在m&#x3D;0时，连带勒让德函数会退化为勒让德多项式，那么球谐函数就会简化为如下的形式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423215001034.png" alt="image-20230423215001034" style="zoom:40%;" />
+
+<p>可以看到此时的球谐函数与$\phi$ 无关，因此其关于z轴对称。</p>
+</li>
+<li><p>在m&#x3D;n 和 m&#x3D;-n 的球谐函数： 在这些位置的球谐函数有一个sin($\theta$) 函数相关的简化形式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423220812687.png" alt="image-20230423220812687" style="zoom:40%;" />
+</li>
+<li><p>沿着$\theta$ 关于赤道$\theta &#x3D; \pi&#x2F;2$镜面对称： 上半球的函数与下半球的相同：</p>
+</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423221039232.png" alt="image-20230423221039232" style="zoom:40%;" />
+
+<p>​	   对于$n+m$ 为偶数项的函数关于赤道对称，对于$n+m$ 为奇数项的函数关于赤道不对称。</p>
+<ul>
+<li>关于$\phi$ 对称：球谐函数关于$\phi$ 镜面对称因为含有复指数项，有：</li>
+</ul>
+<p>​																				<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423221436222.png" alt="image-20230423221436222" style="zoom:40%;" /></p>
+<p>​		对于$\phi$ 对称是在x轴上，有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423221637547.png" alt="image-20230423221637547" style="zoom:40%;" />
+
+<ul>
+<li><p>反向： 连接上面两项对称性质，可以得到球上$(\pi-\theta,\phi+\pi)$ 与$(\theta,\phi)$ 对称，也就是：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423221819882.png" alt="image-20230423221819882" style="zoom:40%;" />
+</li>
+<li><p>关于$\phi$ 的周期性： 有：</p>
+</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423221945157.png" alt="image-20230423221945157" style="zoom:40%;" />
+
+<p>​		在degree m&#x3D;0 处， 球谐函数在一个柱子上沿着$\phi$ 为常数，在$m &#x3D; +-1$ 处，有周期为$2\pi$ ，在$m&#x3D;2$ 处，周期为$\pi$</p>
+<ul>
+<li>球谐函数的积分性质： 除了0 order 谐波函数，其他所有球谐函数在球面上积分均为0：</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423222228432.png" alt="image-20230423222228432" style="zoom:40%;" />
+
+<ul>
+<li>球谐函数的正交性：</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423222352676.png" alt="image-20230423222352676" style="zoom:40%;" />
+
+<ul>
+<li>球谐函数的完备性：</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423222624926.png" alt="image-20230423222624926" style="zoom:40%;" />
+
+<p>​		除了$(\theta,\phi) &#x3D; (\pi&#x2F;2,0)$ 都是0， 其满足：</p>
+<p>​														<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423222823601.png" alt="image-20230423222823601" style="zoom:40%;" /></p>
+<ul>
+<li><p>球谐函数可加性：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423223018967.png" alt="image-20230423223018967" style="zoom:40%;" />
+
+<h3 id="2、指数项和勒让德函数"><a href="#2、指数项和勒让德函数" class="headerlink" title="2、指数项和勒让德函数"></a>2、指数项和勒让德函数</h3><p>在上一节中主要总结了球谐函数的主要性质，而在这一节总结的是球谐函数的分解项，复指数项和连带勒让德函数以及勒让德多项式的性质。</p>
+<h4 id="指数项"><a href="#指数项" class="headerlink" title="指数项"></a>指数项</h4><p>指数项组成了一个单位圆的完备的正交基：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423223410781.png" alt="image-20230423223410781" style="zoom:40%;" /></li>
+</ul>
+<p>​		这一项就决定了球谐函数中与$\phi$ 相关的性质和系行为。</p>
+<h4 id="连带勒让德函数"><a href="#连带勒让德函数" class="headerlink" title="连带勒让德函数"></a>连带勒让德函数</h4><p>​		其表达式如下：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423223843964.png" alt="image-20230423223843964" style="zoom:40%;" />
+
+<p>​		如下表1.3所示，其展示了从0 到 4 orders的连带勒让德函数的表达式。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230422104808974.png" alt="image-20230422104808974" style="zoom:40%;" />
+
+<p>​		对于负的  degree 的表达式为：</p>
+<p>​																		<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423224013551.png" alt="image-20230423224013551" style="zoom:40%;" /></p>
+<p>​		对于不同orders的n和相同degree m 的连带勒让德函数在满足以下条件的积分是正交的：</p>
+<p>​											<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423224148014.png" alt="image-20230423224148014" style="zoom:40%;" /></p>
+<p>​		而正如之前所提及的，当m&#x3D;0时，连带勒让德函数会退化称为勒让德多项式，有：$P_n(x) &#x3D; P^0_n(x) $ ，其满足如下表达式：						<img 			src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423224512909.png" alt="image-20230423224512909" style="zoom:40%;" /></p>
+<p>​		而勒让德多项式是由下式直接推导出来的：</p>
+<p>​																					<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423224606546.png" alt="image-20230423224606546" style="zoom:40%;" /></p>
+<p>​		而勒让德多项式在区间$x \in[-1,1]$ 上构成了一组完备且正交的基函数集，其可以用来表示位于这个区间内的所有$L_2$ 函数，也就是平方可积函数。 可以通过下面例子更进一步理解。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">L2 函数空间：这是一个包含所有平方可积函数的函数空间。换句话说，如果一个函数的平方在给定区间内的积分是有限的，那么这个函数就属于 L2 空间。</span><br><span class="line"></span><br><span class="line">正交性：在函数空间中，正交性意味着两个不同的函数在给定区间内的乘积的积分等于零。如果一组基函数具有正交性，那么它们之间是线性无关的，可以很容易地将它们线性组合起来表示空间内的其他函数。</span><br><span class="line"></span><br><span class="line">现在，让我们用一个简单的例子来说明这些概念。假设我们有一个定义在区间 [-<span class="number">1</span>, <span class="number">1</span>] 上的函数 f(x) = x。我们想要用勒让德多项式来表示这个函数。</span><br><span class="line"></span><br><span class="line">勒让德多项式是一组在区间 [-<span class="number">1</span>, <span class="number">1</span>] 上的正交函数集。前三个勒让德多项式为：</span><br><span class="line"></span><br><span class="line">P0(x) = <span class="number">1</span></span><br><span class="line">P1(x) = x</span><br><span class="line">P2(x) = (3x^<span class="number">2</span> - <span class="number">1</span>) / <span class="number">2</span></span><br><span class="line"></span><br><span class="line">我们可以通过线性组合这些多项式来表示函数 f(x)：</span><br><span class="line"></span><br><span class="line">f(x) = a0 * P0(x) + a1 * P1(x) + a2 * P2(x) + ...</span><br><span class="line"></span><br><span class="line">由于 f(x) = x，我们可以发现：</span><br><span class="line"></span><br><span class="line">f(x) = <span class="number">0</span> * P0(x) + <span class="number">1</span> * P1(x) + <span class="number">0</span> * P2(x) + ...</span><br><span class="line"></span><br><span class="line">所以，我们已经用勒让德多项式成功表示了函数 f(x)。这个例子展示了如何使用具有正交性的勒让德多项式作为基函数来表示定义在区间 [-<span class="number">1</span>, <span class="number">1</span>] 上的 L2 函数。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>那么有勒让德多项式的正交性表示如下：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423230033358.png" alt="image-20230423230033358" style="zoom:40%;" />
+
+<p>这里的$\frac{2}{2n+1}$ 常数项是通过归一化勒让德多项式的$L2$ 范数得到的，其是为了用来确保当我们将这些勒让德多项式用于表示其他函数时，他们的贡献是正确的。</p>
+<p>因此，我们可以定义勒让德变换（勒让德系数）如下：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423230240843.png" alt="image-20230423230240843" style="zoom:40%;" />
+
+<p>那么进一步勒让德多项式的正交性，可以表达成：<br>                                                        <img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423231031830.png" alt="image-20230423231031830" style="zoom:40%;" /></p>
+<p>进一步将$x’&#x3D;1 和 P_n(1) &#x3D; 1$ 插入上式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423231109940.png" alt="image-20230423231109940" style="zoom:40%;" />
+
+
+
+<h3 id="2、球形傅里叶变换"><a href="#2、球形傅里叶变换" class="headerlink" title="2、球形傅里叶变换"></a>2、球形傅里叶变换</h3><p>如之前介绍所说，球谐函数$Y_n^m(\theta,\phi)$ 可以作为基函数用来表示球上的许多函数，从数学上解释来说，就是$Y_n^m(\theta,\phi)$ 形成了希尔伯特空间$L_2$ 的基础，其的$L_2$ 范数表示球谐函数可以通过不断减小的平方积分误差来构成任何平方可积函数。这种方法通过使用球谐函数的线性组合来逐渐逼近目标函数，并且通过增加球谐函数的数量来减小误差。 </p>
+<p>也就是：一个在希尔伯特空间中的函数，或者说球上的任意函数，均可以用一组不同权值的球谐函数的累计和表示出来：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423232240503.png" alt="image-20230423232240503" style="zoom:40%;" />
+
+<p>这里的$f_{nm}$ 是权重，SFT的权重可以从$f(\theta,\phi)$ 求解出来：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423232342738.png" alt="image-20230423232342738" style="zoom:40%;" />
+
+<p>上面这两个式子就分别为球形傅里叶逆变换和球形傅里叶变换。</p>
+<h4 id="球形傅里叶变换的性质"><a href="#球形傅里叶变换的性质" class="headerlink" title="球形傅里叶变换的性质"></a>球形傅里叶变换的性质</h4><ul>
+<li><p>Parseval’s relation: </p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423232607215.png" alt="image-20230423232607215" style="zoom:40%;" /></li>
+</ul>
+<p>​       更general 的写法：   </p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423232644616.png" alt="image-20230423232644616" style="zoom:40%;" />
+
+<ul>
+<li>线性性：</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423232730401.png" alt="image-20230423232730401" style="zoom:40%;" />
+
+
+
+<ul>
+<li>复共轭：</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423232811795.png" alt="image-20230423232811795" style="zoom:40%;" />
+
+<ul>
+<li>沿着$\phi$ 恒定： 若函数$f$ 与$\phi$ 无关，也就是$f(\theta,\phi) &#x3D; f(\theta) $， 那么系数就有如下性质：</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423232936523.png" alt="image-20230423232936523" style="zoom:40%;" />
+
+<p>​		这里得到的$f_n$ 只与 n orders数有关，从勒让德系数中有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423233233476.png" alt="image-20230423233233476" style="zoom:40%;" />
+
+<p>​	   那么此时，2D 球傅里叶变换可以变成1D的勒让德系数。</p>
+<ul>
+<li><p>沿着$\theta$ 恒定：如果函数$f$ 与$\theta$ 无关，$f(\theta,\phi) &#x3D; f(\phi)$ ，那么球谐函数系数变为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423233424802.png" alt="image-20230423233424802" style="zoom:40%;" /></li>
+</ul>
+<p>​	</p>
+<p>​        有：<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423233457755.png" alt="image-20230423233457755" style="zoom:40%;" /></p>
+<p>​		这里2D 球傅里叶变换变成了一个1D，但是加入了一个2D因子 $C^m_n$</p>
+<ul>
+<li><p>关于$\phi$ 对称，即$f(\theta,\phi) &#x3D; f(\theta,\pi-\phi)$ ，有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423233643820.png" alt="image-20230423233643820" style="zoom:40%;" /></li>
+</ul>
+<p>​		这里会有$f_{nm} &#x3D; f_{n-m}$ </p>
+<ul>
+<li><p>筛选性(sifting): 一个函数乘上Dirac-delta函数的积分的筛分性质对于球面上的函数是成立的：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423233841282.png" alt="image-20230423233841282" style="zoom:40%;" /></li>
+</ul>
+<h3 id="3、其余有用的函数"><a href="#3、其余有用的函数" class="headerlink" title="3、其余有用的函数"></a>3、其余有用的函数</h3><p>这一节会展示许多有用的球形傅里叶变换对。</p>
+<ul>
+<li><p>常数： 如果一个函数与$\theta 和 \phi$ 无关，那么其可以用一个0阶球谐函数表示，有如下变换对：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423234113883.png" alt="image-20230423234113883" style="zoom:40%;" />
+</li>
+<li><p>Dirac-delat 函数： 若此时 $f(\theta,\phi) &#x3D;&#x3D; \delta(cos\theta - cos\theta’)\delta(\phi - \phi’)$ ，把这个式子带回我们之前定义的sifting式子，就可以得到：</p>
+</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423234259905.png" alt="image-20230423234259905" style="zoom:40%;" />
+
+<ul>
+<li>球谐函数: 若$f(\theta,\phi) &#x3D; Y_{n’}^{m’} (\theta,\phi)$ ，那么根据正交性，可以得到：</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423234519038.png" alt="image-20230423234519038" style="zoom:40%;" />
+
+<ul>
+<li>截断的球谐函数序列：之前的dirac-delta 函数是五强的，那么现在我们将其截断至N阶，可以得到一个封闭的形式：</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423234703318.png" alt="image-20230423234703318" style="zoom:40%;" />
+
+<p>​		对应的傅里叶变换对如下：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423234721653.png" alt="image-20230423234721653" style="zoom:40%;" />
+
+<p>​		这个函数类似于sinc方程，当n-&gt;$\infin$ 时，其会收敛。</p>
+<ul>
+<li>球形帽子： <img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230423234850899.png" alt="image-20230423234850899" style="zoom:40%;" /></li>
+</ul>
+<h3 id="1-4在球形上的函数旋转以及球形卷积和相关"><a href="#1-4在球形上的函数旋转以及球形卷积和相关" class="headerlink" title="1.4在球形上的函数旋转以及球形卷积和相关"></a>1.4在球形上的函数旋转以及球形卷积和相关</h3><h2 id="第二章-声学背景"><a href="#第二章-声学背景" class="headerlink" title="第二章 声学背景"></a>第二章 声学背景</h2><h3 id="2-1-声波方程"><a href="#2-1-声波方程" class="headerlink" title="2.1 声波方程"></a>2.1 声波方程</h3><p>有均质声波方程：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424095558954.png" alt="image-20230424095558954" style="zoom:40%;" />
+
+<p>对于单频率声场，声压可以表示为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424095657415.png" alt="image-20230424095657415" style="zoom:40%;" />
+
+<p>将上式带回3D空间声波方程，得到亥姆霍兹方程：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424095828897.png" alt="image-20230424095828897" style="zoom:40%;" />
+
+<p>通过分离变量可以得到波方程的解，对于最常用的平面波，有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424100009927.png" alt="image-20230424100009927" style="zoom:40%;" />
+
+<p>而在这里我们主要考虑的是用球阵列做声场测量，所以我们更希望能够用球坐标系来表示这些参数，$r &#x3D; (r,\theta,\phi)$，我们有球坐标系下的拉普拉斯变换如下：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424101019139.png" alt="image-20230424101019139" style="zoom:40%;" />
+
+<p>那么进一步我们就可以得到，在球坐标系下的波方程为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424101115847.png" alt="image-20230424101115847" style="zoom:40%;" />
+
+<p>对于单一频率（谐波声场），那么球坐标系下的亥姆霍兹方程可以写为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424101224508.png" alt="image-20230424101224508" style="zoom:40%;" />
+
+<p>这里的声压的幅值与之前的类似：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424101335345.png" alt="image-20230424101335345" style="zoom:40%;" />
+
+<p>对于球坐标系下的波方程，我们可以通过分离变量求解：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424101427030.png" alt="image-20230424101427030" style="zoom:40%;" />
+
+<p>将 这个式子带回波方程中，那么就可以根据变量拆分为四个子波方程:</p>
+<ul>
+<li>关于时间$T$ 的是一个二阶微分方程：</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424101636754.png" alt="image-20230424101636754" style="zoom:40%;" />
+
+<p>​		其有一个基础解：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424101708666.png" alt="image-20230424101708666" style="zoom:40%;" />
+
+<ul>
+<li>然后又将声压的分离变量形式带回亥姆霍兹方程中，联立声压的幅值表达式，再乘上$r^2sin^2\theta&#x2F;p$，可以得到独立的$\phi$ 的表达式：</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424101915429.png" alt="image-20230424101915429" style="zoom:40%;" />
+
+<p>​		其解为一个指数解：</p>
+<p>​																							<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424101944186.png" alt="image-20230424101944186" style="zoom:40%;" /></p>
+<ul>
+<li>将上面的关于$\phi$ 的解带回亥姆霍兹方程，可以得到独立的$\theta$ 相关的表达：</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424102344532.png" alt="image-20230424102344532" style="zoom:40%;" />
+
+<p>​		这里的$\mu &#x3D; cos\theta$, 这个方程便是连带勒让德微分方程，其有两种解，一种是在$\mu &#x3D; 1$处的奇异解，另一种通常为被选中的解，被称为第一类连带勒让德函数：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424102925791.png" alt="image-20230424102925791" style="zoom:40%;" />
+
+<ul>
+<li><p>将关于$\theta$ 的独立表达带回亥姆霍兹方程，便可以得到独立的$r$ 表达式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424103039114.png" alt="image-20230424103039114" style="zoom:40%;" /></li>
+</ul>
+<p>​		这个方程被称为球面贝塞尔函数，其解包含第一类球面Bessel函数$j_n(kr)$ 和第一类球面 Hankel 函数 $h_n(kr)$，或者两者。</p>
+<p>那么最终联立四个变量的子方程，我们可以得到球坐标系下的波方程的通解：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424104544816.png" alt="image-20230424104544816" style="zoom:40%;" />
+
+<h3 id="2-2-球面Bessel-和-Hankel-函数"><a href="#2-2-球面Bessel-和-Hankel-函数" class="headerlink" title="2.2 球面Bessel 和 Hankel 函数"></a>2.2 球面Bessel 和 Hankel 函数</h3><h4 id="球面Bessel函数"><a href="#球面Bessel函数" class="headerlink" title="球面Bessel函数"></a>球面Bessel函数</h4><p>球面Bessel函数有两类：</p>
+<ul>
+<li><p>第一类$j_n(kr)$:<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424104721955.png" alt="image-20230424104721955" style="zoom:40%;" /></p>
+</li>
+<li><p>第二类$y_n(x):$ <img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424104747230.png" alt="image-20230424104747230" style="zoom:40%;" /></p>
+</li>
+</ul>
+<p>Hankel函数也有两类</p>
+<ul>
+<li><p>第一类$h_n(x)$:<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424104851260.png" alt="image-20230424104851260" style="zoom:40%;" /></p>
+</li>
+<li><p>第二类$h_n^{(2)}(x)$:<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424104921493.png" alt="image-20230424104921493" style="zoom:40%;" /></p>
+</li>
+</ul>
+<p>那么联立Bessel和Hankel函数来看，很明显可以看出他们之间的关系如下：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424104955914.png" alt="image-20230424104955914" style="zoom:40%;" />
+
+<p>所以还可以看出虚实的关系：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424110130684.png" alt="image-20230424110130684" style="zoom:40%;" />
+
+<p>而球形Bessel和Hankel函数与Bessel函数及Hankel函数相关：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424110337171.png" alt="image-20230424110337171" style="zoom:40%;" />
+
+<p>那么波方程的解可以表示为球面Bessel和Hankel函数的线性组合。</p>
+<p>下表分别是第一类球形Bessel函数以及Hankel函数在不同order下的展开形式：(对于x &gt;&gt; n(n+1)&#x2F;2)</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424111010543.png" alt="image-20230424111010543" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424110603122.png" alt="image-20230424110603122" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424110612616.png" alt="image-20230424110612616" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424110743161.png" alt="image-20230424110743161" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424111517578.png" alt="image-20230424111517578" style="zoom:40%;" />
+
+<p>图2.1展示了 球面Bessel函数具有零点。</p>
+<h3 id="2-3-单一平面波"><a href="#2-3-单一平面波" class="headerlink" title="2.3 单一平面波"></a>2.3 单一平面波</h3><p>考虑一个单位振幅，单频的平面波，来自方向$(\theta_k,\phi_k)$， 具有波矢量$k &#x3D; -k &#x3D;(k,\theta_k,\phi_k)$，那么可以用球坐标系下的波方程的通解来表示，因为球面Hankel函数在原点发散，所以用球面Bessel函数来表示平面波声场：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424112352064.png" alt="image-20230424112352064" style="zoom:40%;" />
+
+<p>又因为球谐函数的可加性质：<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424112439831.png" alt="image-20230424112439831" style="zoom:40%;" /></p>
+<p>那么声压的表达式可以进一步变为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424112530945.png" alt="image-20230424112530945" style="zoom:40%;" />
+
+<p>其实现在来看，将平面波仅仅用指数形式表示，不是更简洁自然吗，那么为什么我们还需要提出球谐函数来表达声场呢，是因为在这里我们可以通过分离变量的形式，将声压表示为$kr$,波达方向$\theta_k,\phi_k$，和在以$r$ 为半径的球面上的位置$\theta,\phi$ 的函数组合。那么我们在后面考虑使用球面谐波领域的阵列处理算法便可以采用这个优势。</p>
+<p>而采用球面谐波来拟合平面波的问题在于，从表达式中可以看出，其是一个类似于泰勒展开的形式，通过多个球谐函数的线性组合来尽可能地逼近我们原有的平面波函数，但是在实践中，我们不能做到无线求和，所以我们考虑将无限求和截断成为有限求和。所以上面的声压表达式可以写为：<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424113102932.png" alt="image-20230424113102932" style="zoom:40%;" />，但是从而也会引入截断误差。</p>
+<p>上面所提及的第一个用Bessel函数表示平面波声场的方程，</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424112352064.png" alt="image-20230424112352064" style="zoom:40%;" />
+
+<p>提供了一个在球面上$(r,\theta,\phi)$ 处的声压表达式（来自于平面波），所以可以考虑此时的$p(k,r,\theta,\phi)$ 是一个定义在球面上的函数，那么就可以考虑其的球面傅里叶变换，其系数为$p_{nm}(k,r)$，那么方程就可以写为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424114133182.png" alt="image-20230424114133182" style="zoom:40%;" />
+
+<p>将这两个方程做对比，那么现在对于来自$(\theta_k,\phi_k)$ 的单一单元振幅平面波组成的声场中，半径为r的球体上的声压的球面谐波系数可以写为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424114846215.png" alt="image-20230424114846215" style="zoom:40%;" />
+
+<p>从这个公式中可以看出来，$p_{nm}(k,r)$ 的大小与$j_n(kr)$ 成正比，所以就如同图2.1所示的球形Bessel函数的幅值随n的变化曲线所示，随着n的变大其值会减小（n&gt;kr）。 </p>
+<p>下图就说明了我们之前所提及的理论，也就是无限求和代表的声场可以用截断后的有限求和来表示，并且误差比较小。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424121414160.png" alt="image-20230424121414160" style="zoom:40%;" />
+
+<p>同样，下面这个图，也能说明一些性质：<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424121532010.png" alt="image-20230424121532010" style="zoom:40%;" /></p>
+<p>这个图展示了一个半径r&#x3D;16的圆（k&#x3D;1,kr&#x3D;16), 在N&#x3D;16的情况下，N&gt;kr区域的圆内的压力被准确的重建了，但是在圆外，kr&gt;N,压力的重建就具有较大的误差。</p>
+<p>对于N&gt;kr的准确的声压重建还有一个例子，此时我们考虑分析固定半径r&#x3D;1的球体表面的声压大小，此时波数k&#x3D;10，有kr&#x3D;10，然后压力来自于$(\theta_k,\phi_k) &#x3D; (45°,-45°)$,然后使用之前提及的截断的球谐函数来近似这个声压，我们考虑N&#x3D;20，10和5，对于N&#x3D;20&gt;kr,声压的重建比较完美，可以看到声压的正弦振动行为，对于N&#x3D;kr&#x3D;10，有一些比较小的distortion,对于N&#x3D;5，与期望的声压重建有较大的差距，也就是出现了较大的误差。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424122329523.png" alt="image-20230424122329523" style="zoom:40%;" />
+
+<h3 id="2-4-多平面波的组成"><a href="#2-4-多平面波的组成" class="headerlink" title="2.4 多平面波的组成"></a>2.4 多平面波的组成</h3><p>由多个平面波组成的声场可以表示为平面波项的求和，如果声场由无限多的平面波或连续的平面波组成，且其方向振幅密度用$a(k,\theta_k,\phi_k)$ 表示，那么声压可以写为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424130050178.png" alt="image-20230424130050178" style="zoom:40%;" />
+
+<p>$a_{mn}$ 是方向振幅密度$a(k,\theta_k,\phi_k)$ 的球形傅里叶变换，将上式与之前的由单一单位振幅的平面波组成的声场有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424131021287.png" alt="image-20230424131021287" style="zoom:40%;" />
+
+<p>根据我们在之前第一章定义的dirac-delta函数的傅里叶变换对：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424142531577.png" alt="image-20230424142531577" style="zoom:40%;" />
+
+<p>那么就可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424142628711.png" alt="image-20230424142628711" style="zoom:40%;" />
+
+
+
+<p>当一个由平面波组成的声场在半径为$r$ 的表面上被评估的时候，其可以用球谐函数域来表达，有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424142940136.png" alt="image-20230424142940136" style="zoom:40%;" />
+
+<p>通过上述这个结果，我们可以将平面波振幅密度的球面谐波系数与声压的球面谐波系数联系起来，这是个非常有用的性质，也就是我们能够直接将<strong>测量的函数$p_{nm}$ 与产生声场的函数$a_{nm}$ 放于同一领域（球面谐波）</strong> 。</p>
+<p>在之前的由多平面波组成的声场的声压表达中，也是和之前的相同，其包含了无穷的求和项，所以我们也考虑将其截断至有穷项，也就是有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424143458704.png" alt="image-20230424143458704" style="zoom:40%;" />
+
+<p>通过上面两小节，分别对单一平面波和多个平面波组成的声场， 想要获取声场中的完整信息，只需要从单个球体表面的声压知识中获得即可，正如之前的<img src="D:\Majority\算法\typora\image-20230424142940136.png" alt="image-20230424142940136" style="zoom:40%;" />，球体上的声压球谐函数$p_{nm}(k,r)$ 与整个空间中构成声场的平面波振幅密度$a_{nm}(k)$ 之间有直接的关系，那么也就是说，我们现在有$p(k,r,\theta,\phi)$ ，然后利用球面傅里叶变换<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424144150031.png" alt="image-20230424144150031" style="zoom:40%;" /> 计算出傅里叶系数$p_{nm}(k,r)$ ，那么在空间中任意一点$(r’,\theta’,\phi’)$ 的声压就可以被推导出来了：首先通过除以$4\pi i^nj_n(kr)$ 来提取$a_{nm}(k)$来计算平面波振幅密度，然后通过乘上$4\pi i ^nj_n(kr’)$ 来重建$p_{nm}(k,r’)$ ，得到答案：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424144534528.png" alt="image-20230424144534528" style="zoom:40%;" />
+
+<p>这个公式在实际使用中会有许多限制：首先对于球面贝塞尔函数零点的$kr$ 值会导致除以0和商的发散。然后正如之前所提及的，我们所关心的值主要是$n&gt; kr $ 部分，也就是在圆内，最多达到$n&#x3D;kr$ ，而如果我们有$r’ &gt;&gt; r$ 的部分， 那么我们想要准确重建在$r’$ 的声压需要到$n &#x3D; kr’ &gt;&gt; kr$ 的项，那么下一步准确计算$p(k,r’,\theta’,\phi’)$ 就需要除以$j_n(kr)$ ，因为我们用来重建平面波所用的球谐函数是Bessel函数，其有性质，随着n的增大，幅值在减小，那么也就是$j_n(kr’) &lt;&lt; j_n(kr)$ ，那么这时候就会导致两者相除，带来很小的幅值，这就会带来数值不稳定；最后一点，对于上述的无穷求和，我们需要将其截断至N才会有实际意义，也就是$kr &lt; N$ 和$kr’ &lt; N$ 同时满足：（也就是）</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424150137720.png" alt="image-20230424150137720" style="zoom:40%;" />
+
+
+
+<h3 id="2-5-点声源"><a href="#2-5-点声源" class="headerlink" title="2.5 点声源"></a>2.5 点声源</h3><p>之前我们分别讨论了 单平面波和多平面波组成的声场，并且都能够采用球谐函数来表示这个声场，那么我们进一步来看点源，也就是现实中的大部分声源，现实世界中的声源在其附近产生声场，可以将现实中的声源视作为简单的点声源来建模，考虑一个位于$r_s &#x3D; (r_s,\theta_s,\phi_s)$ 的点生源，其在距离声源1m处产生单位振幅的声压，这个声源会产生一个球形声场，也就是声压的大小以与声源距离成反比的速度衰减，而在与声源的固定距离上，相位作为$\theta和\phi$ 的函数是不变的，这种球形辐射场在位置$r&#x3D; (r,\theta,\phi)$ 的声压可以用一系列的球面谐波写成：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424152950268.png" alt="image-20230424152950268" style="zoom:40%;" />
+
+<p>如果$r &lt; r_s$ ，那么意味着测量点相对于点源来说更接原点，如果考虑到半径为$r$ 的球形测量面，那么假定点源在测量球体之外，在这种情况下，可以考虑此时测定的是点源的远场声压，也就是点生源产生的声场在这个位置处可以视作为平面波声场，平面波到达方向由点生源的方向代替。而其中的指数项中的－号保证了声音辐射是从点源向外的。</p>
+<p>当$r &gt; r_s$ ，意味着此时点源相对于测量点更接近原点，上式中的$r $ 与$r_s$ 交换位置，就可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424154022739.png" alt="image-20230424154022739" style="zoom:40%;" />
+
+<p>此时点声源在测量球内，可以通过测量声源周围表面的声压来分析声源的辐射，在这种情况下，在半径为r的声压的球谐函数系数，由第二类Hankel 函数$h_n^{(2)}(kr)$ 来表征。</p>
+<p>对于我们之前一直讨论的无论是平面波声场还是点源的远场情况下，用Bessel函数来描述更为贴切，而对于点源的近场来说，用Hankel函数来表述更合适，因为Hankel函数在小值时发散，有一个奇点，由于这个性质，用来描述点源比较合适。</p>
+<p>引入球面上声压$p(k,r,\theta,\phi)$ 的球面傅里叶变换，可以得到其与傅里叶系数之间的关系。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424154502673.png" alt="image-20230424154502673" style="zoom:40%;" />
+
+<p>联立上述三个式子，在半径为$r$ 的球面上的声压$p(k,r,\theta,\phi)$ ，点源位置在$(r_s,\theta_s,\phi_s)$ ，其声压可以由球谐系数表达：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424154721353.png" alt="image-20230424154721353" style="zoom:40%;" />
+
+<p>对于之前所提及的测量球体上一点的声压来重建其他位置的声压的公式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424154841360.png" alt="image-20230424154841360" style="zoom:40%;" />
+
+<p>在点生源产生的声场下也可以使用，此时声源在半径为$r 和 r’$ 的球体之外，也就是此时点生源产生的声场可以视作为远场，也就是平面波声场。</p>
+<p>而如果声源位于半径为$r和r’$ 的球面内的情况，那么上式中的Bessel函数$j_n(kr) 和 j_n(kr’)$ 用 Hankel函数$h_n(kr) 和 h_n(kr’)$ 来替代。</p>
+<p>本节中的第一个式子可以用来描述原点周围$(r,\theta,\phi)$ 的压力，（此时点源距离原点很远），在这种情况下，用球面Hankel函数的大参数近似来代替，也就是：（x很大，Hnakel函数可以近似表现为下面式子所示）</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424155459494.png" alt="image-20230424155459494" style="zoom:40%;" />
+
+<p>将这个式子放回<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424155719344.png" alt="image-20230424155719344" style="zoom:40%;" />，那么就可以得到一个近似：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424155745624.png" alt="image-20230424155745624" style="zoom:40%;" />
+
+<p>那么此时我们得到的由一个在较远距离的$(r_s,\theta_s,\phi_s)$ 在声源 原点周围$(r,\theta,\phi)$ 产生的声场的谐波系数由如上形式表达形成，与之前我们由$(\theta_k,\phi_k)$ 方向发出的单位幅值平面波在半径为$r$ 的同一球体上的声压球谐系数类似：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424160151067.png" alt="image-20230424160151067" style="zoom:40%;" />
+
+<p>对比这两个式子，$(\theta_k,\phi_k) &#x3D; (\theta_s,\phi_s)$ 由代表从点源到原点传播引起的相移和衰减的项$\frac{e^{-kr_s}}{r_s}$ 归一化，此外，如果我们认为声压局限于半径为$r$ 的球体，近似阶数局限于$N&#x3D;kr$ ，并假定$r_s$ 满足$kr_s &gt; N(N+1)&#x2F;2$， 那么点源产生的声压与方向来自$(\theta_k,\phi_k) &#x3D; (\theta_s,\phi_s)$的平面波产生的声压大致相同，这就从理论上证明了点源的远场可以近似地视作为平面波传播。</p>
+<h3 id="2-6-刚性球体周围的声压"><a href="#2-6-刚性球体周围的声压" class="headerlink" title="2.6 刚性球体周围的声压"></a>2.6 刚性球体周围的声压</h3><p>在之前的几节中，我们已经分析了平面波和点源引起的自由场中球体表面的声压，在这一节中，我们考虑刚性球体周围的压力，这对于我们将刚性球体用来模拟人的头部非常有用。</p>
+<p>刚性球体周围的声压由入射声场和散射声场组成，前者是指没有刚性球体的自由场中的声场，后者是由于入射声场而从刚性球体散射出来的声场。而刚性球体周围的声场是由这两个声场叠加形成，我们现在考虑一个半径为$r_a$ 的刚性球体，并在这个球体表面考虑一个径向速度为0的边界条件。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424161417357.png" alt="image-20230424161417357" style="zoom:40%;" />
+
+<p>因为球体边界的阻抗是无限的，声压无法在此边界产生径向运动。声速可以通过球面坐标中的欧拉运动方程从压力中求出：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424163239099.png" alt="image-20230424163239099" style="zoom:40%;" />
+
+<p>而球坐标系下的求导有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424163352807.png" alt="image-20230424163352807" style="zoom:40%;" />
+
+<p>将2.54的边界条件和2.56带入2.55的欧拉运动方程中，并引入入射和散射分量，可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424163538492.png" alt="image-20230424163538492" style="zoom:40%;" />
+
+<p>现在，散射声压被写成球面谐波系列，如：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424163623638.png" alt="image-20230424163623638" style="zoom:40%;" />
+
+<p>注意这里球面Hankel函数的使用$h_n^{(2)}(kr)$ ，因为散射的声场源于半径为$r$ 的球体内，从刚性球体向外传播。使用第二类球面Hankel函数，因为其具有$e^{-ikr}$ 的形式，与时间项结合后得到的$e^{i(wt-kr)}$ 表示波沿着$r$ 的正方向传播。</p>
+<p>而球体周围的入射声压可以在球面的谐波域写为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424164220194.png" alt="image-20230424164220194" style="zoom:40%;" />
+
+<p>这里的$a_{nm}(k)$ 假定入射声场由平面波组成， 上式也适用于点源产生的远场声场（大于r）。</p>
+<p>将2.5.7 方程在球谐域表达出来，通过将2.58和2.59的分别表示散射声压和入射声压的谐波域表达形式带入2.57中：就可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424164546201.png" alt="image-20230424164546201" style="zoom:40%;" />
+
+<p>将所求得的$c_{nm} 与a_{nm}$ 的关系插入2.58 的散射声压以及2.59的入射声压表达式中，再相加，可以得到围绕刚性球体的总声场：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424165156602.png" alt="image-20230424165156602" style="zoom:40%;" />
+
+<p>我们将常数项以及Bessel 和 Hankel函数视作为一个简洁的整体：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424165339658.png" alt="image-20230424165339658" style="zoom:40%;" />
+
+<p>这个方程的幅值如下图所示：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424165424354.png" alt="image-20230424165424354" style="zoom:40%;" />
+
+<p>那么刚性球体外的压力可以再球面谐波域写成：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424165937155.png" alt="image-20230424165937155" style="zoom:40%;" />
+
+<p>与之前的Bessel函数相比（2.1）图，<strong>函数$b_n(kr)$在远离原点处没有零点，</strong>这个性质非常重要，正如我们之前提及到的声音外推法中，其用$j_n$ 除以$b_n$ 不会像之前的声音外推法中因为分母中的含零项导致发散。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424170432024.png" alt="image-20230424170432024" style="zoom:40%;" />
+
+<p>与自由场中球体周围的压力类似，在刚性球体周围，平面波声场引起的压力的球面谐波系数的大小在$n&gt;kr$ 时下降，<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424171030397.png" alt="image-20230424171030397" style="zoom:40%;" /></p>
+<p>这个图与我们之前引入不同kr的图的形状类似，但是在这里由于我们的$b_n$ 与$j_n$ 不同，没有零点，那么在$n$ 取低值得时候，函数更加平滑。</p>
+<p>下图，我们引入了一个例子：我们有刚性球体，其半径分别为$r_a &#x3D; 1,3,10$, 然后考虑波来自方向$(\theta_k,\phi_k) &#x3D; (90°,20°)$的单一单位振幅平面波，我们使用2.61来分别计算围绕刚性球体的总声场，并且将其截断于$N&#x3D;32$ 处。</p>
+<p float="left">
+  <img src="D:\Majority\算法\typora\image-20230424172047782.png" alt="image-20230424172047782" width="45%" />
+  <img src="D:\Majority\算法\typora\image-20230424172454000.png" alt="image-20230424172454000" width="45%" />
+</p>
+
+
+<p>从上图结果中可以看到，刚性球体周围的声场收到刚性球体散射的声压影响很明显，对于大半径，如$r_a &#x3D; 3,10$，刚性球体周围的声场被散射声场明显改变，而对于小半径$r_a &#x3D; 1$ ，影响很小，这可以从解析式来解释，散射项主要取决于$b_n$ 中<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424173046310.png" alt="image-20230424173046310" style="zoom: 33%;" /> 的第二项，对于小的满足条件$kr_a &lt;&lt; 1$的刚性球体，将这个带入之前的数学基础中的 一些推导式，可以得到$j_n’(kr_a) &#x2F; h_n^{2’}(kr_a)$ 与$(kr_a)^{2n+1}$ 成正比，这一项会在$kr_a -&gt;0$ 时趋近于0 ，所以就引出了这个结论，当小半径刚性球体加入声场后，其带来的散射作用很小，对声场整体影响较小，通过观察上面图的左边和右边第一张图可以得到。</p>
+<p>还有一个例子：我们此时考虑由于平面波声场传播的刚性球体表面的声压，此时声波来源方向为(45°，-45°)，其满足$kr_a &#x3D;10$，可以看到在刚性球面上的声压最大值是位于在声波来源方向左右的角度。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424173837875.png" alt="image-20230424173837875" style="zoom:40%;" />
+
+
+
+<h3 id="2-7-声场的传递-（这章没看）"><a href="#2-7-声场的传递-（这章没看）" class="headerlink" title="2.7 声场的传递 （这章没看）"></a>2.7 声场的传递 （这章没看）</h3><h2 id="第三章-球的采样"><a href="#第三章-球的采样" class="headerlink" title="第三章 球的采样"></a>第三章 球的采样</h2><p>在之前我们主要学习了球谐函数的数学基础，和基本的球谐函数性质以及一些球形傅里叶变换对，然后我们又重新回顾了基础的声波方程，然后针对平面波 ，多平面波以及点源和刚性球体分别得到了他们的球谐函数表达式以及对应的球形傅里叶变换系数。那么下一步我们要考虑实际中测量和采样空间中的声场。</p>
+<p>这一章主要介绍在球体上函数的采样方法，如等角采样，高斯采样和均匀采样。采样方法的一个很重要点在于：在有限阶函数的情况下，其可以促进球面上函数的球形傅里叶变换的计算。</p>
+<h3 id="3-1-采样阶数有限的函数"><a href="#3-1-采样阶数有限的函数" class="headerlink" title="3.1 采样阶数有限的函数"></a>3.1 采样阶数有限的函数</h3><p>为了能够让现代计算机能够处理我们实际中的在空间和时间中的连续变量的函数，我们首先需要进行采样，而我们考虑对空间声压进行采样，那么我们就需要麦克风，而这里就涉及到了麦克风的数量问题，如果数量过多，系统很复杂，但是可以带来声压函数重建的准确性提高。</p>
+<p>首先我们采样中，必须满足nyquist采样定理，也就是要求函数必须是在一定限制下，才能实现采样后的函数对原函数的完美重建，这也就意味着我们的函数可以由有限数量的基函数来表示，还记得我们之前提及的，我们的用球谐函数来表达各种入射场的声压，我们考虑是将无限求和进行一个截断来进行处理，也就是用有限数量的球面谐波来表示。</p>
+<p>我们可以从正交问题开始，得到抽样问题的一般表述，采用正交方法可以利用对函数样本的求和来计算一个给定函数的积分。考虑一个定义在单位球面上的函数$g(\theta,\phi)$， 可以给定球面上的一组样本$(\theta_q,\phi_q)$ 以及采样权重$\alpha_q$ 来近似计算$g(\theta,q)$，有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425120222369.png" alt="image-20230425120222369" style="zoom:40%;" />
+
+<p>这里的Q是样本的总数，而计算积分可以看作为估计函数下面包括的面积，这个正交公式可以扩展到函数的重建，其方法是将<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425120009058.png" alt="image-20230425120009058" style="zoom:40%;" /> 带入，那么这个式子也就变成从样本之和了求球形傅里叶变换的近似，也就是：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425120207067.png" alt="image-20230425120207067" style="zoom:40%;" />
+
+<p>在这种采样阶数有限的情况下，给足够大的Q，也就是样本数，$f(\theta,\phi)$ 可以在球面上用傅里叶逆变换重建出来，将$f(\theta,\phi) &#x3D; Y_{n’}^{m’}(\theta,\phi)$ 插入进去，那么最终可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425121004153.png" alt="image-20230425121004153" style="zoom:40%;" />
+
+<p>从上式可以得出，在有限的阶数范围内，可以保持球谐的正交性。之后介绍几种抽样方案，使得抽样权值$\alpha_q$ 和抽样点$(\theta_q,\phi_q)$ 可以被推导出来保证上式有效。</p>
+<h3 id="3-2-等角采样"><a href="#3-2-等角采样" class="headerlink" title="3.2 等角采样"></a>3.2 等角采样</h3><p>等角采样是一种球面上常用的抽样方法， 在这种方法中，函数$f(\theta,\phi)$  在沿着$\theta$和$\phi$ 的均匀间隔角度位置被抽样，如下图所示，在$\phi \in [0,2\pi]$ 上沿方位角有12个样本和$\theta \in [0,2\pi]$沿仰角有12个样本。那么就可以得到如下分布的样本在球体上的位置。 左图为样本在球体上的分布，右图为每个样本对应的$\theta,\phi$。</p>
+<p float="left">
+  <img src="D:\Majority\算法\typora\image-20230425121329308.png" alt="image-20230425121329308" width="45%" />
+  <img src="D:\Majority\算法\typora\image-20230425121642155.png" alt="image-20230425121642155" width="45%" />
+</p>
+
+
+<p>这里一共有4(N+1)^2 项个样本，而$N$ 代表了从这些样本中重建阶限函数的最大阶数。</p>
+<p>从上图可以看到，虽然我们在取方位角和俯仰角的时候已经尽可能地取了均匀分布，但是实际上他们在球面上的分布并不均匀，因为样本在两极周围更密集，这种采样结果对于我们的麦克风在$\theta,\phi$ 平面上表示采样函数有用。</p>
+<p>在之前的一维线性序列中，我们考虑与采样位置上的$delta$ 函数相乘来实现采样，同样，对于球体来说，我们也可以考虑在采样位置与Delta函数相乘实现采样，这里的序列定义为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425123534471.png" alt="image-20230425123534471" style="zoom:40%;" />
+
+<p>这里的系数$\alpha_q$ 决定了delta函数的振幅，其会向极点减少来补偿样本密度的增加。将其带入球面傅里叶变换有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425123805853.png" alt="image-20230425123805853" style="zoom:40%;" />
+
+<p>又有球谐函数的基本方程如下：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425141355667.png" alt="image-20230425141355667" style="zoom:40%;" />
+
+<p>将这个式子带入之前的采样的样本球形傅里叶变换的表达式中，可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425141539709.png" alt="image-20230425141539709" style="zoom:40%;" />
+
+<p>这里的$\delta_m $ 是$\delta_{m0}$ 的缩写，而由于我们之前的样本沿着方位角是均匀分布的，那么对$l$ 的求和可以被简化变成周期性的$\delta$ 函数，那么在有限的范围内，$s_{nm}$ 的表达式可以进一步被简化变为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425141844782.png" alt="image-20230425141844782" style="zoom:40%;" />
+
+<p>而根据球谐函数的归一化条件是：球谐函数$Y_n^m(\theta, \phi)$在单位球面$S^2$上的$L^2$范数（平方可积范数）为1。换句话说，球谐函数的平方在单位球面上的积分为1。这可以用以下等式表示：</p>
+<p>​														$$\int_0^{\pi}\int_{0}^{2\pi}|Y_n^m(\theta,\phi)|^2sin\theta d\theta d\phi &#x3D; 1$$</p>
+<p>这里的$\delta_n$是克罗内克符号。当$n&#x3D;0$时，$\delta_n&#x3D;1$；否则，$\delta_n&#x3D;0$。这个归一化条件意味着，当$n&#x3D;0$时，球谐函数的平方在单位球面上的积分等于$4\pi$。对于$n\neq0$的情况，球谐函数的平方在单位球面上的积分为0。</p>
+<p>将归一化条件与原始公式相结合，我们可以得到：</p>
+<p>$s_{nm} &#x3D; \sqrt{4*\pi}*\delta_n$</p>
+<p>这个等式说明，经过归一化处理后，球谐系数$s_{nm}$与克罗内克符号$\delta_n$和常数$\sqrt{4*\pi}$的乘积相等。这个等式有助于简化球谐系数的计算，并确保球谐函数在单位球面上的$L^2$范数为1。这对于分析和处理球面信号具有重要意义。</p>
+<p>那么也就是我们的3.8式可以进一步写成：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425142700109.png" alt="image-20230425142700109" style="zoom:40%;" />
+
+<p>进一步化简，可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425142907997.png" alt="image-20230425142907997" style="zoom:40%;" />
+
+<p>那么我们就可以算出权重系数$\alpha_q$</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425143015064.png" alt="image-20230425143015064" style="zoom:40%;" />
+
+<p>如果我们现在把3.9式带入3.8式中，我们可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425143304059.png" alt="image-20230425143304059" style="zoom:40%;" />
+
+
+
+<p>那么现在球体上的采样函数可以被定义为：$f_s(\theta,\phi) &#x3D; f(\theta,\phi)s(\theta,\phi)$ ，即一个脉冲序列，带个脉冲的振幅等于函数$f$ 在采样点的振幅，采样的函数为：对$s_{nm} $ 做傅里叶逆变换再与$f(\theta,\phi)$ 相乘：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425143453060.png" alt="image-20230425143453060" style="zoom:40%;" />
+
+<p>其中，$\tilde{s}(\theta, \phi)$ 是 $\tilde{s}_{nm}$ 的反球面傅里叶变换，包含阶数为 $2N+2$ 及以上的球面谐波。文献 [2] 中认为，由于 $f(\theta, \phi)$ 和 $\tilde{s}(\theta, \phi)$ 是由相关的 Legendre 函数生成的 $cos \theta$ 的多项式，因此两个函数相乘在球面谐波域的最低阶由单个函数的阶数之间的最小差值给出。假设 $f(\theta, \phi)$ 的阶数限制为 $n \le N$，并且已知 $\tilde{s}*{nm}(\theta, \phi)$ 的阶数限制为 $n \ge 2N+2$，因此两个函数的球面谐波系数的最小阶数之差为 $(2N+2) - N &#x3D; N+2$。由此可见，乘积 $f(\theta, \phi) \tilde{s}(\theta, \phi)$ 具有一个球面傅里叶变换，其系数在 $n \le N+1$ 的范围内为零，从而得出以下等式。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425144143787.png" alt="image-20230425144143787" style="zoom:40%;" />
+
+<p>我们通过上述一系列证明，就得到了在<strong>球谐函数中的采样定理 ：如果一个最大阶数为N的阶限函数采用沿着方位角和俯仰角的$2N+2$采样的等角采样，那么球谐域中的复制将会出现在N以外的阶数，也就是实现了无混叠采样，通过去除N+1阶及以上的球面谐波函数，可以重建采样的函数。</strong></p>
+<p>总结一下：也就是说，对于一个阶限函数$f(\theta,\phi)$ ，其具有傅里叶变换系数$f_{nm},n&lt;&#x3D;N 和$$f_{nm}&#x3D; 0,n&gt;N$ ，可以由下面的采样后的函数和表达式表达：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425145945051.png" alt="image-20230425145945051" style="zoom:40%;" /> 
+
+<p>若我们令$f(\theta,\phi) &#x3D; Y_n^{m} (\theta,\phi)$ 带入到3.15式中，那么我们可以得到如下结果：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425150214394.png" alt="image-20230425150214394" style="zoom:40%;" />
+
+<p>这也就保证了等角采样的正交性。</p>
+<p>第二，函数$f(\theta,\phi)$ 可以由采样后的函数$f_s(\theta,\phi)$ 重建，通过在球面谐波上应用一个低通滤波器，其截止阶数为N，这个低通滤波器可以把$n&gt;N$ 的$f_{smn}$ 的系数设置为0，让$n&lt;N$ 的系数保持不变。滤波器如下：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425151018479.png" alt="image-20230425151018479" style="zoom:40%;" />
+
+<p>那么我们和在一维信号上处理相似，我们考虑得到一个采样后的信号，也就是用原始信号与滤波器信号进行卷积，也就是$f_s(\theta,\phi) * h(\theta,\phi) $ ，那么在球面傅里叶域内，时域的卷积对应域内的乘积:</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425151246992.png" alt="image-20230425151246992" style="zoom:40%;" />
+
+<p>通过这样，可以通过采样后的信号完美重建原始信号，这就是我们所提及的球形阵列上的等角采样。</p>
+<h3 id="3-3-高斯采样"><a href="#3-3-高斯采样" class="headerlink" title="3.3 高斯采样"></a>3.3 高斯采样</h3><p>高斯采样和刚刚等角采样中的表述类似，但是其只需要 $2(N+1)^2$ 个样本，也就是方位角以$2(N+1)$ 等角采样，而俯仰角以$(N+1)$ 样本采样。采样之间间隔几乎相同。但是和等角采样不同的是： 其勒让德函数求和的正交性存在差异。关于数学推导，还是查书，我这里主要总结一下他的优势和不同之处：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425152429434.png" alt="image-20230425152429434" style="zoom:40%;" />
+
+<p>其优势在于：与等角采样的方案相比，在给定的N阶下，抽样点的数量减少了，沿方位角分布的样本是沿俯仰角分布的两倍，但是其在两级附近也是更为密集。</p>
+<h3 id="3-4-均匀和近似均匀采样"><a href="#3-4-均匀和近似均匀采样" class="headerlink" title="3.4 均匀和近似均匀采样"></a>3.4 均匀和近似均匀采样</h3><p>在之前我们提及的两种采样方式：等角采样和高斯采样，他们两沿着$\theta$ 和$\phi$ 采样分布均匀，但是实际上在球面上并不是完全均匀的采样，他们都有相同的性质：向着极值，样本越来越多。</p>
+<p>如果我们想要完全均匀地将样本在球面表面分布，那么我们可以考虑采用柏拉图实体地方式，也就是以下的图形：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425153126678.png" alt="image-20230425153126678" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425153155879.png" alt="image-20230425153155879" style="zoom:40%;" />
+
+<p>而基于柏拉图实体的采样点满足如下的正交关系：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425153237828.png" alt="image-20230425153237828" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425153312445.png" alt="image-20230425153312445" style="zoom:40%;" />
+
+<p>最近有很多研究基于这个方法提出了许多设计球麦克风阵列的设计方法。详情请看书内3.4章节。</p>
+<p>可以看到大致是呈现正态分布的。</p>
+<h3 id="3-5-数值方法计算采样权值"><a href="#3-5-数值方法计算采样权值" class="headerlink" title="3.5 数值方法计算采样权值"></a>3.5 数值方法计算采样权值</h3><p>在之前我们主要讨论的是几种采样的算法，分别是等角，高斯和均匀采样，通过这些算法，我们可以确定采样位置和采样权重，然后我们就可以直接使用下述公式来计算傅里叶变换。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425120207067.png" alt="image-20230425120207067" style="zoom:40%;" />
+
+<p>但是在一些情况下，由于阵列的限制，从这些采样算法中可能不能获得比较理想的采样集， 所以考虑是否存在一种直接能够计算$\alpha_q$ 采样权重，然后计算球形傅里叶系数的方法。</p>
+<p>例： 我们现在考虑一个定义在单位球上的阶限函数$f(\theta,\phi)$ ，满足$f_{nm} &#x3D; 0 (n&gt;N)$  ，然后我们已知其的采样函数$f(\theta_q,\phi_q)$ ，以及采样点位置$(\theta_q,\phi_q)$ ，利用傅里叶逆变换，样本可以被写成函数的傅里叶系数：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425154354810.png" alt="image-20230425154354810" style="zoom:40%;" />
+
+<p>那么上述式子可以被写成矩阵形式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425154417863.png" alt="image-20230425154417863" style="zoom:40%;" />
+
+<p>这里的$f$ 长度为$Q$ ，$f_{nm}$ 长度为$(N+1)^2$，有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425154505157.png" alt="image-20230425154505157" style="zoom:40%;" />
+
+<p>且有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425155140631.png" alt="image-20230425155140631" style="zoom:40%;" />
+
+<p>并且矩阵$Y$ 是一个维度为$Q \times (N+1)^2$ </p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425155216909.png" alt="image-20230425155216909" style="zoom:40%;" />
+
+<p>对于一种特殊情况我们有：$Q &#x3D; (N+1)^2$ ，也就是此时这个矩阵$Y$ 是一个方阵，那么之前式子可以写为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425155420630.png" alt="image-20230425155420630" style="zoom:40%;" /> 
+
+<p>这里我们想要直接求得傅里叶系数，就要求矩阵$Y$ 必须是可逆的，但是一般情况下我们有的都是$Q &gt; (N+1)^2$ ，那么此时有如下公式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425155530269.png" alt="image-20230425155530269" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425155554114.png" alt="image-20230425155554114" style="zoom:40%;" />
+
+<p>而如果$Q&lt;(N+1)^2$ ，此时样本的数量就不满足，此时被定义为下采样。就不能使用3.26式子来求傅里叶系数。</p>
+<p>现在我们考虑更普遍的情况，我们在这里引入 <strong>采样权重</strong> ，也就是：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425160131654.png" alt="image-20230425160131654" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425160458497.png" alt="image-20230425160458497" style="zoom:40%;" />
+
+<h3 id="3-6-离散球傅里叶变换"><a href="#3-6-离散球傅里叶变换" class="headerlink" title="3.6 离散球傅里叶变换"></a>3.6 离散球傅里叶变换</h3><p>在上一节中推导出来的关于傅里叶变换的矩阵表达可以被是做为离散的球傅里叶变换：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425160609159.png" alt="image-20230425160609159" style="zoom:40%;" />
+
+<p>我们之前定义的球傅里叶变换如下：<br>                                                        <img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425160658526.png" alt="image-20230425160658526" style="zoom:40%;" /></p>
+<p>而对于在 等角、高斯和均匀采样的采样算法的特殊情况下，采样的权重具有封闭的表达形式，那么此时离散球傅里叶变换可以在不需要将矩阵反转的形式下进行计算，有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425160908874.png" alt="image-20230425160908874" style="zoom:40%;" />
+
+<p><img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425160927412.png" alt="image-20230425160927412" style="zoom:40%;" />为一个权重系数的列向量。</p>
+<p>3.35 是这个式子的矩阵表达形式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425161024347.png" alt="image-20230425161024347" style="zoom:40%;" />
+
+
+
+<p>将3.35式放入3.34式子中取，可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425161129023.png" alt="image-20230425161129023" style="zoom:40%;" />
+
+<p>上式展示了在球谐矩阵$Y$ 中的正交性，更进一步的是，对于 <strong>均匀和近似均匀分布</strong>，权值系数$\alpha_q &#x3D; \frac{4\pi}{Q}$ 为一个恒定值，那么3.35和3.37式可以变为：</p>
+<p>​										<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425161350869.png" alt="image-20230425161350869" style="zoom:40%;" /> </p>
+<p>那么可以看到，我们总结出了三种情况下的离散球傅里叶变换，分别对应于：一般采样方法，等角和高斯采样方法，均匀和近似均匀方法。</p>
+<p>将这三用一种统一的形式写出，有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425162043111.png" alt="image-20230425162043111" style="zoom:40%;" />
+
+<ul>
+<li>对于一般采样方法：</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425162101652.png" alt="image-20230425162101652" style="zoom:40%;" />
+
+<ul>
+<li>等角和高斯采样方法：</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425162120296.png" alt="image-20230425162120296" style="zoom:40%;" />
+
+<ul>
+<li>均匀和近似均匀方法：</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425162142004.png" alt="image-20230425162142004" style="zoom:40%;" />
+
+<p>而均匀和近似均匀的采样方法可以视作为时域中的DFT。在一些参考文献中，已经有了快速计算球面傅里叶变换，如同FFT的方法。</p>
+<h3 id="3-7-空间混叠"><a href="#3-7-空间混叠" class="headerlink" title="3.7 空间混叠"></a>3.7 空间混叠</h3><p>在之前的小节中，我们采用了适当的抽样方法对球面上的阶限函数进行了抽样，我们可以带来球面谐波系数的精确和无混叠计算，然而在实践当中，采样函数的高阶谐波可能不为0。 在这里我们介绍一下非理想采样中可能会出现的误差。</p>
+<p>我们考虑一个球面上的函数$f(\theta,\phi)$ ，具有无限阶的球面傅里叶变换$f_{nm}$ ，这个函数在$Q$ 个采样点被采样，用$(\theta_q,\phi_q)$ 来表示，假设此时有任一组采样点，然后将其使用傅里叶逆变换，再带入离散球面傅里叶变换的一般形式中，也就是有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425163005636.png" alt="image-20230425163005636" style="zoom:40%;" />
+
+<p>这里有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425163021153.png" alt="image-20230425163021153" style="zoom:40%;" />
+
+<p>这被定义为表示每个系数$f_{n’m’}$ 对$f_{nm}$ 的贡献，再理想无混叠的情况下，只有(n,m) &#x3D; (n’,m’)时，上式为1，其余时候为0。 </p>
+<p>现在通过3.44我们就得到了一个 $f_{nm}$ 的估计值和来自采样的近似值之间的一个关系。</p>
+<p>那么我们现在将3.44写成一个矩阵形式，就有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425163506763.png" alt="image-20230425163506763" style="zoom:40%;" />
+
+<p>这里的$\hat{f}<em>{nm}$ 是一个长度为$(N+1)^2$ 的列向量，其代表着球谐系数的预计，$f</em>{nm}$ 长度为$(N+1)^2$ ，其代表真实的球谐系数，矩阵$E$ 的维度为$(N+1)^2 \times (\tilde{N} +1)^2$ ，其含有元素$\epsilon_{nm}^{n’m’}$ ，有行系数$(n^2 + n+m)$ 和列系数$(n’^2+n’+m’)$ 。</p>
+<p>对于满足$Q&gt;&#x3D;(N+1)^2$ 的阶限函数，保证无空间混叠的采样方案应该产生一个矩阵E,左上部分尺寸为$(N+1)^2 \times(N+1)^2$ ，并且为单位矩阵$I$，在这种情况下，只有大于$N$ 的阶数才可能产生混叠，</p>
+<ul>
+<li>对于一个任意的采样方案，$\alpha_q^{nm}$ 表示$Y^+$ 的元素，那么E可以写为：</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425164653510.png" alt="image-20230425164653510" style="zoom:40%;" />
+
+<p>​	</p>
+<ul>
+<li>对于等角和高斯采样，权值有封闭形式，也不需要矩阵的逆，那么E可以写成：</li>
+</ul>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425165037595.png" alt="image-20230425165037595" style="zoom:40%;" />
+
+<ul>
+<li><p>对于均匀和近似均匀分布，有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425165101078.png" alt="image-20230425165101078" style="zoom:40%;" /></li>
+</ul>
+<p>例： 下图展示了$N&#x3D;3 以及\tilde{N} &#x3D; 9$ 的三种采样配置：等角，高斯核均匀，矩阵E中的元素$\epsilon$的大小。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425165437710.png" alt="image-20230425165437710" style="zoom:40%;" />
+
+<p>这个图表面，并非所有元素(n’,m’) 会在每个(n,m) 中贡献误差。</p>
+<h4 id="一个例子："><a href="#一个例子：" class="headerlink" title="一个例子："></a>一个例子：</h4><p>用一个例子来说明，我们现在有一个球面上的函数：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425165845104.png" alt="image-20230425165845104" style="zoom:40%;" />
+
+<p>其形状如下：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425165858362.png" alt="image-20230425165858362" style="zoom:40%;" />
+
+<p>这个函数由零阶归一化的球谐函数和两个n&#x3D;5,m&#x3D;-5，5阶数的球谐函数组成，然后组成了一个单位幅值的实函数，假设我们对这个函数采用N&#x3D;3设计的等角采样方案进行采样，有64个采样点，也就是说，这种采样方案只能对阶数限制为N&#x3D;3的函数无混叠采样。</p>
+<p>通过3.6(a)图，我们可以看到，采用这种采样方案时，阶数为5的函数元素将被混叠为阶数为3的元素，而$Y_5^5(\theta,\phi)$ 和$Y_5^{-5}(\theta,\phi)$ 会被混叠为$Y_{3}^{3}$ 和$Y_3^{-3}$ 。现在$n’^2+n’+m &#x3D; 25$ 被混叠至$n^2+n+m &#x3D;15 $ 。</p>
+<p>采样后，我们对于$f(\theta_q,\phi_q)$,$q&#x3D;1….64$ ，我们考虑用下式来重建声压$\hat{f}(\theta,\phi)$。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425170912940.png" alt="image-20230425170912940" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425170945139.png" alt="image-20230425170945139" style="zoom:40%;" />
+
+<p>重建的结果如下：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425171021631.png" alt="image-20230425171021631" style="zoom:40%;" />
+
+<p>可以看到，这个图证实了我们的理论，也就是说零阶的球面谐波被无误差地重建了，而$n&#x3D;5$ 的球面谐波被混叠成了$n&#x3D;3阶$ 的球面谐波。</p>
+<p>我们的采样设置是为了$N $阶的阶限函数，而混叠的贡献从$N+2$ 甚至更高的阶数开始，是因为在计算球面傅里叶变换时，函数和球面谐波的乘积，$f(\theta,\phi)[Y_n^m(\theta,\phi)]^*$ 被采样然后加权求和，当函数和球面谐波的阶数之和有限时，即$n+n’ &lt;&#x3D; 2N+1$，此时可以保证无混叠错误，也就意味着谐波$n&#x3D; N$ 的混叠误差贡献将在$n’&gt;&#x3D;N+2$ 时发生。</p>
+<h2 id="第四章-球形阵列配置"><a href="#第四章-球形阵列配置" class="headerlink" title="第四章 球形阵列配置"></a>第四章 球形阵列配置</h2><p>在第三章当中，主要讨论了如何在球面上对函数进行采样，以及如何从这些采样值重构函数，而在球形麦克风阵列处理的问题中，我们对如何将声场分解成平面波组分感兴趣，但是在这种情况下，将压力或者全向麦克风放置在自由场的单个球面上可能无法实现准确的球面波分解，因为球形贝塞尔函数有零点。那么考虑将麦克风放置在刚性球体表面，但是刚性球体的缺点在于，从球体散射的声音可能被周围物体反射回来，从而改变它测量的声场。在这种情况下，将麦克风放置在自由场中的开放球形配置可能更合适。所以提出适当的球形麦克风阵列配置就是比较有用的，我们考虑一种开放球形阵列配置，其可以避免球形贝塞尔的零点问题。</p>
+<p>与阵列配置的另外一个问题就是：对于传感器噪声的敏感性，在之前的球形贝塞尔函数的幅值图中，也就是下图，可以看到$j_n(kr)$ 在$kr-&gt;0$ 时消失，更进一步的说，朝着0的衰减阶数越高，越陡。这意味着远离球面的压力重建，或对于一般的阵列处理方法，对于低$kr$ 需要除以一个小值，这会在一个实际的阵列系统中放大噪声。避免这种影响的方法是在低频时减少有效的阵列阶数$N$ ， 只考虑具有足够大的系数。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230426163240798.png" alt="image-20230426163240798" style="zoom:40%;" />
+
+<h3 id="4-1-单一开放球体"><a href="#4-1-单一开放球体" class="headerlink" title="4.1 单一开放球体"></a>4.1 单一开放球体</h3><p>这一节介绍最简单的传声器阵列配置，将压力传感器直接放置在自由场中的虚拟球体表面，在这里传感器测量的声压可以被视作为球体表面连续声压函数的样本，那么就可以考虑第三章使用采样和重建的方法，来重建球面上的声压$p(k,r,\theta_q,\phi_q)$ </p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230426161935642.png" alt="image-20230426161935642" style="zoom:40%;" />
+
+<p>这里的 $Q$ 是采样的总数，最大的重建阶数为 $N$ ，$\alpha_q^{nm}$ 为采样权重，，对于平面波组成的声场，没有阶数限制，那么从这个样本中重建声压时，空间混叠引起的误差是不可避免的，然而，如果高阶系数的大小保持足够小，那么这些误差就可以忽略不计，那么假设采样方法的选择，频率和球体半径都满足$N &gt; kr$ ，那么空间混叠误差就可以保持很小。</p>
+<p>通过这种设置，我们可以重建测量球体表面的声压，但是重建球体周围的声压需要引入声压的迁移：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230426162422632.png" alt="image-20230426162422632" style="zoom:40%;" />
+
+<p>这里的$(r’,\theta’,\phi’)$ 是在测量球面外的位置，从这个公式可以看出只有当$j_n(kr) \neq 0$ 时 ，才有可能重建测量球外的压力，但是从之前在第一张数学基础里面讨论过的，球面Bessel函数有许多零值(对于不同的 $n$ 和$kr$) ，所以实际上，就很难避免去除以0，除非运用一些特别苛刻要求的频率，半径和阶数。  <strong>这就是自由场中压力传感器的单球体配置的主要缺点</strong></p>
+<p>从上面一系列分析可以看出，阵列的配置可能会影响到阵列性能的各个方面，<strong>总结一下</strong>，在考虑球形阵列设计的时候：</p>
+<ol>
+<li><p>第一步 首先选择空间采样方法，这个定义了麦克风位置的角度部分($\theta_q,\phi_q$) $q &#x3D; 1…Q$， 以及球面上函数无混响采样的最大阶数$N$.</p>
+</li>
+<li><p>第二步 选择球的半径$r$ ， 这个定义来麦克风位置的径向部分$r$, 有了$r 与N$ 的定义，那么就可以确定操作的频率范围。</p>
+</li>
+<li><p>第三步 选择频率上限，根据空间混叠来决定频率的上限， 上限频率$f$ 决定了波数 $k &#x3D; 2\pi f&#x2F;c$，其必须满足$kr&lt;N$ 这个条件才能保证避免因为空间混叠而产生的重大误差。</p>
+</li>
+<li><p>第四步 选择频率下限，这个下限是取决于麦克风噪声和其他误差的限制，比如麦克风增益和相位响应不匹配，麦克风位置不准确和计算精度有限等。如果$j_n(kr)$ 的幅度比较小，涉及除以$j_n(kr)$ 的阵列处理在低频率和低$kr$ 值时可能表现不好。对于一个给定频率和半径满足$kr &lt;&lt; N$ 的情况，最高阶的分量，也就是$n&#x3D;N$ ，将会有最低的幅度，所以这时候的$j_n(kr)$ 很小，这是主要引起噪声并带来性能下降的因素。</p>
+</li>
+<li><p>在工作频率内的某些范围，即使在频率上下限之间，如果这些频率满足$j_n(kr) &#x3D;0$， 那么$j_n(kr)$ 也会非常小，这是单一开球结构的固有限制。</p>
+</li>
+</ol>
+<h4 id="一个例子：考虑一个半径-r-8cm-并且有72个高斯采样分布的麦克风的第一开放球体阵列。"><a href="#一个例子：考虑一个半径-r-8cm-并且有72个高斯采样分布的麦克风的第一开放球体阵列。" class="headerlink" title="一个例子：考虑一个半径$r&#x3D;8cm$ 并且有72个高斯采样分布的麦克风的第一开放球体阵列。"></a>一个例子：考虑一个半径$r&#x3D;8cm$ 并且有72个高斯采样分布的麦克风的第一开放球体阵列。</h4><p>考虑在上面条件下，可以对$N&#x3D;5$ 阶数限制的函数进行无混叠采样，假设声场是由平面波叠加组成的，那么上限频率可以根据我们之前的参数$kr &#x3D; N, k &#x3D; \frac{2\pi f}{c}$ 来计算得到，从而避免混叠误差，得到$f&#x3D;3412Hz$ ，如下图所示</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427131332849.png" alt="image-20230427131332849" style="zoom:40%;" />
+
+<p>从这张图中，可以看到球形Bessel函数$j_0(kr) &#x3D; 0$ 在2144Hz处，$j_1(kr)$ 在3066处，测量声压的球面谐波系数$p_{00}(k,r) 和p_{1m}(k,r)$ 在零频率附近的幅度较低，因此对噪声敏感，更进一步来说，在频率低于1000Hz以下，可以很明显的看到，$n&gt;0$ 的$j_n(kr)$ 的幅度向原点衰减，也就是此时测量$p_{nm}(k,r)$ 对噪声更敏感。例如，4πin j5(kr)的幅度在1,000Hz时约为-43dB，如图所标。如果这是以有用的信噪比（SNR）测量的最低幅度，那么-5≤m≤5的系数p5m将只在大约1000Hz以上可用；因此，任何低于这个频率的测量将有效地是最大阶数N&#x3D;4或更低。</p>
+<p>之后我们讨论的重点将会放在如何克服之前的第五点缺点，也就是球面Bessel函数的零点的影响。对于第五点，我们查看这个球体上的压力与幅值之间的关系是有用的：</p>
+<p><img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427132105865.png" alt="image-20230427132105865"></p>
+<p>通过这个关系，其定义了平面波声场$a_{nm}(k)$ 在球面上的测量方式$p_{nm}(k,r)$，而函数$b_n(kr)$ 定义了声场在球面上的投影。</p>
+<p>那么现在我们想要计算声场$a_nm$ ，有了测量结果$p_{nm}$ ，然后就需要除以$b_n(kr)$ ，也就是说，如果是对于单一开放球体的情况，这意味着除以球面Bessel函数，方程4.3将会是我们之后的通用表达式，我们提出新的结构的目的是有一种开发阵列配置，能够使得$b_n(kr)$ 在工作频率范围内和选定的半径值中不具有零值。</p>
+<h3 id="4-2-刚性球体"><a href="#4-2-刚性球体" class="headerlink" title="4.2 刚性球体"></a>4.2 刚性球体</h3><p>刚性球形阵列配置<strong>有放置在由硬质全反射材料组成的球体表面</strong>的麦克风， 在上一节中的配置也适用于刚性球体。但是由于刚性球体的散射性质，球体周围的声场与球体表面的压力之间的关系可以由与开放球体表面不同的$b_n(kr)$ 来进行描述：这一项中包含了入射声场与刚性球体周围散射声场影响的$b_n$ 项。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427160509401.png" alt="image-20230427160509401" style="zoom:40%;" />
+
+<p>那么对于不同球体配置的$b_n$ 的幅值可以由下面的图表示：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427160759486.png" alt="image-20230427160759486" style="zoom:40%;" />
+
+<p>可以看到在$r&#x3D;r_a$ 的简化的模型情况下，与开放球体配置相比，刚性球体配置中的$b_n$ 的零值成分被消除了，并且更进一步的是，由于存在散射的声场成分。$b_n$ 的幅值会有一些稍高，这其实是一个有利的地方，也就是$b_n$ 的大小在高阶和低频时更高，因此，阵列对麦克风噪声和其他误差的影响更稳健。</p>
+<p>而另一个实际上的优点在于，刚性球体麦克风阵列的安装更为方便。</p>
+<p>但是缺点：低频性能不佳，如果我们需要计算到高阶的$a_{nm}$ ，但是在低频率下，我们需要设计一个大半径的$r_a$ 阵列，其可以避免在$kr &lt;&lt; N$ 的情况下工作，这会在高阶$p_{nm}$ 值中带来噪声。然而过大的刚性球体麦克风阵列在实践中不容易处理，并且其的入射声散射可能会被周围的物体（如房间墙壁）反射回测量区域，修改测量的声场。 <strong>总结来说，就是我们可以用小型刚体球形麦克风阵列。</strong>在之后的讨论中，我们尽量能够设计一种阵列配置，我们既可以避免球面Bessel函数的零值，也可以不把刚性球体引入测量区域。</p>
+<h4 id="一个例子：考虑一个半径-r-8cm-并且有72个高斯采样分布的麦克风的第一刚性球体阵列。"><a href="#一个例子：考虑一个半径-r-8cm-并且有72个高斯采样分布的麦克风的第一刚性球体阵列。" class="headerlink" title="一个例子：考虑一个半径$r&#x3D;8cm$ 并且有72个高斯采样分布的麦克风的第一刚性球体阵列。"></a>一个例子：考虑一个半径$r&#x3D;8cm$ 并且有72个高斯采样分布的麦克风的第一刚性球体阵列。</h4><img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427162413494.png" alt="image-20230427162413494" style="zoom:40%;" />
+
+<p>此时和之前一节的例子相同，还是采用$r &#x3D; 8cm$ ，72个高斯采样分布的麦克风，但是此时配置在刚性球体阵列上，可以这种设计的$b_n(kr) $ 大小，可以从其幅值看到其消除了球面Bessel函数的零点，那么就不存在频率为2144和3066的低幅值问题，并且还具有略高的$b_n$ 幅值，可以看到这个略高的幅值对于$b_5(kr_a,kr_a)$ 在1000HZ是一个优势，在这个频率上，其的幅度为$-37dB$ 与开放式球体阵列的$-43dB$ 相比，其对于噪声的敏感性更低。</p>
+<h3 id="4-3-带心形麦克风的开放球体"><a href="#4-3-带心形麦克风的开放球体" class="headerlink" title="4.3 带心形麦克风的开放球体"></a>4.3 带心形麦克风的开放球体</h3><p>在这里我们还是回到了开放球体，但是引入了一种新型的麦克风，这可以使得我们克服球形Bessel函数的零值问题。这里的麦克风不是之前所使用的压力全指向性麦克风，而是具有1阶心形指向性的定向麦克风，其可以测量压力的和径向压力梯度。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427170704060.png" alt="image-20230427170704060" style="zoom:40%;" />
+
+<p>面向径向的心形麦克风的输出可以写成：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427163929652.png" alt="image-20230427163929652" style="zoom:40%;" />
+
+<p>而对于输入为单位振幅平面波，麦克风的响应可以为将$p(k,r,\theta,\phi ) &#x3D; e^{ikrcos\theta}$ 来插入4.6式，可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427164148662.png" alt="image-20230427164148662" style="zoom:40%;" />
+
+<p>这里的$k &#x3D; (k,\theta_k,\phi_k)$ 代表指向到达方向的波矢量，$r &#x3D; (r,\theta,\phi)$ 表示麦克风的位置，其输出包含$(1+cos\theta)$ ，这是心形指向性。</p>
+<p>然后我们将单位幅值平面波声压的表达式写为球谐域的：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427170140607.png" alt="image-20230427170140607" style="zoom:40%;" />
+
+<p>再将这个式子带入4.6中，有其麦克风输出的球谐表达形式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427170516108.png" alt="image-20230427170516108" style="zoom:40%;" />
+
+<p>而如果我们考虑平面波具有幅度$a(k,\theta_k,\phi_k)$ ，并且将声场拓展到一系列平面波。那么就可以写成：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427170919808.png" alt="image-20230427170919808" style="zoom:40%;" />
+
+<p>通过上面这两式，我们可以看到，此时我们选用了新的心形麦克风组成的球面阵列再自由场中的输出可以写成与带压力麦克风的球面阵列的输出相同的形式，而无论是再自由场还是刚性球体周围，但是我们有不同的函数$b_n(kr)$ 。 再这种情况下，我们的$b_n$ 包括一个由压力分量引起的$j_n$ 项和一个由压力梯度分量引起的$j_n$ 导数项。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427171229958.png" alt="image-20230427171229958" style="zoom:40%;" />
+
+<p>上图比较了$n &#x3D; 0,…3$ 的心形麦克风阵列和压力麦克风阵列下的$b_n(kr)$ 函数的幅值，可以看出，当我们使用心形麦克风可以与使用刚性球体阵列达到相似的效果，也就是可以消除球面Bessel函数的零点。 此外，与刚性球体阵列类似，在$kr$ 比较小的时候，$b_n$ 的幅度比压力麦克风的配置要高。这里幅值的增加甚至大于刚性球体情况下的增加，这表明使用心形麦克风阵列可以进一步增强在$j_n(kr)$ 比较小的时候降低对噪声的敏感度。</p>
+<p>缺点在于：因为我们使用心形麦克风组成的空间阵列，在$b_n$ 项中有一项导数存在，那么也就是可能会在低频出现过多的噪声（因为导数项主要由压力差来近似，但是在低频时，压力差会很小），除了低频过多的噪声，心形模式可能会在阵列模型函数$b_n$ 中产生误差。并且我们还是更希望能够使用更普遍的压力麦克风来进行声学测量，所以我们考虑能不能在不改变麦克风类型的情况下，且使用开放球体模型，来克服球面的bessel的零值的限制。</p>
+<h3 id="4-4-双半径的开放球体"><a href="#4-4-双半径的开放球体" class="headerlink" title="4.4 双半径的开放球体"></a>4.4 双半径的开放球体</h3><p>顾名思义，双半径的开放球体阵列，也就是我们用两个带压力麦克风的同心开放球体阵列，但是半径不相同，为什么能想到这个主要是因为，从上面的4.5图虚线中可以看到，我们的开球阵列的$b_n(kr)$ 的零点值出现在特定的$kr$ 值上，所以，如果我们用两个半径不同的同心开球阵列去测量声场$r_1和r_2$  ，那么每个球体的零点会出现在不同的频率上，也就是一个阵列中由于球面贝塞尔函数的零点而丢失的信息可以从另一个阵列中获得，也就是说这两个阵列以互补的方式进行运作，来克服球形Bessel函数零点带来的限制，对于振幅密度为$a_{nm}(k)$ 的平面波声场，由两个阵列测得的声压在球谐域中可以表示为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427173108287.png" alt="image-20230427173108287" style="zoom:40%;" />
+
+<p>而我们需要计算在每个频率$k$ 上的$a_{mn}(k)$ ，这需要除以$j_n(kr)$ ，所以对于每个频率，每个阶数，我们只能根据$j_n(kr)$ 的值，使用一个阵列，也就是4.11中的一个公式来进行计算。那么我们就考虑能不能提出一个选择函数$\beta$ </p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427173625990.png" alt="image-20230427173625990" style="zoom:40%;" />
+
+<p>那么就可以联立两个阵列，写出声压的表达形式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427173722422.png" alt="image-20230427173722422" style="zoom: 50%;" />
+
+<p>函数$p_{12nm}(k)$ 表示来自两个球体的压力函数的球面谐波系数，上面两个方程描述了通过函数$b_n$ 测量的压力和平面波声场之间的关系，这里的情况主要是双半径阵列的情况。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427173915296.png" alt="image-20230427173915296" style="zoom:40%;" />
+
+<p>上图展示了双半径阵列($r_1 &#x3D; 1m,r_2 &#x3D; 0.833m$) 的$b_n(k) &#x3D; b_n(kr_1,kr_2)$ 的幅值大小，可以看到这种方法可以避免球面Bessel函数的零点。</p>
+<p>对于双半径的球面阵列很重要的一点就是在于，<strong>如何选择两个半径的比例$\alpha &#x3D; r_1&#x2F;r_2$</strong> ，我们假设$r_1$ 是给定的较大的一个数，$r_2$ 被限制在了一个较小的值。我们得到的比较好的半径比也就是能够得到尽可能大的$j_n(kr)$ 值，通过Raefly发表的论文中的一个结果有$\alpha$ 的良好近似值：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427174537927.png" alt="image-20230427174537927" style="zoom:40%;" />
+
+<p>缺点：虽然在这里我们成功能够使用双半径球面阵列，并使用压力麦克风来解决球面Bessel函数的零点问题，但是其缺点也很显著，也就是与单一开球阵列相比，其需要两倍的球面和两倍的麦克风。我们进一步考虑有没有稍微简化点的方法。</p>
+<h3 id="4-5-对错误的鲁棒性和数值阵列设计"><a href="#4-5-对错误的鲁棒性和数值阵列设计" class="headerlink" title="4.5 对错误的鲁棒性和数值阵列设计"></a>4.5 对错误的鲁棒性和数值阵列设计</h3><p>在之前几节中，我们的阵列配置均是基于预先确定的球体上的样本分布，然后使用适当的采样权重计算声压的球面谐波系数$p_{nm}(kr)$ ，通过使用$p_{nm}(kr)&#x2F;b_n(kr)$ 来计算$a_{nm}(k)$ ，即分解为平面波。在这个计算中，一直给我们带来问题的是$b_n(kr)$ 的低幅值或者零值，在我们之前介绍的配置中，麦克风的位置被限制在单球体或者双球体的表面，而如果我们的麦克风在三维空间中自由地放置的话，我们就需要一个公式来说明我们使用的配置的数值是具有鲁棒性的，这一节会介绍这样一个公式。</p>
+ <img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427180108124.png" alt="image-20230427180108124" style="zoom:40%;" />
+
+<p>方程4.3 给出了构成声场的平面波振幅与半径为$r$ 的球体上的压力在球面谐波域的关系，我们现在考虑分布在三维空间中的$Q$ 个采样点的位置：$(r_q,\theta_q,\phi_q) ,1&lt;q&lt;Q$ </p>
+<p>那么带入4.3，再带入声压与傅里叶系数相关的关系：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427201809640.png" alt="image-20230427201809640" style="zoom:40%;" />
+
+<p>最后可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427201836395.png" alt="image-20230427201836395" style="zoom:40%;" />
+
+<p>然后上式可以写成矩阵形式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427201858676.png" alt="image-20230427201858676" style="zoom:40%;" />
+
+<p>这里的 <strong>p</strong> 是一个$Q \times 1$ 的矢量，展示声压的样本：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427201956211.png" alt="image-20230427201956211" style="zoom:40%;" />
+
+<p><strong>$a_{nm}$</strong> 是一个$(N+1)^2 \times 1$ 的矢量，其表示了声场的系数.</p>
+<p><strong>B</strong> 是一个$Q\times (N+1)^2$ 的矩阵，其的表示形式如下：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427202229226.png" alt="image-20230427202229226" style="zoom:40%;" />
+
+<p>而对于此时平面波的分解，涉及到除以$b_n$ ，也就是矩阵$B$ 的取逆，因此，避免$b_n$ 低幅值的要求被一个更普遍的情况替代了，那就是矩阵$B$ 是可逆的。如果$Q &#x3D; (N+1)^2$ 的话，可以直接取逆，或者在一般情况下可以通过伪取逆。在单个球面的设置下，矩阵 <strong>B</strong> 可以分解为一个元素为$b_n(kr)$ 的对角矩阵和一个具有采样点的球面谐波值的矩阵$Y_n^m(\theta_q,\phi_q)$ 。因此其实对于矩阵的取逆操作也会要求$b_n$ 的幅度不能太小。</p>
+<p>通过麦克风测量得到声压矢量 <strong>p</strong> ， 然后指定矩阵$B$ 的模型，可以描述我们使用的阵列配置，然后通过求解4.20的矩阵，我们可以得到声场系数矢量$a_{nm}$ </p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427203325734.png" alt="image-20230427203325734" style="zoom:40%;" />
+
+<p>假设过采样，也就是$Q &gt; (N+1)^2$ ，那么伪随机取逆可以表示为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427203405731.png" alt="image-20230427203405731" style="zoom:40%;" />
+
+<p>然后我们将通过4.24式得到的声场系数矢量的解带入4.20式中，我们可以满足此方程，验证我们的方案，也就是模型选择，如采样策略，麦克风矩阵摆放策略等。 但是在实践中，我们并不能那么容易得到矩阵$B$。不确定的原因有许多：比如：麦克风的位置($r,\theta_q,\phi_q$) 的精度是有限的，麦克风的增益和相位响应可能有一些扰动，心形麦克风可能存在非理想的方向性响应，由于麦克风外壳或者麦克风杆子在自由场条件下激发的反射以及刚性球体中的一些吸收等。</p>
+<p> 那么我们可以量化地来看待这件事，也就是我们假设矩阵$B$ 的扰动为$\delta B$ ，这个在公式中可能会带来声压的微小扰动$\delta p$，带回公式就有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427204119595.png" alt="image-20230427204119595" style="zoom:40%;" />
+
+<p>那么在这种情况下，满足公式4.20的可能性增大了一些。进一步可以写成：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427204227524.png" alt="image-20230427204227524" style="zoom:40%;" />
+
+<p>进一步，引入L2范数，可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427204337392.png" alt="image-20230427204337392" style="zoom:40%;" />
+
+<p>那么可以得到$p$ 的变化和$B$ 的变化之间的关系：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427204537283.png" alt="image-20230427204537283" style="zoom:40%;" />
+
+<p>这里的$\kappa(B)$ 是矩阵B 的条件数，对于L2范数，有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427204713666.png" alt="image-20230427204713666" style="zoom:40%;" />
+
+<p>其中σ表示最大奇异值，σ表示最小奇异值。方程(4.29)表明条件数会放大矩阵B的误差，因此尽可能保持条件数接近统一是很重要的。对于正方形矩阵B的特殊情况，其全等级等于$(N + 1)^2(N + 1)^2$,条件数的写法与公式(4.30)相同，但伪逆被逆所取代。</p>
+<p>而同样，扰动也有可能发生在向量$p$ 中，因为声压的向量是由麦克风测量的，所以在计算机采样时，放大器噪声和量化误差可能会在向量$p$ 中产生误差或扰动。在这种情况下，对于$p$ 中的误差和非方形矩阵情况，解的误差界限$a_{nm}$ 随着$\kappa(B)$ 的增长而增长，那么对应这些情况下的条件数也会减小。</p>
+<p> 那么总结一下来说，此时可以确定矩阵$B$ 的条件数是衡量公式4.20的解对矢量p和矩阵B所代表的数据误差的鲁棒性的重要指标，那么也就是可以说 <strong>条件数可以作为设计球形阵列配置时的最小化目标，也就是可以得到一个优化问题（得到能够产生最鲁棒设计的麦克风位置）：</strong></p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427205621781.png" alt="image-20230427205621781" style="zoom:40%;" />
+
+<p>但是这种优化问题可能不是一个凸的，所以需要一些全局上搜索方法，如遗传算法。但是对于整体的选择可以被整合到这样的设计中。</p>
+<ul>
+<li>球体配置的选择（开放或者刚性）</li>
+<li>麦克风的类型（压力或心形）</li>
+</ul>
+<h3 id="4-6-带有鲁棒分析的设计实例"><a href="#4-6-带有鲁棒分析的设计实例" class="headerlink" title="4.6 带有鲁棒分析的设计实例"></a>4.6 带有鲁棒分析的设计实例</h3><p>正如之前所讨论的，实现阵列的实际限制，会导致实际中偏离理论的误差。 错误的原因常有： <strong>麦克风所在位置的精度（准确性），麦克风频率响应的不匹配，球体的非理想声学模型等</strong> ， 而上述的这些误差可以被表示为矩阵$B$ 相对于一个理想矩阵的扰动，因此我们才考虑将矩阵$B$ 的条件数视作为阵列输出对这些误差的敏感性的一般措施。</p>
+<p>在这里我们研究了几种阵列配置，矩阵$B$ 的条件数是为这些选定的阵列配置计算的，从而来比较他们的鲁棒性，这里$0&lt;n&lt;3$ 以及$0&lt;kr&lt;6$，大多数情况，采样配置是为一个最大阶数为$N&#x3D;6$ 的阶数限制的函数设计的，这样就可以保证空间过度采样，这种过度采样主要是为了保证在$3&lt;&#x3D;kr&lt;&#x3D;6$ 的范围内有一个工作区域，其中函数$b_n(kr)$ 作为$n$ 的函数具有相对均匀的大小。</p>
+<h4 id="例子一：均为刚性球体的球面阵列，三种采样方案"><a href="#例子一：均为刚性球体的球面阵列，三种采样方案" class="headerlink" title="例子一：均为刚性球体的球面阵列，三种采样方案"></a>例子一：均为刚性球体的球面阵列，三种采样方案</h4><p>这里分别采用了等角，高斯和近乎均匀的方案，这三种方案都是为$N&#x3D;6$ 阶设计的，分别具有196，98 和 84个样本。然后这三种配置的矩阵$B$ 被计算出来，尺寸为$Q \times(N+1)^2$ ，其中$Q$ 为样本总数，$(N+1)^2 &#x3D; 49$，然后计算这些矩阵的条件数，沿着$kr$ 的数值范围。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427210808967.png" alt="image-20230427210808967" style="zoom:40%;" />
+
+<p>从上图可以看到，这三种分布都还是比较鲁棒的，而近均匀分布比高斯和等角分布的鲁棒性略高，这可能是由于样本在球体上的分布方式更为均匀，避免了在两极的聚集。同样也可以看到，条件数在$kr &lt;3$ 之前还是具有较大的值，这是由于$kr&lt;3$ 时，b1到b3的固有的低幅值，$kr$ 低值时条件数的增加不能通过重新分配麦克风来避免，而是通常需要增加球体的半径，使截止点(这个例子中$kr &#x3D;3$) 发生在较低的波数上。</p>
+<h4 id="例子二：围绕刚性球体阵列和围绕开放球体配置"><a href="#例子二：围绕刚性球体阵列和围绕开放球体配置" class="headerlink" title="例子二：围绕刚性球体阵列和围绕开放球体配置"></a>例子二：围绕刚性球体阵列和围绕开放球体配置</h4><p>在这里我们比较了三种阵列配置，一个围绕刚性球体的配置和一个围绕开放球体的配置，这两者都具有84个均匀采样分布的样本，围绕刚性球体的配置与之前的相同，第三种配置与开放球体配置相同，但是在阵列原点的矩阵B上增加了一个额外的样本。可以从这个图中看到这些配置中的矩阵$B$ 的条件数。在接近球面Bessel函数零点的$kr$ 值处，开放式阵列配置有较高的条件数，根据方程4.23，也就是矩阵 B的表达形式，可以看出，矩阵$B$ 在$kr &#x3D; \pi$ 时，由于零点$j_0(\pi) &#x3D; 0$ ，第一列等于0，现在，由于在远点处采样增加了一行，因为$j_0(0 )\neq 0$ ，那么这一列将不为0，因此由于原本零列造成的rank的损失被回复了，可以看到在原点增加采样点的新配置的条件数是遵循开放球体的条件数的，但是由于额外点的增加，避免了第一个零点附近的高条件数值。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427233551076.png" alt="image-20230427233551076" style="zoom:40%;" />
+
+
+
+<h4 id="例子三：使用心形麦克风的双球体阵列，其中第二半径比第一半径小1-3倍，使用了84个样本的近乎均匀采样"><a href="#例子三：使用心形麦克风的双球体阵列，其中第二半径比第一半径小1-3倍，使用了84个样本的近乎均匀采样" class="headerlink" title="例子三：使用心形麦克风的双球体阵列，其中第二半径比第一半径小1.3倍，使用了84个样本的近乎均匀采样"></a>例子三：使用心形麦克风的双球体阵列，其中第二半径比第一半径小1.3倍，使用了84个样本的近乎均匀采样</h4><p>在这里和我们之前讨论的双球体阵列相同，引入选择系数，只选择与具有$b_n(kr)$ 最大振幅的半径相对应的数据点。又由于心形麦克风阵列与双球体阵列都克服了由球面Bessel函数的零点导致了问题，所以都会有合理的条件数， 此外，还考虑了同样的双半径配置，矩阵$B$ 由两个球体的行组成，不使用最大化选择标准，得到的条件数也与原始双半径阵列的条件数相似，在这种情况下，矩阵B的列数是原来的两倍。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427235138134.png" alt="image-20230427235138134" style="zoom:40%;" />
+
+
+
+<h3 id="4-7-球形外壳配置"><a href="#4-7-球形外壳配置" class="headerlink" title="4.7 球形外壳配置"></a>4.7 球形外壳配置</h3><p>在之前我们为了能够使用全向麦克风来进行测量，所以提出了双同心球体的表面来消除开球阵列设计中的条件不良问题，虽然双球体阵列可以解决这个问题，但是因为其要求两倍的麦克风数量，所以我们现在再考虑能不能再球形外壳上做做文章，能够减少麦克风数量的增加。在这种配置中，麦克风分布在双球体配置的两个球体所围成的体积中，然而，又因为传声器的总体数量与同等的但球体配置相同，如单开放球体或者刚性球体，所以这种配置的阵列设计需要选择每个麦克风的角度和半径$\theta,\phi,r$ 。</p>
+<p>在这种配置下，我们就沿着$(\theta,\phi)$ 以近乎均匀的采样分布来分配麦克风，或者使用其他的方法，沿着两个球体之间的半径均匀地分配麦克风，我们现在考虑一个刚性球体，其配置与上一节中介绍地相同，有84个几乎均匀分布的样本，图中还显示了球壳的条件数，其沿角分布的麦克风相同，两个球体之间的径向分布均匀。可以看到，虽然shell阵列的条件数比刚性球阵列条件数要高，但是其仍然相对较低，所以我们也可以考虑这种配置。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230427235858304.png" alt="image-20230427235858304" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428000040551.png" alt="image-20230428000040551" style="zoom:40%;" />
+
+<h2 id="第五章-球形阵列波束成形"><a href="#第五章-球形阵列波束成形" class="headerlink" title="第五章  球形阵列波束成形"></a>第五章  球形阵列波束成形</h2><p>在之前一章，我们介绍了配置球形麦克风阵列的方法，并讨论了每种配置的优点。 这一章我们主要讨论球形阵列波束成形得算法原理，我们考虑麦克风上的信号被定义为阵列处理器的输入，然后通过处理器的滤波处理，可以得到具有某些理想特性的单一处理输出。比如：增强来自位于特定方向的声源的信号，削弱来自于其他方向的声源的信号，也就是一个空间&#x2F;方向性滤波器，这种滤波器被称为波束成形器。</p>
+<h3 id="5-1-波束成形方程"><a href="#5-1-波束成形方程" class="headerlink" title="5.1 波束成形方程"></a>5.1 波束成形方程</h3><p>考虑在一个半径为$r$ 的球面上的声压，由$p(k,r,\theta,\phi)$ 表示，一个空间滤波器被定义为声压与一个权重函数$[w(k,\theta,\phi)]^*$ 的乘积，然后对整个球面取积分，可以得到阵列的输出$y$:</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428171716279.png" alt="image-20230428171716279" style="zoom:40%;" />
+
+<p>下一步，我们引入一个由$Q$ 个麦克风组成的球形麦克风阵列，这些麦克风均位于半径为$r$ 的同一球体的表面。麦克风的位置用$(r,\theta_q,\phi_q)$ 来进行表示。而麦克风$q$在波数$k$ 处得到的声压为：$p_q(k) &#x3D; p(k,r,\theta_q,\phi_q)$ ，这些组成了一个 **测量声压幅值$Q \times 1$ 矢量 ** </p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428172317784.png" alt="image-20230428172317784" style="zoom:40%;" />
+
+<p>而空间滤波器的离散版也是这样定义的，权重$w_q(k)$ 也是一个$Q\times 1$ 的矢量：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428172415366.png" alt="image-20230428172415366" style="zoom:40%;" />
+
+<p>那么输出就是两个矢量的内积：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428172451957.png" alt="image-20230428172451957" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428172502707.png" alt="image-20230428172502707" style="zoom:40%;" />
+
+<p>但是很重要的一点在于公式5.1和公式5.4中的定义并不等价，因为如果我们考虑5.1中的式子，就必须考虑到空间采样的影响。关于这两种形式之间的关系我们在之后用球面谐波域的阵列方程的表述来给出。</p>
+<p>对于阵列波束成形或者空间滤波的一般问题，可以定义为设计$w$ ，使得对于一个给定的阵列输入$p$ ，产生的阵列输出$y$ 具有一些期望的特性，当描述阵列特性时，我们通常假设声场的阵列输入由单一的、单位振幅的平面波组成。在这种情况下，测量的压力被转向矢量或者流形矢量取代，其代表了在每个麦克风上测量的平面波振幅。<strong>转向向量 v</strong>，对于由自由场中的压力麦克风组成的阵列有一个形式如下：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428221959483.png" alt="image-20230428221959483" style="zoom:40%;" />
+
+<p>这里的</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428222011425.png" alt="image-20230428222011425" style="zoom:40%;" />
+
+<p>这里的$\tilde{k} &#x3D; (k,\theta_k,\phi_k)$ 代表平面波的到达方向，而位置矢量$r &#x3D; (r,\theta_q,\phi_q)$ 代表了麦克风q的位置，那么阵列的输出就可以写成：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428222134842.png" alt="image-20230428222134842" style="zoom:40%;" />
+
+<p>那么现在，通过$v$ 对$(\theta_k,\phi_k)$ 的依赖，其就是一个明确的波到达方向的函数，其定义了阵列的方向响应（指向性）。但是这里需要考虑到，如果我们考虑其他阵列配置时，例如刚性球体周围的压力麦克风，转向矢量此时包括声音从球体散射的影响。这种情况下，在球面谐波域里面表示更为简单。</p>
+<p>所以刚刚我们考虑的都是在空间域中的内容，所以现在我们考虑使用球形傅里叶变换将阵列方程在球面谐波域中推导。对于公式5.1，我们考虑将压力函数$p(k,r,\theta,\phi) $和权重函数$w(k,\theta,\phi)$ 在球面上定义，用$p_{nm}(k)$ 和$w_{nm}(k)$ 表示它们各自的球面傅里叶变换。将这些球面变换后的系数带回傅里叶变换公式中：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428222639523.png" alt="image-20230428222639523" style="zoom:40%;" />
+
+<p>然后我们就可以得到， <strong>阵列输出可以写成球面傅里叶系数的函数</strong>：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428222743578.png" alt="image-20230428222743578" style="zoom:40%;" />
+
+<p>那么假设如果此时超过阶数$N$ 的系数为0，也就是$w_{nm} &#x3D; 0,n&gt;N$ ，那么方程5.8便可以写成矩阵形式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428222933957.png" alt="image-20230428222933957" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428223031560.png" alt="image-20230428223031560" style="zoom:40%;" />
+
+<p>阵列的波束模式，或可以称为由于单位振幅的平面波声场而产生的阵列输出场，可以在球面谐波域中进行表示，其形式和我们之前在空间域中定义的转向矢量组成的表达形式相似 （5.7式）。可以写为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428223323448.png" alt="image-20230428223323448" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428223332792.png" alt="image-20230428223332792" style="zoom:40%;" />
+
+<p>这里的$v_{nm}$ 表示因为平面波声场带来的阵列输入，而对于$v_{nm}$ 的表达形式推导来自于声压$p_{nm}$ ，因为单位振幅的平面波，对于开放球体配置可以被写为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428223531872.png" alt="image-20230428223531872" style="zoom:40%;" />
+
+<p>那么这也是$v_{nm}$ 的表达形式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428223603829.png" alt="image-20230428223603829" style="zoom:40%;" />
+
+<p>而对于开放球体阵列，我们可以把上面的式子写得更普遍一点：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428223630941.png" alt="image-20230428223630941" style="zoom:40%;" />
+
+<p>这里$b_n(kr ) &#x3D; 4\pi i^nj_n(kr)$ ， 和我们在第四章讨论的一样，我们可以简单修改$b_n(kr)$ 的表达式来适用于刚性球体阵列，双球体开放阵列等。这便是一种在球面谐波域制定阵列方程的一种优势，也就是我们可以用同一个框架的表达式对各种阵列配置的转向矢量进行建模。</p>
+<p>另一个优势便是在于计算效率，在实践中，如果我们对阵列过度采样(Q &gt; (N+1)^2)，意味着在球面谐波域中的向量和矩阵比空间域中相同向量和矩阵的维数要低。</p>
+<p>下面我们介绍一下球面谐波域公式和空间域公式之间的关系。对于阵列方程：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428224445943.png" alt="image-20230428224445943" style="zoom:40%;" />
+
+<p>通过引入采样的影响，那么球面谐波矢量$w_{nm}$ 和$p_{nm}$ 与空间域矢量$w$ 和$p$ 之间的关系就可以被推导出来：</p>
+<p>将$w_{nm} &#x3D; Y^+w$ 对于<strong>一般的采样方法</strong>以及$p_{nm} &#x3D; Y^+p$ 带入上述方程中，可以得到空间域中的阵列输出为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428224710653.png" alt="image-20230428224710653" style="zoom:40%;" />
+
+<p>同样的 对于<strong>等角采样和高斯采样方法</strong> ，将$w_{nm}  &#x3D;Y^Hdiag(\alpha)w$ 插入，并且$p$ 也是取同样的表达式，那么阵列的输出变为:</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428230239516.png" alt="image-20230428230239516" style="zoom:40%;" /> 
+
+<p>对于 <strong>均匀和近乎均匀的采样方法</strong>，有$w_{nm} &#x3D; \frac{4\pi}{Q}Y^Hw$ ，同样$p$ 也可以用这种形式表达，带进去，阵列的输出可以变为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428231404542.png" alt="image-20230428231404542" style="zoom:40%;" />
+
+<p>用一个统一形式来写：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428231455699.png" alt="image-20230428231455699" style="zoom:40%;" />
+
+
+
+<h3 id="5-2-轴对称波束成形"><a href="#5-2-轴对称波束成形" class="headerlink" title="5.2 轴对称波束成形"></a>5.2 轴对称波束成形</h3><p>方程5.12式展示了再球谐域中阵列的输出与阵列输入还有权重系数的函数。而其他的科学家研究了一下权重$w_{nm}$ 的表达形式。这些权重是两个参数的函数$n,m 也就是(\theta,\phi)$ 在两维的空间域中，然后计算$w_{nm}$ 的傅里叶逆变换来计算$w(\theta,\phi)$ , 在一些文章中，方法便是将波束成形权重减少到1个一维函数，这样产生的波束模式是轴对称的，以观察方向为对称轴，有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429172245187.png" alt="image-20230429172245187" style="zoom:40%;" />
+
+<p>那么现在定义新的波束成形权重$d_n(k)$ ，其可能是频率的函数（只和n相关），那么将其视作为1维的。除以$b_n(kr)$ 可以保证产生的转向矢量和波束模式不依赖于阵列周围声场的物理行为。这句话有点抽象，举个例子：我们可以通过除以$b_n(kr)$ 来消除围绕刚性球体配置的阵列的散射效应。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429192939062.png" alt="image-20230429192939062" style="zoom:40%;" />
+
+<p>将波束成形权重的表达式带入</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429193113193.png" alt="image-20230429193113193" style="zoom:40%;" />
+
+<p>可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429193130140.png" alt="image-20230429193130140" style="zoom:40%;" />
+
+<p>那么再将<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428223630941.png" alt="image-20230428223630941" style="zoom:40%;" /> 式子带入上式来表示$p_{nm}$ 可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429193341600.png" alt="image-20230429193341600" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429193355348.png" alt="image-20230429193355348" style="zoom:40%;" />
+
+<p>这里面使用了球谐函数的可加性定理:</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429193742359.png" alt="image-20230429193742359" style="zoom:40%;" />
+
+<p>我们定义一个转向向量$v_n$ 和一个阵列权重矢量$d_n$ ，我们可以得到5.24式的矩阵表达形式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429193934671.png" alt="image-20230429193934671" style="zoom:40%;" />
+
+<p>所以现在阵列权重矢量$d_n$ 可以用来控制阵列的波束模式($y(\Theta)$) ，即阵列对单位振幅平面波的响应。输出$y$ 取决于$\Theta$，$\Theta 在(\theta_l,\phi_l) 和(\theta_k,\phi_k)$ 之间。 通常，$y(\Theta)$ 会在$\Theta &#x3D;0$ 处到达峰值，也就是从这个方向到达的平面波会受到最大的放大作用。这个方向通常被认为是观察方向，或者最感兴趣的方向($\theta_l,\phi_l$) </p>
+<h3 id="5-3-指向性指数"><a href="#5-3-指向性指数" class="headerlink" title="5.3 指向性指数"></a>5.3 指向性指数</h3><p>在之前我们已经提及到了阵列的波束模型，也可以称为 <strong>指向性</strong> ，其被定义成 阵列的输出$y$  对单位振幅的平面波的响应，而我们可以通过提出一个指向性指数来量化阵列的指向性。指向性因子提供了一个 <strong>衡量平方波束模式的峰值和平均值之间的比率，其被定义为DF</strong>，有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429200317281.png" alt="image-20230429200317281" style="zoom:40%;" />
+
+<p>而我们一般提及的指向性指数被定义为 $DI &#x3D; 10log_{10}(DF)$ ，其可以被认为是定向阵列的输出，相对于具有相同均方根定向增益的全向麦克风。其也可以被解释为从观察方向到达的平面波信号和散射的噪声声场的信噪比，在这种情况下，定向性指数量化了由于阵列的方向响应所带来的SNR改进。</p>
+<p>将5.12和5.16式带入上式，可以得到 指向性因子 DF 可以写成与波束成形权重的函数$w_{nm}$ ，也就是：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429201939128.png" alt="image-20230429201939128" style="zoom:40%;" />
+
+<p>我们假设设计$w_{nm}$ 时使用的期望方向等于波到达的方向，即$(\theta_k,\phi_k)$ 。</p>
+<p>而指向性因子可以用矩阵形式重写为广义瑞利商，其可以用来计算一个矩阵相对于另一个矩阵的特征值：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429202334094.png" alt="image-20230429202334094" style="zoom:40%;" />
+
+
+
+<p>对于5.2节中提及的轴对称波束成形，我们同样可以通过将轴对称波束成形中的权重系数带入5.28式子中可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429202934583.png" alt="image-20230429202934583" style="zoom:40%;" />
+
+<p>这里我们都是假设$(\theta_l,\phi_l) &#x3D; (\theta_k,\phi_k)$ ，即观察方向等于平面波的到达方向，而上式可以写成矩阵形式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429203044016.png" alt="image-20230429203044016" style="zoom:40%;" />
+
+<p>举个例子：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429203203578.png" alt="image-20230429203203578" style="zoom:40%;" />
+
+
+
+
+
+<h3 id="5-4-白噪声增益"><a href="#5-4-白噪声增益" class="headerlink" title="5.4 白噪声增益"></a>5.4 白噪声增益</h3><p>我们的阵列通常在非理想的条件下运行，主要非理想条件有：1、麦克风的噪声和频率响应的不确定性以及麦克风位置的精度限制。 阵列的性能，如指向性指数，对噪声和不确定性的不良影响保持鲁棒，我们常用一个参数$WNG$ 作为衡量 阵列 鲁棒性的标准。 <strong>其被定义为 与阵列的输入相比，阵列输出的信噪比的改善。</strong></p>
+<p>我们在这里为了能得到一个简单表达的$WNG$ 的表达式：我们主要是基于如下假设：</p>
+<ol>
+<li>声场是由单一的、单位振幅的平面波组成。</li>
+<li>阵列由自由场的压力麦克风组成</li>
+<li>阵列波束成形权重的设计方向与平面波的到达方向相等</li>
+<li>假设麦克风上的噪声在不同麦克风之间是不相关的，并且方差为$\sigma^2$ ，均值为0。</li>
+</ol>
+<p>在这种条件下，阵列输入端的信号大小为1，阵列输入端的噪声方差为$\sigma^2$ ，那么平面波引起的阵列输出信号可以用公式：</p>
+<p><img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429204214874.png" alt="image-20230429204214874"> 来进行计算，这里的$v_{nm}$ 是在观察方向上的转向向量。阵列输出的噪声的方差可以由阵列方差推导：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429204455838.png" alt="image-20230429204455838" style="zoom:40%;" />
+
+<p>运用球形傅里叶变换的一般形式，即$p_{nm} &#x3D; Sp$ ，并假设各个麦克风的信号$p$ 包含麦克风的噪声成分，其在麦克风之间是不相关的。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230425162043111.png" alt="image-20230425162043111" style="zoom:40%;" />
+
+<p>那么阵列的输出可以简化成为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429204650626.png" alt="image-20230429204650626" style="zoom:40%;" />
+
+<p><strong>现在，WNG，可以被计算为阵列输出的SNR与阵列输入的SNR之间的比值：</strong></p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429204747228.png" alt="image-20230429204747228" style="zoom:40%;" />
+
+<p>如果将上式用广义的瑞丽商数形式表达，那么就可以写成如下的形式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429204833224.png" alt="image-20230429204833224" style="zoom:40%;" />
+
+<p>在实际情况中，我们采用的采样方法主要是均匀或者近乎均匀的采样方法，那么$SS^H$ 的表达式就变为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429205238763.png" alt="image-20230429205238763" style="zoom:40%;" />
+
+<p>那么WNG可以写为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429205741343.png" alt="image-20230429205741343" style="zoom:40%;" />
+
+<p>对于我们之前提及的简化后的轴对称波束成形的情况，我们可以将5.22 中的波束成形权重带入上式，也就是$w_{nm}^* &#x3D; \frac{d_n}{b_n}Y_n^m(\theta_l,\phi_l)$ 。除此之外，$v_{nm} &#x3D; b_n[Y_n^m(\theta_l,\phi_l)]^*$ 也带入，这里的平面波到达方向假设和观察方向相同。现在使用球面谐波可加性定理，那么WNG的在球谐域的表达形式就为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430021950459.png" alt="image-20230430021950459" style="zoom:40%;" />
+
+<p>写成矩阵形式，如下：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430022031743.png" alt="image-20230430022031743" style="zoom:40%;" />
+
+<p>这里介绍的WNG的表达式的推导是<strong>假定麦克风处于自由场</strong>，此时阵列输入的信噪比对于所有麦克风都是一样的，所以可以选择任意的麦克风来代表阵列输入。但是对于其他的阵列配置是不一样的，对于一个围绕刚性球体配置的阵列，不同麦克风在阵列输入端的信噪比可能不同，因为球体的掩蔽效应，对于位于球体上远离平面波到达方向的角度的麦克风来说，这时候阵列输入的信噪比会降低。在这种情况下，我们需要重新定义WNG，以便考虑所有的麦克风的贡献。</p>
+<p>在下一节中，轴对称波束成形器的WNG会被介绍，我们考虑一个阵列，其由9个麦克风均匀地排列在一个开放的球体表面，提供球面谐波分析到N&#x3D;2阶，采用与5.3节的例子，此时波束成形系数选择$d_n &#x3D; 1$ ，5.39式用来计算$kr &#x3D; 0 - N$   的WNG。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430023008045.png" alt="image-20230430023008045" style="zoom:40%;" />
+
+<p>上图分别展示了单个麦克风和由9个麦克风组成的阵列所计算得到的WNG。可以从虚线中看到，对于单个麦克风，无论$kr $ 如何变化，其WNG是一样的，恒等于1，因为正在这种情况下，阵列输入与阵列输出是一样的。而对于由9个麦克风组成的阵列，从$kr &#x3D; 2$ 之后，其比1更大。意味着与阵列输入的信噪比相比，阵列输出的信噪比得到了改善。然而对于$kr$ 较小的值，WNG小于1，意味着信噪比下降，这是阵列信号处理中的一个问题。</p>
+<h3 id="5-5简单的轴对称波束成形器"><a href="#5-5简单的轴对称波束成形器" class="headerlink" title="5.5简单的轴对称波束成形器"></a>5.5简单的轴对称波束成形器</h3><p>在这一节我们主要描述一些简单的波束成形例子。第一个波束成形器就是delay-and-sum 波束成形器，因为其简单实现而被广泛使用。也就是说，波束成形权重由delays组成，延迟的选择使得从阵列观察方向到达的平面波的相位在所有麦克风上都是匹配的，在观察方向上提供最大的输出。除此之外，delay-and-sum 波束成形器还提供了<strong>最大的WNG</strong>，所以对于噪声和不确定因素具有最大的鲁棒性。但是这种方法只适用于 <strong>平面波在自由场中传播</strong>。</p>
+<p>我们现在使用回波束成形的积分方程：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428171716279.png" alt="image-20230428171716279" style="zoom:40%;" />
+
+<p>我们想要能够从这个方程出发，得到一个delay-and-sum的波束成形器的分析公式，在半径为$r$ 的球体上，由于单一振幅的平面波从$\tilde{k}$ 方向到达，其声压可以表示为$e^{i\tilde{k}r}$ ，因此在选择波束成形加权函数时，对于到达方向$(\theta_k,\phi_k)$ 等于阵列观察方向$(\theta_l,\phi_l)$ 的波进行相位矫正，那么加权函数就可以表示为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430030302614.png" alt="image-20230430030302614" style="zoom:40%;" />
+
+<p>这里的$\tilde{k}_l &#x3D; (k,\theta_l,\phi_l)$  和 $r &#x3D; (r,\theta,\phi)$ 表示了阵列的球面，我们再将上写为球谐函数和球谐Bessel函数的和：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430031825199.png" alt="image-20230430031825199" style="zoom:40%;" />
+
+<p>那么波束成形权重的系数可以在球谐域中表示为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430031958481.png" alt="image-20230430031958481" style="zoom:40%;" />
+
+<p>这里的$b_n$ 表示开放球体设置，如我们在第四章中的讨论所说：</p>
+<p>$$b_n(kr) &#x3D; 4\pi i ^n j_n(kr)$$ </p>
+<p>而在之前的轴对称波束成形的表述中，如：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430032310042.png" alt="image-20230430032310042" style="zoom:40%;" />
+
+<p>那么sum-and-delay 的轴对称波束成形权重$d_n$ 为：</p>
+<p><img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430032405658.png" alt="image-20230430032405658"></p>
+<p>那么将5.41中的阵列权重和开放球体中的平面波声场表达式4.3，即阵列配置中测得的声压带入方程5.8，那么就可以得到阵列输出。</p>
+<p><img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430032720530.png" alt="image-20230430032720530"></p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430032840109.png" alt="image-20230430032840109" style="zoom:40%;" />
+
+<p>带入可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430032921530.png" alt="image-20230430032921530" style="zoom:40%;" />
+
+<p>这里的$a_{nm}$ 是方向振幅密度$a(k,\theta_k,\phi_k)$ 的球形傅里叶变换，将上式与之前的由单一单位振幅的平面波组成的声场有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230424131021287.png" alt="image-20230424131021287" style="zoom:40%;" />
+
+<p>另一个广泛使用的波束成形器特点是波束成形权重为单位值，$d_n &#x3D; 1$，那么5.43式可写为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430033503950.png" alt="image-20230430033503950" style="zoom:40%;" />
+
+<p>当$N-&gt;\infty$ 时，近似变为相等，这个结果表明了，<strong>阵列的输出y,作为观察方向的函数，近似于平面波的振幅密度函数</strong> ，换句话来说，由阵列测量的声场可以用平面波分量来表示。所以这种波束成形器被称为”平面波分解”波束成形器。</p>
+<h3 id="5-6-波束成形例子"><a href="#5-6-波束成形例子" class="headerlink" title="5.6 波束成形例子"></a>5.6 波束成形例子</h3><p>这一节介绍了一个 波束成形的例子，目的式为了说明 <strong>声场组成、采样、波束成形和分析</strong> 的方式。下面分步骤介绍：</p>
+<ol>
+<li>$自由场的声压$ : 考虑一个声场，由波数为k的S次谐波组成，到达方向由$(\theta_s,\phi_s)$ 表示，使用公式：</li>
+</ol>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430034248035.png" alt="image-20230430034248035" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430034257415.png" alt="image-20230430034257415" style="zoom:40%;" />
+
+<p>​		那么在位置$(r,\theta,\phi)$ 上的压力可以写为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430034456356.png" alt="image-20230430034456356" style="zoom:40%;" />
+
+<p>​		这个方程是比较精准的，然而我们需要在现实中使用截断来限制求和的方式来应用近似		值。</p>
+<p>​	2.$有限阶声场$: 我们就是考虑在求和式子中用$\tilde{N}$ 来代替$n$ ，近似误差很小如果满足($kr &lt;&lt; 		\tilde{N}$) ， 所以在实践中的声场如下：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430034901908.png" alt="image-20230430034901908" style="zoom:40%;" />
+
+<p>​    3.$通过麦克风进行采样$： 当我们截断声场的表达式后，我们引入一个球形麦克风阵列，以    	原点为中心，假设这个阵列由半径为$r_a$ 的刚性球体组成，其表面排列着$Q$ 个麦克风，按照	均匀采样方法，其允许最高达到$N$ 阶的无混叠采样。在这种情况下，$4\pi i ^nj_n(kr)$ 项可以	被$b_n(kr)$ 所代替，所以可以写成：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430040111851.png" alt="image-20230430040111851" style="zoom:40%;" />
+
+<p>​	4.$球形傅里叶变换：$ 我们通过麦克风的测量值得到了在球面位置$(r,\theta,\phi)$ 上的声压的表达式 $p(k,r_a,\theta_q,\phi_q)$ ， 然后我们想要能够通过从采样得到的值，重建声场，所以我们考虑对于均匀采样的结果做对应的球形傅里叶变换，可以得到球面声压的球面傅里叶变换$p_{nm}$</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430040959973.png" alt="image-20230430040959973" style="zoom:40%;" />
+
+<p>​	5.$球面傅里叶变换的替代计算：$ 如果我们需要避免2-4阶段中引入的有限阶声场近似和空空间混叠带来的影响，那么我们可以从5.47式中直接推导出球面谐波系数。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430041206011.png" alt="image-20230430041206011" style="zoom:40%;" />
+
+<p>​	6.$波束成形：$ 我们现在已经通过计算得到了$p_{nm}$ ，那么如同平面波分解的波束成形可以用类似于5.44式的方程求出来，这里有$[w_{nm}(k)]^* &#x3D; Y_n^m(\theta_l,\phi_l)&#x2F;b_n(kr_a)$</p>
+<p>​	需要注意的是，角度(θl,φl )可以在球面上以任何需要的密度选择，与原始采样集(θq,φq)没有关系。特别是，当在球面上绘制y(θl,φl )时，可能需要一个高的采样密度。</p>
+<h4 id="举个例子：-一个声场由S-3个谐波平面波组成"><a href="#举个例子：-一个声场由S-3个谐波平面波组成" class="headerlink" title="举个例子： 一个声场由S&#x3D;3个谐波平面波组成"></a>举个例子： 一个声场由S&#x3D;3个谐波平面波组成</h4><p>其中他们的幅值分别为：$1.0,0.7e^{i\pi&#x2F;3},0.4 e^{i\pi&#x2F;2}$ ，并且到达方向分别为$(90°,45°),(117°,90°),(45°,270°)$ ，波数和半径满足$kr&#x3D;kr_a &#x3D; 6$。刚性球体阵列表面的压力由84 个麦克风测量，并允许无混叠采样到$N&#x3D;6$ 阶。在麦克风上的声压式按照阶段3来进行计算，其中截断$\tilde{N} &#x3D; 10$ ，然后，球形傅里叶系数可以按照阶段4进行计算，然后再阶段5使用波束成形进行平面波分解得到$y(\theta_l,\phi_l)$。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430042545492.png" alt="image-20230430042545492" style="zoom:40%;" />
+
+<p>   从上图中我们可以看到通过波束成形得到的结果$y(\theta_l,\phi_l)$ 的归一化幅值，这就是通过阶段6得到的平面波分解结果。可以看到图中显示的三个峰值，对应了平面波的实际到达方向。</p>
+<p>在平面波波束成形中，每个平面波都对最后的结果$y$ 贡献一个类似$sinc$ 的函数，最后的结果$y$ 是这些函数的加权和，所以这也是为什么在图上可以看到除了到达方向以外的看到峰值，这是一些不良的影响，在之后的章节中我们会介绍一些方法来减少这些影响。</p>
+<p>下面我们直接从公式5.49来计算$p_{nm}$ ，其避免了由于有限阶和空间混叠造成的误差，结果如下图：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430044817461.png" alt="image-20230430044817461" style="zoom:40%;" />
+
+<p>​	可以看到结果和我们有限阶和空间采样的结果类似，也就是说此时有限阶和空间采样不会产生明显的误差。因为此时$\tilde{N} &#x3D; 10,N&#x3D;6,kr&#x3D;6$ ,此时的误差很小。</p>
+<p>​	而如果我们使用$kr &#x3D; 10$ ，可以从下图看到，有大量远离平面波到达方向的峰值，这些峰值主要是由于混叠误差造成的。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430045418336.png" alt="image-20230430045418336" style="zoom:40%;" />
+
+
+
+<p>在这个例子中，我们可以将其改为用矩阵形式来求解，因为矩阵形式是在计算机实践中最有效的形式，5.47被写为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430045538306.png" alt="image-20230430045538306" style="zoom:40%;" />
+
+<p>其中，$S×1$矢量$a_s$表示平面波振幅，$Q×1$矢量$p$表示传声器处的声压振幅，$( ˜N + 1)^2×( ˜N + 1)^2$对角矩阵$B$表示$r&#x3D;ra$的刚性球体的$bn(kr)$值、 $S × ( ˜N + 1)^2$矩阵$Y˜s$持有平面波到达方向的球面谐波，同样，$Q × ( ˜N + 1)^2$矩阵˜$Yq$持有麦克风位置方向的球面谐波。</p>
+<p>下一步，球上的声压球谐系数$p_{nm}$ ，可以通过5.48式进行计算得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430045824685.png" alt="image-20230430045824685" style="zoom:40%;" />
+
+<p><img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430050016897.png" alt="image-20230430050016897"></p>
+<p>最后一步，平面波分解可以被计算为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430050007288.png" alt="image-20230430050007288" style="zoom:40%;" />
+
+<h3 id="5-7-转向非对称轴的波束模式"><a href="#5-7-转向非对称轴的波束模式" class="headerlink" title="5.7 转向非对称轴的波束模式"></a>5.7 转向非对称轴的波束模式</h3><p>虽然在之前的轴对称波束成形器为我们波束模式的分析提供了一些简化的设计，但是由于其最后变成了一个一维的配置，在某些情况下，并不是合适。</p>
+<p>在一些场景下，我们对围绕观察方向的非轴对称波束模式感兴趣，比如，感兴趣的声源在定向空间中占据一个宽阔的区域，如礼堂的舞台等，在这种情况下，主瓣在方位角上应该是宽的，在仰角上应该是窄的，因此如果运用我们之前所提的轴对称波束模式不能提供合适的解决方案，所以我们想要回到一般的二维波束成形器的表述，如公式5.8。 我们将波束成形系数$w_{nm}$ 作为$b_n$ 和修改后的波束成形系数$c_{nm}$ 的函数来表示比较方便：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430050521722.png" alt="image-20230430050521722" style="zoom:40%;" />
+
+<p>在这里，阵列波束模式，被定义为响应单位平面波的阵列输出，通过将5.54式和5.16式子：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428223630941.png" alt="image-20230428223630941" style="zoom:40%;" />
+
+<p>带入5.8：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430050716834.png" alt="image-20230430050716834" style="zoom:40%;" />
+
+<p>就可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430050726760.png" alt="image-20230430050726760" style="zoom:40%;" />
+
+<p>所以通过上式，可以看到波束模式$y$ 可以将$c_{nm}(k)$  通过求main傅里叶变换和复共轭计算出来，<em><em>即$y(\theta_k,\phi_k)^</em>$是$c_{nm}^</em>$ 的球形傅里叶变换** ,那么就可以知道 ，一旦我们有了所需的波束模式，那么就可以计算$c_{nm}$ ，然而在这种情况下， 波束的转向并不像在轴对称波束的情况下那么简单， 回顾一下，在轴对称波束模式的情况下，转向是通过在公式：</p>
+<p><img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430124332388.png" alt="image-20230430124332388"></p>
+<p>中替换所需的观察方向$(\theta_l,\phi_l)$ 来实现的，而这里不需要对波束成形系数$d_n$ 做任何修改。</p>
+<p>而在5.55中，针对非轴对称波束成形，转向将会改变系数$c_{nm}$ ，然而，转向波束模式相当于旋转函数$y(\theta_k,\phi_k)$ ，所以使用了1.6节提及的球体上函数旋转操作。</p>
+<p>这里用$y^r(\theta_k,\phi_k) &#x3D; A(\alpha,\beta,\gamma)y(\theta_k,\phi_k)$ 表示球面上的函数，$y$ 通过欧拉角$(\alpha,\beta,\gamma)$ 进行旋转，在波束成形的情况下，旋转把波束模式引导到所需的方向，在非轴对称波束模式情况下，除了传统的改变观察方向，还有一个自由度，可以解释为波束模式本身围绕观察方向的旋转。可以写为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430125200015.png" alt="image-20230430125200015" style="zoom:40%;" />
+
+<p>这里的波束成形系数为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430125228169.png" alt="image-20230430125228169" style="zoom:40%;" />
+
+<p>把5.54插入上式，可以得到旋转系数：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430125253034.png" alt="image-20230430125253034" style="zoom:40%;" />
+
+<p>上式可以写为一个矩阵形式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430125310122.png" alt="image-20230430125310122" style="zoom:40%;" />
+
+
+
+
+
+<h2 id="第六章-最佳波束模式设计"><a href="#第六章-最佳波束模式设计" class="headerlink" title="第六章 最佳波束模式设计"></a>第六章 最佳波束模式设计</h2><p>在之前的第五章，我们主要介绍了球形麦克风阵列的波束成形，其可以作为定向滤波的工具，其主要是计算出阵列的波束模式，而我们希望能有一套系统的方法，我们可以更明确的控制波束模式，来实现特定的属性，如：实现最大指向性的波束形成器可以有助于增强所需的平面波；如果我们比较看重系统不确定性的鲁棒性，那么我们希望能够实现最大WNG的波束成形器；我们也可能对增强所需的平面波感兴趣，同时保证其他方向的不希望的平面波有一个特定的减少水平，这里我们可以通过使用Dolph-Chebyshev设计来限制波束模式中的旁瓣水平来实现。这一章主要讨论的是为球形阵列指定的波束模式得到设计方法，主要是提供一种工具，能够使得阵列的特性和特定的性能方面相匹配。</p>
+<h3 id="6-1-最大指向性波束成形器"><a href="#6-1-最大指向性波束成形器" class="headerlink" title="6.1 最大指向性波束成形器"></a>6.1 最大指向性波束成形器</h3><p>在之前我们引入了指向性系数，其被定义为在观测方向上的阵列响应与所有方向上的平均响应之间的比率，常见的为通过引入无失真响应约束来规范观测方向的响应，通过这样，在观测方向的单位响应的约束下，平均响应是最小的。根据我们之前推导得到的DF的表达式如下：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429202334094.png" alt="image-20230429202334094" style="zoom:40%;" />
+
+<p>所以我们最大指向性波束成形器被设计为满足：下面式子：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430132052077.png" alt="image-20230430132052077" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430132105152.png" alt="image-20230430132105152" style="zoom:40%;" />
+
+<p>这里的$w_{nm}^H v_{nm} &#x3D; 1$ 代表了 无失真的响应约束，</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430132609088.png" alt="image-20230430132609088" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230428223630941.png" alt="image-20230428223630941" style="zoom:40%;" />
+
+<p>为了求解此时6.1中的优化问题，我们可以考虑采用拉格朗日乘数法，因为我们在定义DF的5.27式中，我们可以得到计算平均指向性（也就是分母项）是一个实数，那么可以直到在矩阵表达式，也就是5.29式中的分母，即$w_{nm}^HBw_{nm}$ 也是一个实数，因此，我们在6.1的优化问题中最小化的也是一个实数，所以可以用拉格朗日乘数法，将约束优化问题转为一个求解最值问题。</p>
+<p>其基本思想是引入一个新的标量值（拉格朗日乘数），将约束条件融入目标函数中，那么优化问题就变成了一个无约束问题，可以用常规数学方法求解，也就是现在引入$\lambda$，把我们的优化问题转换如下。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430133435983.png" alt="image-20230430133435983" style="zoom:40%;" />
+
+<p>然后我们对复数矢量$w_{nm}$ 进行求导，并将其结果设置为0，可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430133522776.png" alt="image-20230430133522776" style="zoom:40%;" />
+
+<p>当上面这个方程满足时，意味着在求解点上，二次元目标函数和线性约束函数都具有相同的梯度，只是被$\lambda$ 归一化，那么结果可以写成：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430134323883.png" alt="image-20230430134323883" style="zoom:40%;" />
+
+<p>两边同时乘上$v_{nm}$ 然后通过考虑6.1中的约束，那么可以得到$\lambda$ 为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430134429743.png" alt="image-20230430134429743" style="zoom:40%;" />
+
+<p>那么$w_{nm}$ 的最优值可以写为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430134458521.png" alt="image-20230430134458521" style="zoom:40%;" />
+
+<p>注意这里的矩阵必须是可逆的，也就是6.2式终端$b_n(kr)$ 的所有值都是非零的，我们将矩阵$B和v_{nm}$ 都带入上式，也就是：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430134934621.png" alt="image-20230430134934621" style="zoom:40%;" />
+
+<p>将其与我们在上一章讨论的简化的一维轴对称波束成形的系数表达式做比较，可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230429172245187.png" alt="image-20230429172245187" style="zoom:40%;" />
+
+<p>很明显可以看到，最大方向的波束成形器是轴对称的，有：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430135405685.png" alt="image-20230430135405685" style="zoom:40%;" />
+
+<p>并且可以这个等式是之前所描述的平面波分解阵列的归一化版本，也就是说，<strong>平面波分解阵列实现了最大指向性，</strong>这说明了一件事：<strong>对于轴对称波束模式，将所有系数设置为常数项的简单解实现了最佳指向性指数。</strong></p>
+<p>然后将6.8的解和满足的约束条件带回5.29，可以得到最大指向性波束成形器的指向性系数：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430140402887.png" alt="image-20230430140402887" style="zoom:40%;" />
+
+<p>因此，得到可实现的最大指向性系数取决于阵列的阶数，高指向性系数的阵列需要高阶N，这反过来又需要大量的麦克风，因为无混叠采样的麦克风数量需要$Q \geq (N+1)^2$ ，所以最大可实现的指向性与阵列中的麦克风数量成正比。</p>
+<p>最大指向性阵列展示了一种称为超心形的波束模式，这种波束模式，对于一阶阵列，指向性为$\frac{1}{4}(1+3cos\Theta)$，可以通过最大指向性系数解扩展到球形阵列。利用如下等式：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430141142797.png" alt="image-20230430141142797" style="zoom:40%;" />
+
+<p>这可以作为轴对称阵列的波束模式，这里有$d_n &#x3D; \frac{4\pi}{(N+1)^2}$ ，那么带入上式，就可以得到：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430213300079.png" alt="image-20230430213300079" style="zoom:40%;" />
+
+<p>下面的表展示了几个阵列阶数的超心形指向性，以及对应的指向性指数，还有图展示了$N &#x3D; 1,…,4$ 阶数的波束图。</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430213509933.png" alt="image-20230430213509933" style="zoom:40%;" />
+
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430213519557.png" alt="image-20230430213519557" style="zoom: 50%;" />
+
+<p>从图中可以看到，随着阶数的增加，改进的超心形指向性伴随着侧瓣幅值的降低和主瓣的变窄，也就是分辨率变得更高，根据Rafaely的计算，对于阶数高于$N&#x3D;4$ 的阵列，主瓣的宽度，定义为主瓣两侧的两个零点之间的角度，可以通过下面的表达式来近似计算：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430213850647.png" alt="image-20230430213850647" style="zoom:40%;" />
+
+<p>这里的$\Theta_0$ 表示了主瓣零点的角度，主瓣的宽度也与阵列在空间上分离两个来自不同方向的平面波的能力有关，在光学中，这个被称为瑞丽极限：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430214106204.png" alt="image-20230430214106204" style="zoom:40%;" />
+
+<p>可以看到，对于阶数较低的阵列，Rayleigh的分辨率较差，随着阶数的增加，分辨率会按照比率地提高。</p>
+<p><strong>另一种求解最大指向性波束形成器的方法</strong>，这种方法不需要引入拉格朗日乘数，而是直接最大化指向性因子，而不施加无失真响应约束，然后对解进行归一化以满足约束。我们可以直接把5.29式写成：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430215849064.png" alt="image-20230430215849064" style="zoom:40%;" />
+
+<p>进一步可以写成：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430215912696.png" alt="image-20230430215912696" style="zoom:40%;" />
+
+<p>因为这是一个标量方程，所以可以进一步化简成为：</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430220040498.png" alt="image-20230430220040498" style="zoom:40%;" />
+
+<p>可以知道，6.17式是一个广义特征值问题，其中6.15式表示一个广义瑞丽商，我们可以使用在5.29式中定义的矩阵A和B，那么广义特征值问题就可以被简化成为一个标准特征值 问题。首先在两边乘上矩阵B的逆，</p>
+<p>我们要找到一个向量 w，使得广义瑞利商最大化。这可以通过求解广义特征值问题得到：</p>
+<p>$A * w &#x3D; λ * B * w$</p>
+<p>在这里，我们希望将这个广义特征值问题转化为一个标准特征值问题。首先，我们用矩阵 B 的逆左乘方程的两边：</p>
+<p>$B^{-1} * A * w &#x3D; λ * B^{-1} * B * w$</p>
+<p>这将化简为：</p>
+<p>$B^{-1} * A * w &#x3D; λ * w$</p>
+<p>现在我们得到了一个与标准特征值问题相似的方程。接下来，我们利用矩阵 A 和 B 的特殊结构。假设矩阵 A 可以表示为两个向量 vnm 和 vnm 的外积：</p>
+<p>$A &#x3D; v_{nm} * v_{nm}^H$</p>
+<p>现在我们将这个表示代入 $B^{-1} * A * w &#x3D; λ * w$：</p>
+<p>$B^{-1} * (v_{nm} * v_{nm}^H) * w &#x3D; λ * w$</p>
+<p>我们可以将 $B^{-1}$ 与向量 $v_{nm}$ 相乘，得到一个新的向量：</p>
+<p>$\tilde{v}<em>{nm}$ &#x3D; $B^{-1} * v</em>{nm}$</p>
+<p>现在，我们得到一个与标准特征值问题形式完全相同的方程：</p>
+<p>$\tilde{v}<em>{nm} * v</em>{nm}^H * w &#x3D; λ * w$</p>
+<p>这样我们就将原始的广义特征值问题转换成了一个标准特征值问题。通过解决这个问题，我们可以找到最大指向性波束形成器的解。</p>
+<p>通过上述的推导，我们可以将方程6.17写成</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430221816558.png" alt="image-20230430221816558" style="zoom:40%;" />
+
+<p>方程6.18是一个特征值问题，其中 $\tilde{v_{nm}}$ 是 $B^(-1)$ 作用在 $v_nm$ 上得到的新向量，$v_nm^H$ 是向量 $v_nm$ 的复共轭转置。$w_{nm}$ 是我们希望找到的最优波束形成权重向量，λ 是相应的特征值,因为此时通过上面的变换，我们可以得到此时考虑的矩阵具有单位秩，因为其是由两个向量的外积组成的，也就意味着，这个矩阵只有一个非零特征值，通过求解这个特征值问题，我们可以找到对应的特征向量（权重向量$w_{nm}$ ，这个特征向量将会满足我们的最大指向性约束。我们将$w_{nm} &#x3D; \tilde{v}<em>{nm}$ 带入，那么就得到$\lambda &#x3D; v</em>{nm}^H \tilde{v}_{nm}$ 。这时候最优化波束成形系数可以写成:</p>
+<img src="/images/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/image-20230430224405199.png" alt="image-20230430224405199" style="zoom:40%;" />
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Gavin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/09/29/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/">http://example.com/2023/09/29/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Gavin</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Spherical-Harmonic/">Spherical Harmonic</a><a class="post-meta__tags" href="/tags/Array-Signal-Processing/">Array Signal Processing</a><a class="post-meta__tags" href="/tags/Spherical-microphone-array/">Spherical microphone array</a></div><div class="post_share"><div class="social-share" data-image="https://i.ibb.co/pRR1S1b/Eigenmike.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/25/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADeep%20learning%20assisted%20sound%20source%20localization%20using%20two%20orthogonal%20first-order%20differential%20microphone%20arrays/" title="文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays"><img class="cover" src="https://i.ibb.co/XVMYNX3/image.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays</div></div></a></div><div class="next-post pull-right"><a href="/2023/09/22/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AAudio%20Signal%20Processing%20in%20the%2021st%20Century%EF%BC%9AThe%20important%20outcome%20of%20the%20past%2025%20years/" title="文献阅读: Audio signal processing in the 21st Century: the important outcomes of the past 25 years"><img class="cover" src="https://i.ibb.co/MRvpKwh/image.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">文献阅读: Audio signal processing in the 21st Century: the important outcomes of the past 25 years</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/08/25/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ABlind%20Localization%20of%20Early%20Room%20Reflections%20Using%20Phase%20Aligned%20Spatial%20Correlation/" title="文献阅读:Blind Localization of Early Room Reflections Using Phase Aligned Spatial Correlation"><img class="cover" src="https://i.ibb.co/L56nmjT/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-25</div><div class="title">文献阅读:Blind Localization of Early Room Reflections Using Phase Aligned Spatial Correlation</div></div></a></div><div><a href="/2023/09/10/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AA%20DEREVERBERATION%20ALGORITHM%20FOR%20SPHERICAL%20MICROPHONE%20ARRAYS%20USING%20COMPRESSED%20SENSING%20TECHNIQUES/" title="文献阅读: A DEREVERBERATION ALGORITHM FOR SPHERICAL MICROPHONE ARRAYS USING COMPRESSED SENSING TECHNIQUES"><img class="cover" src="https://i.ibb.co/HCJqn32/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-10</div><div class="title">文献阅读: A DEREVERBERATION ALGORITHM FOR SPHERICAL MICROPHONE ARRAYS USING COMPRESSED SENSING TECHNIQUES</div></div></a></div><div><a href="/2023/09/08/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AEstimation%20of%20Reflections%20from%20Impulse%20Responses/" title="文献阅读: Acoustic Reflection Localization fromRoom Impulse Responses"><img class="cover" src="https://i.ibb.co/4mDq6vK/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-08</div><div class="title">文献阅读: Acoustic Reflection Localization fromRoom Impulse Responses</div></div></a></div><div><a href="/2023/09/03/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADirection%20of%20Arrival%20Estimation%20of%20Reflections%20from%20Room%20Impulse%20Responses%20Using%20a%20Spherical%20Microphone%20Array/" title="文献阅读: Direction of Arrival Estimation of Reflections from Room Impulse Responses Using a Spherical Microphone Array"><img class="cover" src="https://i.ibb.co/m4s8sZr/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-03</div><div class="title">文献阅读: Direction of Arrival Estimation of Reflections from Room Impulse Responses Using a Spherical Microphone Array</div></div></a></div><div><a href="/2023/08/25/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ALocalization%20of%20Multiple%20Speakers%20under%20High%20Reverberation%20using%20a%20Spherical%20Microphone%20Array%20and%20the%20Direct-Path%20Dominance%20Test/" title="文献阅读:Localization of Multiple Speakers under High Reverberation using a Spherical Microphone Array and the Direct-Path Dominance Test"><img class="cover" src="https://i.ibb.co/GQZT1sx/image-20230822154738866.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-25</div><div class="title">文献阅读:Localization of Multiple Speakers under High Reverberation using a Spherical Microphone Array and the Direct-Path Dominance Test</div></div></a></div><div><a href="/2023/09/03/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AOn%20the%20detection%20quality%20of%20early%20room%20reflection%20directions%20using%20compressive%20sensing%20on%20rigid%20spherical%20microphone%20array%20data%20205500/" title="文献阅读: On the detection quality of early room reflection directions using compressive sensing on rigid spherical microphone array data"><img class="cover" src="https://i.ibb.co/tPd3xBr/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-03</div><div class="title">文献阅读: On the detection quality of early room reflection directions using compressive sensing on rigid spherical microphone array data</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.ibb.co/ch2RrDp/20230822001522.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Gavin</div><div class="author-info__description">我的过去常常追赶着我</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/alexandergwm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/alexandergwm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wenmiaogao@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">May you stay young forever, do the thing in your own zone.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text">基本信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80"><span class="toc-number">2.</span> <span class="toc-text">第一章 数学基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E7%90%83%E8%B0%90%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-number">2.1.</span> <span class="toc-text">1、球谐函数的性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E6%8C%87%E6%95%B0%E9%A1%B9%E5%92%8C%E5%8B%92%E8%AE%A9%E5%BE%B7%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.</span> <span class="toc-text">2、指数项和勒让德函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E9%A1%B9"><span class="toc-number">2.2.1.</span> <span class="toc-text">指数项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E5%B8%A6%E5%8B%92%E8%AE%A9%E5%BE%B7%E5%87%BD%E6%95%B0"><span class="toc-number">2.2.2.</span> <span class="toc-text">连带勒让德函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E7%90%83%E5%BD%A2%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2"><span class="toc-number">2.3.</span> <span class="toc-text">2、球形傅里叶变换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%90%83%E5%BD%A2%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-number">2.3.1.</span> <span class="toc-text">球形傅里叶变换的性质</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E5%85%B6%E4%BD%99%E6%9C%89%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">2.4.</span> <span class="toc-text">3、其余有用的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4%E5%9C%A8%E7%90%83%E5%BD%A2%E4%B8%8A%E7%9A%84%E5%87%BD%E6%95%B0%E6%97%8B%E8%BD%AC%E4%BB%A5%E5%8F%8A%E7%90%83%E5%BD%A2%E5%8D%B7%E7%A7%AF%E5%92%8C%E7%9B%B8%E5%85%B3"><span class="toc-number">2.5.</span> <span class="toc-text">1.4在球形上的函数旋转以及球形卷积和相关</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%A3%B0%E5%AD%A6%E8%83%8C%E6%99%AF"><span class="toc-number">3.</span> <span class="toc-text">第二章 声学背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%A3%B0%E6%B3%A2%E6%96%B9%E7%A8%8B"><span class="toc-number">3.1.</span> <span class="toc-text">2.1 声波方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%90%83%E9%9D%A2Bessel-%E5%92%8C-Hankel-%E5%87%BD%E6%95%B0"><span class="toc-number">3.2.</span> <span class="toc-text">2.2 球面Bessel 和 Hankel 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%90%83%E9%9D%A2Bessel%E5%87%BD%E6%95%B0"><span class="toc-number">3.2.1.</span> <span class="toc-text">球面Bessel函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%8D%95%E4%B8%80%E5%B9%B3%E9%9D%A2%E6%B3%A2"><span class="toc-number">3.3.</span> <span class="toc-text">2.3 单一平面波</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E5%A4%9A%E5%B9%B3%E9%9D%A2%E6%B3%A2%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">3.4.</span> <span class="toc-text">2.4 多平面波的组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E7%82%B9%E5%A3%B0%E6%BA%90"><span class="toc-number">3.5.</span> <span class="toc-text">2.5 点声源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E5%88%9A%E6%80%A7%E7%90%83%E4%BD%93%E5%91%A8%E5%9B%B4%E7%9A%84%E5%A3%B0%E5%8E%8B"><span class="toc-number">3.6.</span> <span class="toc-text">2.6 刚性球体周围的声压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-%E5%A3%B0%E5%9C%BA%E7%9A%84%E4%BC%A0%E9%80%92-%EF%BC%88%E8%BF%99%E7%AB%A0%E6%B2%A1%E7%9C%8B%EF%BC%89"><span class="toc-number">3.7.</span> <span class="toc-text">2.7 声场的传递 （这章没看）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%90%83%E7%9A%84%E9%87%87%E6%A0%B7"><span class="toc-number">4.</span> <span class="toc-text">第三章 球的采样</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E9%87%87%E6%A0%B7%E9%98%B6%E6%95%B0%E6%9C%89%E9%99%90%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 采样阶数有限的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E7%AD%89%E8%A7%92%E9%87%87%E6%A0%B7"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 等角采样</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E9%AB%98%E6%96%AF%E9%87%87%E6%A0%B7"><span class="toc-number">4.3.</span> <span class="toc-text">3.3 高斯采样</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E5%9D%87%E5%8C%80%E5%92%8C%E8%BF%91%E4%BC%BC%E5%9D%87%E5%8C%80%E9%87%87%E6%A0%B7"><span class="toc-number">4.4.</span> <span class="toc-text">3.4 均匀和近似均匀采样</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E6%95%B0%E5%80%BC%E6%96%B9%E6%B3%95%E8%AE%A1%E7%AE%97%E9%87%87%E6%A0%B7%E6%9D%83%E5%80%BC"><span class="toc-number">4.5.</span> <span class="toc-text">3.5 数值方法计算采样权值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E7%A6%BB%E6%95%A3%E7%90%83%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2"><span class="toc-number">4.6.</span> <span class="toc-text">3.6 离散球傅里叶变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-%E7%A9%BA%E9%97%B4%E6%B7%B7%E5%8F%A0"><span class="toc-number">4.7.</span> <span class="toc-text">3.7 空间混叠</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%EF%BC%9A"><span class="toc-number">4.7.1.</span> <span class="toc-text">一个例子：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%90%83%E5%BD%A2%E9%98%B5%E5%88%97%E9%85%8D%E7%BD%AE"><span class="toc-number">5.</span> <span class="toc-text">第四章 球形阵列配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E5%8D%95%E4%B8%80%E5%BC%80%E6%94%BE%E7%90%83%E4%BD%93"><span class="toc-number">5.1.</span> <span class="toc-text">4.1 单一开放球体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%EF%BC%9A%E8%80%83%E8%99%91%E4%B8%80%E4%B8%AA%E5%8D%8A%E5%BE%84-r-8cm-%E5%B9%B6%E4%B8%94%E6%9C%8972%E4%B8%AA%E9%AB%98%E6%96%AF%E9%87%87%E6%A0%B7%E5%88%86%E5%B8%83%E7%9A%84%E9%BA%A6%E5%85%8B%E9%A3%8E%E7%9A%84%E7%AC%AC%E4%B8%80%E5%BC%80%E6%94%BE%E7%90%83%E4%BD%93%E9%98%B5%E5%88%97%E3%80%82"><span class="toc-number">5.1.1.</span> <span class="toc-text">一个例子：考虑一个半径$r&#x3D;8cm$ 并且有72个高斯采样分布的麦克风的第一开放球体阵列。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%88%9A%E6%80%A7%E7%90%83%E4%BD%93"><span class="toc-number">5.2.</span> <span class="toc-text">4.2 刚性球体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%EF%BC%9A%E8%80%83%E8%99%91%E4%B8%80%E4%B8%AA%E5%8D%8A%E5%BE%84-r-8cm-%E5%B9%B6%E4%B8%94%E6%9C%8972%E4%B8%AA%E9%AB%98%E6%96%AF%E9%87%87%E6%A0%B7%E5%88%86%E5%B8%83%E7%9A%84%E9%BA%A6%E5%85%8B%E9%A3%8E%E7%9A%84%E7%AC%AC%E4%B8%80%E5%88%9A%E6%80%A7%E7%90%83%E4%BD%93%E9%98%B5%E5%88%97%E3%80%82"><span class="toc-number">5.2.1.</span> <span class="toc-text">一个例子：考虑一个半径$r&#x3D;8cm$ 并且有72个高斯采样分布的麦克风的第一刚性球体阵列。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%B8%A6%E5%BF%83%E5%BD%A2%E9%BA%A6%E5%85%8B%E9%A3%8E%E7%9A%84%E5%BC%80%E6%94%BE%E7%90%83%E4%BD%93"><span class="toc-number">5.3.</span> <span class="toc-text">4.3 带心形麦克风的开放球体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E5%8F%8C%E5%8D%8A%E5%BE%84%E7%9A%84%E5%BC%80%E6%94%BE%E7%90%83%E4%BD%93"><span class="toc-number">5.4.</span> <span class="toc-text">4.4 双半径的开放球体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E5%AF%B9%E9%94%99%E8%AF%AF%E7%9A%84%E9%B2%81%E6%A3%92%E6%80%A7%E5%92%8C%E6%95%B0%E5%80%BC%E9%98%B5%E5%88%97%E8%AE%BE%E8%AE%A1"><span class="toc-number">5.5.</span> <span class="toc-text">4.5 对错误的鲁棒性和数值阵列设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-%E5%B8%A6%E6%9C%89%E9%B2%81%E6%A3%92%E5%88%86%E6%9E%90%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%AE%9E%E4%BE%8B"><span class="toc-number">5.6.</span> <span class="toc-text">4.6 带有鲁棒分析的设计实例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%E4%B8%80%EF%BC%9A%E5%9D%87%E4%B8%BA%E5%88%9A%E6%80%A7%E7%90%83%E4%BD%93%E7%9A%84%E7%90%83%E9%9D%A2%E9%98%B5%E5%88%97%EF%BC%8C%E4%B8%89%E7%A7%8D%E9%87%87%E6%A0%B7%E6%96%B9%E6%A1%88"><span class="toc-number">5.6.1.</span> <span class="toc-text">例子一：均为刚性球体的球面阵列，三种采样方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%E4%BA%8C%EF%BC%9A%E5%9B%B4%E7%BB%95%E5%88%9A%E6%80%A7%E7%90%83%E4%BD%93%E9%98%B5%E5%88%97%E5%92%8C%E5%9B%B4%E7%BB%95%E5%BC%80%E6%94%BE%E7%90%83%E4%BD%93%E9%85%8D%E7%BD%AE"><span class="toc-number">5.6.2.</span> <span class="toc-text">例子二：围绕刚性球体阵列和围绕开放球体配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%E4%B8%89%EF%BC%9A%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BD%A2%E9%BA%A6%E5%85%8B%E9%A3%8E%E7%9A%84%E5%8F%8C%E7%90%83%E4%BD%93%E9%98%B5%E5%88%97%EF%BC%8C%E5%85%B6%E4%B8%AD%E7%AC%AC%E4%BA%8C%E5%8D%8A%E5%BE%84%E6%AF%94%E7%AC%AC%E4%B8%80%E5%8D%8A%E5%BE%84%E5%B0%8F1-3%E5%80%8D%EF%BC%8C%E4%BD%BF%E7%94%A8%E4%BA%8684%E4%B8%AA%E6%A0%B7%E6%9C%AC%E7%9A%84%E8%BF%91%E4%B9%8E%E5%9D%87%E5%8C%80%E9%87%87%E6%A0%B7"><span class="toc-number">5.6.3.</span> <span class="toc-text">例子三：使用心形麦克风的双球体阵列，其中第二半径比第一半径小1.3倍，使用了84个样本的近乎均匀采样</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-%E7%90%83%E5%BD%A2%E5%A4%96%E5%A3%B3%E9%85%8D%E7%BD%AE"><span class="toc-number">5.7.</span> <span class="toc-text">4.7 球形外壳配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%90%83%E5%BD%A2%E9%98%B5%E5%88%97%E6%B3%A2%E6%9D%9F%E6%88%90%E5%BD%A2"><span class="toc-number">6.</span> <span class="toc-text">第五章  球形阵列波束成形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E6%B3%A2%E6%9D%9F%E6%88%90%E5%BD%A2%E6%96%B9%E7%A8%8B"><span class="toc-number">6.1.</span> <span class="toc-text">5.1 波束成形方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E8%BD%B4%E5%AF%B9%E7%A7%B0%E6%B3%A2%E6%9D%9F%E6%88%90%E5%BD%A2"><span class="toc-number">6.2.</span> <span class="toc-text">5.2 轴对称波束成形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E6%8C%87%E5%90%91%E6%80%A7%E6%8C%87%E6%95%B0"><span class="toc-number">6.3.</span> <span class="toc-text">5.3 指向性指数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E7%99%BD%E5%99%AA%E5%A3%B0%E5%A2%9E%E7%9B%8A"><span class="toc-number">6.4.</span> <span class="toc-text">5.4 白噪声增益</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5%E7%AE%80%E5%8D%95%E7%9A%84%E8%BD%B4%E5%AF%B9%E7%A7%B0%E6%B3%A2%E6%9D%9F%E6%88%90%E5%BD%A2%E5%99%A8"><span class="toc-number">6.5.</span> <span class="toc-text">5.5简单的轴对称波束成形器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-%E6%B3%A2%E6%9D%9F%E6%88%90%E5%BD%A2%E4%BE%8B%E5%AD%90"><span class="toc-number">6.6.</span> <span class="toc-text">5.6 波束成形例子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BE%E4%B8%AA%E4%BE%8B%E5%AD%90%EF%BC%9A-%E4%B8%80%E4%B8%AA%E5%A3%B0%E5%9C%BA%E7%94%B1S-3%E4%B8%AA%E8%B0%90%E6%B3%A2%E5%B9%B3%E9%9D%A2%E6%B3%A2%E7%BB%84%E6%88%90"><span class="toc-number">6.6.1.</span> <span class="toc-text">举个例子： 一个声场由S&#x3D;3个谐波平面波组成</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7-%E8%BD%AC%E5%90%91%E9%9D%9E%E5%AF%B9%E7%A7%B0%E8%BD%B4%E7%9A%84%E6%B3%A2%E6%9D%9F%E6%A8%A1%E5%BC%8F"><span class="toc-number">6.7.</span> <span class="toc-text">5.7 转向非对称轴的波束模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%9C%80%E4%BD%B3%E6%B3%A2%E6%9D%9F%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1"><span class="toc-number">7.</span> <span class="toc-text">第六章 最佳波束模式设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E6%9C%80%E5%A4%A7%E6%8C%87%E5%90%91%E6%80%A7%E6%B3%A2%E6%9D%9F%E6%88%90%E5%BD%A2%E5%99%A8"><span class="toc-number">7.1.</span> <span class="toc-text">6.1 最大指向性波束成形器</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/01/13/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9F%BA%E4%BA%8E%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%9A%84%E5%A3%B0%E6%BA%90DoA%E4%BC%B0%E8%AE%A1/" title="知识总结: 基于球麦克风阵列的声源DoA估计"><img src="https://i.ibb.co/1dkyDjy/acoustic-camera-gfaitech-Sphere120-beamforming-microphone-array-3d-measurement-interior-right.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="知识总结: 基于球麦克风阵列的声源DoA估计"/></a><div class="content"><a class="title" href="/2024/01/13/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9F%BA%E4%BA%8E%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%9A%84%E5%A3%B0%E6%BA%90DoA%E4%BC%B0%E8%AE%A1/" title="知识总结: 基于球麦克风阵列的声源DoA估计">知识总结: 基于球麦克风阵列的声源DoA估计</a><time datetime="2024-01-13T00:51:54.000Z" title="发表于 2024-01-13 08:51:54">2024-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/02/%E6%AF%94%E8%B5%9B%E7%9B%B8%E5%85%B3%EF%BC%9ADCASE%202019%20task3%20%20SELD%E5%A3%B0%E9%9F%B3%E4%BA%8B%E4%BB%B6%E5%AE%9A%E4%BD%8D%E6%A3%80%E6%B5%8B/" title="文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data"><img src="https://i.ibb.co/b7XKwb2/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data"/></a><div class="content"><a class="title" href="/2023/11/02/%E6%AF%94%E8%B5%9B%E7%9B%B8%E5%85%B3%EF%BC%9ADCASE%202019%20task3%20%20SELD%E5%A3%B0%E9%9F%B3%E4%BA%8B%E4%BB%B6%E5%AE%9A%E4%BD%8D%E6%A3%80%E6%B5%8B/" title="文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data">文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data</a><time datetime="2023-11-02T07:02:20.000Z" title="发表于 2023-11-02 15:02:20">2023-11-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Deep%20Networks%20for%20Direction-of-Arrival%20Estimation%20in%20Low%20SNR/" title="文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR"><img src="https://i.ibb.co/vHV5BKD/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR"/></a><div class="content"><a class="title" href="/2023/10/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Deep%20Networks%20for%20Direction-of-Arrival%20Estimation%20in%20Low%20SNR/" title="文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR">文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR</a><time datetime="2023-10-26T23:33:28.000Z" title="发表于 2023-10-27 07:33:28">2023-10-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/25/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADeep%20learning%20assisted%20sound%20source%20localization%20using%20two%20orthogonal%20first-order%20differential%20microphone%20arrays/" title="文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays"><img src="https://i.ibb.co/XVMYNX3/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays"/></a><div class="content"><a class="title" href="/2023/10/25/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADeep%20learning%20assisted%20sound%20source%20localization%20using%20two%20orthogonal%20first-order%20differential%20microphone%20arrays/" title="文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays">文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays</a><time datetime="2023-10-25T11:05:44.000Z" title="发表于 2023-10-25 19:05:44">2023-10-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/29/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/" title="文献阅读:Fundamentals of Spherical Array Processing"><img src="https://i.ibb.co/pRR1S1b/Eigenmike.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读:Fundamentals of Spherical Array Processing"/></a><div class="content"><a class="title" href="/2023/09/29/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/" title="文献阅读:Fundamentals of Spherical Array Processing">文献阅读:Fundamentals of Spherical Array Processing</a><time datetime="2023-09-29T15:32:04.000Z" title="发表于 2023-09-29 23:32:04">2023-09-29</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Gavin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Have a nice day!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

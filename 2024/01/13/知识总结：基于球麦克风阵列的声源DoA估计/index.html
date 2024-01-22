@@ -1,0 +1,649 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>知识总结: 基于球麦克风阵列的声源DoA估计 | Gavin</title><meta name="author" content="Gavin"><meta name="copyright" content="Gavin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基于球麦克风阵列的空间声源DoA估计代码：alexandergwm&#x2F;Classical-Sound-Source-Localization-Algorithms-in-Spherical-Domain: Here is a repository stored the classical sound source localization algorithms in spherical d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="知识总结: 基于球麦克风阵列的声源DoA估计">
+<meta property="og:url" content="http://example.com/2024/01/13/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9F%BA%E4%BA%8E%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%9A%84%E5%A3%B0%E6%BA%90DoA%E4%BC%B0%E8%AE%A1/index.html">
+<meta property="og:site_name" content="Gavin">
+<meta property="og:description" content="基于球麦克风阵列的空间声源DoA估计代码：alexandergwm&#x2F;Classical-Sound-Source-Localization-Algorithms-in-Spherical-Domain: Here is a repository stored the classical sound source localization algorithms in spherical d">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.ibb.co/1dkyDjy/acoustic-camera-gfaitech-Sphere120-beamforming-microphone-array-3d-measurement-interior-right.jpg">
+<meta property="article:published_time" content="2024-01-13T00:51:54.000Z">
+<meta property="article:modified_time" content="2024-01-13T00:51:54.000Z">
+<meta property="article:author" content="Gavin">
+<meta property="article:tag" content="Signal processing">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.ibb.co/1dkyDjy/acoustic-camera-gfaitech-Sphere120-beamforming-microphone-array-3d-measurement-interior-right.jpg"><link rel="shortcut icon" href="https://i.ibb.co/3BGBwps/2c8b98a62fbc3615.png"><link rel="canonical" href="http://example.com/2024/01/13/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9F%BA%E4%BA%8E%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%9A%84%E5%A3%B0%E6%BA%90DoA%E4%BC%B0%E8%AE%A1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '知识总结: 基于球麦克风阵列的声源DoA估计',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-13 08:51:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.ibb.co/ch2RrDp/20230822001522.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.ibb.co/1dkyDjy/acoustic-camera-gfaitech-Sphere120-beamforming-microphone-array-3d-measurement-interior-right.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Gavin"><img class="site-icon" src="https://i.ibb.co/3BGBwps/2c8b98a62fbc3615.png"/><span class="site-name">Gavin</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">知识总结: 基于球麦克风阵列的声源DoA估计</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-13T00:51:54.000Z" title="发表于 2024-01-13 08:51:54">2024-01-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-13T00:51:54.000Z" title="更新于 2024-01-13 08:51:54">2024-01-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A3%B0%E6%BA%90%E5%AE%9A%E4%BD%8D/">声源定位</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A3%B0%E6%BA%90%E5%AE%9A%E4%BD%8D/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">知识总结</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="知识总结: 基于球麦克风阵列的声源DoA估计"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="基于球麦克风阵列的空间声源DoA估计"><a href="#基于球麦克风阵列的空间声源DoA估计" class="headerlink" title="基于球麦克风阵列的空间声源DoA估计"></a>基于球麦克风阵列的空间声源DoA估计</h1><p>代码：<a target="_blank" rel="noopener" href="https://github.com/alexandergwm/Classical-Sound-Source-Localization-Algorithms-in-Spherical-Domain">alexandergwm&#x2F;Classical-Sound-Source-Localization-Algorithms-in-Spherical-Domain: Here is a repository stored the classical sound source localization algorithms in spherical domain, namely, PWD, DAS, SHMUSIC, SHMVDR, SHMLE. Here are two versions, Chinese and English. (github.com)</a></p>
+<p>里面有中文和英文版本的Jupyter Notebook，请按需查阅，在Jupyer book中可以直接使用Colab链接运行，无需配置环境，若有帮助，请star一下支持！</p>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>​		球形麦克风阵列以其卓越的性能特征在声源定位领域发挥着关键作用。本论文深入讨论了使用球形麦克风阵列估计声源到达方向（DoA）的经典球谐域算法。</p>
+<p>​		为了全面评估这些算法，进行了详细的参数分析。在这个过程中，考虑了各种影响因素，包括信号的多样性、麦克风的数量和分布、声源的奇异性（单一或多个）以及声学环境中的多阵列配置。此外，还考虑了信噪比（SNR）和混响时间（RT60s），以确保分析在各种实际应用场景中具有广泛的适应性。</p>
+<p>​		在理论研究的基础上，使用了仿真和实际数据集进行实验验证。这些实验旨在全面评估所研究算法在实际应用中的性能和稳定性，确保它们不仅在理论上具有显著优势，而且在实际操作中也具有优越性。</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>​		人类对声音的感知是一种天生行为，依赖于听觉系统的协同功能。在这个过程中，声源定位（SSL）在我们对产生声音的物体的感知中起着至关重要的作用。我们的听觉系统为SSL结合了多个线索，包括双耳时间差（ITD）、双耳水平差异（ILD）、电平差异和频谱信息[1]。</p>
+<p>​		认识到声源定位（SSL）的重要作用，研究人员逐渐将注意力转向了该领域的技术进展。受到雷达基础的源定位技术、语音通信发展的需求以及双耳定位仿生学的启发，对使用麦克风阵列进行SSL研究的兴趣逐渐增加[2]。这种技术在机器音频识别、噪声检测、语音增强和安全监控等多个领域得到了广泛应用和关注。该方法涉及到两个或更多麦克风单元以特定方式配置的阵列系统，通过使用每个麦克风捕获的信号之间的空间信息与先进的声学信号处理算法相结合，能够有效地定位声源。</p>
+<p>​		最近，由于球形麦克风阵列（SMAs）在捕捉声场的空间特性方面具有良好的特性，以及在声场分析和重建方面的出色性能[3]。SMAs已被引入声源定位（SSL）。球谐声源定位的过程始于使用SMA捕捉信号。然后，通过球形傅立叶变换将这些信号转换为球谐域。在这种转换后，一系列信号处理算法进行更深入的分析[4]，最终导致声源的定位。</p>
+<p>​		球谐方法的一个显著特点是其基于麦克风位置的能力，能够解耦频率和方向信息。这一独特能力增强了它在声源定位（SSL）应用中的受欢迎程度。与一维和二维阵列相比，SMA在许多方面具有显著优势。它全面捕捉声场信息，便于进行方向到达（DoA）估计。与更为具有挑战性的3D声源定位任务相比，估计目标的到达方向是一项相对简单的预备任务。在DoA估计中，主要关注的是声音到达的方向，而不考虑距离。然而，SMA还具有定位对象的3D位置（包括距离）的巨大潜力。此外，它具有出色的抗噪声和环境干扰能力。其高空间分辨率也意味着在SSL中更高的准确性。</p>
+<p>​		在本论文中，主要关注的是基于球谐域的各种传统阵列信号处理DoA估计方法的复制和讨论。重要的是要强调，所有讨论的方法都在平面波假设下运行。这个假设认为到达麦克风阵列的声波是平面波，从而简化了底层的数学和算法。</p>
+<h3 id="文献回顾"><a href="#文献回顾" class="headerlink" title="文献回顾"></a>文献回顾</h3><p>​		根据[5]，声源定位的三种经典方法可以分为基于到达时间差（TDOA）的定位方法、基于最大输出功率的波束成形定位，以及基于向量子空间的定位。</p>
+<p>​		TDOA算法主要包括两个步骤。首先，它涉及计算共同声源信号到达一对麦克风的时间差。然后，基于麦克风阵列元素之间的几何关系，可以确定声源的位置[6]。基于最大输出功率的波束成形定位方法主要依赖于数组中每个麦克风接收的信号的加权总和。首先，算法预设或扫描所有可能的声源方向。对于每个预设方向，算法计算一组权重，旨在调整每个麦克风的信号的相位和幅度，使得来自预设方向的源信号叠加并增强在所有麦克风上。当这些调整后的信号被加权和求和时，它们形成一个波束，这个过程称为波束成形。波束成形的主要目标是最大化来自预定方向的信号的输出功率，同时最小化来自其他方向的干扰。在在所有预定义的方向上重复此过程后，算法找到输出功率最高的方向并将其识别为声源的最可能方向[7]。常见的波束成形算法有延迟和求和（DAS）以及最小方差无失真响应（MVDR）。可以说，波束成形方法是对空间位置统计特性的最大化或最小化估计，它对整个空间的全局搜索，因此更适用于室内声学中实际场景声源定位[8]。然而，它的缺点是算法量大，计算复杂度高，而且不易实现实时声源定位算法。最后一个广泛使用的SSL方法是基于信号和噪声子空间的正交性，其中通过获取接收信号的交叉相关矩阵构建空间频谱，最终搜索空间频谱的极值。</p>
+<p>​		与一维线性阵列和二维平面阵列相比，球形阵列具有显著的空间优势。它们可以全方位捕捉声音，一次性收集完整的空间声场数据，并提供更高的空间分辨率和均匀的方向响应。这使它们在三维空间中的声源定位和分析中特别有效。至关重要的是，球形阵列允许将声源定位从传统的空间域转换到球谐域。在这个域内，声源信号可以使用球谐函数分解，实现频率和角度的解耦。这允许对声音的频率特性和源方向进行独立分析，使在复杂环境中（如多源或嘈杂背景）识别和定位声源更加准确和高效。</p>
+<p>​		球谐理论在声源定位中起着关键作用。其核心思想是，球面上任意点的声场可以由一组线性组合的完备正交基函数表示，其权重基于随着阶数N趋向无穷大的球面。然而，在实际应用中，由于需要保持操作可行性，通常使用有限的求和来近似这种表示。通过使用麦克风阵列对声场进行采样，可以获得相应的球谐函数，以进一步分析声场。从麦克风阵列获取的样本可以扩展以获取有关整个球面上任意点的声场的信息[3]。不同的球形空间采样策略确定了麦克风的空间位置和球形傅里叶变换的使用。关于采样策略，[3]总结了三种采样方法：等角、高斯和均匀采样，并在理论上分析了每种采样方法。</p>
+<p>​		在球形阵列波束成形的研究中，[9]介绍了一种基于平面波假设的球谐波束成形算法。其主要思想是将麦克风捕捉的信号分解为球谐函数。然后，将这些函数输入到波束形成器中以创建波束。这种方法有效地将波束形成器与麦克风位置分离。最终结果是声源的方向图。[10]研究了在球面上对声场进行采样的几种方法，考虑到开放和刚性球形配置。该分析还考虑了由有限阶效应、空间采样误差、空间混叠引起的误差，并提供了选择阵列设计参数的方法。对于开放球面，在某些操作频率下，球形贝塞尔函数可能呈零值，导致球形阵列的输出不稳定。为了解决这个问题，在[10]中引入了双球阵列（开放双球阵列）。该设计使用两个半径不同的球形阵列。关键在于不同半径的球在不同频率下具有零值的球形贝塞尔函数，而这些零值导致了一个球中的缺失信息可以从另一个球中获得。通过利用两个阵列，它们可以互补，有效地克服了单个球形阵列固有的零值问题。其中，常用的球谐域波束形成方法有延迟和求和（DAS [11]）、平面波分解（PWD [12]）和最小方差无失真响应（MVDR [4]），其中PWD和DAS方法更为稳健，但空间分辨率较弱，对低频响应较差，而MVDR通过引入最小方差约束具有更强的空间分辨率，但算术容量较大。此外，[13]提出了定向响应功率密度（SRPD）和基于熵的分层网格细化方法，可以减少DoA估计所需的定向数量，并提高算法在定位近相干源方面的性能。</p>
+<p>​		除了波束形成方法外，还有两种基于子空间的流行声源定位方法（例如MUSIC [14]、ESPRIT [15]）已经在球谐域中得到了拓展，表现出良好的性能[16][17]。球谐MUSIC（SH-MUSIC）算法在球谐域中处理来自麦克风阵列的信号，形成一个自相关矩阵。利用特征值分解（EVD），它分离信号和噪声子空间。阵列导向矢量与噪声子空间之间的正交性导致功率谱中出现清晰的峰值，指示信号的方向。然而，SH-MUSIC的一个局限性是它需要基于功率谱进行复杂的空间搜索来确定DoA的方位和仰角。为了解决这个问题，引入了信号参数的球谐估计技术（SH-ESPRIT）和球谐根MUSIC [18]。与SH-MUSIC不同，它们不需要对DoA进行全面的空间搜索。这两种方法通过在球谐中分析接收信号数据矩阵的特征向量和特征值直接导出DoA。虽然子空间算法可以提供高空间分辨率的定位结果，但在低信噪比（SNR）环境和在高混响条件下定位相干声源方面性能不佳。[4]总结了SH-MVDR、DAS、PWD和SH-MUSIC算法分别用于在房间中对早期反射声的DoA估计，并得出SH-MVDR的性能更好。[19]引入了小波变换来分解房间内的冲激响应。随后，他们提取了对应于直接声和反射声的能量峰值。利用球谐分解（SHD）和DAS算法，他们能够确定房间内早期反射的DoA。在球谐域中引入了一种最大似然方法进行DoA估计，称为SHMLE [20]，该SHMLE方法在开放球阵列配置下可以规避球形贝塞尔函数的除法，使其适用于任何频率。此外，这种方法可以轻松扩展以在宽带场景中实施。</p>
+<p>​		为了进一步拓展这些算法以定位宽带源，引入了不相干信号子空间方法（ISSM）。它通过将宽带信号分解为多个窄带信号，然后对每个窄带信号应用定位算法来工作。然而，在处理具有混响环境的宽带信号时，ISSM往往表现不佳。为了解决这个问题，发展了一致信号子空间方法（CSSM）[21]。CSSM不直接分析信号，而是首先检查每个窄带信号的协方差矩阵。然后，这些矩阵以选定的参考频率为焦点。通过对这些焦点矩阵求和和平均，确保产生的协方差矩阵是满秩的。这是关键的，因为它允许该方法处理相关信号。一旦获得了平均的协方差矩阵，它可以用于窄带处理，以估计宽带信号的位置。</p>
+<p>​		然而，一致信号子空间方法（CSSM）由于依赖于一个焦点矩阵，这个焦点矩阵取决于到达方向（DOA）的初始估计，因此存在重大挑战。初始DOA估计的偏差可能对焦点协方差矩阵产生不利影响，进而影响波束形成和源定位等过程。然而，在球谐域中可以找到另一种替代方法。通过使用球谐分解三维声场，可以有效地将信号的频率信息与角度信息分离。利用这一特性，可以专注于仅对频率相关组件进行平均和平滑。这种方法为宽带信号处理挑战提供了解决方案，消除了在确定焦点矩阵时需要初始DOA估计的需求。Rafaely等人在球谐域提出了一种基于CSSM的频率平滑算法 [22]。</p>
+<p>​		为了增强上述球谐域算法在混响环境中的鲁棒性，Nadiri和Rafaely引入了直达路径优势测试（DPDT）算法。该方法通过确定每个时频框中是否存在方向分量来改善算法性能 [23]。</p>
+<h2 id="论文大纲"><a href="#论文大纲" class="headerlink" title="论文大纲"></a>论文大纲</h2><p>这篇论文的内容结构如下：</p>
+<ul>
+<li><p><strong>第1章：引言</strong></p>
+<ul>
+<li>本章阐述了声源定位的研究意义和背景。它还介绍了基于球形麦克风阵列的声源定位算法的当前研究状况。</li>
+</ul>
+</li>
+<li><p><strong>第3章：数学背景</strong></p>
+<ul>
+<li>本章介绍了球谐分解的数学模型和球坐标系的定义。它进一步分析了不同球形阵列结构对声源定位的影响。此外，定义了房间混响模型，并讨论了各种算法的原理。</li>
+</ul>
+</li>
+<li><p><strong>第4章：仿真结果</strong></p>
+<ul>
+<li>本章为各种球谐域定位算法提供了参数分析仿真。它考虑了不同类型的信号、不同数量的麦克风、单一和多个声源的场景、不同的SNR和RT60，以及用于单一源定位的多种阵列配置。</li>
+</ul>
+</li>
+<li><p><strong>第5章：实际数据评估</strong></p>
+<ul>
+<li>本章引入了一个真实的AIR数据集，以评估算法在混响和嘈杂环境中定位单一声源的性能。</li>
+</ul>
+</li>
+<li><p><strong>第6章：结论与展望</strong></p>
+<ul>
+<li>本章总结了论文的工作，强调了评估算法在模拟和实际数据集中取得的成功和局限性。展望未来，讨论了声源定位领域的潜在研究方向、对现有算法的可能改进以及预期的挑战。</li>
+</ul>
+</li>
+</ul>
+<h2 id="声场的数学模型"><a href="#声场的数学模型" class="headerlink" title="声场的数学模型"></a>声场的数学模型</h2><h3 id="球面谐波域分析"><a href="#球面谐波域分析" class="headerlink" title="球面谐波域分析"></a>球面谐波域分析</h3><h4 id="球坐标系"><a href="#球坐标系" class="headerlink" title="球坐标系"></a>球坐标系</h4><p>​		在这篇论文中，主要应用了标准的球坐标系，如图3.1所示。在球坐标系中，任意点可以表示为$(r, \theta, \phi)$或更简洁的形式$(r, \Omega)$，其中$r$表示点到球坐标系原点的距离，$\Omega &#x3D; (\theta, \phi)$表示到达方向（DOA），$\theta \in [0°, 180°]$表示相对于z轴的倾斜度，$\phi \in [0°, 360°]$表示在xy平面中从x轴逆时针旋转的角度。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112073019317.png" alt="image-20240112073019317" style="zoom: 50%;" />
+
+
+
+<p>​		在笛卡尔坐标系中，坐标 $[x, y, z] $与球坐标之间的关系如下：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112073122938.png" alt="image-20240112073122938" style="zoom: 50%;" />
+
+<h4 id="球谐函数"><a href="#球谐函数" class="headerlink" title="球谐函数"></a>球谐函数</h4><p>​		在单位球面上的任何可积函数$f(θ, ϕ)$ 都可以表示为球谐函数 $Y_n^m(θ, ϕ) $的加权值的线性组合，这是因为球谐函数 $Y_n^m(θ, ϕ) $ 构成了一个完备基。这意味着有限数量的球谐函数可以用来逼近目标函数。通过选择适当的系数$f_{nm}$，可以在$l_2$ 范数意义下使这个逼近尽可能接近。因此，在单位球面上位置 ($Ω$) 处的声压可以用以下方程（Eq. 3.4）描述：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112073352476.png" alt="image-20240112073352476" style="zoom: 50%;" />
+
+<p>这里的$p_{nm}$ 是球傅里叶变换系数，可以由方程3.5的反球傅里叶变换推导出来：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112073457444.png" alt="image-20240112073457444" style="zoom:50%;" />
+
+<p>这里的$*$表示复共轭，而球面谐波的定义如公式3.6所示。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112073740218.png" alt="image-20240112073740218" style="zoom:50%;" />
+
+<p>其中，$n$ 是球谐函数的阶数，$m$ 是球谐函数的次数（$|m| ≤ n$），$P_n^m(cos θ)$ 是相关的勒让德多项式，$i^2 &#x3D; -1$。</p>
+<p>​		图 3.2 展示了球谐函数从$ n &#x3D; 0$（上方）到 $n &#x3D; 4$（下方）的气球图[3]。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112074041748.png" alt="image-20240112074041748" style="zoom:67%;" />
+
+<p>​		球谐函数具有许多性质。在本文中，将提及一些可以支持后续推导的性质，即球谐函数的正交性和可加性。球谐函数的正交性性质可以表示为：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112074123706.png" alt="image-20240112074123706" style="zoom:50%;" />
+
+<p>这里的$\delta_{nn’}$ 为Kronecker delta函数，当$n&#x3D;n’$ 时，其值为1，否则均为0。</p>
+<p>​		球面谐波的可加性可以表示为：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112074250024.png" alt="image-20240112074250024" style="zoom:50%;" />
+
+<p>其中，$Θ$ 是球面上两点 $(θ, ϕ)$ 和 $(θ’, ϕ’)$ 之间的角度。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112074339276.png" alt="image-20240112074339276" style="zoom:50%;" />
+
+<h4 id="球谐域中的信号表示"><a href="#球谐域中的信号表示" class="headerlink" title="球谐域中的信号表示"></a>球谐域中的信号表示</h4><p>​		考虑一个半径为 $a$，包含 $Q$ 个均匀分布的麦克风的球形麦克风阵列。该阵列位于由 $L$ 个平面波形成的声场中。每个平面波的到达方向由 $\psi_l &#x3D; (\theta_l, \phi_l)$ 给出，其关联的振幅表示为 $s_l(k)$，其中 $k$ 表示波数。每个麦克风的空间坐标位置由 $\Omega_q &#x3D; (\theta_q, \phi_q)$ 定义，而麦克风阵列的中心与球坐标系的原点重合。</p>
+<p>​		那么此时第 $q$ 个传声器的声压可表示为：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112074613912.png" alt="image-20240112074613912" style="zoom:50%;" />
+
+<p>其中，$k_l &#x3D; -k(\cos \phi_l \sin \theta_l, \sin \phi_l \sin \theta_l, \cos \theta_q)^T$ 表示第 $l$ 个平面波的波矢，$r_q$ 表示球面上第 $q$ 个麦克风的笛卡尔坐标。$N$ 是满足 $(N + 1)^2 &lt; Q$ 的球形阵列平面波分解的最大阶数。$b_n(kr)$ 是与球形麦克风阵列结构相关的径向函数，可以写成 [3]：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112074718624.png" alt="image-20240112074718624" style="zoom:50%;" />
+
+<p>其中，$j_n(\cdot)$ 和 $h_n(\cdot)$ 分别表示球形贝塞尔函数和第二类球形汉克尔函数。</p>
+<p>​		关于 $b_n(kr)$ 的详细推导将在附录 A.1 中给出。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112074834163.png" alt="image-20240112074834163" style="zoom:67%;" />
+
+<p>​		从图3.3中，可以清晰地看到刚性球和开放球的 $b_n(kr)$ 的幅度。与刚性配置相比，开放配置对应的径向函数 $b_n(kr)$ 在某些相应的阶数$ n $和频率点上具有一些较低的振幅，这将导致在获取等式3.10中的展开系数时计算不稳定和输出错误的结果。然而，与开放球相比，刚性球配置的贝塞尔函数在某些 $kr$ 处的病态零问题被消除，并且由于刚性球引入了声场的散射，总声场成为入射声场和散射声场的叠加，$b_n(kr)$ 的振幅相对较高，即在球的谐波分解的较高阶和较低频率时 $b_n(kr)$ 的幅度较大，因此该阵列将提高低频范围内信号的信噪比 [24]，另一个优势是，在实践中，刚性球麦克风阵列的安装要简单得多。</p>
+<p>​		因此，目前大多数关于球形麦克风阵列的研究和应用都基于刚性球体结构，而本论文中的后续理论推导、模拟和实验分析也是基于刚性球形麦克风阵列的。图3.4展示了一个真实的刚性球麦克风阵列。这是由MH Acoustics生产的EM 32型号麦克风，由32个麦克风组成，形成一个半径为4.2厘米的球体。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112075024090.png" alt="image-20240112075024090" style="zoom:50%;" />
+
+<p>​		为了便于计算和后续模拟，第 $q$ 个麦克风处的声压的表示可以通过以下矩阵形式进行 [20]:</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112075108283.png" alt="image-20240112075108283" style="zoom:50%;" />
+
+<p>其中</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112075129763.png" alt="image-20240112075129763" style="zoom:50%;" />
+
+<p>其中，$\mathbf{y}(\Omega_q)$ 是一个表示第 $q$ 个麦克风位置的球谐函数的 $(N + 1)^2 × 1$ 向量。$\mathbf{y}(\Psi_l)$ 是一个表示第 $l$ 个入射平面波的球谐函数的 $(N + 1)^2 × 1$ 向量。$\mathbf{B}(kr)$ 是一个 $(N + 1)^2 × (N + 1)^2$ 对角矩阵，描述了与刚性球体麦克风阵列结构相关的径向函数。$\mathbf{Y}(\mathbf{\Psi})$ 是一个 $(N + 1)^2 × l$ 矩阵，其中包含所有第 $l$ 个入射平面波的球谐函数。</p>
+<p>​		考虑引入均值为0、方差为$σ_v^2$的简单高斯噪声，该噪声与信号不相关，作为附加噪声$\mathbf{v}(k)&#x3D;[v_1(k), v_2(k), …, v_Q(k)]$。然后考虑在麦克风阵列上所有麦克风位置的声压矩阵$\mathbf{p}(kr, \mathbf{\Omega})$，即由等式3.20定义的SMA捕获的声压。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112080255750.png" alt="image-20240112080255750" style="zoom:50%;" />
+
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112080308253.png" alt="image-20240112080308253" style="zoom:50%;" />
+
+<p>​		考虑到麦克风在球面上近似均匀分布，采样权重系数 $\alpha_1 &#x3D; \alpha_2 &#x3D; … &#x3D; \alpha_Q &#x3D; \frac{4\pi}{Q}$ 是一个常数，并满足如下球谐函数的正交关系，即等式3.7：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112080420470.png" alt="image-20240112080420470" style="zoom:50%;" />
+
+<p>​		结合等式3.20中整个麦克风阵列的声压和等式3.23中均匀分布结构的正交性，可以推导出球谐系数$\mathbf{p}_{nm}(kr)$，即：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112080539306.png" alt="image-20240112080539306" style="zoom:50%;" />
+
+<p>这里$\mathbf{p}_{nm}$ 包含了一个由 $(N + 1)^2$ 个球谐系数构成的向量，对于每个阶数 $n$，其次数 $m \in [-n, n]$。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112154948353.png" alt="image-20240112154948353" style="zoom:50%;" />
+
+<h4 id="多球麦克风阵列用于定位"><a href="#多球麦克风阵列用于定位" class="headerlink" title="多球麦克风阵列用于定位"></a>多球麦克风阵列用于定位</h4><p>​		各种结构的球形麦克风阵列旨在实现更高的定位性能。为了获得更高的球谐分解，通常需要增加麦克风的数量，使得 $Q \geq (N + 1)^2$，从而改善定位分辨率。然而，由于单个球形阵列的结构限制，总会存在性能上限。因此，引入了多球形阵列以进一步提高算法性能 [26]。</p>
+<p>​		其核心思想是假设所有麦克风阵列都位于一个圆上，声源位于其中心，这意味着每个阵列到声源的距离是相等的。这种设置简化了分析，只需考虑相位变化。每个球形麦克风阵列将声源定位在其本地坐标系内。假设阵列 M 的坐标系是全局坐标系，则阵列$M_1$ 和 $M_2$ 收集到的声场数据可以通过坐标变换投影到 $M$ 坐标系上。这增强了在全局坐标系中的数据定位，从而提高了空间分辨率和定位性能。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112155337438.png" alt="image-20240112155337438" style="zoom:50%;" />
+
+<p>​		然后，可以将第 $z$ 个多球形阵列上的第 $q$ 个麦克风的等式3.10的表达式表示为：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112155454918.png" alt="image-20240112155454918" style="zoom:50%;" />
+
+<p>其中，$y_s$ 是与源 $s$ 相关的指向矢量，$r_{oz}$ 是从全局坐标系原点到第 $z$ 个球体中心的指向矢量。$r_d$ 是从第 $z$ 个球体的中心（视为本地坐标系的原点）到球体表面上的第 $d$ 个麦克风的指向矢量。在这里，$|r_{oz}| &#x3D; R$，其中 $R$ 是声源到球形麦克风阵列的距离，$|r_d| &#x3D; r$，其中 $r$ 是单个球形阵列的半径。</p>
+<p>​		对于窄带信号，在时域进行直接相位变换可以将信号从本地坐标系投影到全局坐标系。对于包含多个频率的宽带信号，需要进行初始的STFT变换。对于每个频率$f$，计算相应的相位变换，然后与获得的频谱图相乘。这样可以将本地麦克风阵列的数据投影到全局坐标系。最后，使用ISTFT将频域信号转换回时域。通过混合所有阵列的调整信号，可以获得用于算法处理的增强信号。</p>
+<h3 id="声源定位算法"><a href="#声源定位算法" class="headerlink" title="声源定位算法"></a>声源定位算法</h3><p>​		本章将深入探讨三种不同类型的声源定位算法的原理：波束成形、子空间和球谐域中的最大似然。</p>
+<h4 id="波束成形算法"><a href="#波束成形算法" class="headerlink" title="波束成形算法"></a>波束成形算法</h4><p>​		在前一节中，已经得到了球形麦克风阵列在球谐域中获取的信号的表达式，接下来将讨论如何在球谐域中进行波束成形，并将麦克风阵列获取的信号视为波束成形器的输入，输入到空间滤波器中进行声源的方向估计。阵列的输出可以表示为：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112160454305.png" alt="image-20240112160454305" style="zoom:50%;" />
+
+<p>其中，$[w(k, \theta, \phi)]^*$ 是权重的系数。对等式3.27进行球形傅立叶变换，将空间域中的波束形成方程表示为球谐域中的形式：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112160529482.png" alt="image-20240112160529482" style="zoom:50%;" />
+
+<p>​		给定$w_{nm}(k)$和$p_{nm}(k)$，这是在$w(k, \theta, \phi)$和$p(k, r, \theta, \phi)$的球谐变换之后得到的表达式。它们都表示为$(N + 1)^2 \times 1$向量。在矩阵表示中，可以表示为：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112160627814.png" alt="image-20240112160627814" style="zoom:50%;" />
+
+<p>​		如果该点的声场是由最简单单位振幅的平面波产生的，那么对于开放球体，该点的声压系数表达式可以得到为：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112160657504.png" alt="image-20240112160657504" style="zoom:50%;" />
+
+<p>而式3.29表示阵列输出为阵列输入和加权系数向量的乘积。通过引入采样向量，可以调整加权向量以适应各种球体结构或麦克风分布。</p>
+<p><strong>平面波分解（PWD）</strong>对于平面波分解算法（PWD），在均匀方案中，将权重系数设置为常数以实现最大方向性指数，然后将权重系数缩小为一维函数。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112161141081.png" alt="image-20240112161141081" style="zoom:50%;" />
+
+<p>其中，$d_n(k)$是新的波束形成权重系数，仅与$n$相关。$(θ_l, ϕ_l)$表示阵列的观测方向。将式3.31代入式3.29，得到球谐域中平面波分解（PWD）的表达式：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112161237605.png" alt="image-20240112161237605" style="zoom:50%;" />
+
+<p><strong>延迟和求和（DAS）</strong> 延迟和求和（DAS）波束形成技术基于时间延迟原理。通过精确选择这些延迟，它确保从特定方向到达的信号在所有麦克风上具有匹配的相位。这些相位对齐的信号在合并时相互加强，导致在该特定方向上的最大输出。因此，DAS通过调整时间延迟并对麦克风信号求和，实现了对特定方向声音的优化增强。</p>
+<p>然后，DAS的轴对称波束形成权重$d_n(k)$是：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112161358383.png" alt="image-20240112161358383" style="zoom:50%;" />
+
+<p>DAS的对应方程是：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112161428966.png" alt="image-20240112161428966" style="zoom:50%;" />
+
+<p><strong>最小方差无失真响应（MVDR）</strong>  在阵列信号处理中，MVDR波束形成的核心目标是最小化阵列的输出方差$E[|y|^2]$，同时确保对预定方向的信号具有无失真的响应。这意味着在保留目标信号的同时，来自其他方向的信号应该被最大程度地衰减。在实际情况中，阵列捕获的数据通常不仅包括目标信号，还包括噪声和其他干扰。鉴于直接估计噪声协方差矩阵的挑战，通常使用接收信号的协方差矩阵作为替代。因此，在球谐域中，MVDR波束形成的优化问题可以在特定约束下表示。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112161524593.png" alt="image-20240112161524593" style="zoom:50%;" />
+
+<p>其中，$\mathbf{R}<em>{\mathbf{P}</em>{nm}}$表示球谐域中接收信号的协方差矩阵，$\mathbf{R}<em>{\mathbf{P}</em>{nm}} &#x3D; E[\mathbf{p}<em>{n m} \mathbf{p}</em>{n m}^H]$，$\mathbf{U}<em>{nm}$表示传递函数，表示从源$s_l(k)$到阵列输入的传递函数。如果入射平面波信号是单位振幅的平面波，那么传递函数$\mathbf{U}</em>{nm}$等于$\mathbf{p}_{nm} \cdot s_l(k)$，其中$s_l(k) &#x3D; 1$。</p>
+<p>​		随后，通过使用拉格朗日乘数法，将约束优化问题转化为一个无约束问题[27]。通过计算，得出了球谐域MVDR波束形成器的权重矢量，如下所示：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112161830267.png" alt="image-20240112161830267" style="zoom:50%;" />
+
+<p>​		然后，将等式3.36代入等式3.35，可以计算MVDR波束形成器的功率谱，如下所示：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112161854805.png" alt="image-20240112161854805" style="zoom:50%;" />
+
+<h4 id="子空间算法"><a href="#子空间算法" class="headerlink" title="子空间算法"></a>子空间算法</h4><p>多信号分类（MUSIC）由转向矩阵$\mathbf{U}$张成的空间与由协方差矩阵$\mathbf{R}<em>{\mathbf{p}</em>{nm}}$的大特征值对应的特征向量形成的信号子空间相一致。通过利用信号子空间与噪声子空间之间的正交性，可以估计信号的空间参数。</p>
+<p>接收信号的协方差矩阵可以计算如下：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112162056044.png" alt="image-20240112162056044" style="zoom:50%;" />
+
+<p>然后，对 $\mathbf{R}<em>{\mathbf{P}</em>{nm}}$ 进行特征值分解，得到信号子空间和噪声子空间。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112162159328.png" alt="image-20240112162159328" style="zoom:50%;" />
+
+<p>其中，$\mathbf{E}_a$ 和 $\mathbf{E}_n$ 分别表示信号子空间和噪声子空间。然后，根据先验已知的源的数量选择特征向量，并相对于源的方向导出伪谱方程：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112162243222.png" alt="image-20240112162243222" style="zoom:50%;" />
+
+<h4 id="最大似然算法"><a href="#最大似然算法" class="headerlink" title="最大似然算法"></a>最大似然算法</h4><p>最大似然估计（MLE）是一种统计方法，通过优化似然函数确定信号源的方向。这个似然函数描述了在给定方向参数的情况下实际观察到的数据发生的概率。MLE的目标是找到最大化这个似然函数的方向参数，从而提供对信号源方向的最可能估计[28]。</p>
+<p>在文章[20] [29]中，定义了一个包含未知参数的向量$\mathbf{Θ}$，球谐信号 $\mathbf{p}_{nm} $的似然函数可以表示为：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112162415096.png" alt="image-20240112162415096" style="zoom:50%;" />
+
+<p>其中，$\mathbf{Θ} &#x3D; [\mathbf{Ψ}^T, \mathbf{S}^T, σ^2_n]^T$ 是包含所有未知参数的向量，$\mathbf{S} &#x3D; [\mathbf{s}(k_{min})^T, …,\mathbf{s}(k_{max})^T]^T$ 表示源信号的幅度，$k_{min }$和 $k_{max}$ 分别是最小和最大波矢。$\mathbf{Ψ}$、$\mathbf{s}$ 和 $σ_v^2$ 被设置为确定性和未知的，接收信号 $\mathbf{p}<em>{nm}$ 被视为随机的。$\mathbf{V}</em>{nm}(k, Ψ) &#x3D; \mathbf{B}(kr)\mathbf{Y}^H(\mathbf{Ψ})$ 是转向矩阵。然后，MLE 方法的估计方向可以推导为。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112162848571.png" alt="image-20240112162848571" style="zoom:50%;" />
+
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>​		总的来说，本节回顾了球谐域中各种算法的定位原理，并总结了各种算法的表达式，如表3.1所示。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112162932280.png" alt="image-20240112162932280" style="zoom:50%;" />
+
+<h3 id="房间脉冲响应模拟"><a href="#房间脉冲响应模拟" class="headerlink" title="房间脉冲响应模拟"></a>房间脉冲响应模拟</h3><p>​		房间脉冲响应在房间声学中起着至关重要的作用，它用于表征从源到麦克风的声传播路径中的所有效应，可以分为三个主要部分：直接路径、早期反射和混响尾部。图3.6显示了房间脉冲响应的主要组成部分。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112163033155.png" alt="image-20240112163033155" style="zoom:50%;" />
+
+<p>​		随着声源信号的传播，它们遇到反射，导致多径传播。这种现象是声音信号混响的重要因素。为了更好地复制房间混响和反射的效果，[31]采用了基于镜像源方法（ISM）的房间脉冲响应模型。该模型如图3.7所示，将声源信号视为一个点，并采用镜像方法。源信号在障碍物之间（如墙壁、桌子、椅子等）不断反射，产生回声。然后，每个镜像源都会生成进一步的镜像源。虽然ISM提供了理解房间混响的概念框架，但值得注意的是，它并没有精确捕捉房间中声源反射的复杂性，它忽略了房间中的衍射和散射。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112163114127.png" alt="image-20240112163114127" style="zoom:50%;" />
+
+<p>​		在整个论文中，所有的模拟都基于<strong>Pyroomacoustics</strong> [33]创建的”shoebox”模型。<strong>Pyroomacoustics</strong>是Python中的一个库函数，用于实现在房间中进行IMAGE模型模拟，以高效地生成房间脉冲响应并模拟源与接收器之间的传播。</p>
+<h2 id="仿真结果"><a href="#仿真结果" class="headerlink" title="仿真结果"></a>仿真结果</h2><h3 id="仿真设置"><a href="#仿真设置" class="headerlink" title="仿真设置"></a>仿真设置</h3><p>在本论文的模拟中，模拟的详细参数主要如下：</p>
+<ul>
+<li>房间模拟：房间的几何形状基于DTU建筑352号的房间019，可以近似为一个矩形房间，尺寸为$9 \times 6 \times 3$米[34]。</li>
+<li>麦克风阵列模拟：球形麦克风阵列的模拟基于MH ACOUSTIC公司的”Eigenmike EM32”产品[35]，它包含$Q &#x3D; 32$个麦克风通道，阵列半径为$a &#x3D; 4.2$cm。每个传感器的坐标在附录A.1的表格中显示。麦克风被认为是全向的，每个麦克风的采样权重为1。最大的球谐阶数设置为$N &#x3D; 4$。</li>
+<li>声源模拟：在定义的球坐标系中，麦克风阵列的中心作为原点，与房间的几何中心对齐。声源定位在$(\theta_s, \phi_s)$，其中$\theta_s &#x3D; 50^\circ$，$\phi_s &#x3D; 230^\circ$。声源距离阵列中心$2.1$米，声源包含一个单频音调和一个$2$秒的清晰语音样本，说出短语’Please Call Stella’ [36]，采样频率为$fs &#x3D; 16$kHz，帧长度$K &#x3D; 1024$。</li>
+<li>网格模拟：为了评估整个空间的到达方向（DoA），采用了基于网格的方法。空间被离散成一个点阵，每种算法都被应用于遍历该网格。分辨率设置为$1^\circ$，从而在空间中形成一个$360 \times 180$点的球形网格。该网格上的每一点对应于水平角$\phi$和仰角$\theta$的组合。</li>
+</ul>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112163855508.png" alt="image-20240112163855508" style="zoom: 67%;" />
+
+<p>​		在模拟中，房间几何形状、麦克风阵列和声源的可视化如图4.1a所示。在空间中建立了一个搜索网格，以识别基于角度的潜在点，如图4.1c所示。此搜索网格的分辨率设置为$10^\circ$，意味着对于每$10^\circ$的方位角和仰角，确定一个潜在点。</p>
+<p>​		均方根误差（RMSE）用作评估定位算法准确性的度量标准。其定义为<br>​																	$$RMSE &#x3D; \sqrt{E((\boldsymbol{\Psi} - \hat{\boldsymbol{\Psi}})(\boldsymbol{\Psi} - \hat{\boldsymbol{\Psi}})^T)}$$</p>
+<p>所有的模拟都基于Python 3.8进行，使用VSCode远程连接到JupyterLab进行调试。使用的计算机配置有12个vCPU的Intel(R) Xeon(R) Platinum 8255C CPU（2.5GHz）。</p>
+<h3 id="结果和讨论"><a href="#结果和讨论" class="headerlink" title="结果和讨论"></a>结果和讨论</h3><h4 id="窄带信号定位"><a href="#窄带信号定位" class="headerlink" title="窄带信号定位"></a>窄带信号定位</h4><p>在这一部分，将呈现在消声室环境中，信噪比为15的情况下，单一窄带信号的定位结果。从图3.3中可以观察到，开放球结构引入了一些零点。在这里，尝试评估在特定零频率（如$ka &#x3D; 3.142$、$ka &#x3D; 4.496$等）下，五种不同的球谐域定位算法的窄带定位结果。对于本讨论，选择了$ka &#x3D; 4.496$。在此过程中，为了保持信号的信噪比为15，向信号中添加了白噪声。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112164904170.png" alt="image-20240112164904170" style="zoom: 50%;" />
+
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112164923189.png" alt="image-20240112164923189" style="zoom:50%;" />
+
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112164935501.png" alt="image-20240112164935501" style="zoom:50%;" />
+
+<p>​		从图4.2到图4.6，演示了五种算法处理由开放球和刚性球结构的阵列捕获的信号。真实的源坐标设置为($θ_l &#x3D; 50°，ϕ_l &#x3D; 230°$)。在频谱功率图中，真实的源位置由蓝色十字表示，而算法估计的方向由红色圆圈标记。</p>
+<p>​		在某些频率下，第一类球贝塞尔函数$j_n(kr)$的零点可能导致具有开放球结构的麦克风阵列在定位中出现不准确。使用刚性球结构可以克服这个问题，如图3.3所示。此外，其余的三种算法能够很好地执行定位。为了使结果更具比较性，所有情景下的定位结果已经归一化为各自的最大值，并截断到能量水平在[0, -14] dB之间。其中，MVDR和SHMLE算法表现出比DAS更高的空间分辨率。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112165034881.png" alt="image-20240112165034881" style="zoom:50%;" />
+
+<p>​		根据MVDR和SHMLE算法对不同阵列结构的定位结果，可以从图4.8和4.6中明显看出，引入刚性球可能会导致空间分辨率的某些损失。这种损失可能归因于刚性结构引起的散射声场。然而，刚性球提供了实际的安装便利性，并通过避免零点条件确保在所有频率下具有通用适用性。正如图中所示，MVDR和SHMLE算法可以在开放球结构下正常运行的同时确保较高的空间分辨率。因此，这种权衡是可以接受的。此外，表4.1显示了在SNR为15的窄带信号下每种算法的定位结果，以及相应的耗时。</p>
+<h4 id="宽带信号定位"><a href="#宽带信号定位" class="headerlink" title="宽带信号定位"></a>宽带信号定位</h4><p>​		在这一部分，主要关注的是宽带信号，特别是语音信号。除非另有说明，假定语音信号在混响时间为0.63秒和信噪比为15dB的混响房间中进行处理。房间的尺寸为(9×6×3) m³。</p>
+<h5 id="“ShoeBox”房间中的单一声源定位"><a href="#“ShoeBox”房间中的单一声源定位" class="headerlink" title="“ShoeBox”房间中的单一声源定位"></a>“ShoeBox”房间中的单一声源定位</h5><p>​		为了将狭带信号的定位算法扩展到宽带信号，引入了频率平滑技术（详见附录A.2）[37]。由于在球谐域中角度和频率的解耦，因此有可能在不需要先验DoA值的情况下估计聚焦矩阵。在球谐域中，通过将与频率相关的分量分解为各个窄带频率，分别处理，然后进行平均，可以实现频率平滑。这种方法可用于处理宽带信号的定位。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112165303112.png" alt="image-20240112165303112" style="zoom:50%;" />
+
+<p>​			Fig. 4.7a和Fig. 4.7b分别表示时域和STFT域中的信号。在时域表示中，可以清晰地看到信号持续了2秒，并显示了三个不同单词的波形。在频谱图中，大部分信号的能量集中在4000Hz以下。 ”Please”中的”P”，”Call”中的”C”以及”Stella”中的”St”等初始声音包含爆破音，表现出每个单词开头能量明显增加的特点。这表明在短时间内存在大量频率分量，呈现为频谱图中垂直亮条。与此同时，元音具有更一致的频率，是基频的整数倍，因此在频谱图的时间轴上显示为延伸的亮区域。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112165351417.png" alt="image-20240112165351417" style="zoom: 50%;" />
+
+<p>​		图4.8a和图4.8b分别描述了在混响和嘈杂条件下，时域和短时傅里叶变换（STFT）领域中的语音信号。与各向性室内的清晰信号相比，混响导致了房间内原始信号的多次反射和叠加。这种现象在时域表示中表现为尾随的回声或延迟，导致信号结构变得模糊。相比之下，清晰的信号展示了明显的幅度变化，具有与特定发音相对应的明显峰值和波谷。在STFT领域，可以观察到某些频率分量的持续时间较长，比如在512Hz处。</p>
+<p>​		图4.9展示了在混响和噪声条件下，五种运行在球谐域中的算法和一种运行在空间域中的算法的结果。这些定位结果是在RT60为0.63s且SNR为15的条件下获得的，具体地，MVDR、SHMLE、SHMUSIC和MUSIC算法在空间分辨率上表现出色，与实际DoA值（50°，230°）非常接近，其RMSE值分别为6.4°、5.7°和4.5°，如表4.2所示。此外，计算成本时间显示，尽管MUSIC算法具有较高的精度，但相对于其他算法而言，其计算时间需求较长（417.86分钟）。相反，诸如PWD和DAS等算法更具时间效率，平均在2分钟左右，尽管它们可能会为了加速处理而牺牲一些空间分辨率和准确性。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112165453359.png" alt="image-20240112165453359" style="zoom:50%;" />
+
+<p>​		PWD和DAS的计算相对简单直接，这解释了它们较短的运行时间。另一方面，MVDR涉及矩阵求逆操作，使其在计算上更为密集。SHMUSIC基于MUSIC算法，需要计算特征值和特征向量，然后对这些特征向量进行排序，增加了其计算负担。传统的MUSIC算法采用短时傅里叶变换（STFT）来处理宽带信号，在STFT域中逐帧处理它们。每一帧都分别用于定位，因此窗口长度的选择可能影响MUSIC算法的处理速度，这是其计算需求较大的主要原因之一。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112165529994.png" alt="image-20240112165529994" style="zoom:50%;" />
+
+<p>​		从图4.10可以看出，球谐域中声源定位的整个过程。它始于从麦克风阵列中收集信号，然后进行预处理。然后将信号识别为宽带或窄带。如果是宽带信号，将选择特定的有效频率范围，并执行球谐分解和频率平滑等操作。然后，将宽带信号分解为窄带信号，然后将其输入到算法中。算法随后扫描整个空间以搜索方向。</p>
+<h5 id="使用不同数量的麦克风组成阵列以定位"><a href="#使用不同数量的麦克风组成阵列以定位" class="headerlink" title="使用不同数量的麦克风组成阵列以定位"></a>使用不同数量的麦克风组成阵列以定位</h5><p>​		在这一部分，使用了三个具有不同数量麦克风的球形阵列。模拟设置如图4.11所示。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112165701418.png" alt="image-20240112165701418" style="zoom:50%;" />
+
+<p>​		每个麦克风都是全向的，采样权重均为1。首先是一个由8个麦克风组成的立方体阵列，边长为2.425厘米。这8个麦克风均匀分布在半径为4.2厘米的球体上，因此也可以看作是一种球形麦克风阵列，如图4.11a所示。其次是一个由16个均匀分布的麦克风组成的球形麦克风阵列，如图4.21b所示。最后，有一个由32个麦克风组成的球形麦克风阵列，基于Eigenmike em32阵列进行模拟，其分布如图3.4所示。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112165750836.png" alt="image-20240112165750836" style="zoom:50%;" />
+
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112165758166.png" alt="image-20240112165758166" style="zoom:50%;" />
+
+<p>​		图4.12和表4.3展示了使用PWD算法来定位位于(50°, 230°)的宽带声源，使用不同数量的球形麦克风阵列的结果。显然，保持球形阵列的半径一致的情况下，随着麦克风数量的增加，阵列的定位精度提高，空间分辨率更高。这是直观的，因为麦克风数量的增加意味着声场的空间采样点数量增加。因此，捕获了更多关于声场的空间信息，导致对整个声场的更好重构。然而，这样做的一个权衡是需要更多的计算资源，并且由于制造复杂性而在相同阵列上放置更多的麦克风可能面临实际挑战。</p>
+<h5 id="多源定位"><a href="#多源定位" class="headerlink" title="多源定位"></a>多源定位</h5><p>​		在本节中，对单个宽带源的定位进行了扩展，包括多个源。在模拟中，引入了两个源，都位于T60 &#x3D; 0.25s和SNR &#x3D; 15的环境中。评估了这些源之间的角分离度在两个不同的角度：80°和100°。这种角度的分离度是对算法空间分辨率的实际衡量，实质上衡量了算法在区分两个间距较近的源方面的能力。空间分辨率的本质在于两个源仍然可以被算法独立识别的最小距离；较小的距离表示更高的分辨率。如图4.13和图4.14所示，实验评估了角度分离对两个源定位的影响。在80°的分离度下，只有SHMUSIC算法能够区分和定位两个源。相反，其他两个算法无法区分两个源，导致单一的DOA估计位于两个源的位置之间。然而，当两个源之间的角度分离度小于80°时，这三个算法都无法正常工作。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112165912375.png" alt="image-20240112165912375" style="zoom:50%;" />
+
+<p>​		然而，随着两个源之间的距离增加，达到100°的角度分离度时，观察到对于相同的源，所有三个算法都能够粗略地估计两个源的DOA。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112165939215.png" alt="image-20240112165939215" style="zoom: 50%;" />
+
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112170012731.png" alt="image-20240112170012731" style="zoom:50%;" />
+
+<p>​		如图4.15所示，当两个源之间的角度分离度设定为60°，且两个源发出与图4.7a中所示相同的语音信号时，SHMUSIC算法的结果如图4.15b所示，表明该算法无法区分两个相同的语音信号，只产生一个定位结果。然而，当引入另一个如图4.15a所示的语音信号时，两个源发出不同的语音信号，SHMUSIC算法成功地定位了两个源。</p>
+<p>​		这可以解释为每个算法都具有其固有的空间分辨率。当两个源之间的角度分离小于算法的空间分辨率时，它可能难以区分这两个源。在前一节中，当定位单个宽带源时，SHMUSIC算法展现出相对较高的分辨率。这解释了为什么在80°的分离度下，只有SHMUSIC算法能够区分这两个源。此外，当两个源发出相同的信号时，它们具有很高的互相关性。因此，它们产生的空间声场模式非常相似，使它们难以区分。</p>
+<h5 id="消声室中不同SNR的定位"><a href="#消声室中不同SNR的定位" class="headerlink" title="消声室中不同SNR的定位"></a>消声室中不同SNR的定位</h5><p>​		在这一部分中，对五种球面域算法在消声室内不同信噪比（SNR）下的性能进行评估。高斯噪声被添加到原始信号中，导致SNR范围从-10到20 dB不等。声源的真实到达方向（DoA）是（50°，230°）。</p>
+<p>​		从图4.16中可以观察到，在消声室中，不同算法在不同信噪比（SNR）下对单一源和双源的定位的均方根误差（RMSE）。为增强结果的可靠性，RMSE在10次迭代中进行了平均。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112170146123.png" alt="image-20240112170146123" style="zoom:50%;" />
+
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112170154733.png" alt="image-20240112170154733" style="zoom:50%;" />
+
+<p>​		如表4.6所示，在具有较小计算能力的两种算法中，DAS在低信噪比环境中表现出更强的稳健性。相反，MVDR和SHMLE算法在大多数SNR条件下表现良好。然而，基于信号子空间与噪声子空间正交原理的子空间算法SHMUSIC受噪声影响较大。在低信噪比条件下，它基本上失效。此时，估计的噪声子空间存在较大误差，不再满足正交性，使得准确定位伪谱变得困难。【38】</p>
+<h5 id="混响室中不同混响时间下的定位效果"><a href="#混响室中不同混响时间下的定位效果" class="headerlink" title="混响室中不同混响时间下的定位效果"></a>混响室中不同混响时间下的定位效果</h5><p>​		在这一部分，评估了在不同的混响时间（RT60）条件下，五种球谐域算法在尺寸为（9×6×3）m³的“鞋盒”房间内的性能。信噪比设置为15dB，RT60范围从0.25到2.25秒。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112170344374.png" alt="image-20240112170344374" style="zoom:50%;" />
+
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112170353269.png" alt="image-20240112170353269" style="zoom:50%;" />
+
+<p>​		图4.17显示了不同算法在不同混响时间下的定位误差（RMSE）的变化。随着混响时间的增加，每种算法的RMSE也呈上升趋势。例如，当T60从0.2秒增加到2.24秒时，PWD的RMSE从5.39°上升到15.52°，而SHMLE仅从3.16°上升到8.06°。</p>
+<p>​		表4.5进一步证实了这些观察结果。在所有混响时间下，SHMLE始终表现出最低的RMSE，突显了它对混响的稳健性。这可能归因于SHMLE算法有效利用混响中的统计信息，从而提高了准确性。相比之下，PWD算法对混响最为敏感，可能是由于它在处理多径效应方面的稳健性较低。其他算法，如DAS和MVDR，随着混响时间的增加也显示出RMSE增加，但它们的增长速度介于SHMLE和PWD之间。</p>
+<h5 id="在无混响环境中使用多个球形麦克风阵列进行定位"><a href="#在无混响环境中使用多个球形麦克风阵列进行定位" class="headerlink" title="在无混响环境中使用多个球形麦克风阵列进行定位"></a>在无混响环境中使用多个球形麦克风阵列进行定位</h5><p>​		在本节中，介绍了一种多球形麦克风阵列，用于在无混响室环境中定位窄带和宽带信号。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112170628067.png" alt="image-20240112170628067" style="zoom:50%;" />
+
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112170641425.png" alt="image-20240112170641425" style="zoom:50%;" />
+
+<p>​		如图4.18所示，假设声源相对于全局麦克风阵列的到达方向（DoA）为$（θ_l，ϕ_l）&#x3D;（90°，180°）$。麦克风阵列1和2都是相同的Eigenmike em32阵列。声源分别设置为窄带和宽带信号。在这种情况下使用SHMUSIC算法。最终的结果分别显示在图4.19和图4.20中。可以看到，在窄带和宽带信号的情况下，与单球形阵列相比，多球形阵列的能谱中将有一个更尖锐的峰值，同时具有更高的空间分辨率。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112170731526.png" alt="image-20240112170731526" style="zoom:50%;" />
+
+<p>​		如表4.6所示，使用SHMUSIC算法比较了单球形和双球形麦克风阵列的定位性能，通过改变声源的信噪比（SNR）从-5dB到20dB。除了在-5dB的情况下MUSIC算法失败之外，对于所有其他SNR值，相对于单球形阵列，双球形阵列在DoA估计中始终实现了更小的RMSE。</p>
+<h5 id="在低混响房间中使用脉冲响应进行早期反射的定位"><a href="#在低混响房间中使用脉冲响应进行早期反射的定位" class="headerlink" title="在低混响房间中使用脉冲响应进行早期反射的定位"></a>在低混响房间中使用脉冲响应进行早期反射的定位</h5><p>​		在先前的背景讨论中，介绍了室内脉冲响应（RIR）作为描述房间声学特性的关键参数。它不仅捕捉了空间的整体声学特性，还揭示了声音在房间内的具体传播路径。</p>
+<p>​		通过进一步分解RIR，可以识别特定的峰值，代表了声音从房间内各种表面反射的路径。每个峰值对应于特定的反射路径，允许确定一些早期的一阶反射的到达方向（DoA）。</p>
+<p>​		在模拟中，连续的10秒指数正弦扫描被用作激励信号。通过将每个房间表面的最大反射阶数限制为1，这意味着房间中的直接声音只会被每个墙面反射一次，将房间脉冲响应限制为仅包括早期的一阶反射。因此，房间的混响时间T60设置为0.022秒。声源的真实DoA被指定为$（θ_l，ϕ_l）&#x3D;（90°，180°）$。这对应于笛卡尔坐标（2.4, 3, 1.5）m，原点位于房间的一个角落。麦克风阵列位于笛卡尔坐标（4.5, 3, 1.5）m，充当球坐标系统的参考点。</p>
+<p>​		如图4.21所示，通过使用窗口函数在时间域对捕获的RIR进行截断。这个过程得到了对应于不同到达时间的明显峰值。这些峰值代表了直接声音和来自房间内各个表面的一阶反射。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112171006235.png" alt="image-20240112171006235" style="zoom:50%;" />
+
+<p>​		如图4.21a所示，使用三种不同的颜色来区分房间的六面墙。假设观察角度与麦克风阵列的当前方向对齐，并沿x的正半轴查看，用蓝色数字标记的墙，1和2，分别表示前墙和后墙。侧墙由黑色数字3和4表示，天花板和地板由紫色数字5和6表示。</p>
+<p>​		在这种情况下，由于反射次数有限，只有一些峰值对应于这些反射是可见的。通过在数据中识别局部最大值并将阈值设置为直接声音振幅的20%，可以找到与每个墙面相关的反射峰。</p>
+<p>​		为了完整捕获每个峰值，采用了窗口技术。选择了一个矩形窗口，专门设计用于完全包围峰值。每个峰值都用作此窗口的中心。为此，采用了一个在每个峰值之前和之后跨越60个样本的窗口，有效地截断了峰值周围的数据。此窗口提取了大约0.005毫秒的数据，相当于大约120个时间帧样本。一旦截断，就使用声源定位算法处理这些窗口化段。这有助于估计不仅是直接声音而且还有反射的DoA。随后，通过使用MUSIC算法处理这些段，可以得出对房间一阶早期反射的准确DoA估计。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112171055500.png" alt="image-20240112171055500" style="zoom:50%;" />
+
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112171106008.png" alt="image-20240112171106008" style="zoom:50%;" />
+
+<p>​		从图4.22清楚可见，可以使用MUSIC算法对仅包含一阶反射的脉冲响应进行DoA估计，该脉冲响应在经过窗口函数截断后，此外，汉宁窗也用于截断，但性能变化不显著。</p>
+<h2 id="真实数据评估"><a href="#真实数据评估" class="headerlink" title="真实数据评估"></a>真实数据评估</h2><p>​		在前两节中，通过模拟介绍了球谐域中各种窄带算法，并对它们在宽带信号上的拓展进行了讨论。在本节中，为了验证这些算法在真实数据上的性能，引入了一个真实的RIR数据集进行验证。</p>
+<p>​		本文使用的数据集是来自METU SPARG实验室的Eigenmike em 32声学脉冲响应数据集v0.1.0 [39]。该数据集是在一个高度混响的矩形房间中录制的，房间尺寸为6.5×8.3×2.9m³，混响时间为T60&#x3D;1.2秒。在水平分辨率为0.5米和垂直分辨率为0.3米的网格上，以阵列为原点在240个点上测量了AIRs。这涵盖了从0°到360°的整个方位范围，以及从水平平面向上下约±50°的仰角范围。测量位置如下图所示（见图5.1）。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112171220082.png" alt="image-20240112171220082" style="zoom:50%;" />
+
+<p>​		其中，从这些位置中随机选择了10个源位置，对应于实验的DoA方向，结果如下。<br>​		图5.2显示了使用RIR进行真实混响时间t60&#x3D;1.2秒时，不同算法的定位结果。可以看出，在这种情况下，算法表现良好，结果与模拟相似。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112171248922.png" alt="image-20240112171248922" style="zoom:50%;" />
+
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112171301221.png" alt="image-20240112171301221" style="zoom:50%;" />
+
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240112171308000.png" alt="image-20240112171308000" style="zoom:50%;" />
+
+<p>​		从表5.1和图5.3可以看出，对于从数据集中随机选择的10个位置的定位结果。图5.3省略了两个异常值。显然，五种算法在真实数据定位方面表现相对较好，大多数情况下RMSE在2°左右。具有更高分辨率的三种算法，即SHMLE、SHMUSIC和MVDR，表现如模拟所期望的那样。它们与PWD和DAS算法相比需要更多的计算资源，但产生更精确的定位结果。其中，MVDR算法表现最好。然而，由于所有算法都基于网格方法，更细的网格分辨率可能导致更准确的结果。</p>
+<h2 id="结论和展望"><a href="#结论和展望" class="headerlink" title="结论和展望"></a>结论和展望</h2><h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>这篇论文全面回顾了经典的声源定位技术，特别关注了球面域中的方法，如SHMUSIC、MVDR、SHMLE、PWD和DAS。研究随后深入复现了各种三维声源定位算法，其中主要集中在球谐域。此外，研究调查了一些参数对这些算法性能的影响，包括声源的类型和数量、麦克风和麦克风阵列的数量、房间的混响时间和信噪比。</p>
+<ol>
+<li><p>考虑声源类型，首先使用不同的算法在信噪比为15的无混响室环境中定位窄带信号。此外，探讨了刚性球对球Bessel函数引起的零点挑战的克服能力。随后，利用频率平滑技术将窄带定位算法扩展到宽带信号。在定位具有混响和噪声的语音信号时，观察到MVDR、SHMLE和SHMUSIC等算法尽管需要更多的计算资源，但可以实现更高的空间分辨率和更精确的定位结果。值得注意的是，MVDR和SHMLE算法有效地解决了开球体的零点问题。</p>
+</li>
+<li><p>研究了组成阵列的麦克风数量。观察到随着麦克风数量的增加，空间中收集的声场信息增加，导致更准确的定位结果。</p>
+</li>
+<li><p>在考虑两个声源的情况下，探讨了不同算法在区分两个声源时的表现，其中SHMUSIC算法表现稍好。然而，MVDR算法和SHMLE不需要对声源数量的先验知识。</p>
+</li>
+<li><p>在无混响环境中，通过改变信噪比，观察了不同算法的性能。在混响环境中，通过改变房间的rt60观察了不同算法的性能。</p>
+</li>
+<li><p>考虑使用两个相同的球形麦克风阵列在无混响室环境中定位单一窄带和宽带声源，发现随着球形麦克风阵列数量的增加，空间分辨率和定位精度提高。</p>
+</li>
+<li><p>通过限制房间中反射的最大数量，使用MUSIC算法定位了房间脉冲响应的直接声音的早期一阶反射。</p>
+</li>
+<li><p>在真实数据集上验证了算法的有效性，发现结果与模拟结果一致。</p>
+</li>
+</ol>
+<h3 id="展望"><a href="#展望" class="headerlink" title="展望"></a>展望</h3><p>​		由于时间和水平的限制，有一些改进的空间，以下是未来工作的一些建议：</p>
+<ol>
+<li><p>首先，由于时间限制，没有足够的时间获取现场实验数据进行实地测量，这使得不可能对某些模拟进行实验验证。</p>
+</li>
+<li><p>尽管在本论文中研究的算法可以在任何凸房间几何形状中工作，但由于时间限制，仅对类似长方体的房间进行了分析。</p>
+</li>
+<li><p>在我们当前的研究中，早期反射的DoA估计依赖于反射次序为1的脉冲响应。存在改进的潜力。未来的方向可能涉及利用像PHALCOR [41]这样的模型，该模型将反射信号视为直接声音的延迟和缩放版本，以估计早期反射。</p>
+</li>
+<li><p>本文中采用的在球谐域中进行声源定位的方法相对传统。在未来，考虑整合基于压缩感知的技术，如L1 SVD [42]，以及L1 SVD与DPDT方法 [43]相结合的技术可能是值得考虑的。数据驱动的方法也是DoA估计中当前的热门话题，暗示了将神经网络整合到DoA估计中的潜力 [44][45]。</p>
+</li>
+<li><p>如今，除了球形阵列，由于其安装便利性，分布式麦克风因其安装便利性而广受欢迎，可以考虑用于未来的研究。</p>
+</li>
+</ol>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="平面波分解细节"><a href="#平面波分解细节" class="headerlink" title="平面波分解细节"></a>平面波分解细节</h3><p>​		考虑来自方向$（θ_k，ϕ_k）$的单位振幅、单频平面波，其波矢为$\mathbf{k} &#x3D; (k，θ_k，ϕ_k)$，然后可以表示为球谐函数和贝塞尔函数的线性组合：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113075203059.png" alt="image-20240113075203059" style="zoom:50%;" />
+
+<p>​		根据方程 A.1，使用球谐函数的组合来逼近平面波涉及到无限求和，旨在实现最高的逼近精度。然而，在实际情况中，必须将无限求和截断为有限的求和，以使操作变得可行：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113075306700.png" alt="image-20240113075306700" style="zoom:50%;" />
+
+<p>​		现在，对于入射在球面$（r，θ，ϕ）$上的单位振幅平面波获得了近似的表达式 $p(k, r, θ, ϕ)$，然后可以考虑对其进行球形傅立叶变换，假设其傅立叶变换系数为 $p_{nm}(k, r)$。然后经过一些简单的推导，可以写出 $p_{nm}$ 的表达式：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113075418800.png" alt="image-20240113075418800" style="zoom:50%;" />
+
+<p>​		根据给定的方程 A.3，很明显 $p_{nm}$ 的幅度随着$ j_n(kr)$ 的缩放而变化。尽管在重构过程中使用有限求和代替无限求和会引入截断误差，但在 $Q &gt; (N + 1)^2$ 时，可以获得有限阶函数的非混叠采样结果。</p>
+<h4 id="多重平面波"><a href="#多重平面波" class="headerlink" title="多重平面波"></a>多重平面波</h4><p>​		鉴于上下文，让我们用方向振幅密度$ a(k, θ_k, ϕ_k)$ 来表示由无穷多平面波和连续平面波组成的声场中的声压：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113075802670.png" alt="image-20240113075802670" style="zoom:50%;" />
+
+<p>其中 $a_{nm}$ 是方向振幅密度 $a(k, θ_k, ϕ_k)$ 的球面傅里叶变换。将方程 A.4 和方程 A.2 进行比较，对于由单个单位平面波组成的声场，表达式可以写成：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113075902647.png" alt="image-20240113075902647" style="zoom:50%;" />
+
+<p>​		再次，由于狄拉克-δ函数和球谐函数是相互的傅里叶变换对，我们可以轻松地得到此点的方向振幅密度 $a(k, θ_k, ϕ_k)$，可以写为：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113075941612.png" alt="image-20240113075941612" style="zoom:50%;" />
+
+<p>​		总结一下，那么在半径为 r 的表面上，由平面波组成的估计声场可以用球谐函数表示为：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113080204133.png" alt="image-20240113080204133" style="zoom:50%;" />
+
+<p>​		在上述方程中，处理球谐域中的信号的一个非常重要的特性得到了体现。其中产生声场的平面波振幅密度 $a_{nm}$ 与测得的球谐系数 $p_{nm}$ 直接相关。换句话说，在球面上放置的麦克风阵列元件可以测量到当前位置的声压 $p(k, r, θ, ϕ)$，并且通过球谐变换3.4可以获得相应的球谐傅里叶系数 $p_{nm}(kr)$。通过以下方程可以得到空间中任意点 $(r′, θ′, ϕ′)$ 的声压：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113080327681.png" alt="image-20240113080327681" style="zoom:50%;" />
+
+<p>其中，$(r′, θ′, ϕ′)$ 是测量球体外的点。然而，球贝塞尔函数 $j_n(kr)$ 在某些频率下会有一些零点，这可能导致开放球阵列中的零条件问题。</p>
+<h4 id="在球谐域内刚性球周围的声压"><a href="#在球谐域内刚性球周围的声压" class="headerlink" title="在球谐域内刚性球周围的声压"></a>在球谐域内刚性球周围的声压</h4><p>​		刚性球形麦克风阵列是一种麦克风布置在由刚性、全反射材料制成的球形围栏上的设备。刚性球体具有散射声压的效果。因此，刚性球体上的麦克风捕获的声压主要由入射和散射声场组成。</p>
+<p>​		在这种情况下，假设一个半径为$r_a$的刚性球，并假设它是完全反射的，即具有边界条件。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113080650385.png" alt="image-20240113080650385" style="zoom:50%;" />
+
+<p>​		然后，由于这个边界条件，在这里声音不能具有径向运动，将这一点与球坐标系中的欧拉运动方程结合起来，得到了从压力到声速的表达式：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113080726606.png" alt="image-20240113080726606" style="zoom:50%;" />
+
+<p>​		经过一些推导并引入入射和散射分量，方程 A.10 可以简化为：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113080751024.png" alt="image-20240113080751024" style="zoom:50%;" />
+
+<p>​		然后，散射分量可以通过球谐函数进行分解：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113080817771.png" alt="image-20240113080817771" style="zoom:50%;" />
+
+<p>其中 $h_n^2(kr)$ 是球形 Hankel 函数的第二类，而散射波是从半径为$ r$ 的球体内部传播的。然后结合方程 A.12 和方程 A.11，可以计算散射分量$ c_{nm}(k)$ 的球形系数：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113080928215.png" alt="image-20240113080928215" style="zoom:50%;" />
+
+<p>​		然后将系数 $c_{nm}(k)$ 代入方程 A.12，刚性球体周围的声压可以表示为：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113081023430.png" alt="image-20240113081023430" style="zoom:50%;" />
+
+<p>​		最终，如果我们将常数项和贝塞尔和汉克尔函数作为整体考虑，关于球结构，我们得到了与“开球”和“刚球”相关的主文中定义的参数 $b_n(kr)$ 的表达式：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113081238425.png" alt="image-20240113081238425" style="zoom:50%;" />
+
+<h3 id="EigenMike-32-的坐标"><a href="#EigenMike-32-的坐标" class="headerlink" title="EigenMike 32 的坐标"></a>EigenMike 32 的坐标</h3><img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113081328719.png" alt="image-20240113081328719" style="zoom:67%;" />
+
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113081341681.png" alt="image-20240113081341681" style="zoom:67%;" />
+
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113081349420.png" alt="image-20240113081349420" style="zoom:67%;" />
+
+<h2 id="频率平滑"><a href="#频率平滑" class="headerlink" title="频率平滑"></a>频率平滑</h2><p>​		频率平滑的主要思想是计算不同频率点 $ k_f $ 处的协方差矩阵 $\bar{R} $ 的平均值，以获得平滑的协方差矩阵。其表示为：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113081525031.png" alt="image-20240113081525031" style="zoom:50%;" />
+
+<p>​		在这里 $F$ 是考虑的频率点的总数。而接收信号的协方差矩阵可以根据等式 3.38 计算。然后上述方程可以简化为：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113081935359.png" alt="image-20240113081935359" style="zoom:50%;" />
+
+<p>其中 $V_f &#x3D; V(k_f) $ 代表方向矩阵，该矩阵表征平面波从特定方向到达传感器阵列时经历的相位延迟，这种关系受频率的影响。在空间域中，对于相干信号，引入聚焦矩阵是必要的，以确保接收信号的协方差矩阵具有完整的秩。该矩阵将方向矩阵$ V_q $从特定频率变换到广义频率。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113082316076.png" alt="image-20240113082316076" style="zoom:50%;" />
+
+<p>​		在空间域中，选择聚焦矩阵需要先了解先验方向到达估计，因为这样就能知道要增强信号的具体方向。但在球面域中，频率分量独立于角度分量，可以在不聚焦矩阵的情况下应用频率平滑技术。</p>
+<p>​		将球面阵列结构参数标准化到方程3.24得到一个与球面阵列结构无关的球谐域系数$a_{nm}(k)$。</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113082515166.png" alt="image-20240113082515166" style="zoom:50%;" />
+
+<p>​		在本论文中，所有的噪声都认为是可加性高斯白噪声，所以在这里我们忽略了对噪声的讨论。</p>
+<p>​		然后，球谐域中每个频率$k$的协方差矩阵可以表示为：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113082624732.png" alt="image-20240113082624732" style="zoom:50%;" />
+
+<p>​		然后就可以使用频率平滑技术：</p>
+<img src="/images/知识总结：基于球麦克风阵列的声源DoA估计/image-20240113082646534.png" alt="image-20240113082646534" style="zoom:50%;" />
+
+<p>​		而在大多数情况下，平滑的协方差矩阵$\bar{S}<em>{a</em>{nm}} &#x3D; \frac{1}{F}\Sigma_{f&#x3D;1}^{F} S_s(k_f)$ 是满秩的，而球谐域中的导向矩阵由球谐矩阵$Y^H(\Psi)$代替，那么此时频率平滑中对聚焦矩阵的要求就被移除了。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] John van Opstal. “Chapter 7 ­ Acoustic Localization Cues”. In: The Auditory System and Human Sound­Localization Behavior. 2016, pp. 171–208. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1016/B978-0-12-801529-2.00007-6">10.1016&#x2F;B978-0-12-801529-2.00007-6</a>.</p>
+<p>[2] H.F. Silverman et al. “A digital processing system for source location and sound capture by large microphone arrays”. In: 1997 IEEE International Conference on Acoustics, Speech, and Signal Processing. Vol. 1. 1997, 251–254 vol.1. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/ICASSP.1997.599616">10.1109&#x2F;ICASSP.1997.599616</a>.</p>
+<p>[3] Boaz Rafaely. “Fundamentals of Spherical Array Processing”. In: Fundamentals of Spherical Array Processing. 2015. DOI: <a target="_blank" rel="noopener" href="https://link.springer.com/book/10.1007/978-3-662-45664-4">10.1007&#x2F;978-3-662-45664-4</a>.</p>
+<p>[4] Haohai Sun et al. “Localization of Distinct Reflections in Rooms Using Spherical Microphone Array Eigenbeam Processing”. In: The Journal of the Acoustical Society of America. Vol. 131. 4. 2012, pp. 2828–2840. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1121/1.3688476">10.1121&#x2F;1.3688476</a>.</p>
+<p>[5] M. Brandstein and D. Ward. “Microphone Arrays Signal Processing Techniques and Applications”. In: Digital Signal Processing. 2001. DOI: <a target="_blank" rel="noopener" href="https://www.scirp.org/(S(vtj3fa45qm1ean45vvffcz55))/reference/ReferencesPapers.aspx?ReferenceID=455519">https://www.scirp.org/(S(vtj3fa45qm1ean45vvffcz55))/reference/ReferencesPapers.aspx?ReferenceID=455519</a>.</p>
+<p>[6] Y.T. Chan and K.C. Ho. “A simple and efficient estimator for hyperbolic location”. In: IEEE Transactions on Signal Processing 42.8 (1994), pp. 1905–1915. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/78.301830">10.1109&#x2F;78.301830</a>.</p>
+<p>[7] B.D. Van Veen and K.M. Buckley. “Beamforming: a versatile approach to spatial filtering”. In: IEEE ASSP Magazine 5.2 (1988), pp. 4–24. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/53.665">10.1109&#x2F;53.665</a>.</p>
+<p>[8] Roberto Macho­Pedroso et al. “Optimal microphone placement for indoor acoustic localization using evolutionary optimization”. In: 2016 International Conference on Indoor Positioning and Indoor Navigation (IPIN). 2016, pp. 1–8. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/IPIN.2016.7743609">10.1109&#x2F;IPIN.2016.7743609</a>.</p>
+<p>[9] Jens Meyer and Gary Elko. “A highly scalable spherical microphone array based on an orthonormal decomposition of the soundfield”. In: 2002 IEEE International Conference on Acoustics, Speech, and Signal Processing. Vol. 2. 2002, pp. II­1781­II–1784. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/ICASSP.2002.5744968">10.1109&#x2F;ICASSP.2002.5744968</a>.</p>
+<p>[10] B. Rafaely. “Analysis and design of spherical microphone arrays”. In: IEEE Transactions on Speech and Audio Processing 13.1 (2005), pp. 135–143. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/TSA.2004.839244">10.1109&#x2F;TSA.2004.839244</a>.</p>
+<p>[11] B. Rafaely. “Phase­mode versus delay­and­sum spherical microphone array processing”. In: IEEE Signal Processing Letters 12.10 (2005), pp. 713–716. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/LSP.2005.855542">10.1109&#x2F;LSP.2005.855542</a>.</p>
+<p>[12] Boaz Rafaely. “Plane­wave decomposition of the sound field on a sphere by spherical convolution”. In: The Journal of the Acoustical Society of America 116.4 (Oct. 2004). tex.eprint: <a target="_blank" rel="noopener" href="https://pubs.aip.org/asa/jasa/article%C2%ADpdf/116/4/2149/8094414/2149_1_online.pdf">https://pubs.aip.org/asa/jasa/article­pdf/116/4/2149/8094414/2149_1_online.pdf</a>, pp. 2149–2157. ISSN: 0001­4966. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1121/1.1792643">10.1121&#x2F;1.1792643</a>. URL: <a target="_blank" rel="noopener" href="https://doi.org/10.1121/1.1792643">https://doi.org/10.1121/1.1792643</a>.</p>
+<p>[13] Mert Burkay Çöteli, Orhun Olgun, and Hüseyin Hacıhabiboğlu. “Multiple Sound Source Localization With Steered Response Power Density and Hierarchical Grid Refinement”. In: IEEE&#x2F;ACM Transactions on Audio, Speech, and Language Processing 26.11 (2018), pp. 2215–2229. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/TASLP.2018.2858932">10.1109&#x2F;TASLP.2018.2858932</a>.</p>
+<p>[14] R. Schmidt. “Multiple emitter location and signal parameter estimation”. In: IEEE Transactions on Antennas and Propagation 34.3 (1986), pp. 276–280. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/TAP.1986.1143830">10.1109&#x2F;TAP.1986.1143830</a>.</p>
+<p>[15] R. Roy and T. Kailath. “ESPRIT­estimation of signal parameters via rotational invariance techniques”. In: IEEE Transactions on Acoustics, Speech, and Signal Processing 37.7 (1989), pp. 984–995. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/29.32276">10.1109&#x2F;29.32276</a>.</p>
+<p>[16] Xuan Li et al. “Spherical Harmonics MUSIC versus Conventional MUSIC”. In: Applied Acoustics 72.9 (2011), pp. 646–652. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.apacoust.2011.02.010">10.1016&#x2F;j.apacoust.2011.02.010</a>.</p>
+<p>[17] Haohai Sun et al. “Robust Localization of Multiple Sources in Reverberant Environments Using EB­ESPRIT with Spherical Microphone Arrays”. In: 2011 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) (2011), pp. 117–120. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/ICASSP.2011.5946342">10.1109&#x2F;ICASSP.2011.5946342</a>.</p>
+<p>[18] Lalan Kumar, Guoan Bi, and Rajesh M. Hegde. “The spherical harmonics root­music”. In: 2016 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) (2016), pp. 3046–3050. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/ICASSP.2016.7472237">10.1109&#x2F;ICASSP.2016.7472237</a>.</p>
+<p>[19] Frederico Heloui de Araujo, Fernando Augusto de Noronha Castro Pinto, and Julio Cesar Boscher Torres. “Room reflections analysis with the use of spherical beamforming and wavelets”. In: Applied Acoustics 131 (Feb. 1, 2018), pp. 192–202. ISSN: 0003­682X. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1016/j.apacoust.2017.10.030">10.1016&#x2F;j.apacoust.2017.10.030</a>. URL: <a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0003682X17306035">https://www.sciencedirect.com/science/article/pii/S0003682X17306035</a> (visited on 09&#x2F;12&#x2F;2023).</p>
+<p>[20] Yuxiang Hu, Jing Lu, and Xiaojun Qiu. “A maximum likelihood direction of arrival estimation method for open­sphere microphone arrays in the spherical harmonic domain”. In: The Journal of the Acoustical Society of America 138.2 (Aug. 11, 2015), pp. 791–794. ISSN: 0001­4966. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1121/1.4926907">10.1121&#x2F;1.4926907</a>. URL: <a target="_blank" rel="noopener" href="https://doi.org/10.1121/1.4926907">https://doi.org/10.1121/1.4926907</a> (visited on 09&#x2F;26&#x2F;2023).</p>
+<p>[21] H. Wang and M. Kaveh. “Coherent signal­subspace processing for the detection and estimation of angles of arrival of multiple wide­band sources”. In: IEEE Transactions on Acoustics, Speech, and Signal Processing 33.4 (1985), pp. 823–831. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/TASSP.1985.1164667">10.1109&#x2F;TASSP.1985.1164667</a>.</p>
+<p>[22] Dima Khaykin and Boaz Rafaely. “Coherent Signals Direction­of­Arrival Estimation Using a Spherical Microphone Array: Frequency Smoothing Approach”. In: 2009 IEEE Workshop on Applications of Signal Processing to Audio and Acoustics. 2009 IEEE Workshop on Applications of Signal Processing to Audio and Acoustics. Oct. 2009, pp. 221–224. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/ASPAA.2009.5346492">10.1109&#x2F;ASPAA.2009.5346492</a>.</p>
+<p>[23] O. Nadiri and B. Rafaely. “Localization of Multiple Speakers under High Reverberation Using a Spherical Microphone Array and the Direct­Path Dominance Test”. In: IEEE&#x2F;ACM Transactions on Audio, Speech, and Language Processing 22.10 (Oct. 2014), pp. 1494–1505. ISSN: 2329­9304. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/TASLP.2014.2337846">10.1109&#x2F;TASLP.2014.2337846</a>.</p>
+<p>[24] Haohai Sun et al. “Spherical harmonics based optimal minimum sidelobe beamforming for spherical sensor arrays”. In: 2010 International ITG Workshop on Smart Antennas (WSA). 2010, pp. 286–291. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/WSA.2010.5456430">10.1109&#x2F;WSA.2010.5456430</a>.</p>
+<p>[25] Rhino Trade LLC. MH Acoustics EM32 Eigenmike Microphone Array EMIB Interface Box w&#x2F; Case Accs. 2023. URL: <a target="_blank" rel="noopener" href="https://www.rhinotradellc.com/shop/mh-acoustics-em32-eigenmike-microphone-array-emib-interface-box-w-case-accs/">https://www.rhinotradellc.com/shop/mh-acoustics-em32-eigenmike-microphone-array-emib-interface-box-w-case-accs/</a>.</p>
+<p>[26] Fangzhou Wang and Xi Pan. “Acoustic Sources Localization in 3D Using Multiple Spherical Arrays”. In: Journal of Electrical Engineering and Technology 11.3 (May 1, 2016), pp. 759–768. ISSN: 1975­0102. DOI: <a target="_blank" rel="noopener" href="http://koreascience.or.kr/journal/view.jsp?kj=E1EEFQ&py=2016&vnc=v11n3&sp=759">10.5370&#x2F;JEET.2016.11.3.759</a> (visited on 10&#x2F;05&#x2F;2023).</p>
+<p>[27] Harry L Van Trees. Optimum array processing: Part IV of detection, estimation, and modulation theory. John Wiley &amp; Sons, 2002.</p>
+<p>[28] C. E. Chen et al. “Maximum Likelihood DOA Estimation of Multiple Wideband Sources in the Presence of Nonuniform Sensor Noise”. In: EURASIP Journal on Advances in Signal Processing 2008.1 (Dec. 2007), p. 835079. ISSN: 1687­6180. DOI: <a target="_blank" rel="noopener" href="https://asp-eurasipjournals.springeropen.com/articles/10.1155/2008/835079">10.1155&#x2F;2008&#x2F;835079</a> (visited on 09&#x2F;30&#x2F;2023).</p>
+<p>[29] Yuxiang Hu, Jing Lu, and Xiaojun Qiu. “Direction of arrival estimation of multiple acoustic sources using a maximum likelihood method in the spherical harmonic domain”. In: Applied Acoustics 135 (June 1, 2018), pp. 85–90. ISSN: 0003­682X. DOI: <a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S0003682X17309258">10.1016&#x2F;j.apacoust.2018.02.005</a> (visited on 09&#x2F;30&#x2F;2023).</p>
+<p>[30] Lee2008. English: A properly relabeled version of a room’s impulse response. Jan. 15, 2016. URL: <a target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Corrected_Room_Impulse_Response.png">https://commons.wikimedia.org/wiki/File:Corrected_Room_Impulse_Response.png</a> (visited on 09&#x2F;30&#x2F;2023).</p>
+<p>[31] Jont B. Allen and David A. Berkley. “Image method for efficiently simulating small­room acoustics”. In: J. Acoust. Soc. Am. 65.4 (Apr. 1979), pp. 943–950. ISSN: 0001­4966. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1121/1.382599">10.1121&#x2F;1.382599</a>.</p>
+<p>[32] Anjana Rathnayake and W. K. Wanniarachchi. “Image Source Method Based Acoustic Simulation For 3­D Room Environment”. In: International Journal of Scientific Technology Research 8 (Nov. 2019), pp. 222–228.</p>
+<p>[33] Robin Scheibler, Eric Bezzam, and Ivan Dokmanić. “Pyroomacoustics: A Python Package for Audio Room Simulation and Array Processing Algorithms”. In: 2018 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). 2018, pp. 351–355. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/ICASSP.2018.8461310">10.1109&#x2F;ICASSP.2018.8461310</a>.</p>
+<p>[34] Efren Fernandez­Grande et al. “DTU three­channel room impulse response dataset for direction of arrival estimation 2020”. In: IEEE Dataport (2021).</p>
+<p>[35] mhacoustics.com. URL: <a target="_blank" rel="noopener" href="https://mhacoustics.com/">https://mhacoustics.com/</a> (visited on 10&#x2F;01&#x2F;2023).</p>
+<p>[36] Tobias May. Acoustic Signal Processing. Course Notes. 2021.</p>
+<p>[37] Dima Khaykin and Boaz Rafaely. “Coherent signals direction­of­arrival estimation using a spherical microphone array: Frequency smoothing approach”. In: 2009 IEEE Workshop on Applications of Signal Processing to Audio and Acoustics. IEEE. 2009, pp. 221–224.</p>
+<p>[38] Xavier Mestre and Miguel Ángel Lagunas. “Modified Subspace Algorithms for DoA Estimation With Large Arrays”. In: IEEE Transactions on Signal Processing 56.2 (2008), pp. 598–614. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/TSP.2007.907884">10.1109&#x2F;TSP.2007.907884</a>.</p>
+<p>[39] Mert Burkay Çöteli, Orhun Olgun, and Hüseyin Hacıhabiboğlu. “Multiple Sound Source Localization With Steered Response Power Density and Hierarchical Grid Refinement”. In: IEEE&#x2F;ACM Transactions on Audio, Speech, and Language Processing 26.11 (2018), pp. 2215–2229. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/TASLP.2018.2858932">10.1109&#x2F;TASLP.2018.2858932</a>.</p>
+<p>[40] Alexander Kmoch and Evelyn Uuemaa. Geo­referencing of journal articles and platform design for spatial query capabilities. Version 1.0.0. Jan. 29, 2018. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.5281/zenodo.1153887">10.5281&#x2F;zenodo.1153887</a>. URL: <a target="_blank" rel="noopener" href="https://zenodo.org/record/1153887">https://zenodo.org/record/1153887</a> (visited on 10&#x2F;03&#x2F;2023).</p>
+<p>[41] Tom Shlomo and Boaz Rafaely. “Blind Localization of Early Room Reflections Using Phase Aligned Spatial Correlation”. In: IEEE Transactions on Signal Processing 69 (2021), pp. 1213–1225. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/TSP.2021.3057495">10.1109&#x2F;TSP.2021.3057495</a>.</p>
+<p>[42] D. Malioutov, M. Cetin, and A. S. Willsky. “A sparse signal reconstruction perspective for source localization with sensor arrays”. In: IEEE Trans. Signal Process. 53.8 (July 2005), pp. 3010–3022. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/TSP.2005.850882">10.1109&#x2F;TSP.2005.850882</a>.</p>
+<p>[43] Changwei Sun and Xiefeng Cheng. “Improved L1­SVD Sound Localization Algorithm in the Spherical Harmonic Domain under Reverberant Environments”. In: Journal of Wuhan University (Natural Science Edition) 64.5 (2018), pp. 459–470.</p>
+<p>[44] Pierre­Amaury Grumiaux et al. “A Survey of Sound Source Localization with Deep Learning Methods”. In: The Journal of the Acoustical Society of America 152.1 (July 5, 2022), pp. 107–151. ISSN: 0001­4966. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1121/10.0011809">10.1121&#x2F;10.0011809</a>. URL: <a target="_blank" rel="noopener" href="https://doi.org/10.1121/10.0011809">https://doi.org/10.1121/10.0011809</a> (visited on 05&#x2F;02&#x2F;2023).</p>
+<p>[45] Dor H. Shmuel et al. “Deep Root Music Algorithm for Data­Driven Doa Estimation”. In: ICASSP 2023 ­ 2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). 2023, pp. 1–5. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1109/ICASSP49357.2023.10096504">10.1109&#x2F;ICASSP49357.2023.10096504</a>.</p>
+<p>[46] Christopher R. Landschoot and Ning Xiang. “Model­based Bayesian direction of arrival analysis for sound sources using a spherical microphone array”. In: The Journal of the Acoustical Society of America 146.6 (Dec. 1, 2019), pp. 4936–4946. ISSN: 0001­4966, 1520­8524. DOI: <a target="_blank" rel="noopener" href="https://doi.org/10.1121/1.5138126">10.1121&#x2F;1.5138126</a>. URL: <a target="_blank" rel="noopener" href="https://pubs.aip.org/jasa/article/146/6/4936/955631/Model-based-Bayesian-direction-of-arrival-analysis">https://pubs.aip.org/jasa/article/146/6/4936/955631/Model-based-Bayesian-direction-of-arrival-analysis</a> (visited on 10&#x2F;03&#x2F;2023).</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Gavin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/01/13/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9F%BA%E4%BA%8E%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%9A%84%E5%A3%B0%E6%BA%90DoA%E4%BC%B0%E8%AE%A1/">http://example.com/2024/01/13/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9F%BA%E4%BA%8E%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%9A%84%E5%A3%B0%E6%BA%90DoA%E4%BC%B0%E8%AE%A1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Gavin</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Signal-processing/">Signal processing</a></div><div class="post_share"><div class="social-share" data-image="https://i.ibb.co/1dkyDjy/acoustic-camera-gfaitech-Sphere120-beamforming-microphone-array-3d-measurement-interior-right.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/11/02/%E6%AF%94%E8%B5%9B%E7%9B%B8%E5%85%B3%EF%BC%9ADCASE%202019%20task3%20%20SELD%E5%A3%B0%E9%9F%B3%E4%BA%8B%E4%BB%B6%E5%AE%9A%E4%BD%8D%E6%A3%80%E6%B5%8B/" title="文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data"><img class="cover" src="https://i.ibb.co/b7XKwb2/image.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/09/15/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9ACramer-Rao%20Lower%20Bound%20(CRLB)/" title="知识总结: 什么是Cramer Rao Lower Bound"><img class="cover" src="https://i.ibb.co/DKg0bzT/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-15</div><div class="title">知识总结: 什么是Cramer Rao Lower Bound</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.ibb.co/ch2RrDp/20230822001522.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Gavin</div><div class="author-info__description">我的过去常常追赶着我</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/alexandergwm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/alexandergwm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wenmiaogao@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">May you stay young forever, do the thing in your own zone.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%9A%84%E7%A9%BA%E9%97%B4%E5%A3%B0%E6%BA%90DoA%E4%BC%B0%E8%AE%A1"><span class="toc-number">1.</span> <span class="toc-text">基于球麦克风阵列的空间声源DoA估计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">1.2.1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%8C%AE%E5%9B%9E%E9%A1%BE"><span class="toc-number">1.2.2.</span> <span class="toc-text">文献回顾</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E5%A4%A7%E7%BA%B2"><span class="toc-number">1.3.</span> <span class="toc-text">论文大纲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A3%B0%E5%9C%BA%E7%9A%84%E6%95%B0%E5%AD%A6%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.4.</span> <span class="toc-text">声场的数学模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%83%E9%9D%A2%E8%B0%90%E6%B3%A2%E5%9F%9F%E5%88%86%E6%9E%90"><span class="toc-number">1.4.1.</span> <span class="toc-text">球面谐波域分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%90%83%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">球坐标系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%90%83%E8%B0%90%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">球谐函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%90%83%E8%B0%90%E5%9F%9F%E4%B8%AD%E7%9A%84%E4%BF%A1%E5%8F%B7%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.4.1.3.</span> <span class="toc-text">球谐域中的信号表示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%94%A8%E4%BA%8E%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.4.1.4.</span> <span class="toc-text">多球麦克风阵列用于定位</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%BA%90%E5%AE%9A%E4%BD%8D%E7%AE%97%E6%B3%95"><span class="toc-number">1.4.2.</span> <span class="toc-text">声源定位算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A2%E6%9D%9F%E6%88%90%E5%BD%A2%E7%AE%97%E6%B3%95"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">波束成形算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%90%E7%A9%BA%E9%97%B4%E7%AE%97%E6%B3%95"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">子空间算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E7%AE%97%E6%B3%95"><span class="toc-number">1.4.2.3.</span> <span class="toc-text">最大似然算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.4.2.4.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%BF%E9%97%B4%E8%84%89%E5%86%B2%E5%93%8D%E5%BA%94%E6%A8%A1%E6%8B%9F"><span class="toc-number">1.4.3.</span> <span class="toc-text">房间脉冲响应模拟</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E7%BB%93%E6%9E%9C"><span class="toc-number">1.5.</span> <span class="toc-text">仿真结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.5.1.</span> <span class="toc-text">仿真设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C%E5%92%8C%E8%AE%A8%E8%AE%BA"><span class="toc-number">1.5.2.</span> <span class="toc-text">结果和讨论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AA%84%E5%B8%A6%E4%BF%A1%E5%8F%B7%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">窄带信号定位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%BD%E5%B8%A6%E4%BF%A1%E5%8F%B7%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.5.2.2.</span> <span class="toc-text">宽带信号定位</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%80%9CShoeBox%E2%80%9D%E6%88%BF%E9%97%B4%E4%B8%AD%E7%9A%84%E5%8D%95%E4%B8%80%E5%A3%B0%E6%BA%90%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.5.2.2.1.</span> <span class="toc-text">“ShoeBox”房间中的单一声源定位</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E6%95%B0%E9%87%8F%E7%9A%84%E9%BA%A6%E5%85%8B%E9%A3%8E%E7%BB%84%E6%88%90%E9%98%B5%E5%88%97%E4%BB%A5%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.5.2.2.2.</span> <span class="toc-text">使用不同数量的麦克风组成阵列以定位</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%9A%E6%BA%90%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.5.2.2.3.</span> <span class="toc-text">多源定位</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B6%88%E5%A3%B0%E5%AE%A4%E4%B8%AD%E4%B8%8D%E5%90%8CSNR%E7%9A%84%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.5.2.2.4.</span> <span class="toc-text">消声室中不同SNR的定位</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B7%B7%E5%93%8D%E5%AE%A4%E4%B8%AD%E4%B8%8D%E5%90%8C%E6%B7%B7%E5%93%8D%E6%97%B6%E9%97%B4%E4%B8%8B%E7%9A%84%E5%AE%9A%E4%BD%8D%E6%95%88%E6%9E%9C"><span class="toc-number">1.5.2.2.5.</span> <span class="toc-text">混响室中不同混响时间下的定位效果</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%A8%E6%97%A0%E6%B7%B7%E5%93%8D%E7%8E%AF%E5%A2%83%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E7%90%83%E5%BD%A2%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E8%BF%9B%E8%A1%8C%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.5.2.2.6.</span> <span class="toc-text">在无混响环境中使用多个球形麦克风阵列进行定位</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%A8%E4%BD%8E%E6%B7%B7%E5%93%8D%E6%88%BF%E9%97%B4%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%84%89%E5%86%B2%E5%93%8D%E5%BA%94%E8%BF%9B%E8%A1%8C%E6%97%A9%E6%9C%9F%E5%8F%8D%E5%B0%84%E7%9A%84%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.5.2.2.7.</span> <span class="toc-text">在低混响房间中使用脉冲响应进行早期反射的定位</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9C%9F%E5%AE%9E%E6%95%B0%E6%8D%AE%E8%AF%84%E4%BC%B0"><span class="toc-number">1.6.</span> <span class="toc-text">真实数据评估</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA%E5%92%8C%E5%B1%95%E6%9C%9B"><span class="toc-number">1.7.</span> <span class="toc-text">结论和展望</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">1.7.1.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%95%E6%9C%9B"><span class="toc-number">1.7.2.</span> <span class="toc-text">展望</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%95"><span class="toc-number">1.8.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E9%9D%A2%E6%B3%A2%E5%88%86%E8%A7%A3%E7%BB%86%E8%8A%82"><span class="toc-number">1.8.1.</span> <span class="toc-text">平面波分解细节</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E9%87%8D%E5%B9%B3%E9%9D%A2%E6%B3%A2"><span class="toc-number">1.8.1.1.</span> <span class="toc-text">多重平面波</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E7%90%83%E8%B0%90%E5%9F%9F%E5%86%85%E5%88%9A%E6%80%A7%E7%90%83%E5%91%A8%E5%9B%B4%E7%9A%84%E5%A3%B0%E5%8E%8B"><span class="toc-number">1.8.1.2.</span> <span class="toc-text">在球谐域内刚性球周围的声压</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EigenMike-32-%E7%9A%84%E5%9D%90%E6%A0%87"><span class="toc-number">1.8.2.</span> <span class="toc-text">EigenMike 32 的坐标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%91%E7%8E%87%E5%B9%B3%E6%BB%91"><span class="toc-number">1.9.</span> <span class="toc-text">频率平滑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">1.10.</span> <span class="toc-text">参考文献</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/01/13/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9F%BA%E4%BA%8E%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%9A%84%E5%A3%B0%E6%BA%90DoA%E4%BC%B0%E8%AE%A1/" title="知识总结: 基于球麦克风阵列的声源DoA估计"><img src="https://i.ibb.co/1dkyDjy/acoustic-camera-gfaitech-Sphere120-beamforming-microphone-array-3d-measurement-interior-right.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="知识总结: 基于球麦克风阵列的声源DoA估计"/></a><div class="content"><a class="title" href="/2024/01/13/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9F%BA%E4%BA%8E%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%9A%84%E5%A3%B0%E6%BA%90DoA%E4%BC%B0%E8%AE%A1/" title="知识总结: 基于球麦克风阵列的声源DoA估计">知识总结: 基于球麦克风阵列的声源DoA估计</a><time datetime="2024-01-13T00:51:54.000Z" title="发表于 2024-01-13 08:51:54">2024-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/02/%E6%AF%94%E8%B5%9B%E7%9B%B8%E5%85%B3%EF%BC%9ADCASE%202019%20task3%20%20SELD%E5%A3%B0%E9%9F%B3%E4%BA%8B%E4%BB%B6%E5%AE%9A%E4%BD%8D%E6%A3%80%E6%B5%8B/" title="文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data"><img src="https://i.ibb.co/b7XKwb2/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data"/></a><div class="content"><a class="title" href="/2023/11/02/%E6%AF%94%E8%B5%9B%E7%9B%B8%E5%85%B3%EF%BC%9ADCASE%202019%20task3%20%20SELD%E5%A3%B0%E9%9F%B3%E4%BA%8B%E4%BB%B6%E5%AE%9A%E4%BD%8D%E6%A3%80%E6%B5%8B/" title="文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data">文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data</a><time datetime="2023-11-02T07:02:20.000Z" title="发表于 2023-11-02 15:02:20">2023-11-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Deep%20Networks%20for%20Direction-of-Arrival%20Estimation%20in%20Low%20SNR/" title="文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR"><img src="https://i.ibb.co/vHV5BKD/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR"/></a><div class="content"><a class="title" href="/2023/10/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Deep%20Networks%20for%20Direction-of-Arrival%20Estimation%20in%20Low%20SNR/" title="文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR">文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR</a><time datetime="2023-10-26T23:33:28.000Z" title="发表于 2023-10-27 07:33:28">2023-10-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/25/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADeep%20learning%20assisted%20sound%20source%20localization%20using%20two%20orthogonal%20first-order%20differential%20microphone%20arrays/" title="文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays"><img src="https://i.ibb.co/XVMYNX3/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays"/></a><div class="content"><a class="title" href="/2023/10/25/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADeep%20learning%20assisted%20sound%20source%20localization%20using%20two%20orthogonal%20first-order%20differential%20microphone%20arrays/" title="文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays">文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays</a><time datetime="2023-10-25T11:05:44.000Z" title="发表于 2023-10-25 19:05:44">2023-10-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/29/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/" title="文献阅读:Fundamentals of Spherical Array Processing"><img src="https://i.ibb.co/pRR1S1b/Eigenmike.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读:Fundamentals of Spherical Array Processing"/></a><div class="content"><a class="title" href="/2023/09/29/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/" title="文献阅读:Fundamentals of Spherical Array Processing">文献阅读:Fundamentals of Spherical Array Processing</a><time datetime="2023-09-29T15:32:04.000Z" title="发表于 2023-09-29 23:32:04">2023-09-29</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Gavin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Have a nice day!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

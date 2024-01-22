@@ -1,0 +1,301 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>知识总结：如何测量房间的Impulse Response | Gavin</title><meta name="author" content="Gavin"><meta name="copyright" content="Gavin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基本信息最近在上Acoustic signal processing 这门课，做了关于Impulse Response Measurement 脉冲响应测量的实验，在这总结回顾一下。 脉冲响应在数学上被定义成在输入无限狭窄脉冲时所得到的测试的系统的输出，更普遍来说，脉冲响应时任何动态系统对一些外部变化的反应，脉冲响应将这种系统的反应描述成了一个时间的函数$h(t)$。 那么我们为什么非要测量脉冲响">
+<meta property="og:type" content="article">
+<meta property="og:title" content="知识总结：如何测量房间的Impulse Response">
+<meta property="og:url" content="http://example.com/2023/09/06/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/index.html">
+<meta property="og:site_name" content="Gavin">
+<meta property="og:description" content="基本信息最近在上Acoustic signal processing 这门课，做了关于Impulse Response Measurement 脉冲响应测量的实验，在这总结回顾一下。 脉冲响应在数学上被定义成在输入无限狭窄脉冲时所得到的测试的系统的输出，更普遍来说，脉冲响应时任何动态系统对一些外部变化的反应，脉冲响应将这种系统的反应描述成了一个时间的函数$h(t)$。 那么我们为什么非要测量脉冲响">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.ibb.co/bLcJFgv/image.png">
+<meta property="article:published_time" content="2023-09-06T00:28:26.000Z">
+<meta property="article:modified_time" content="2023-09-06T00:28:26.000Z">
+<meta property="article:author" content="Gavin">
+<meta property="article:tag" content="脉冲响应g">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.ibb.co/bLcJFgv/image.png"><link rel="shortcut icon" href="https://i.ibb.co/3BGBwps/2c8b98a62fbc3615.png"><link rel="canonical" href="http://example.com/2023/09/06/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '知识总结：如何测量房间的Impulse Response',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-06 08:28:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.ibb.co/ch2RrDp/20230822001522.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.ibb.co/bLcJFgv/image.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Gavin"><img class="site-icon" src="https://i.ibb.co/3BGBwps/2c8b98a62fbc3615.png"/><span class="site-name">Gavin</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">知识总结：如何测量房间的Impulse Response</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-06T00:28:26.000Z" title="发表于 2023-09-06 08:28:26">2023-09-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-06T00:28:26.000Z" title="更新于 2023-09-06 08:28:26">2023-09-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9F%B3%E9%A2%91%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/">音频信号处理</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9F%B3%E9%A2%91%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">知识总结</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9F%B3%E9%A2%91%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/%E8%84%89%E5%86%B2%E5%93%8D%E5%BA%94/">脉冲响应</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="知识总结：如何测量房间的Impulse Response"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>最近在上Acoustic signal processing 这门课，做了关于Impulse Response Measurement 脉冲响应测量的实验，在这总结回顾一下。</p>
+<p>脉冲响应在数学上被定义成在输入无限狭窄脉冲时所得到的测试的系统的输出，更普遍来说，脉冲响应时任何动态系统对一些外部变化的反应，脉冲响应将这种系统的反应描述成了一个时间的函数$h(t)$。</p>
+<p>那么我们为什么非要测量脉冲响应呢？</p>
+<p>1、通过测量脉冲响应我们可以估计系统在任意输入或刺激下的输出</p>
+<p>2、可以通过进一步分析脉冲响应IR和传递函数TF来描述系统的声学性质，如房间的混响时间和清晰度参数等</p>
+<p>在数学上来说，怎么来表示这种脉冲主要取决于系统是连续时间还是离散时间建模，在连续时间系统中，脉冲可以被表示为Dirac delta函数$\begin{equation} \delta(x) &#x3D; \begin{cases} +\infty,&amp;x&#x3D;0\ 0,&amp;x\neq 0 \end{cases} \end{equation}$,或者在离散时间系统中被表示为Kronecker delta $ \begin{equation} \delta_{ij} &#x3D; \begin{cases} 0,&amp; i\neq j\ 1,&amp; i&#x3D;j \end{cases} \end{equation} $。Dirac delta表示了一个在极短的时间段内包含无限高能量的脉冲，但是这在真实世界是不可能达到的。[^1]</p>
+<img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/v2-d8d27bd2128e8074b8c75118c53ee6a3_1440w.png" alt="img" style="zoom:67%;" />
+
+<p>一个线性时不变系统（LTI）的性质可以完全被脉冲响应给定义，对于任何输入，系统的输出 $y(t)$都可以根据输入 $x(t)$ 和脉冲响应 $h(t)$ 来通过卷积来计算 </p>
+<p>​																								$y(t) &#x3D; \int_{-\infty}^{+\infty} h(\tau)\cdot x(t-\tau)d\tau&#x3D;h(t)*x(t)$</p>
+<img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/v2-d4021bb55d07d3d55daeac209837a2dd_1440w.png" alt="img" style="zoom:67%;" />
+
+<p>而我们经常使用传递函数 $H(w)$来代替脉冲响应 $h(t)$ 来分析系统性能，传递函数是脉冲响应在频域的表现，而我们都知道，时域的卷积等于频域的乘积，也就是说我们可以利用傅里叶变换将上式表现至频域中进行计算。</p>
+<p>​																														$$Y(f) &#x3D; X(f)\cdot H(f)$$</p>
+<p>而我们怎么对于一个LTI系统进行数字化测量呢？最好是加入放一个理想脉冲进入系统，但是我们已经知道这是不可能的在现实中呈现一个无限窄，却有无限高峰值的脉冲，那自然就想到了类脉冲信号(impulse-like signal)。在声学中，极短时间有较高幅值的类脉冲信号有：鼓掌声，枪声以及气球爆裂声，但是因为这些<strong>类脉冲信号会在低频范围内有缺失及他们具有随机性使他们的可重复性较差</strong>，所以采用类脉冲信号来测量系统是不现实的，于是我们就考虑采用间接的方法，利用其他测量信号，首先我们考虑采用两种测量信号作为激发信号，分别是利用<strong>最大长度序列信号MLS（Maximum Length Sequence)<strong>，以及</strong>正弦扫频信号</strong>。</p>
+<p>MLS信号是一种利用合适的移位寄存器产生的周期性伪随机二进制序列，其<strong>自相关函数可以近似为脉冲函数</strong>，其有较平坦的频谱，与白噪声相同，其自相关函数近似为脉冲函数，用扬声器将MLS信号释放，并在一个接受点接受信号，这个信号就是MLS信号和声学空间的脉冲响应IR的卷积。再将输出信号y[n]和x[n]进行互相关运算（cross-correlation)，等价于将输出信号y[n]和时间反转后的激发信号x[-n]进行卷积运算，即可得到系统的脉冲响应IR。MLS是周期性信号，长度L&#x3D;2n-1，n为最大长度序列的阶数，阶数越高，信号的长度越长，其优点在于MLS是确定性序列，可以精确重复，且很方便进行多次平均，可以降低背景噪声对测量的影响。但是由于计算机技术快速发展，MLS速度已经不算很突出了。</p>
+<p>在这个场景下，假设系统（一个房间）的脉冲响应是$h[n]$, 输入信号(MLS信号)时刻$x[n]$， 输出信号（房间的声场响应）是$y[n]$。 那么根据卷积定理，输出信号$y[n]$ 可以表示为：</p>
+<p>​																																$y[n] &#x3D; x[n] * h[n]$</p>
+<p>其中$*$ 表示卷积运算，这个表达式在离散时间的情况下可以写成下式：</p>
+<img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/image-20230906080037632.png" alt="image-20230906080037632" style="zoom:50%;" />
+
+<p>为了能够从输出信号$y[n]$ 中恢复$h[n]$， 我们常常会进行互相关运算，互相关$R_{xy}[k]$ 的定义为：</p>
+<img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/image-20230906080322081.png" alt="image-20230906080322081" style="zoom:50%;" />
+
+<p>我们现在代入$y[n]$ 的卷积表达式：</p>
+<img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/image-20230906080403607.png" alt="image-20230906080403607" style="zoom:50%;" />
+
+<p>那么进一步，我们便可以得到：</p>
+<p>​																							$R_{xy}[k] &#x3D;\sum_m(\sum_n x[n]\cdot x[n+k-m])\cdot h[m]$</p>
+<p>所以可以从上面重新组合而成的内部求和符号是$x[n]$ 和$x[n+k-m]$ 的互相关，而由于此时采用的$x[n]$ 为一个MLS信号，其自相关函数近似为脉冲函数，这意味着除非$k-m &#x3D;0$ ，否则内部的求和几乎为0，因此$R_{xy}[k]$ 就近似为$h[k]$ ，即为系统的脉冲响应。</p>
+<p><img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/v2-354c62f64c87540797ff1791a8b93f5f_1440w.png" alt="img"></p>
+<p>现在我们主要使用的是正弦扫频信号，其在任一时刻都是单一频率，但是随时间变化，其可以被如下方程定义：</p>
+<p>​																								$g(t) &#x3D; sin(2\pi f(t)),   f(t)&#x3D;f_1 t+(f_2-f_1)t^2&#x2F;2T$</p>
+<p>上面的$T$ 是全部的扫频时间，$f_1$ 为开始频率,$f_2$ 为截止频率。</p>
+<p>而指数正弦扫频信号(Exponential Sine Sweep, ESS) 在频率方面以对数的方式进行扫描，因此其在每个倍频程(octave) 内有相同数量的数据点，这与许多物理系统和人类听觉的对数频率响应更为匹配。其表达形式如下：</p>
+<img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/image-20230906082924208.png" alt="image-20230906082924208" style="zoom:50%;" />
+
+<p>而之前提到的线性正弦扫描，其在频率方面以线性方式进行扫描，这可能会导致在高频区域”过度采样“或者低频区域”欠采样“。</p>
+<p>而根据文章[^2] 中得到的结论，扫频信号相较$MLS$ 信号有更高的信噪比，而线性扫频信号的信噪比在高频段上比较优秀，而指数扫频信号在低频段上信噪比比较有优势，并且在各个频段上比较平均。所以在这里我们考虑使用指数扫频信号作为房间中的激励信号。</p>
+<p>而对于线性扫频信号，其具有良好的自相关性质，其是一个时间函数，其瞬时频率线性地从初始频率$f_1$ 增加到结束频率$f_2$ ，其涵盖了这一整个频率范围，包含在这个频率范围内可能出现的相位和频率成分。自相关函数在零延迟处有一个显著的峰值。所以其可以根据其输出和输入的互相关来得到整个系统的Impulse Response, 而对于非白频谱的信号,如ESS，其自相关函数不是一个简单的脉冲，所以这种情况下就要建立一个”逆滤波器” 来解卷积系统的输出，从而恢复脉冲响应。</p>
+<p>假设系统的输出$y(t)$ 是输入$x(t)$ 和脉冲响应$h(t)$ 的卷积：</p>
+<p>​																													$y(t) &#x3D; x(t) * h(t)$</p>
+<p>在频域中，这个卷积变为乘法：</p>
+<p>​																													$Y(f) &#x3D; X(f)\cdot H(f)$</p>
+<p>此时为了能够从$y(t)$ 中恢复$h(t)$ ， 可以先将$y(t)$ 和$x(t)$ 转换到频域 （使用FFT）， 然后用$Y(f)$ 除以$X(f)$ 得到$H(f)$：</p>
+<p>就有 ：                                                               										$H(f) &#x3D; \frac{Y(f)}{X(f)}$</p>
+<p>之后使用IFFT将$H(f)$ 转换回时域，从而可以得到$h(t)$ 。</p>
+<p>上面就是逆滤波器的理论部分，而实际过程我们主要采取如下图所示的流程：</p>
+<p><img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/v2-182e6e3dcb2f012a7134ddb3536428cd_r.jpg" alt="img"></p>
+<ol>
+<li>我们将激励信号$x(t)$ 进行FFT变换到频域得到$X(f)$ </li>
+<li>后取$X(f)$ 的倒数，得到$\frac{1}{X(f)}$</li>
+<li>对其进行IFFT，就可以得到$x_{inv}(t) $， 这个便是逆滤波器的脉冲响应。</li>
+<li>之后我们原始的激励信号$x(t)$ 通过了DUT(模拟房间)得到了输出信号$y(t)$， 将其与之前得到的逆滤波器的脉冲响应$x_{inv}(t)$ 进行卷积，就可以得到近似的DUT的脉冲响应$h(t)$ (时域上的卷积等于频域的乘积）。</li>
+</ol>
+<h2 id="实验部分"><a href="#实验部分" class="headerlink" title="实验部分"></a>实验部分</h2><p>基于之前第一部分的理论，我们参照下图的流程进行了实验：</p>
+<img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/v2-0fdb09519b99950208a18c57add97383_r.jpg" alt="img" style="zoom:67%;" />
+
+<p>为了得到完整的房间的$IR$ 的属性，我们调整了两个参数：扫频信号的持续时间，并且对于每一个不同持续时间的扫频信号，我们逐渐提高扫频信号结束后的静默时间。</p>
+<p>改变扫频信号的持续时间会对测量带来显著性的影响，如果我们拉长了扫频信号的持续时间，也就是说会在较长时间内分配不同频率的能量。房间可能不会对对不同频率的信号有相同反应，因此延长扫频信号持续时间可能会造成频率有更快的衰减，因此对于混响时间有着更少的贡献。</p>
+<p>改变扫频信号后的静默时间也会呈现一些有趣的性质，首先就是如果静默时间太短的话，可能不能完全的捕捉房间里所有的声音衰减。然而如果静默时间太长的话，可能不会提供任何新的信息。</p>
+<p>所以根据这种思想，我们做了多组不同扫频时间和静默时间的实验，下图展示了房间的ETC，房间的IR的频谱图（STFT of the IR)以及所记录的激励信号的频谱图（STFT of y)</p>
+<img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/v2-32de1b0d6bee907ff0c996d27c06ac00_1440w.webp" alt="img" style="zoom:80%;" />
+
+<img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/v2-48d0ef58c2b4312a93570f1953563d75_1440w.webp" alt="img" style="zoom:80%;" />
+
+<img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/v2-6aed29794d1822311ac53a726a7e0dd4_1440w.webp" alt="img" style="zoom:80%;" />
+
+<p>在上面的三组图中，我们分别采用了不同的扫频时间和相应的静默时间，可以明显看到扫频信号持续不同时间会导致每次测量中频谱的形状不同，当测量信号较长且扫描后的静默期较短时，估计的IR的频谱图不会有很明显的失真，这个结果是比较符合改变测量信号的长度时出现的预期行为。当扫频信号越长，那么其能量分布速度就会变慢，使声场有足够的时间来使得测量信号的最早的频率消失，使得其不会与其他的频率内容发生交互。然而较短的扫频信号能量分布在较短的时间范围内，使得不同的频率可以互相发生交互，因此有一个较长的衰减时间。</p>
+<p>这三组图还展示了对于一个确定长的测量信号，并不是对于所有的静默时间都有相同的反应，比如，对于一个较短的扫频信号，静默期必须要足够长使得房间内的声场在停止记录前完全消失。</p>
+<p>我们考虑对房间的脉冲响应性质做进一步的分析。</p>
+<p>环境的底噪，比如来自于扬声器的噪音等，会限制测量的动态范围，而这个又和预测房间的混响时间相关，如果声音的声压级低于本底噪声，那么就会被噪声所掩蔽。在室内声学测量中估计本底噪声的常用方法是，计算IR的平方并对其取对数，定义为能量时间曲线（energy time curve ETC)，ETC曲线可以直观地展示脉响应在时域中的能量的变化行为。</p>
+<img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/image-20230906092332305.png" alt="image-20230906092332305" style="zoom: 50%;" />
+
+<p>IR的衰减是指数型的，如果对其取对数，就可以得到线性关系，最后会在到达本底噪声处趋于平坦，如图所示，大概有有-60dB的本底噪声。而此时动态范围就被定义为IR的峰值和本底噪声的差值。Knee point 被定义为衰减到达本底噪声的拐点。这个点对于接下来的IR的分析很重要并在后续中分析中可作为截断时间。</p>
+<img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/v2-e73c21c8eb584e0138cf7f5a9c405d0a_1440w.webp" alt="img" style="zoom:67%;" />
+
+<p>在这个图中我们可以看到两种不同颜色的线，蓝色和红色，他们的每一种分别来自一个麦克风，一个放置在距声源1m处，另一个距声源2m处。房间的脉冲响应IR在开始有一个峰值，然后会有一个线性的衰减一直到本底噪声。鉴于ETC曲线的不光滑性质，很难通过计算取到比较准确的knee-point和动态范围。但是，运用视觉取寻找这些值是比较容易的。</p>
+<img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/v2-1457582240fc934ff992047c4591a409_1440w.webp" alt="img" style="zoom: 67%;" />
+
+<p>从上表中我们可以看出来：1、越长的扫频时间有更好的动态范围。每次加倍扫频时间，动态范围会有+3dB的提升。2、5-10s的静默时间呈现近似相同的knee points和动态范围。</p>
+<p>我们决定采用2s的扫频时间和5s的静默时间这组信号进行接下来的对IR的分析，它的knee-point在3s且动态范围到57dB。</p>
+<p>能量衰减曲线（Energy decay curve）EDC是由对脉冲响应进行积分得到的，是一种对IR（ETC图）的随机波动进行平滑操作的方法，运用EDC代替IR来分析房间内的声音能量的衰减会得到更准确的性质，EDC被定义为：</p>
+<img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/image-20230906092611938.png" alt="image-20230906092611938" style="zoom:50%;" />
+
+<p>从上式可以看出，IR的 $h(t)$被积分至信号截止处，且我们处理的是离散信号，那么积分将会变成一个和。当我们记录一个声音时，总会有背景噪音，背景噪音可能会导致能量衰减的直线（对数）的斜率的错误估计，所以我们最好在knee-point处截断信号。也就是3s处。</p>
+<p><img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/v2-978d34a30cf78fd5ddd230b6808ce0a8_1440w.webp" alt="img"></p>
+<p>混响时间（RT60）也是一个极为重要的声学参数，其是评价声学系统的重要参数，其被定义为脉冲响应降至60dB的时间，这个在我们实际实验过程当中是比较难达到的，因为衰减到60dB需要一个较大的难达到的动态范围，因此我们就采用测量20dB的衰减（T20)或者30dB的衰减（T30）来估计60dB的衰减时间。</p>
+<p>直达声和混响声能量比值（Direct-to-reverberant energy ratio DRR) 被定义为直达声能量和混响声能量的比值</p>
+<img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/image-20230906092722029.png" alt="image-20230906092722029" style="zoom:50%;" />
+
+<p>在上式中，分子是直达声能量，分母是混相声能量。在实际过程中， $t_d &#x3D; 10^{-3}$ 表示了只有直达声的部分，通过实验，我们得到了两个麦克风收集到的信号所计算出来的DRR</p>
+<img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/v2-30ec897e3ac7204d1c0117bba66908ea_1440w.webp" alt="img" style="zoom:50%;" />
+
+<p>从表中我们可以得知，DDR在-2到7dB之间，这代表这个房间是一个高混响的房间，因为其混响部分很大。在2m处的较远的麦克风有比在1m处较劲的麦克风更低的值。</p>
+<p>对于Energy decay relief（EDR）来说，它的定义和EDC相似，EDC展示了一个大的范围的能量衰减，EDR也作为频率和时间的函数展示了能量的衰减，所以可以用STFT来进行表示，其可以通过对脉冲响应IR的STFT的平方取反向积分给计算出来。</p>
+<img src="/images/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/v2-fba0148f0e5894858493cb26904f6b69_1440w.webp" alt="img" style="zoom:50%;" />
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Gavin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/09/06/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/">http://example.com/2023/09/06/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B5%8B%E9%87%8F%E6%88%BF%E9%97%B4Impulse%20Response/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Gavin</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%84%89%E5%86%B2%E5%93%8D%E5%BA%94g/">脉冲响应g</a></div><div class="post_share"><div class="social-share" data-image="https://i.ibb.co/bLcJFgv/image.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/09/06/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%A3%B0%E5%AD%A6%E5%9B%9E%E5%A3%B0%E6%B6%88%E9%99%A4AEC/" title="知识总结：声学回声消除（AEC）"><img class="cover" src="https://i.ibb.co/RjKLk76/image.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">知识总结：声学回声消除（AEC）</div></div></a></div><div class="next-post pull-right"><a href="/2023/09/05/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ALocalization%20of%20distinct%20reflections%20in%20rooms%20using%20spherical%20microphone%20array%20eigenbeam%20processing/" title="文献阅读: Localization of distinct reflections in rooms using spherical microphone array eigenbeam processing"><img class="cover" src="https://i.ibb.co/r3g5qL8/image.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">文献阅读: Localization of distinct reflections in rooms using spherical microphone array eigenbeam processing</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.ibb.co/ch2RrDp/20230822001522.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Gavin</div><div class="author-info__description">我的过去常常追赶着我</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/alexandergwm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/alexandergwm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wenmiaogao@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">May you stay young forever, do the thing in your own zone.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text">基本信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E9%83%A8%E5%88%86"><span class="toc-number">2.</span> <span class="toc-text">实验部分</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/01/13/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9F%BA%E4%BA%8E%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%9A%84%E5%A3%B0%E6%BA%90DoA%E4%BC%B0%E8%AE%A1/" title="知识总结: 基于球麦克风阵列的声源DoA估计"><img src="https://i.ibb.co/1dkyDjy/acoustic-camera-gfaitech-Sphere120-beamforming-microphone-array-3d-measurement-interior-right.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="知识总结: 基于球麦克风阵列的声源DoA估计"/></a><div class="content"><a class="title" href="/2024/01/13/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9F%BA%E4%BA%8E%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%9A%84%E5%A3%B0%E6%BA%90DoA%E4%BC%B0%E8%AE%A1/" title="知识总结: 基于球麦克风阵列的声源DoA估计">知识总结: 基于球麦克风阵列的声源DoA估计</a><time datetime="2024-01-13T00:51:54.000Z" title="发表于 2024-01-13 08:51:54">2024-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/02/%E6%AF%94%E8%B5%9B%E7%9B%B8%E5%85%B3%EF%BC%9ADCASE%202019%20task3%20%20SELD%E5%A3%B0%E9%9F%B3%E4%BA%8B%E4%BB%B6%E5%AE%9A%E4%BD%8D%E6%A3%80%E6%B5%8B/" title="文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data"><img src="https://i.ibb.co/b7XKwb2/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data"/></a><div class="content"><a class="title" href="/2023/11/02/%E6%AF%94%E8%B5%9B%E7%9B%B8%E5%85%B3%EF%BC%9ADCASE%202019%20task3%20%20SELD%E5%A3%B0%E9%9F%B3%E4%BA%8B%E4%BB%B6%E5%AE%9A%E4%BD%8D%E6%A3%80%E6%B5%8B/" title="文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data">文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data</a><time datetime="2023-11-02T07:02:20.000Z" title="发表于 2023-11-02 15:02:20">2023-11-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Deep%20Networks%20for%20Direction-of-Arrival%20Estimation%20in%20Low%20SNR/" title="文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR"><img src="https://i.ibb.co/vHV5BKD/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR"/></a><div class="content"><a class="title" href="/2023/10/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Deep%20Networks%20for%20Direction-of-Arrival%20Estimation%20in%20Low%20SNR/" title="文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR">文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR</a><time datetime="2023-10-26T23:33:28.000Z" title="发表于 2023-10-27 07:33:28">2023-10-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/25/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADeep%20learning%20assisted%20sound%20source%20localization%20using%20two%20orthogonal%20first-order%20differential%20microphone%20arrays/" title="文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays"><img src="https://i.ibb.co/XVMYNX3/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays"/></a><div class="content"><a class="title" href="/2023/10/25/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADeep%20learning%20assisted%20sound%20source%20localization%20using%20two%20orthogonal%20first-order%20differential%20microphone%20arrays/" title="文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays">文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays</a><time datetime="2023-10-25T11:05:44.000Z" title="发表于 2023-10-25 19:05:44">2023-10-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/29/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/" title="文献阅读:Fundamentals of Spherical Array Processing"><img src="https://i.ibb.co/pRR1S1b/Eigenmike.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读:Fundamentals of Spherical Array Processing"/></a><div class="content"><a class="title" href="/2023/09/29/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AFundamentals%20of%20Spherical%20Array%20Processing/" title="文献阅读:Fundamentals of Spherical Array Processing">文献阅读:Fundamentals of Spherical Array Processing</a><time datetime="2023-09-29T15:32:04.000Z" title="发表于 2023-09-29 23:32:04">2023-09-29</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Gavin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Have a nice day!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
