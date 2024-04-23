@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning | Gavin</title><meta name="author" content="Gavin"><meta name="copyright" content="Gavin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="摘要​	选择性固定滤波器主动噪声控制( selective fixed-filter active noise control，SFANC )方法针对各类噪声选择最佳的预训练控制滤波器，可以达到较快的响应时间。然而，由于滤波器选择不准确和缺乏自适应性，可能导致较大的稳态误差。相比较而言，滤波X归一化最小均方值( Filtered X Normalized Least-mean-square，FxN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning">
+<meta property="og:url" content="http://example.com/2024/04/23/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AA%20Hybrid%20SFANC-FxNLMS%20Algorithm%20for%20Active%20Noise%20Control%20based%20on%20Deep%20Learning/index.html">
+<meta property="og:site_name" content="Gavin">
+<meta property="og:description" content="摘要​	选择性固定滤波器主动噪声控制( selective fixed-filter active noise control，SFANC )方法针对各类噪声选择最佳的预训练控制滤波器，可以达到较快的响应时间。然而，由于滤波器选择不准确和缺乏自适应性，可能导致较大的稳态误差。相比较而言，滤波X归一化最小均方值( Filtered X Normalized Least-mean-square，FxN">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.ibb.co/5GmwJBS/image.png">
+<meta property="article:published_time" content="2024-04-23T13:51:09.660Z">
+<meta property="article:modified_time" content="2024-04-23T13:51:12.346Z">
+<meta property="article:author" content="Gavin">
+<meta property="article:tag" content="DNN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.ibb.co/5GmwJBS/image.png"><link rel="shortcut icon" href="https://i.ibb.co/3BGBwps/2c8b98a62fbc3615.png"><link rel="canonical" href="http://example.com/2024/04/23/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AA%20Hybrid%20SFANC-FxNLMS%20Algorithm%20for%20Active%20Noise%20Control%20based%20on%20Deep%20Learning/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-04-23 21:51:12'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.ibb.co/ch2RrDp/20230822001522.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">28</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.ibb.co/5GmwJBS/image.png	')"><nav id="nav"><span id="blog-info"><a href="/" title="Gavin"><img class="site-icon" src="https://i.ibb.co/3BGBwps/2c8b98a62fbc3615.png"/><span class="site-name">Gavin</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-23T13:51:09.660Z" title="发表于 2024-04-23 21:51:09">2024-04-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-23T13:51:12.346Z" title="更新于 2024-04-23 21:51:12">2024-04-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>​	选择性固定滤波器主动噪声控制( selective fixed-filter active noise control，SFANC )方法针对各类噪声选择最佳的预训练控制滤波器，可以达到较快的响应时间。然而，由于滤波器选择不准确和缺乏自适应性，可能导致较大的稳态误差。相比较而言，滤波X归一化最小均方值( Filtered X Normalized Least-mean-square，FxNLMS )算法通过自适应优化可以获得更低的稳态误差。然而，其收敛速度慢，对动态噪声衰减有不利影响。因此，本文提出了一种混合SFANC - FxNLMS方法，以克服自适应算法收敛速度慢的问题，并提供比SFANC方法更好的降噪水平。设计了一个轻量级的一维卷积神经网络( 1D CNN )，用于为每一帧初级噪声自动选择最合适的预训练控制滤波器。同时，FxNLMS算法在采样率下继续更新所选择的预训练控制滤波器的系数。实验结果表明，由于两种算法的有效结合，混合算法SFANCFxNLMS算法具有较快的响应时间、较低的降噪误差和较高的鲁棒性。</p>
+<p>索引术语 —主动噪声控制、选择性固定滤波器ANC、深度学习、听穿戴。</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>​	主动噪声控制( Noise Control，ANC )是指产生一个幅度相等、相位相反的抗噪声来抑制不需要的噪声[ 1 ] - [ 7 ]。由于其紧凑的尺寸和对低频噪声的高效率衰减，ANC已被广泛应用于工业操作和消费类产品，如耳机[ 8 ] - [ 14 ]。传统的ANC系统通常采用自适应算法来衰减噪声[ 15 ] - [ 17 ]。滤波X归一化最小均方( FxNLMS )，作为一种自适应ANC算法，不仅可以通过自适应优化获得较低的降噪误差，而且不需要输入数据的先验知识[ 18 ] ~ [ 20 ]。然而，由于基于最小均方( least mean square，LMS )的算法固有的收敛速度慢和跟踪能力差[ 21 ]，FxNLMS对快速变化或非平稳噪声的处理能力较差。它对这些噪声的慢速响应可能会影响客户对降噪效果的感知[ 22 ]。</p>
+<p>​	在工业应用和成熟的ANC产品中，固定滤波器的ANC方法[23],[24] 被采用于处理自适应算法问题，其中控制滤波器系数是固定的而不是自适应更新的从而来避免较低的收敛速度和不稳定性。然而，固定滤波器算法的系数对于一种特定的噪声种类是预训练的，就会导致对于其他种类噪声降噪性能的衰减[25]。因此，为了灵活地选择不同的预训练控制滤波器以应对不同的噪声类型，Shi等[ 26 ]提出了一种基于频带匹配的选择性固定滤波器主动噪声控制( SFANC )方法。然而，该方法的几个关键参数只能通过试验和误差来确定。此外，它的滤波器选择模块在实时处理器中消耗额外的计算[ 27 ]。</p>
+<p>​	因此，SFANC算法关键参数的自动学习是促进其在实际场景和工业产品中应用的一个重要问题。在这种考虑下，深度学习技术，特别是卷积神经网络( CNNs )，在分类方面取得了显著的成功[ 28 ] - [ 31 ]，似乎是改进SFANC的一个很好的方法。通过将滤波器选择模块替换为CNN模型，SFANC算法可以从噪声数据集中自动学习其参数，并根据不同的噪声类型选择最佳的控制滤波器，而不需要付出额外的人力[ 32 ]。此外，在协处理器上实现的CNN模型可以将计算负载与实时噪声控制器解耦[ 32 ]。虽然基于CNN的SFANC算法在响应速度上的优越性已经得到了证明，但是由于一些错误的噪声分类和缺乏自适应优化的限制，可能会导致较大的稳态误差。</p>
+<p>​	如前所述，无论采用SFANC还是FxNLMS，对于各种噪声都难以持续获得满意的降噪性能。SFANC算法和FxNLMS算法可以有效地结合起来，克服单独ANC算法的局限性。因此，本文提出了一种混合SFANC - FxNLMS算法。在所提出的算法中，在协处理器上实现的轻量级一维CNN ( 1D CNN )可以针对不同的噪声类型自动选择最合适的控制滤波器。对于每一帧噪声波形，控制滤波器系数由1D CNN决定，并在采样率下通过FxNLMS算法继续自适应更新。仿真结果表明，所提算法不仅具有更快的降噪响应和更低的稳态误差，而且具有良好的跟踪性和鲁棒性。因此，它可以用于衰减动态噪声，如交通噪声和城市噪声等。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240422205551673.png" alt="image-20240422205551673"></p>
+<p>​	本文余下部分安排如下：第二节详细介绍混合SFANC - FxNLMS算法。第三节提出了一系列的数值模拟来评估所提出算法的有效性。最后，在第四节给出结论。</p>
+<h2 id="Hybrid-SFANC-FxNLMS算法"><a href="#Hybrid-SFANC-FxNLMS算法" class="headerlink" title="Hybrid-SFANC - FxNLMS算法"></a>Hybrid-SFANC - FxNLMS算法</h2><p>​	混合SFANC - FxNLMS算法的整体框架如图1所示。虽然直接从原始波形数据中学习声学模型是具有挑战性的[ 33 ]，但所提出的ANC系统的输入是<strong>原始波形而不是频谱图</strong>。</p>
+<h3 id="A-SFANC的简明解释"><a href="#A-SFANC的简明解释" class="headerlink" title="A. SFANC的简明解释"></a>A. SFANC的简明解释</h3><p>​	ANC过程可以抽象为一阶马尔科夫链[ 34 ] [ 35 ]，如图2所示，其中$\mathbf{w}_o(n)$ 表示最优控制滤波器去处理扰动$d(n)$。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240422205829203.png" alt="image-20240422205829203"></p>
+<p> 如果假设最优控制滤波器有C个离散状态${ wi } _{i&#x3D;1}^C$ ，则控制滤波器的选择过程可以认为是从一个预先训练好的滤波器集合${ wi } _{i&#x3D;1}^C$ 中确定最佳控制滤波器。因此，SFANC策略可以概括如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240422220032885.png" alt="image-20240422220032885"></p>
+<p>其中argmin ( · )算子返回最小输出的输入值；*、$\mathbf{x} ( n )$和$\mathbf{s} ( n )$分别表示二次路径的线性卷积、参考信号和冲激响应。假设参考信号与主噪声相同。</p>
+<p>​	在实际中，$d ( n )$通常被看作是$\mathbf{x}( n )$的线性组合。因此，( 1 )等价于</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240423203141434.png" alt="image-20240423203141434"></p>
+<p>它是指在参考信号$\mathbf{x} ( n )$存在的情况下，从预训练的滤波器集合中选择使其后验概率最大的控制滤波器的过程。此外，根据贝叶斯定理[ 36 ]，可以将( 2 )式中的后验概率替换为条件概率为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240423203216127.png" alt="image-20240423203216127"></p>
+<p>从而直接从参考信号中预测出最合适的控制滤波器 $\mathbf{x}(n)$</p>
+<p>​	为了使SFANC算法达到令人满意的降噪效果，需要从预先记录的采样集合${ \mathbf{x}^j ( n )，\mathbf{w}^j }^N_j$中找到一个分类器模型$\hat{P} ( [ \mathbf{x} ( n ) | \mathbf{w} ,\mathbf{Θ}] )$来近似$P [\mathbf{ x} ( n ) |\mathbf{ w} ]$。$\mathbf{Θ}$表示分类器的参数，可以通过极大似然估计( MLE ) [ 37 ]得到</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240423203514520.png" alt="image-20240423203514520"></p>
+<p>因此，我们可以利用深度学习的方法从训练集中提取这个分类器模型 {$\mathbf{x}^j(n),\mathbf{w}^j$}$_j^N$</p>
+<h3 id="B-基于CNN-的SFANC-算法"><a href="#B-基于CNN-的SFANC-算法" class="headerlink" title="B. 基于CNN 的SFANC 算法"></a>B. 基于CNN 的SFANC 算法</h3><p>​	受工作[ 32 ]的启发，本文开发了一种能够端到端的处理噪声波形的1D CNN。网络的输入是持续时间为1秒的归一化噪声波形。一种min - max操作定义为：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240423203707879.png" alt="image-20240423203707879"></p>
+<p>其中max [ · ]和min [ · ]分别表示输入向量$\mathbf{x} ( n )$的最大值和最小值。其目的是将输入范围重新缩放到( - 1、1)，保留信号中包含相位信息的负值部分。</p>
+<p>​	1 )预训练控制滤波器：控制滤波器训练阶段采用的初级和次级通路是频率范围为20Hz - 7980Hz的带通滤波器。采用图3所示的15个频率范围的宽频噪声对15个控制滤波器进行预训练。滤波参考最小均方( Filtered Reference Least Mean Square，FxLMS )算法由于其较低的计算复杂度而被用于获得这些宽带噪声的最优控制滤波器[ 38 ]。随后，将这15个预训练好的控制滤波器保存在控制滤波器数据库中。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240423203801378.png" alt="image-20240423203801378"></p>
+<p>​	2 )拟议的一维 CNN： 1D CNN 的详细架构如图 4 所示。网络中的每个残差块都由两个卷积层、后续批量归一化[39]和 ReLU 非线性[40]组成。需要注意的是，每个残差块都采用了快捷连接来添加输入和输出，因为残差架构已被证明易于优化[41]。此外，该网络在第一个卷积层中使用了宽的感受野（RF），在其余卷积层中使用了窄的感受野，以充分利用全局和局部信息。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240423203936820.png" alt="image-20240423203936820"></p>
+<p>​	为了训练1D CNN模型，我们随机生成了80000条不同频段、幅值和背景噪声水平的宽带噪声轨道。每个轨道的持续时间为1秒。这些噪声轨迹被作为主要的噪声来产生扰动。噪声轨迹的类标号对应于控制滤波器对扰动达到最佳降噪性能的指标。</p>
+<h3 id="C-FxNLMS-算法"><a href="#C-FxNLMS-算法" class="headerlink" title="C. FxNLMS 算法"></a>C. FxNLMS 算法</h3><p>​	FxNLMS算法是一种传统的自适应ANC算法[ 42 ]，其中误差信号可以从：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240423204127777.png" alt="image-20240423204127777"></p>
+<p>式中：$\mathbf{w} ( n )$、( · ) T和*分别表示控制滤波器、转置运算和线性卷积。控制滤波器的权值更新方程为：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240423204159331.png" alt="image-20240423204159331"></p>
+<p>其中，$μ$表示步长。$r ( n )$是参考信号$x ( n )$通过估计的次级路径$\hat{s} ( n )$产生的滤波参考信号。此外，$β$是一个小的常数，避免在分母中除以零。</p>
+<h3 id="Hybrid-Sfanc-FxNLMS算法"><a href="#Hybrid-Sfanc-FxNLMS算法" class="headerlink" title="Hybrid Sfanc - FxNLMS算法"></a>Hybrid Sfanc - FxNLMS算法</h3><p>​	如图1所示，初级噪声的采样频率为16000Hz，而每个数据帧由16000个(1秒长数据)样本组成。在整个控制过程中，协处理器(例如,一部手机)利用预训练的1D CNN为每一帧输出最合适的控制滤波器的索引，并将其发送给实时控制器。当接收到的滤波器索引与当前索引不同时，实时控制器将交换控制滤波器。同时，实时控制器在每个样本处通过式( 7 )继续更新控制滤波器的系数。值得注意的是，协处理器以帧速率工作，而实时控制器以采样率工作。</p>
+<p>​	在SFANC的辅助下，混合SFANC - FxNLMS算法可以实现对不同噪声的更快响应。同时，FxNLMS算法继续更新SFANC - FxNLMS算法中的控制滤波器系数，有助于获得更低的降噪误差。</p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>​	在实验中，我们在合成的噪声数据集上训练1D CNN模型，然后在真实记录噪声上评估混合SFANCFxNLMS算法。主路径和次路径被选为带通滤波器。此外，FxNLMS算法的步长设置为0.002，控制滤波器长度为1 024抽头。</p>
+<h4 id="A-1DCNN-的训练和测试"><a href="#A-1DCNN-的训练和测试" class="headerlink" title="A. 1DCNN 的训练和测试"></a>A. 1DCNN 的训练和测试</h4><p>​	将合成噪声数据集细分为3个子集合：用于训练的80000条噪声轨迹、用于验证的2 000条噪声轨迹和用于测试的2 000条噪声轨迹。在训练过程中，使用Adam算法[ 43 ]进行优化。训练时epoch设置为30。为了避免梯度爆炸或消失，使用了glorot初始化[ 44 ]。为了避免由于训练数据稀缺而导致的过拟合，将1D网络构建为一个权重全部经过$l_2$正则化的轻量级网络，系数为0.0001。</p>
+<p>​	所提出的1D CNN与文献[ 33 ]中提出的几个不同的1D网络进行了比较，使用了原始的声学波形：M3，M5，M11，M18和M34 - res。表1汇总了对比结果。网络层数包括卷积层和全连接层的数量。在这些网络中，所提出的1D网络在测试数据集上获得了99.35 %的最高分类精度，这意味着它可以为不同的噪声提供最合适的预训练控制滤波器。此外，所提出的1D网络是轻量级的，由于其高效的架构，使用了尽可能少的网络参数。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240423205018645.png" alt="image-20240423205018645"></p>
+<h4 id="B-真实世界的噪声消除"><a href="#B-真实世界的噪声消除" class="headerlink" title="B. 真实世界的噪声消除"></a>B. 真实世界的噪声消除</h4><p>​	本部分提出使用SFANC，FxNLMS和混合SFANC - FxNLMS算法来衰减真实记录噪声。训练数据集中不包含真实世界的噪声。我们通过级联和混合频率范围为50Hz - 14000Hz的飞机噪声和频率范围为40Hz - 1400Hz的交通噪声，产生了两种不同的噪声。</p>
+<p>​	1 )级联噪声衰减：本仿真中的变化噪声由级联飞机噪声和交通噪声提供。不同ANC方法对级联噪声的降噪结果如图5所示。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240423205147657.png" alt="image-20240423205147657"></p>
+<p>​	从结果中，我们可以观察到混合SFANC-FxNLMS算法能够跟踪和快速响应变化噪声的不同部分。在降噪过程中，混合SFANC - FxNLMS算法始终优于SFANC和FxNLMS算法。特别地，在10s - 11s内，混合SFANC - FxNLMS算法的平均降噪水平比SFANC和FxNLMS分别提高了6dB和15dB。值得注意的是，这是从一种噪声到另一种噪声的过渡阶段。因此，即使当噪声的频带和幅值发生变化时，混合SFANC - FxNLMS算法仍然可以对其进行衰减。</p>
+<p>​	2 )混合噪声衰减：除级联外，我们将飞机噪声和交通噪声相加，得到混合噪声。图6描述了各种ANC算法在混合噪声下的性能。如图所示，SFANC算法对混合噪声的响应速度远快于FxNLMS算法。例如，SFANC方法在1s后达到了约18dB的降噪水平，而FxNLMS算法则需要10s以上的时间才能达到相同的水平。然而，经过12s - 13s的收敛后，FxNLMS算法取得了比SFANC方法更高的降噪水平。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240423205355774.png" alt="image-20240423205355774"></p>
+<p>​	值得注意的是，SFANC算法没有能力去解决第1s的新噪声，由于它只在前1s之后更新控制滤波器的索引。然而，由于与FxNLMS的结合，混合SFANCFxNLMS算法在最初的1s内可以轻微地衰减噪声。此外，在12s - 13s内，混合SFANC - FxNLMS算法的平均降噪水平比SFANC和FxNLMS算法高约10dB。因此，关于混合噪声的结果也证实了混合SFANC - FxNLMS算法相对于SFANC和FxNLMS算法的优越性。</p>
+<h4 id="C-在变化的主路径上的降噪性能"><a href="#C-在变化的主路径上的降噪性能" class="headerlink" title="C.在变化的主路径上的降噪性能"></a>C.在变化的主路径上的降噪性能</h4><p>​	在这一部分中，当处理每13秒变化一次的主路径时，检查了不同ANC算法的鲁棒性。主路径的冲激响应与不同水平的白噪声混合，以获得附加的信噪比( SNR )分别为30dB和10dB，如图7所示。首要噪声是交通噪声。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240423205729123.png" alt="image-20240423205729123"></p>
+<p>​	由图7可知，在初始阶段，SFANC和混合SFANC - FxNLMS算法比FxNLMS算法具有更好的降噪性能。但是，当主路径信噪比变化时，SFANC的性能不如FxNLMS和混合SFANC - FxNLMS算法。由于主噪声类型保持不变，SFANC算法中选择的预训练控制滤波器是固定的，这可能不适用于变化的主路径。结果表明，混合SFANC - FxNLMS算法在处理主路径变化时具有足够的鲁棒性。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>​	所提出的混合SFANC - FxNLMS算法有效地结合了SFANC和FxNLMS，以实现更快的降噪响应和更低的稳态误差。采用轻量级的一维卷积神经网络，以帧频工作，自动确定控制滤波器系数。此外，FxNLMS算法在采样率下继续自适应地更新系数。仿真结果验证了混合SFANCFxNLMS算法在动态噪声控制环境中应对变化的噪声和主路径时具有良好的跟踪能力和鲁棒性。所提出的混合算法有望在结合其他固定滤波器和自适应ANC算法方面得到进一步的探索。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Gavin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/04/23/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AA%20Hybrid%20SFANC-FxNLMS%20Algorithm%20for%20Active%20Noise%20Control%20based%20on%20Deep%20Learning/">http://example.com/2024/04/23/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AA%20Hybrid%20SFANC-FxNLMS%20Algorithm%20for%20Active%20Noise%20Control%20based%20on%20Deep%20Learning/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Gavin</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/DNN/">DNN</a></div><div class="post_share"><div class="social-share" data-image="https://i.ibb.co/5GmwJBS/image.png	" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/01/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AMaximum%20Likelihood%20DOA%20Estimation%20of%20Multiple%20Wideband%20Sources%20in%20the%20Presence%20of%20Nonuniform%20Sensor%20Noise/" title="文献阅读: Maximum Likelihood DOA Estimation of Multiple Wideband Sources in the Presence of Nonuniform Sensor Noise"><img class="cover" src="https://i.ibb.co/gtsst1D/image.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">文献阅读: Maximum Likelihood DOA Estimation of Multiple Wideband Sources in the Presence of Nonuniform Sensor Noise</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/10/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Deep%20Networks%20for%20Direction-of-Arrival%20Estimation%20in%20Low%20SNR/" title="文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR"><img class="cover" src="https://i.ibb.co/vHV5BKD/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-27</div><div class="title">文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.ibb.co/ch2RrDp/20230822001522.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Gavin</div><div class="author-info__description">我的过去常常追赶着我</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">28</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">28</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/alexandergwm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/alexandergwm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wenmiaogao@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">May you stay young forever, do the thing in your own zone.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hybrid-SFANC-FxNLMS%E7%AE%97%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">Hybrid-SFANC - FxNLMS算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-SFANC%E7%9A%84%E7%AE%80%E6%98%8E%E8%A7%A3%E9%87%8A"><span class="toc-number">3.1.</span> <span class="toc-text">A. SFANC的简明解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-%E5%9F%BA%E4%BA%8ECNN-%E7%9A%84SFANC-%E7%AE%97%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text">B. 基于CNN 的SFANC 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-FxNLMS-%E7%AE%97%E6%B3%95"><span class="toc-number">3.3.</span> <span class="toc-text">C. FxNLMS 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hybrid-Sfanc-FxNLMS%E7%AE%97%E6%B3%95"><span class="toc-number">3.4.</span> <span class="toc-text">Hybrid Sfanc - FxNLMS算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">4.</span> <span class="toc-text">实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#A-1DCNN-%E7%9A%84%E8%AE%AD%E7%BB%83%E5%92%8C%E6%B5%8B%E8%AF%95"><span class="toc-number">4.0.1.</span> <span class="toc-text">A. 1DCNN 的训练和测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B-%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E5%99%AA%E5%A3%B0%E6%B6%88%E9%99%A4"><span class="toc-number">4.0.2.</span> <span class="toc-text">B. 真实世界的噪声消除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-%E5%9C%A8%E5%8F%98%E5%8C%96%E7%9A%84%E4%B8%BB%E8%B7%AF%E5%BE%84%E4%B8%8A%E7%9A%84%E9%99%8D%E5%99%AA%E6%80%A7%E8%83%BD"><span class="toc-number">4.0.3.</span> <span class="toc-text">C.在变化的主路径上的降噪性能</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">5.</span> <span class="toc-text">结论</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/04/23/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AA%20Hybrid%20SFANC-FxNLMS%20Algorithm%20for%20Active%20Noise%20Control%20based%20on%20Deep%20Learning/" title="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning"><img src="https://i.ibb.co/5GmwJBS/image.png	" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning"/></a><div class="content"><a class="title" href="/2024/04/23/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AA%20Hybrid%20SFANC-FxNLMS%20Algorithm%20for%20Active%20Noise%20Control%20based%20on%20Deep%20Learning/" title="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning">文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning</a><time datetime="2024-04-23T13:51:09.660Z" title="发表于 2024-04-23 21:51:09">2024-04-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AMaximum%20Likelihood%20DOA%20Estimation%20of%20Multiple%20Wideband%20Sources%20in%20the%20Presence%20of%20Nonuniform%20Sensor%20Noise/" title="文献阅读: Maximum Likelihood DOA Estimation of Multiple Wideband Sources in the Presence of Nonuniform Sensor Noise"><img src="https://i.ibb.co/gtsst1D/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: Maximum Likelihood DOA Estimation of Multiple Wideband Sources in the Presence of Nonuniform Sensor Noise"/></a><div class="content"><a class="title" href="/2024/01/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AMaximum%20Likelihood%20DOA%20Estimation%20of%20Multiple%20Wideband%20Sources%20in%20the%20Presence%20of%20Nonuniform%20Sensor%20Noise/" title="文献阅读: Maximum Likelihood DOA Estimation of Multiple Wideband Sources in the Presence of Nonuniform Sensor Noise">文献阅读: Maximum Likelihood DOA Estimation of Multiple Wideband Sources in the Presence of Nonuniform Sensor Noise</a><time datetime="2024-01-26T16:00:00.000Z" title="发表于 2024-01-27 00:00:00">2024-01-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/13/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9F%BA%E4%BA%8E%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%9A%84%E5%A3%B0%E6%BA%90DoA%E4%BC%B0%E8%AE%A1/" title="知识总结: 基于球麦克风阵列的声源DoA估计"><img src="https://i.ibb.co/1dkyDjy/acoustic-camera-gfaitech-Sphere120-beamforming-microphone-array-3d-measurement-interior-right.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="知识总结: 基于球麦克风阵列的声源DoA估计"/></a><div class="content"><a class="title" href="/2024/01/13/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9F%BA%E4%BA%8E%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%9A%84%E5%A3%B0%E6%BA%90DoA%E4%BC%B0%E8%AE%A1/" title="知识总结: 基于球麦克风阵列的声源DoA估计">知识总结: 基于球麦克风阵列的声源DoA估计</a><time datetime="2024-01-13T00:51:54.000Z" title="发表于 2024-01-13 08:51:54">2024-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/02/%E6%AF%94%E8%B5%9B%E7%9B%B8%E5%85%B3%EF%BC%9ADCASE%202019%20task3%20%20SELD%E5%A3%B0%E9%9F%B3%E4%BA%8B%E4%BB%B6%E5%AE%9A%E4%BD%8D%E6%A3%80%E6%B5%8B/" title="文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data"><img src="https://i.ibb.co/b7XKwb2/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data"/></a><div class="content"><a class="title" href="/2023/11/02/%E6%AF%94%E8%B5%9B%E7%9B%B8%E5%85%B3%EF%BC%9ADCASE%202019%20task3%20%20SELD%E5%A3%B0%E9%9F%B3%E4%BA%8B%E4%BB%B6%E5%AE%9A%E4%BD%8D%E6%A3%80%E6%B5%8B/" title="文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data">文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data</a><time datetime="2023-11-02T07:02:20.000Z" title="发表于 2023-11-02 15:02:20">2023-11-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Deep%20Networks%20for%20Direction-of-Arrival%20Estimation%20in%20Low%20SNR/" title="文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR"><img src="https://i.ibb.co/vHV5BKD/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR"/></a><div class="content"><a class="title" href="/2023/10/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Deep%20Networks%20for%20Direction-of-Arrival%20Estimation%20in%20Low%20SNR/" title="文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR">文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR</a><time datetime="2023-10-26T23:33:28.000Z" title="发表于 2023-10-27 07:33:28">2023-10-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Gavin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Have a nice day!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
