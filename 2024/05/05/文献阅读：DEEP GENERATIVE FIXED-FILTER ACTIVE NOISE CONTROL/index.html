@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL | Gavin</title><meta name="author" content="Gavin"><meta name="copyright" content="Gavin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="摘要​	传统的基于LMS的自适应算法由于收敛速度慢、跟踪能力差，对动态噪声的处理能力较差。选择性固定滤波器主动噪声控制( Selective Fixed-filter Active Noise Control，SFANC )通过针对不同噪声选择合适的预训练控制滤波器，可以显著降低响应时间。尽管如此，有限数量的预训练控制滤波器可能会影响降噪性能，特别是当输入噪声与预训练时的初始噪声相差较大时。因此，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL">
+<meta property="og:url" content="http://example.com/2024/05/05/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADEEP%20GENERATIVE%20FIXED-FILTER%20ACTIVE%20NOISE%20CONTROL/index.html">
+<meta property="og:site_name" content="Gavin">
+<meta property="og:description" content="摘要​	传统的基于LMS的自适应算法由于收敛速度慢、跟踪能力差，对动态噪声的处理能力较差。选择性固定滤波器主动噪声控制( Selective Fixed-filter Active Noise Control，SFANC )通过针对不同噪声选择合适的预训练控制滤波器，可以显著降低响应时间。尽管如此，有限数量的预训练控制滤波器可能会影响降噪性能，特别是当输入噪声与预训练时的初始噪声相差较大时。因此，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.ibb.co/LSLjfkw/image.png">
+<meta property="article:published_time" content="2024-05-05T11:30:38.183Z">
+<meta property="article:modified_time" content="2024-05-05T13:06:04.037Z">
+<meta property="article:author" content="Gavin">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="主动噪声控制">
+<meta property="article:tag" content="开源代码">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.ibb.co/LSLjfkw/image.png"><link rel="shortcut icon" href="https://i.ibb.co/3BGBwps/2c8b98a62fbc3615.png"><link rel="canonical" href="http://example.com/2024/05/05/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADEEP%20GENERATIVE%20FIXED-FILTER%20ACTIVE%20NOISE%20CONTROL/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-05 21:06:04'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.ibb.co/ch2RrDp/20230822001522.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.ibb.co/LSLjfkw/image.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Gavin"><img class="site-icon" src="https://i.ibb.co/3BGBwps/2c8b98a62fbc3615.png"/><span class="site-name">Gavin</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-05T11:30:38.183Z" title="发表于 2024-05-05 19:30:38">2024-05-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-05T13:06:04.037Z" title="更新于 2024-05-05 21:06:04">2024-05-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">文献阅读</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>​	传统的基于LMS的自适应算法由于收敛速度慢、跟踪能力差，对动态噪声的处理能力较差。选择性固定滤波器主动噪声控制( Selective Fixed-filter Active Noise Control，SFANC )通过针对不同噪声选择合适的预训练控制滤波器，可以显著降低响应时间。尽管如此，有限数量的预训练控制滤波器可能会影响降噪性能，特别是当输入噪声与预训练时的初始噪声相差较大时。因此，本文提出了一种生成式固定滤波器主动噪声控制( Generative fixed-filter active noise control，GFANC )方法来克服这一局限性。基于深度学习和一个精确重构滤波器组，GFANC方法只需要少量的先验数据( 1个预训练的宽带控制滤波器)就可以自动生成适合各种噪声的控制滤波器。通过对实际记录噪声的数值模拟，验证了GFANC方法的有效性。</p>
+<p>索引术语 —主动噪声控制、生成式固定滤波器ANC、深度学习、卷积神经网络</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>​	有源噪声控制( Active Noise Control，ANC )被广泛认为是一种有效的噪声抵消技术，它从次级源产生”抗噪声”，以抑制不需要的噪声[ 1、2、3、4]。基于声信号叠加原理，抗噪与扰动具有等幅反相的特性[ 5 ]。ANC在消除低频噪声方面特别有效，因为被动方法通常是无效的，昂贵的或繁琐的[ 6 ]。因此，ANC技术已经被广泛地集成到包括耳机、手机、汽车等在内的商用产品中。</p>
+<p>​	在自适应ANC系统中，基于LMS的算法如滤波X最小均方( FxLMS )通常采用[ 7、8 ]。然而，由于固有的收敛速度慢和跟踪能力差，它们对快速变化或非平稳噪声的处理能力较差。此外，他们的反应速度缓慢和分歧风险也会影响客户对ANC效应的感知[ 9 ]。为了提高响应速度和鲁棒性，许多音频产品采用了固定滤波器的ANC方法[ 10 ]。然而，固定控制滤波器仅适用于特定的噪声类型，导致对其他类型噪声的降噪性能下降[ 11 ]</p>
+<p>​	为了在不同噪声类型下选择不同的预训练控制滤波器，文献[ 12 ]提出了一种基于频带匹配的选择性固定滤波器有源噪声控制( SFANC )方法。然而，该方法的关键参数只能通过试错来确定，限制了其实际应用。因此，卷积神经网络( CNNs )被集成到SFANC方法中[ 13 ]，其中所有的参数都是从噪声数据集自动学习的。然而，SFANC方法中预训练的控制滤波器数量有限，导致对某些噪声的噪声控制性能较差，特别是当它们与滤波器训练噪声很不相同时。</p>
+<p>​	为了克服SFANC的局限性，并为各种噪声生成合适的控制滤波器，本文提出了一种深度生成固定滤波器主动噪声控制( GFANC )方法。首先，我们应用滤波器完全重构理论[ 14 ]，将一个预训练的宽带控制滤波器分解为多个子控制滤波器。在协处理器上，轻量级一维CNN ( 1D CNN )自动提供给定主噪声的子控制滤波器的组合权重。然后，通过子控制滤波器的加权和生成新的控制滤波器，并将其用于实时控制器中的噪声消除。为了训练1D CNN，提出了一种新颖的自适应标记机制，在不需要额外人力的情况下对训练噪声进行标记。</p>
+<p>​	在协处理器(例如,一部手机)上的操作可以减轻实时噪声控制器的计算负荷。此外，GFANC方法只需要单个预训练的控制滤波器，这大大减少了ANC的准备工作，提高了其实用性。此外，与传统的自适应ANC算法不同，GFANC方法中没有反馈误差信号[ 15 ]，可以最小化发散的风险。对真实记录噪声的数值仿真表明，GFANC方法可以在降噪性能和响应时间之间取得很好的平衡。</p>
+<h2 id="GFANC-方法介绍"><a href="#GFANC-方法介绍" class="headerlink" title="GFANC 方法介绍"></a>GFANC 方法介绍</h2><p>图 1 展示了 GFANC 方法的整体架构，其中协处理器使用一维 CNN 给定每帧噪声数据，提供二进制权重向量。通过这个二进制权重向量和固定的子控制滤波器的内积，生成一个新的控制滤波器，然后用于实时噪声控制。使用的权重是二进制权重，以减少计算和内存空间的负载。特别地，协处理器以帧速率工作，而实时控制器以采样率工作。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505202717914.png" alt="image-20240505202717914"></p>
+<h3 id="构建子控制滤波器"><a href="#构建子控制滤波器" class="headerlink" title="构建子控制滤波器"></a>构建子控制滤波器</h3><p>子控制滤波器的构造是该方法的关键步骤。我们使用了一种实用的基于滤波器完全重构理论的滤波器分解技术[ 16 ]来获得子控制滤波器。首先，利用目标ANC系统对包含感兴趣频率成分的宽带一次噪声$\mathbf{x}( n )$进行抵消。它的最优控制滤波器由FxLMS算法[ 17 ]确定，是我们预训练的宽带控制滤波器。</p>
+<p>​	假设预训练的宽带控制滤波器有$N$个抽头，表示为$\mathbf{c} &#x3D; [ c ( 0 ) , · · · , c( N-1 )]^T$，将$\mathbf{c}$分解为如下所述的精确重构滤波器组。通过离散傅里叶变换( DFT )，推导出其频谱为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505203120129.png" alt="image-20240505203120129"></p>
+<p>这里的$\mathbf{F}_N$ 表示DFT矩阵。根据实际信号在频域的共轭对称性，将控制滤波器$\mathbf{C}$分解为$M$个子控制滤波器.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505203215528.png" alt="image-20240505203215528"></p>
+<p>其中，第$m$个子控制滤波器的频谱可以表示为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505203252236.png" alt="image-20240505203252236"></p>
+<p>当$m\neq M$​时，( 3 )中的元素取自</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505203320929.png" alt="image-20240505203320929"></p>
+<p>当$m&#x3D;M$ 时，子控制滤波器的频谱为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505203703449.png" alt="image-20240505203703449"></p>
+<p>其中子控制滤波器的带宽为 $I &#x3D; floor[\frac{N}{2M}]$</p>
+<p>​	第$m$个子控制滤波器的时域表示由下面计算。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505203836676.png" alt="image-20240505203836676"></p>
+<p>进一步，结合( 1 )，( 2 )和( 6 )，控制信号$y ( n )$可以写成</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505203912804.png" alt="image-20240505203912804"></p>
+<p>这表明控制滤波器$\mathbf{c}$可以由它的所有子带滤波器$\mathbf{c}_m$在时域上完全重构。因此，基于滤波器精确重构理论对预训练的宽带控制滤波器进行分解，可以得到多个固定的子控制滤波器。</p>
+<h3 id="自适应标记机制"><a href="#自适应标记机制" class="headerlink" title="自适应标记机制"></a>自适应标记机制</h3><p>1D CNN的输入和输出分别是一帧1秒噪声及其对应的二进制权重向量。为了自动标注噪声数据集，我们提出了一种自适应的标注机制，如图2所示，以减少所需的时间和精力。形式上，将训练噪声作为参考信号$\mathbf{x} ( n )$输入。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505204102703.png" alt="image-20240505204102703"></p>
+<p>因此，第$m$个固定的子控制滤波器的输出信号被计算为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505204131946.png" alt="image-20240505204131946"></p>
+<p>​	控制信号$y_g ( n )$随后由所有子控制滤波器输出加权求和得到：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505204311990.png" alt="image-20240505204311990"></p>
+<p>其中，$\mathbf{y} ( n ) &#x3D; [ y_1 ( n ) , · · · , y_m ( n ) , · · · , y_M ( n )]^T$，组合权重向量为$g ( n ) &#x3D; [ g_1 ( n ) , · · · , g_m ( n ) , · · · , g_M ( n )]^T$。</p>
+<p>​	残余误差信号计算为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505204439335.png" alt="image-20240505204439335"></p>
+<p>式中：$d ( n )$和$s ( n )$分别表示误差传声器采集的扰动和次级通路$S ( z )$的脉冲响应；*表示线性卷积。</p>
+<p>​	通过LMS算法[ 18 ]最小化式( 10 )的平方，得到权值的更新公式为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505204608422.png" alt="image-20240505204608422"></p>
+<p>式中：$μ$为更新步长。</p>
+<p>​	当式( 11 )收敛后，对最优权重向量取整得到二元权重向量$\mathbf{T}$：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505204802209.png" alt="image-20240505204802209"></p>
+<p>其中$g^o_m$表示第$m$个子控制滤波器的最优组合权重。最后，将自动获得的二进制权重向量$\mathbf{T}$作为训练噪声的标签。</p>
+<h3 id="使用的1D-CNN"><a href="#使用的1D-CNN" class="headerlink" title="使用的1D CNN"></a>使用的1D CNN</h3><p>​	本文提出的用于获取组合权重的一维卷积神经网络结构如图1所示。在预处理阶段，有一个一种小型min-max 操作定义为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505204933819.png" alt="image-20240505204933819"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505204958716.png" alt="image-20240505204958716"></p>
+<p>其中max [ · ]和min [ · ]分别表示获得输入向量$\mathbf{x} ( n )$的最大值和最小值。该操作将输入范围重新缩放到( - 1,1)，并保留其包含相位信息的负部分，这对于ANC应用非常重要[ 19 ]。</p>
+<p>​	受工作[ 20 ]的启发，1D CNN被设计为一个包含两个残差块的轻量级网络。每个残差块包含两个卷积层，批量归一化和ReLU非线性。此外，在每个残差块中使用捷径连接，因为残差结构已被证明是易于优化的[ 21 ]。此外，该网络在第一个卷积层中使用宽的感受野( RF )，在其余卷积层中使用窄的RF，以充分挖掘全局和局部信息。</p>
+<p>​	在该任务中，获取二进制权重向量属于多标签分类问题[ 22 ]。因此，采用Sigmoid函数作为一维卷积神经网络的输出层。此外，使用二元交叉熵( Binary Cross Entropy，BCE )损失来训练模型。</p>
+<h3 id="控制滤波器的生成"><a href="#控制滤波器的生成" class="headerlink" title="控制滤波器的生成"></a>控制滤波器的生成</h3><p>经过训练后，一维卷积神经网络可以根据初级噪声输出二值权重向量。然后，将子控制滤波器加权求和形成新的控制滤波器。式中，生成的控制滤波器$\hat{\mathbf{w}}$由</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505205155123.png" alt="image-20240505205155123"></p>
+<p>生成的控制滤波器将被实时处理器用于噪声抵消：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505205212188.png" alt="image-20240505205212188"></p>
+<p>​	总的来说，给定输入噪声，可以通过自适应地组合固定的子控制滤波器来生成新的控制滤波器。与SFANC相比，GFANC可以为每类噪声生成更合适的控制滤波器，而不是从有限的一组控制滤波器中进行选择。而且，与自适应ANC算法不同，GFANC不使用误差信号来更新控制滤波器，降低了发散的风险。</p>
+<h2 id="仿真结果"><a href="#仿真结果" class="headerlink" title="仿真结果"></a>仿真结果</h2><p>在仿真中，预训练的宽带控制滤波器被划分为15个子控制滤波器，如图3所示。控制滤波器的长度和采样率分别设置为1024抽头和16kHz。所用的初级和次级通道是频率范围为20Hz - 7980Hz的带通滤波器。为了训练网络，将合成的噪声数据集分为3个子集：用于训练的8万条噪声轨迹，用于验证的2 000条噪声轨迹和用于测试的2 000条噪声轨迹。每个噪声轨迹都有1秒的持续时间。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505205339065.png" alt="image-20240505205339065"></p>
+<h3 id="不同网络的比较"><a href="#不同网络的比较" class="headerlink" title="不同网络的比较"></a>不同网络的比较</h3><p>所提出的1D CNN与几个1D网络[ 20 ]进行了比较：M3，M5，M11，M18和M34 - res。此外，一些轻量级的2D网络包括ShuffleNet v2 [ 23 ]、Mobilenet v2 [ 24 ]和Attention Network [ 25 ]也被用作基线。这些网络在GFANC方法中的性能总结在表1中，其中测试精度是指在测试数据集上预测二进制权重的精度。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505205439299.png" alt="image-20240505205439299"></p>
+<p>​	在测试数据集上，所提出的1D网络取得了97.20 %的最高预测精度，表明它可以有效地从原始波形中提取判别性特征，从而在不同噪声下提供合适的二进制权重。同时，所提出的1D网络是轻量级的，仅有0.21 M的参数，适合在手机等协处理器上实现。此外，与在2D网络中使用频域数据相比，在1D网络中直接使用时域波形更方便和实用[ 26 ]。</p>
+<h3 id="真实世界噪声消除"><a href="#真实世界噪声消除" class="headerlink" title="真实世界噪声消除"></a>真实世界噪声消除</h3><p>将GFANC算法与SFANC [ 27 ]和FxLMS算法在控制不属于训练集的真实世界噪声方面进行了比较。FxLMS算法的步长为0.0001。在图4的第一次仿真中，ANC系统采用不同的算法对飞机噪声进行抵消。可以看出，本文提出的GFANC算法在响应速度和降噪水平方面均优于SFANC和FxLMS算法。具体来说，在2s - 3s内，GFANC的平均降噪水平比SFANC和FxLMS分别高约7dB和12dB。这表明GFANC算法能够对变化的噪声进行快速的跟踪和响应。然而，GFANC和SFANC无法处理第1秒噪声，因为它们根据第1秒噪声更新下一秒的控制滤波器系数。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505205613448.png" alt="image-20240505205613448"></p>
+<p>​	此外，这些ANC方法被用于衰减低频交通噪声，如图5所示。虽然SFANC方法比FxLMS方法对噪声的响应速度更快在前4秒，FxLMS算法收敛后性能更好[ 28 ]。相比较而言，所提出的GFANC方法在降噪过程中总是表现最好。结果表明，GFANC方法生成的控制滤波器比SFANC方法提供的控制滤波器更适用于噪声。此外，我们之前的研究[ 27 ]表明，将固定滤波器和自适应ANC算法相结合可以实现快速收敛和令人满意的降噪水平。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505210247704.png" alt="image-20240505210247704"></p>
+<p>​	此外，我们在时域中加入了飞机噪声和交通噪声，得到了混合噪声。不同ANC算法衰减混合噪声的谱图如图6所示。谱图表示噪声的功率谱密度。值得注意的是，GFANC算法可以有效地衰减混合噪声中的大部分成分。然而，SFANC对1000Hz以上的噪声成分去除效果较差。这是因为SFANC只能从有限数量的候选中选择控制滤波器，而GFANC能够生成更合适的控制滤波器。同时发现，FxLMS算法对混合噪声的响应比GFANC和SFANC算法慢得多。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240505210510177.png" alt="image-20240505210510177"></p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>本文提出了一种新的GFANC方法，即在不同的初始噪声下产生不同的控制滤波器。在协处理器上运行的轻量级1D CNN提取噪声特征，形成二进制权重向量。利用权重向量，通过组合由预训练宽带控制滤波器分解得到的子控制滤波器生成新的控制滤波器。由于生成控制滤波器的灵活性和避免优化过程，GFANC获得了比SFANC和FxLMS更好的响应速度和降噪水平。此外，训练数据集通过自适应机制自动标注，而不是手动标注。此外，只需要一个预训练的控制滤波器，这大大减少了预训练控制滤波器在实际应用中的工作量。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Gavin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/05/05/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADEEP%20GENERATIVE%20FIXED-FILTER%20ACTIVE%20NOISE%20CONTROL/">http://example.com/2024/05/05/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADEEP%20GENERATIVE%20FIXED-FILTER%20ACTIVE%20NOISE%20CONTROL/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Gavin</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><a class="post-meta__tags" href="/tags/%E4%B8%BB%E5%8A%A8%E5%99%AA%E5%A3%B0%E6%8E%A7%E5%88%B6/">主动噪声控制</a><a class="post-meta__tags" href="/tags/%E5%BC%80%E6%BA%90%E4%BB%A3%E7%A0%81/">开源代码</a></div><div class="post_share"><div class="social-share" data-image="https://i.ibb.co/LSLjfkw/image.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/04/23/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AA%20Hybrid%20SFANC-FxNLMS%20Algorithm%20for%20Active%20Noise%20Control%20based%20on%20Deep%20Learning/" title="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning"><img class="cover" src="https://i.ibb.co/5GmwJBS/image.png	" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/04/23/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AA%20Hybrid%20SFANC-FxNLMS%20Algorithm%20for%20Active%20Noise%20Control%20based%20on%20Deep%20Learning/" title="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning"><img class="cover" src="https://i.ibb.co/5GmwJBS/image.png	" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-23</div><div class="title">文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning</div></div></a></div><div><a href="/2023/10/25/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADeep%20learning%20assisted%20sound%20source%20localization%20using%20two%20orthogonal%20first-order%20differential%20microphone%20arrays/" title="文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays"><img class="cover" src="https://i.ibb.co/XVMYNX3/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-25</div><div class="title">文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays</div></div></a></div><div><a href="/2023/10/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Deep%20Networks%20for%20Direction-of-Arrival%20Estimation%20in%20Low%20SNR/" title="文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR"><img class="cover" src="https://i.ibb.co/vHV5BKD/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-27</div><div class="title">文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR</div></div></a></div><div><a href="/2023/09/12/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E8%B0%B1%E5%87%8F%E6%B3%95%E9%99%8D%E5%99%AA%E5%9F%BA%E7%A1%80/" title="知识总结：谱减法降噪基础"><img class="cover" src="https://i.ibb.co/7XwHvLZ/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-12</div><div class="title">知识总结：谱减法降噪基础</div></div></a></div><div><a href="/2023/09/06/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AFA-weighting/" title="知识总结：什么是A-weighting"><img class="cover" src="https://i.ibb.co/bLcJFgv/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-06</div><div class="title">知识总结：什么是A-weighting</div></div></a></div><div><a href="/2023/08/27/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%8E%8B%E7%BC%A9%E6%84%9F%E7%9F%A5%E7%AE%80%E4%BB%8B/" title="知识总结：压缩感知(compressive sensing)简介"><img class="cover" src="https://i.ibb.co/BPsTpHq/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-27</div><div class="title">知识总结：压缩感知(compressive sensing)简介</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.ibb.co/ch2RrDp/20230822001522.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Gavin</div><div class="author-info__description">我的过去常常追赶着我</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/alexandergwm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/alexandergwm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wenmiaogao@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">May you stay young forever, do the thing in your own zone.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GFANC-%E6%96%B9%E6%B3%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">GFANC 方法介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E5%AD%90%E6%8E%A7%E5%88%B6%E6%BB%A4%E6%B3%A2%E5%99%A8"><span class="toc-number">3.1.</span> <span class="toc-text">构建子控制滤波器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E9%80%82%E5%BA%94%E6%A0%87%E8%AE%B0%E6%9C%BA%E5%88%B6"><span class="toc-number">3.2.</span> <span class="toc-text">自适应标记机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%9A%841D-CNN"><span class="toc-number">3.3.</span> <span class="toc-text">使用的1D CNN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E6%BB%A4%E6%B3%A2%E5%99%A8%E7%9A%84%E7%94%9F%E6%88%90"><span class="toc-number">3.4.</span> <span class="toc-text">控制滤波器的生成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E7%BB%93%E6%9E%9C"><span class="toc-number">4.</span> <span class="toc-text">仿真结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E7%BD%91%E7%BB%9C%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">4.1.</span> <span class="toc-text">不同网络的比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E5%99%AA%E5%A3%B0%E6%B6%88%E9%99%A4"><span class="toc-number">4.2.</span> <span class="toc-text">真实世界噪声消除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">5.</span> <span class="toc-text">结论</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/05/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADEEP%20GENERATIVE%20FIXED-FILTER%20ACTIVE%20NOISE%20CONTROL/" title="文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL"><img src="https://i.ibb.co/LSLjfkw/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL"/></a><div class="content"><a class="title" href="/2024/05/05/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADEEP%20GENERATIVE%20FIXED-FILTER%20ACTIVE%20NOISE%20CONTROL/" title="文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL">文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL</a><time datetime="2024-05-05T11:30:38.183Z" title="发表于 2024-05-05 19:30:38">2024-05-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/23/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AA%20Hybrid%20SFANC-FxNLMS%20Algorithm%20for%20Active%20Noise%20Control%20based%20on%20Deep%20Learning/" title="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning"><img src="https://i.ibb.co/5GmwJBS/image.png	" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning"/></a><div class="content"><a class="title" href="/2024/04/23/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AA%20Hybrid%20SFANC-FxNLMS%20Algorithm%20for%20Active%20Noise%20Control%20based%20on%20Deep%20Learning/" title="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning">文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning</a><time datetime="2024-04-23T13:51:09.660Z" title="发表于 2024-04-23 21:51:09">2024-04-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AMaximum%20Likelihood%20DOA%20Estimation%20of%20Multiple%20Wideband%20Sources%20in%20the%20Presence%20of%20Nonuniform%20Sensor%20Noise/" title="文献阅读: Maximum Likelihood DOA Estimation of Multiple Wideband Sources in the Presence of Nonuniform Sensor Noise"><img src="https://i.ibb.co/gtsst1D/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: Maximum Likelihood DOA Estimation of Multiple Wideband Sources in the Presence of Nonuniform Sensor Noise"/></a><div class="content"><a class="title" href="/2024/01/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AMaximum%20Likelihood%20DOA%20Estimation%20of%20Multiple%20Wideband%20Sources%20in%20the%20Presence%20of%20Nonuniform%20Sensor%20Noise/" title="文献阅读: Maximum Likelihood DOA Estimation of Multiple Wideband Sources in the Presence of Nonuniform Sensor Noise">文献阅读: Maximum Likelihood DOA Estimation of Multiple Wideband Sources in the Presence of Nonuniform Sensor Noise</a><time datetime="2024-01-26T16:00:00.000Z" title="发表于 2024-01-27 00:00:00">2024-01-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/13/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9F%BA%E4%BA%8E%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%9A%84%E5%A3%B0%E6%BA%90DoA%E4%BC%B0%E8%AE%A1/" title="知识总结: 基于球麦克风阵列的声源DoA估计"><img src="https://i.ibb.co/1dkyDjy/acoustic-camera-gfaitech-Sphere120-beamforming-microphone-array-3d-measurement-interior-right.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="知识总结: 基于球麦克风阵列的声源DoA估计"/></a><div class="content"><a class="title" href="/2024/01/13/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9F%BA%E4%BA%8E%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%9A%84%E5%A3%B0%E6%BA%90DoA%E4%BC%B0%E8%AE%A1/" title="知识总结: 基于球麦克风阵列的声源DoA估计">知识总结: 基于球麦克风阵列的声源DoA估计</a><time datetime="2024-01-13T00:51:54.000Z" title="发表于 2024-01-13 08:51:54">2024-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/02/%E6%AF%94%E8%B5%9B%E7%9B%B8%E5%85%B3%EF%BC%9ADCASE%202019%20task3%20%20SELD%E5%A3%B0%E9%9F%B3%E4%BA%8B%E4%BB%B6%E5%AE%9A%E4%BD%8D%E6%A3%80%E6%B5%8B/" title="文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data"><img src="https://i.ibb.co/b7XKwb2/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data"/></a><div class="content"><a class="title" href="/2023/11/02/%E6%AF%94%E8%B5%9B%E7%9B%B8%E5%85%B3%EF%BC%9ADCASE%202019%20task3%20%20SELD%E5%A3%B0%E9%9F%B3%E4%BA%8B%E4%BB%B6%E5%AE%9A%E4%BD%8D%E6%A3%80%E6%B5%8B/" title="文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data">文献阅读: DCASE 2019 task3  SELD声音事件定位检测 data</a><time datetime="2023-11-02T07:02:20.000Z" title="发表于 2023-11-02 15:02:20">2023-11-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Gavin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Have a nice day!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
