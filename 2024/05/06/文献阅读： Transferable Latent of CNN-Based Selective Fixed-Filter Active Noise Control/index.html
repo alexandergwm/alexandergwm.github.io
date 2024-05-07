@@ -1,0 +1,346 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>文献阅读: Transferable Latent of CNN-Based Selective Fixed-Filter Active Noise Control | Gavin</title><meta name="author" content="Gavin"><meta name="copyright" content="Gavin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="摘要实用的主动噪声控制（ANC）系统，如主动噪声消除耳机，通常采用具有预设系数的控制滤波器，以获得令人满意的动态噪声降噪性能和更高的鲁棒性。在此策略中，针对不同类型的噪声选择适当的控制滤波器对于噪声消除性能至关重要，并且这种选择机制通常是通过反复试验来确定的。因此，本文提出了一种计算高效的一维卷积神经网络，能够为每个不同的主要噪声选择最合适的预训练控制滤波器。应用相似匹配方法使得所提出的模型具有更">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文献阅读: Transferable Latent of CNN-Based Selective Fixed-Filter Active Noise Control">
+<meta property="og:url" content="http://example.com/2024/05/06/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Transferable%20Latent%20of%20CNN-Based%20Selective%20Fixed-Filter%20Active%20Noise%20Control/index.html">
+<meta property="og:site_name" content="Gavin">
+<meta property="og:description" content="摘要实用的主动噪声控制（ANC）系统，如主动噪声消除耳机，通常采用具有预设系数的控制滤波器，以获得令人满意的动态噪声降噪性能和更高的鲁棒性。在此策略中，针对不同类型的噪声选择适当的控制滤波器对于噪声消除性能至关重要，并且这种选择机制通常是通过反复试验来确定的。因此，本文提出了一种计算高效的一维卷积神经网络，能够为每个不同的主要噪声选择最合适的预训练控制滤波器。应用相似匹配方法使得所提出的模型具有更">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.ibb.co/xSTFTsh/image.png">
+<meta property="article:published_time" content="2024-05-06T12:48:52.939Z">
+<meta property="article:modified_time" content="2024-05-07T15:24:30.957Z">
+<meta property="article:author" content="Gavin">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="主动噪声控制">
+<meta property="article:tag" content="开源代码">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.ibb.co/xSTFTsh/image.png"><link rel="shortcut icon" href="https://i.ibb.co/3BGBwps/2c8b98a62fbc3615.png"><link rel="canonical" href="http://example.com/2024/05/06/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Transferable%20Latent%20of%20CNN-Based%20Selective%20Fixed-Filter%20Active%20Noise%20Control/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '文献阅读: Transferable Latent of CNN-Based Selective Fixed-Filter Active Noise Control',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-07 23:24:30'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.ibb.co/ch2RrDp/20230822001522.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.ibb.co/xSTFTsh/image.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Gavin"><img class="site-icon" src="https://i.ibb.co/3BGBwps/2c8b98a62fbc3615.png"/><span class="site-name">Gavin</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">文献阅读: Transferable Latent of CNN-Based Selective Fixed-Filter Active Noise Control</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-05-06T12:48:52.939Z" title="发表于 2024-05-06 20:48:52">2024-05-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-07T15:24:30.957Z" title="更新于 2024-05-07 23:24:30">2024-05-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">文献阅读</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="文献阅读: Transferable Latent of CNN-Based Selective Fixed-Filter Active Noise Control"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>实用的主动噪声控制（ANC）系统，如主动噪声消除耳机，通常采用具有预设系数的控制滤波器，以获得令人满意的动态噪声降噪性能和更高的鲁棒性。在此策略中，针对不同类型的噪声选择适当的控制滤波器对于噪声消除性能至关重要，并且这种选择机制通常是通过反复试验来确定的。因此，本文提出了一种计算高效的一维卷积神经网络，能够为每个不同的主要噪声选择最合适的预训练控制滤波器。<strong>应用相似匹配方法</strong>使得所提出的模型具有更好的泛化能力，甚至可以处理训练集中不存在的类的零样本噪声。还研究了Large-margin softmax（L-softmax）以提高所提出模型的性能。此外，在处理 N -shot learning 问题时，ANC 系统几乎没有已知的现实世界噪声样本，因此需要使用额外的微调策略来提高控制滤波器选择的准确性。对测量的主路径和辅助路径的数值模拟验证了所提出方法的有效性。</p>
+<p>索引词条–主动噪声控制、一维卷积神经网络、N-shot learning 和Large-margin softmax loss (L-softmax)。</p>
+<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>主动噪声控制（ANC）被广泛认为是一种成功的声学噪声消除方法 [1]、[2]、[3]、[4]、[5]、[6]、[7]、[8]、[ 9]，[10]。与无源噪声消除[11]相反，ANC系统使用扬声器产生反相的抗噪声波来抑制干扰。在衰减低频噪声时，与无源材料相比，其实现需要更小的物理足迹，使其成为耳机的理想技术[12]、[13]、[14]、[15]、[16]、[17] ]、[18]、[19]、[20]、舱内噪声消除 [21] 和开放孔径 [22]、[23]、[24] 以及其他应用 [25]、[26]、[ 27]、[28]、[29]、[30]、[31]。 传统的 ANC 系统通常采用自适应算法来处理现实场景中变化的噪声[32]，[33]，例如过滤参考最小均方（FxLMS）算法，它自适应地调整控制滤波器及其输出[34]，[35]， [36]。然而，由于一些不完善的实际因素，例如输出饱和失真、不适当的步长选择和反馈路径效应，自适应机制很容易受到系统不稳定和算法发散的影响[35]，[37]，[38] ]、[39]、[40]。此外，传统自适应算法的收敛速度慢和跟踪能力差使得ANC系统无法有效消除日常生活中的动态和长时间噪声，这显着影响了用户对降噪的感知[38]。</p>
+<p>​	许多成熟的商业产品使用固定滤波器方法来解决这个问题，其中控制滤波器系数是预先训练的，而不是在噪声消除期间自适应更新[41]，[42]。与自适应滤波器相比，固定滤波器具有更快的响应时间和更高的鲁棒性。然而，固定滤波器有一个明显的缺点，因为它的系数是针对特定类型的噪声进行训练的，这会降低其对其他类型噪声的降噪性能。一个简单的解决方案是针对不同的噪声或声学环境选择不同的预训练控制滤波器。因此，在之前的工作[43]、[44]中，我们开发了一种选择性固定滤波器有源噪声控制（SFANC）算法，该算法可以根据主要噪声的频率分量选择最佳的预训练滤波器。尽管如此，SFANC算法的几个关键参数只能通过反复试验来确定，这无疑影响了其应用[44]。因此，我们进一步开发了 SFANC 的一维（1D）和二维（2D）卷积神经网络（CNN）以增加可行性[45]，[46]。这些轻量级 CNN 可以直接在采样的噪声数据集上进行训练并在协处理器中运行，从而降低了 SFANC 设计复杂性以及实时处理器所需的计算量。</p>
+<p>​	尽管专用的轻量级CNN模型可以帮助SFANC系统在预训练的滤波器选择方面获得更高的精度，但训练需要大量的噪声样本。此外，不同的 ANC 平台通常会遇到不同类型的噪声，并具有各种预先训练的控制滤波器。因此，要在这些平台上部署 CNN 模型，我们必须收集不同的噪声数据集并针对不同的噪声源重新训练 CNN。此外，如果数据集不够大，CNN 模型在训练过程中很容易出现过拟合，这就是所谓的少样本(few-shot) 问题。这些实践中的问题阻碍了基于 CNN 的 SFANC 方法的广泛采用。因此，本文提出了一种新的SFANC算法策略，即仅保留预训练的CNN模型的卷积层，并使用相似度匹配方法对不同ANC平台进行噪声分类。所提出的方法允许在新的 ANC 平台中使用预训练的 CNN 层而无需重新训练，甚至可以处理零样本学习(zero-shot learning) 问题 [47]、[48]，即噪声类不在训练集数据中。为了进一步增强预训练的 CNN 层在“看不见的”数据集中的噪声分类性能，我们引入了Large-margin softmax (L-softmax) 损失，这增强了学习特征之间的类内紧凑性和类间可分离性。此外，一种新颖的微调技术利用有限的现实世界数据来提高原始模型的分类精度，从而解决实际 ANC 系统中的 N-shot 问题 [49]。通过在真实记录数据集上的测试表明，这些方法可以在一定程度上提高预训练 CNN 层的性能。此外，对所提出的基于 CNN 的 SFANC 算法在测量路径上进行数值模拟以消除真实噪声，验证了其在实际应用中的有效性。以下几点是本研究的主要贡献：</p>
+<ul>
+<li><p>提出了一种用于 SFANC 的轻量级 CNN 分类器，以协助 ANC 系统提取主要噪声的特征或embedding code。</p>
+</li>
+<li><p>所提出的 CNN 分类器可以通过使用相似性匹配方法来处理zero-shot 噪声。此外，它可以在一个 ANC 系统中进行训练，并在另一个 ANC 系统中使用，为各种噪声选择最佳的预训练控制滤波器。这种方法大大减少了基于 CNN 的 SFANC 在不同声学条件下运行所需的训练工作量。</p>
+</li>
+<li><p>在这种基于 CNN 的 SFANC 策略中，可以使用一种新颖的微调策略来提高分类器在 N-shot 情况下的滤波器选择精度。</p>
+</li>
+</ul>
+<p>​	本文的结构如下：第一节和第三节重新讨论了选择性固定滤波器 ANC 方法。第四节提出了一种基于一维 CNN 并结合相似性匹配机制的新颖 SFANC 算法。此外，L-softmax 函数和微调方法用于提高其性能。第五节显示了所提出的方法在真实世界噪声数据集上的数值模拟。最后，第六节总结了本文。</p>
+<h2 id="2-Selective-Fixed-Filter-Active-Noise-Control-SFANC"><a href="#2-Selective-Fixed-Filter-Active-Noise-Control-SFANC" class="headerlink" title="2. Selective Fixed-Filter Active Noise Control (SFANC)"></a>2. Selective Fixed-Filter Active Noise Control (SFANC)</h2><p>​	由于前馈 ANC 结构在消除宽带噪声方面具有优越的性能，因此在实际应用中经常使用。它利用参考传感器获取主要噪声信息（参考信号）并将其传输到控制滤波器，控制滤波器输出抗噪声信号以衰减噪声。因此，训练控制滤波器系数对其性能至关重要，通常被归类为自适应更新或预训练。与自适应滤波器更新相比，预训练方法提供了更快的响应和更高的稳定性。因此SFANC充分发挥预训练控制滤波器的优势，进一步增强降噪性能[45]。</p>
+<p>​	如图 1 所示，选择性固定滤波器 ANC (SFANC) 方法由两个阶段组成：预训练和噪声消除。宽带噪声（训练噪声）在预训练阶段通过主路径传播，形成干扰。此时，ANC系统使用自适应滤波器来减轻这些干扰，并且自适应滤波器的收敛解被保存为预训练的控制滤波器。在噪声消除阶段，SFANC 提取接近噪声的特征，例如其频率分量、类型和幅度。同时，SFANC将根据这些特性选择最合适的预训练滤波器进行降噪。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507212727858.png" alt="image-20240507212727858"></p>
+<p>​	应用这种 SFANC 方法而不增加实时控制器的工作负载，众所周知的多处理器协作方法可能比其他解决方案更合适。例如，最新的智能 ANC 耳机[41]，如图 2 所示，具有两个不同的处理器。其中之一是协处理器，例如擅长批处理但实时性能较差的手机。它执行复杂的滤波器选择算法并将选择结果传输到实时控制器。值得一提的是，由于选择结果是一个简单的过滤索引，因此两个处理器之间可以采用简单的异步通信协议。当实时控制器获得这个结果时，它只需要从内存中检索相关的预设控制滤波器来消除噪声，而不是自适应地调整滤波器的系数。因此，该技术大大减轻了实时控制器的计算负载并降低了硬件成本。此外，SFANC 方法还加快了控制器的响应时间，并改善了动态噪声条件下的感知降噪效果，这也是 ANC 耳机行业所期望的[41]。</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507213308446.png" alt="image-20240507213308446" style="zoom: 33%;" />
+
+<p>​	以下部分将详细介绍滤波器的预训练过程和 SFANC 算法的滤波器选择方法。此外，与标准 SFANC 技术不同，所提出的基于 CNN 的 SFANC 算法采用三种策略提高其在与训练集不同的实际噪声数据集上的分类性能。</p>
+<h2 id="3-Pre-training-Control-Filters"><a href="#3-Pre-training-Control-Filters" class="headerlink" title="3. Pre-training Control Filters"></a>3. Pre-training Control Filters</h2><p>​	由于计算复杂度较低，FxLMS 算法用于预训练 SFANC 系统的控制滤波器 [50]。图 3 描绘了前馈 ANC 系统的框图。图中初级噪声经过初级路径$P(z)$形成扰动$d(n)$。假设主要噪声与参考信号$x(n)$相同以简化分析。控制滤波器将此参考信号转换为控制信号 $y(n)$，如下所示</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507213950095.png" alt="image-20240507213950095" style="zoom: 33%;" />
+
+<p>其中$(·)^T$表示转置运算,$x(n)$ 和 $w(n)$ 分别表示参考信号矢量和控制滤波器的脉冲响应。</p>
+<p>​	控制信号通过次级路径传播以消除干扰 $d(n)$。其残差信号可表示为</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507214042112.png" alt="image-20240507214042112" style="zoom:33%;" />
+
+<p>其中$*$和$s(n)$表示线性卷积和辅助路径的脉冲响应。</p>
+<p>​	通过使用梯度下降法最小化（2）的均方，控制滤波器的递归更新方程可以导出为</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507214209823.png" alt="image-20240507214209823" style="zoom:33%;" />
+
+<p>其中$μ$表示自适应算法的步长，称为过滤参考最小均方（FxLMS）算法[50], [51]。在方程中，$x′(n)$ 是从下式获得的过滤参考信号。</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507214342996.png" alt="image-20240507214342996" style="zoom: 33%;" />
+
+<p>其中$\hat{s}(n)$ 表示了次级路径的估计，可以从次级路径建模中获得。</p>
+<p>​	(3) 收敛后，其最终解$\mathbf{ w}^*$ 将被保存为预训练的控制滤波器之一。类似地，我们针对其他类型的训练噪声预先训练不同的控制滤波器。在控制阶段，将选择这些预先训练的控制之一来衰减噪声。在本文中，我们预训练了 15 个具有不同频段的控制滤波器。</p>
+<h2 id="4-1D-CNN-For-Filter-Selection"><a href="#4-1D-CNN-For-Filter-Selection" class="headerlink" title="4. 1D CNN For Filter Selection"></a>4. 1D CNN For Filter Selection</h2><p>​	如前几节所述，控制滤波器选择机制对于 SFANC 在降噪方面优于其他固定滤波器方法至关重要。传统的方法是根据主要噪声的频率信息来选择滤波器。然而，这些方法需要对许多关键参数进行反复试验，同时仍然消耗实时控制器的计算资源。因此，我们创建了一个轻量级的一维 CNN 来协助 ANC 系统为各种主要噪声选择最佳的控制滤波器[45]。根据数据驱动的方法，其所有参数都可以从噪声数据集中学习，增加了其实用性。此外，由于其体积小，它能够在手机等协处理器上运行，这进一步减少了实时控制器的计算负载。除了这些优点之外，CNN 的一维卷积核可以被视为频谱滤波器，从输入信号中提取频率信息。</p>
+<p>​	图 4 描绘了 SFANC 方法中使用的 1D CNN 的框图。具有 16,000 个样本的参考信号向量用作 1D CNN 的输入。该一维 CNN 可以分为三个模块：预处理、特征提取和分类。应用min-max operation 作为预处理步骤：</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507220356291.png" alt="image-20240507220356291" style="zoom: 50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507220342629.png" alt="image-20240507220342629" style="zoom:33%;" />
+
+<p>其中 $max[·] $和 $min[·]$ 获取输入向量 $\mathbf{x}(n)$ 的最大和最小元素。与传统的min-max 函数相比，(5) 式将输入范围重新调整为 (−1, 1) 并保留信号的负部分，其中包含相位信息，对于 ANC 应用至关重要。</p>
+<p>​	两个卷积层组成了特征提取模块。这两个层都有 10 个和 20 个尺寸分别为 1 × 5 和 1 × 32 的卷积核。输出特征图在展平之前通过大小和步长为 512 的最大池化层进行降维。此外，所有卷积层的步幅均设置为1。</p>
+<p>​	分类部分由两个全连接层组成。在第一个全连接层（其输出由双曲函数激活）之前，使用批量归一化层来加速模型的训练。第二个全连接层将 15 个输出输入到 softmax 层，该层计算 15 个类别的概率。</p>
+<h3 id="A-Similarity-Matching-Method"><a href="#A-Similarity-Matching-Method" class="headerlink" title="A. Similarity Matching Method"></a>A. Similarity Matching Method</h3><p>​	在实践中，ANC 系统与实验室中的实验平台不同，这意味着它们具有不同的主路径和辅助路径，以及不同的预训练控制滤波器。针对不同条件单独训练所提出的模型是确保其对这些系统有效的简单方法。然而，这种方法不仅在数据收集和模型训练方面需要大量的时间和精力，而且它也很难处理 N-shot 或 zero-shot 问题，其中系统只有很少的或没有primary噪声样本。</p>
+<p>​	为了解决这个问题，我们在 1D CNN 模型中使用度量学习方法 [52]、[53]、[54] 来选择滤波器。该方法使用预训练的一维 CNN 模型的特征提取部分将主要噪声和过滤训练噪声转换为其embedding code，如图 5 所示。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507221135356.png" alt="image-20240507221135356"></p>
+<p>过滤训练噪声的embedding code 与 Primary noise的相似度$ \mathbf{E}_x$ 计算公式如下：</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507221614077.png" alt="image-20240507221614077" style="zoom:33%;" />
+
+<p>其中 $max(·)$ 返回参数的最大值， $‖ · ‖_2$ 表示 L2 范数。而$\epsilon$ 是一个小的正常数，确保分母不为零。第 $m$ 个控制滤波器的训练噪声的embedding code为 $\mathbf{E}_m$。这种余弦相似度可以评估特征空间中embedding code之间的距离，而无需考虑它们的大小。最后，当前的控制滤波器将是预训练的滤波器，其训练噪声与主噪声具有最高的相似度。</p>
+<p>​	表1列出了该方法的伪代码，其中 CNN 层在 ANC 系统 A 中训练，但在 ANC 系统 B 中使用。系统 A 和 B 可能各自有自己的主要噪声数据集、主要和次要路径以及预训练的控制过滤器。此外，假设系统 B 具有 $M $ 个不同的预训练控制滤波器。因此，相似性匹配机制可以帮助传统的一维CNN分类器克服zero-shot learning 问题。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507222049929.png" alt="image-20240507222049929"></p>
+<h3 id="B-Large-Margin-Softmax-Loss-Function"><a href="#B-Large-Margin-Softmax-Loss-Function" class="headerlink" title="B. Large-Margin Softmax Loss Function"></a>B. Large-Margin Softmax Loss Function</h3><p>​	上一节的一维 CNN 应用的底层机制是特征映射，其中 CNN 层将噪声轨迹映射到特征空间。具有相似特征的噪声轨迹将在这个空间中聚集在一起，并被认为属于同一类。因此，找到一种能够在特征空间中增强 1D CNN 的额外类内紧凑性和类间可分离性的方法是提高分类精度的直接策略。更有效的方法之一是构造一个 softmax 损失，它结合了交叉熵损失、softmax 函数和最后一个全连接层，以鼓励类内紧凑性和类间分离，例如 Large-margin softmax 损失(L-Softmax)[55]，如图6所示。</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507222713618.png" alt="image-20240507222713618" style="zoom:50%;" />
+
+<p>​	这里，我们将 $\textbf{x}_i$ 定义为最后一个全连接层 $\mathbf{W}$ 的第$ i$ 个输入特征 $\mathbf{x}_i$，标签为 $y_i$。 L-Softmax 损失可以重写为</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507222836669.png" alt="image-20240507222836669" style="zoom: 50%;" />
+
+<p>其中$ N $和 $\mathbf{W}<em>{y_i}$ 分别表示样本数和 $\mathbf{W}$ 的第 $y_i$ 列，$θ_j$ 表示向量 $\mathbf{W}</em> j$ 和 $\mathbf{x}_i$ 之间的角度（$j \in [1, K]$，$K$ 是类别数）。构造函数 $ψ(θ)$ 表示为</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507224933599.png" alt="image-20240507224933599" style="zoom:33%;" />
+
+<p>其中 $k \in [0, m − 1]$ 并且 $k$ 是整数。就角度相似性而言，L-Softmax 损失通过合并常数 $m$ 乘以样本与真实类分类器之间的角度，导致学习到的特征之间可能具有更大的角度可分离性。 $m $决定了接近真实类别的强度，从而产生角度余量。在本文中，使用上一节中的数据集训练具有 L-Softmax 损失的一维 CNN。训练后，最终全连接层的输出将会被用作相似度计算的embedding code。</p>
+<h3 id="C-Fine-Tuning"><a href="#C-Fine-Tuning" class="headerlink" title="C. Fine Tuning"></a>C. Fine Tuning</h3><p>​	尽管上述基于相似性匹配的分类器可以处理训练中未见过的新类，但它们的性能无疑不如传统的 CNN 分类器。另一方面，在实践中获取每个类别的一些示例以形成真实记录数据集并不困难。然而，这个真实记录数据集不足以重新训练模型并导致严重的过度拟合。在这种情况下，迁移学习（TL）似乎是进一步提高预训练模型分类准确性的可行选择。它需要用新的全连接层替换预训练模型的分类部分，并在真实记录数据集中对其进行微调。然而，添加新的可学习变量会增加计算复杂性，并且很容易导致小数据集中的过度拟合。</p>
+<p>​	为了解决这个问题，本文采用了一种新颖的微调结构[56]，如图7所示。在该结构中，现实世界ANC应用中控制滤波器的训练噪声轨迹作为支持集，输入到预先训练的 CNN 层并转换为embedding code。这些embedding code分别用于计算与传入主噪声的映射代码的余弦相似度。结果被输入到 softmax 层，选择与主要噪声最相似的噪声轨迹。 ANC 系统的当前控制滤波器将是该选定噪声轨迹的相应滤波器。值得注意的是，该结构中的所有 CNN 层共享相同的变量，因此可学习变量的数量并未增加。此外，标准交叉熵损失可用于微调该结构。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507225838734.png" alt="image-20240507225838734"></p>
+<p>​	与传统的微调技术不同，这种方法不包括任何全连接层。本段将简要概述微调过程。如图 7 所示，softmax 层的第 $i$ 个输出由下式给出：</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507230018088.png" alt="image-20240507230018088" style="zoom:33%;" />
+
+<p>根据交叉熵的定义，损失函数可表示为</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507230034536.png" alt="image-20240507230034536" style="zoom:33%;" />
+
+<p>其中 $y_j$ 是真值标签。成本函数以 $S_i$ 为单位的导数导出为</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507230108540.png" alt="image-20240507230108540" style="zoom:33%;" />
+
+<p>基于链式法则[57]，损失函数相对于滤波器训练噪声embedding code的导数可以从下式获得：</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507230134893.png" alt="image-20240507230134893" style="zoom:33%;" />
+
+<p>其中 $\frac{∂S_i} {∂\mathbf{E}_i}$ 由 (6) 导出为</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507230220207.png" alt="image-20240507230220207" style="zoom:33%;" />
+
+<p>而关于输入信号embedding code的导数则导出为</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507230250213.png" alt="image-20240507230250213" style="zoom: 33%;" />
+
+<p>由(6)我们可以看出</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507230322301.png" alt="image-20240507230322301" style="zoom:33%;" />
+
+<p>因此，第$ (l + 1)$ 次迭代时 1D CNN 的 CNN 层中的参数可以从下式获得</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507230352028.png" alt="image-20240507230352028" style="zoom:33%;" />
+
+<p>其中$η$表示学习率。 $\frac{∂\mathbf{E}_i} {∂\mathbf{W}}$ 和 $\frac{∂\mathbf{E}_x} {∂\mathbf{W}}$ 表示传统 CNN 层的导数[58]。表二详细介绍了这一微调进展。值得注意的是，ANC 系统 B 中用于微调过程的噪声样本数量远小于 ANC 系统 A 中训练数据集中的噪声样本数量。因此，它可以显着克服实际真实世界的 N-shot 问题。 </p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507230518565.png" alt="image-20240507230518565"></p>
+<p>​	与标准深度学习模式[45]、[59]相比，这三种模型仅保留了允许模型提取噪声特征的CNN层，而不管噪声源自哪个系统。即使训练和测试阶段的类数量不同，相似性比较功能主义也取代了全连接层来实现分类。这些优点使得所提出的分类器可以在一个系统中进行训练并在其他系统中使用。相比之下，当前的SFANC技术，无论是基于传统信号处理技术[43]还是深度学习技术，都要求训练和测试数据集中的噪声样本来自同一ANC系统。因此，提出的方法显着减少了基于 CNN 的 SFANC 算法所需的训练工作，并有利于其实际实现。</p>
+<h3 id="D-Computational-Complexity-of-CNN-Classifiers"><a href="#D-Computational-Complexity-of-CNN-Classifiers" class="headerlink" title="D. Computational Complexity of CNN Classifiers"></a>D. Computational Complexity of CNN Classifiers</h3><p>​	分类器对于SFANC算法的计算消耗至关重要，其计算复杂度与参数数量成正比。因此，本节研究了上面提出的两个分类器中的参数数量。 CNN 分类器中每层的输出维度和参数数量如表 III 所示。该表显示分类器使用了一维 CNN 模型大约三分之一的计算。与专门为嵌入式系统设计的神经网络（例如 Mobilenet [60]）相比，所提出的分类器所需的计算量要少得多，后者通常具有超过 420 万个参数。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507230741109.png" alt="image-20240507230741109"></p>
+<p>​	因此，所提出的分类模型可以在嵌入式协处理器（例如移动电话）上轻松执行，以完成滤波器选择并将结果馈送到实时控制器。同时，实时控制器只需要根据选定的控制滤波器进行滤波，而不需要完成所有滤波器系数的计算，这大大减少了实时控制器的计算量。相比之下，当前的深度学习ANC方法利用神经网络直接在实时处理器中处理输入信号[3]。尽管它在处理 ANC 系统的非线性方面表现更好，但其巨大的计算复杂性通常超出了实时处理器的能力，并且较长的处理时间会加剧系统的因果关系问题。</p>
+<h2 id="5-SIMULATIONS"><a href="#5-SIMULATIONS" class="headerlink" title="5. SIMULATIONS"></a>5. SIMULATIONS</h2><p>​	本节研究了两个 ANC 系统 A 和 B 中提出的方法。ANC 系统 A 中的主要和辅助路径是频率范围为 20 至 7,980 Hz 的带通滤波器。相比之下，ANC 系统 B 中的主要和次要路径是通过采样率为 16,000 Hz 的耳机测量的，其脉冲响应如图 8 所示。在实验过程中，我们在合成噪声数据集上训练一维 CNN 模型ANC 系统 A，然后评估其性能。随后，这些预训练模型的 CNN 层被应用于选择性固定滤波器主动噪声控制 (SFANC)，以消除通过系统 B 中的商用耳机记录的现实世界噪声。</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507230910235.png" alt="image-20240507230910235" style="zoom: 50%;" />
+
+<h3 id="A-Training-and-Testing-of-1D-CNN-Model-in-ANC-System-A"><a href="#A-Training-and-Testing-of-1D-CNN-Model-in-ANC-System-A" class="headerlink" title="A. Training and Testing of 1D CNN Model in ANC System A"></a>A. Training and Testing of 1D CNN Model in ANC System A</h3><p>​	控制滤波器训练阶段使用的主要路径都是频率范围为 20 至 7,980 Hz 的带通滤波器。为了预训练控制滤波器，使用了 15 个不同频率范围的宽带噪声（$b_1$ 至 $b_{15}$），如图 9（a）所示。在此图中，这 15 个宽带噪声的频率分量跨越整个频谱。在此期间，采用第三节中的 FxLMS 算法来获得针对这些宽带噪声的最佳控制滤波器。因此，15个预训练控制滤波器具有与训练宽带噪声相似的频带和带宽，如图10所示。</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507231042539.png" alt="image-20240507231042539" style="zoom:50%;" />
+
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507231055016.png" alt="image-20240507231055016" style="zoom:50%;" />
+
+<p>​	为了训练 CNN 模型，我们随机生成了 80,000 个具有不同频段、幅度和背景噪声水平的宽带噪声轨迹。每个轨道有 16,000 个样本，系统采样率设置为 16,000 Hz。值得注意的是，这些宽带噪声轨迹的频率分量覆盖了整个频带，高达采样率的一半。这些通过主路径传播的噪声轨迹会引起干扰。我们使用 15 个预先训练的控制滤波器来消除噪声。噪声轨迹的类别将是实现最高降噪水平的控制滤波器的索引。</p>
+<p>​	我们还使用相同的过程来创建验证和测试数据集，每个数据集都有 1000 个样本。此外，没有和有 L-Softmax 损失的 1D CNN 模型的系数分别通过使用学习比率为 0.01 和 0.03 的 Adam 优化算法进行更新。对于具有 L-Softmax 损失的 1D CNN 模型，margin参数 $m$​ 设置为 2。表 IV 显示了没有和有 L-Softmax 损失的 1D CNN 的训练和测试精度。根据该表，我们可以发现L-Softmax损失的角度约束对一维CNN的分类精度有负面影响。这是因为 L-Softmax 损失函数仅使用单个全连接层，这限制了其执行非线性分类的能力。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507231158053.png" alt="image-20240507231158053"></p>
+<h3 id="B-Real-World-Noise-Classification-Based-on-Similarity"><a href="#B-Real-World-Noise-Classification-Based-on-Similarity" class="headerlink" title="B. Real-World Noise Classification Based on Similarity"></a>B. Real-World Noise Classification Based on Similarity</h3><p>Matching in ANC System B</p>
+<p>​	本节概述了所提出的模型，以评估其对现实世界噪声分类的泛化性能，其中的类别未包含在先前的训练集中。首先，我们测量了商用耳机的主要和次要路径，如图 8 所示。与系统 A 中的控制滤波器相比，我们合成了 5 种不同的宽带噪声，频率范围为 20 至 550 Hz、450 至 1,200 Hz。1,000 至 2,700 Hz、2,500 至 4,500 Hz 和 4,400 至 7,980 Hz 分别为系统 B 训练 5 个不同的控制滤波器，如图 9（b）所示.</p>
+<p>​	以 1,6000 Hz 采样率记录了 2,000 条真实城市噪音轨迹。它们分为两个相等的部分：测试和微调。这些噪声被用作上述ANC系统B中的主要噪声。噪声的等级是控制滤波器能够对其实现最佳噪声消除的指标。在本实验中，上一节的特征提取层（CNN 层）用于从测试集的真实记录噪声和滤波器训练噪声中导出embedding code。根据相似度匹配方法，选择训练噪声和原始噪声之间相似度最高的预训练滤波器作为主动控制滤波器，如图 5 所示。它们的噪声分类精度如表 V 所示，其中使用 L-Softmax 损失预训练的 CNN 层具有比其他层稍好的泛化性能。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507231344431.png" alt="image-20240507231344431"></p>
+<h3 id="C-Fine-Tuning-the-Pre-Trained-1D-CNN-Layers-in-the"><a href="#C-Fine-Tuning-the-Pre-Trained-1D-CNN-Layers-in-the" class="headerlink" title="C. Fine-Tuning the Pre-Trained 1D CNN Layers in the"></a>C. Fine-Tuning the Pre-Trained 1D CNN Layers in the</h3><p>Real-Record Noise Set of ANC System B</p>
+<p>​	在本节中，采用图 7 所示的微调策略来提高预训练 CNN 层在真实记录噪声集上的分类精度。在这种方法中，用于训练控制滤波器的 5 个宽带噪声充当支持集，而来自真实记录噪声的训练部分的噪声充当 CNN 模型的查询。交叉熵损失用于量化预测结果与预期结果之间的差异。此外，使用学习率为0.0001的Adam算法来更新CNN模型的系数。</p>
+<p>​	微调 CNN 层在真实记录噪声集上的分类精度如表VI所示。与表V中的结果相比，微调策略在一定程度上提高了1D CNN层对真实噪声的分类性能，这证实了第4-C节中描述的微调方法的有效性。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507231438939.png" alt="image-20240507231438939"></p>
+<h3 id="D-Varying-Noise-Cancellation-on-the-Measured-Path"><a href="#D-Varying-Noise-Cancellation-on-the-Measured-Path" class="headerlink" title="D. Varying Noise Cancellation on the Measured Path"></a>D. Varying Noise Cancellation on the Measured Path</h3><p>​	为了评估基于 CNN 的 SFANC 算法的性能，它用于消除测量路径上的变化噪声，如图 8 所示。这种宽带噪声是通过级联频率范围从 100 至 500 Hz、890 至 1,200 Hz和 1,500 至 2,500 Hz的三个不同噪声而产生的。此外，FxLMS算法用于对测量路径进行比较研究。</p>
+<p>​	为了消除这种变化的宽带噪声，使用了 FxLMS 算法。算法中控制滤波器和辅助路径估计分别有 512 个和 256 个抽头，步长设置为 $μ &#x3D; 6 × 10^{−6}$。 FxLMS算法的误差信号如图11(a)所示。可以发现，即使频带和幅度发生变化，FxLMS算法也能够消除宽带噪声。然而，由于自适应算法收敛速度慢，对噪声变化的响应时间可能在感知上并不明显。</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507231627959.png" alt="image-20240507231627959" style="zoom:50%;" />
+
+<p>相比之下，所提出的基于 CNN 的 SFANC 算法实现了快速响应时间，使它们能够跟踪宽带噪声的变化，如图 11（b）所示。从 CNN 分类器获得过滤器索引后，SFANC 算法每秒切换控制过滤器。因此，该算法无法在第一秒处理新的噪声。 SFANC 算法中使用了三个分类器：1D CNN、使用 L-Softmax 损失预训练的 1D CNN 层以及微调后的 1D CNN 层。由于这些分类器沿途使用相同的控制滤波器，因此它们的误差信号重叠。</p>
+<h3 id="E-Real-World-Noise-Cancellation-on-Measured-Paths"><a href="#E-Real-World-Noise-Cancellation-on-Measured-Paths" class="headerlink" title="E. Real-World Noise Cancellation on Measured Paths"></a>E. Real-World Noise Cancellation on Measured Paths</h3><p>​	该模拟使用基于不同 1D CNN 层的 FxLMS 算法和 SFANC 算法来消除频率范围为 20 至 15,000 Hz 的原始飞机噪声。算法中控制滤波器和辅助路径估计分别有 512 个和 256 个抽头，步长设置为 $μ &#x3D; 6 × 10^{−6}$。图 12 说明了当 ANC 激活和停用时这些算法生成的误差信号。与 FxLMS 算法相比，基于 CNN 的一维 SFANC 算法具有更快的响应时间，因为它们不涉及自适应更新。然而，由 L-Softmax 损失函数预训练的 CNN 层有时会选择不正确的控制滤波器。</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507231813469.png" alt="image-20240507231813469" style="zoom:50%;" />
+
+<p>此外，图 13 描绘了这些误差信号的频谱图。根据该图，当一维 CNN 分类器处理瞬态高频噪声时，会出现错误的滤波器选择，在这种情况下，分类器选择高频控制滤波器，从而牺牲低频噪声控制。表 VII 总结了每种算法的降噪水平。基于 CNN 层的 SFANC 算法在微调之前和之后在前 40 秒内实现了最高水平的降噪。然而，FxLMS 算法收敛后，它应该比 SFANC 方法具有更低的稳态误差。</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507231834268.png" alt="image-20240507231834268" style="zoom:50%;" />
+
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507231859579.png" alt="image-20240507231859579"></p>
+<p>​	根据上述系统B的分类结果，我们可以发现，无论采用何种类型的1D-CNN模型，都会存在一些滤波器选择不准确的情况，导致系统无法消除噪声，如图12（ b). 这可能是用相似匹配函数替换全连接层的结果，减少了模型的非线性分类。保留的可学习一维CNN主要负责噪声特征提取。因此，即使微调方面的进展也只能略微提高系统 B 的分类精度。然而，这种新颖的方法使分类器能够在单个系统中学习，然后广泛应用于各种其他 ANC 系统。</p>
+<h3 id="F-Influences-of-Varying-Primary-Path-on-Proposed-Algorithms"><a href="#F-Influences-of-Varying-Primary-Path-on-Proposed-Algorithms" class="headerlink" title="F. Influences of Varying Primary Path on Proposed Algorithms"></a>F. Influences of Varying Primary Path on Proposed Algorithms</h3><p>​	在此模拟中，我们检查了所提出的基于 CNN 的 SFANC 在处理每 8 秒更改一次的主路径时的性能。为了模拟其方差，将主路径的脉冲响应与各种功率的白噪声相结合，如图 14 所示.</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507232114087.png" alt="image-20240507232114087" style="zoom:50%;" />
+
+<p>​	图 15 描绘了 FxLMS 算法和所提出的基于 CNN 的 SFANC 算法的误差信号。 FxLMS 中的控制滤波器和辅助路径估计分别有 512 个和 256 个抽头，步长为 $μ &#x3D; 6 × 10^{−6}$。因此，FxLMS 算法可以赶上主路径的变化。 FxLMS 的降噪水平分别为每 8 秒 8.6、8.5 和 9.4 dB。相比之下，基于 CNN 的 SFANC 算法每 8 秒可实现 22.2、6.1 和 0.9 dB 的降噪水平。尽管主路径中的变量会影响所提出的 SFANC 的性能，它仍然在某种程度上保持降噪。它表明，基于CNN的SFANC算法可以处理略有变化的主要路径。在实践中，商业ANC系统的主要和次要路径通常会随着时间的流逝而缓慢变化甚至保持恒定。因此，拟议的基于CNN的SFANC技术能够在现实环境中使用。</p>
+<img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507232130930.png" alt="image-20240507232130930" style="zoom:50%;" />
+
+<h3 id="G-与FxNLMS算法的比较"><a href="#G-与FxNLMS算法的比较" class="headerlink" title="G. 与FxNLMS算法的比较"></a>G. 与FxNLMS算法的比较</h3><p>​	在本节中，我们比较了所提出的基于 CNN 的 SFANC 算法和过滤参考归一化最小均方算法 (FxNLMS) [61]，用于消除前面提到的主路径和辅助路径上的宽带噪声 (200-950 Hz)。值得注意的是，训练集中不存在这种宽带噪声。此外，FxNLMS 算法的控制滤波器和辅助路径估计各有 512 和 256 个抽头。 FxNLMS 步长从 0.005 增加到 1。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240507232228279.png" alt="image-20240507232228279"></p>
+<p>​	图 16 描绘了算法的均方误差 (MSE)。图中，FxNLMS 算法的学习曲线随着步长的增加而变得更陡，而基于 CNN 的 SFANC 算法具有相似的 MSE，因为它们选择相同的控制滤波器。此外，所提出的基于CNN的SFANC算法对宽带噪声具有快速响应，而FxNLMS算法仍然需要一些时间来收敛。然而，所提出的算法似乎在最初的一秒内没有提供噪声消除。这是因为事实上，初始控制过滤系数设置为零，并且 CNN 模型尚未完成分类。一个可行的解决方案是使用宽带预训练滤波器来初始化控制滤波器。</p>
+<h2 id="6-CONCLUSION"><a href="#6-CONCLUSION" class="headerlink" title="6. CONCLUSION"></a>6. CONCLUSION</h2><p>​	有源噪声消除（ANC）技术广泛用于消除通过无源手段难以控制的低频噪声。然而，基于自适应滤波器的传统ANC方法在处理快速变化的噪声时效果不佳，并且经常遇到不稳定的情况。因此，选择性固定滤波器ANC（SFANC）方法用于改善响应时间，同时保持实时处理的低计算复杂性和高鲁棒性。为了增强SFANC方法的性能和泛化能力，本文提出了一种具有相似匹配机制的基于一维CNN的SFANC。在所提出的方法中，CNN 层充当编码器来提取主要噪声的特征，然后使用相似性匹配方法根据这些特征选择最合适的预训练滤波器。这种新颖算法的一维 CNN 分类器甚至可以为“看不见的”噪声选择最合适的控制滤波器，这些噪声的类别不会出现在训练集中（zero-shot learning问题）。它使 CNN 分类器能够在一个 ANC 系统中进行训练，但在另一个 ANC 系统中使用。这些 ANC 系统可能具有不同的主要和次要路径，以及不同的噪声类别和数据集。此外，使用large margin softmax (L-Softmax) 损失函数以及微调技术来提高预训练的 1D CNN 模型的分类性能。这种新颖的微调技术大大消除了当现实世界的 ANC 系统没有足够的先验噪声信息时会发生的 N-shot 问题。最后，对商用 ANC 耳机测量的主路径和辅助路径进行数值模拟，证明了所提出的基于 CNN 的 SFANC 算法在消除动态和现实世界噪声方面的有效性。此外，不同声学路径上的实验验证了所提出策略的鲁棒性。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Gavin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/05/06/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Transferable%20Latent%20of%20CNN-Based%20Selective%20Fixed-Filter%20Active%20Noise%20Control/">http://example.com/2024/05/06/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Transferable%20Latent%20of%20CNN-Based%20Selective%20Fixed-Filter%20Active%20Noise%20Control/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Gavin</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><a class="post-meta__tags" href="/tags/%E4%B8%BB%E5%8A%A8%E5%99%AA%E5%A3%B0%E6%8E%A7%E5%88%B6/">主动噪声控制</a><a class="post-meta__tags" href="/tags/%E5%BC%80%E6%BA%90%E4%BB%A3%E7%A0%81/">开源代码</a></div><div class="post_share"><div class="social-share" data-image="https://i.ibb.co/xSTFTsh/image.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/05/05/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADEEP%20GENERATIVE%20FIXED-FILTER%20ACTIVE%20NOISE%20CONTROL/" title="文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL"><img class="cover" src="https://i.ibb.co/LSLjfkw/image.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/05/05/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADEEP%20GENERATIVE%20FIXED-FILTER%20ACTIVE%20NOISE%20CONTROL/" title="文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL"><img class="cover" src="https://i.ibb.co/LSLjfkw/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-05</div><div class="title">文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL</div></div></a></div><div><a href="/2024/04/23/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AA%20Hybrid%20SFANC-FxNLMS%20Algorithm%20for%20Active%20Noise%20Control%20based%20on%20Deep%20Learning/" title="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning"><img class="cover" src="https://i.ibb.co/5GmwJBS/image.png	" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-23</div><div class="title">文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning</div></div></a></div><div><a href="/2023/10/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Deep%20Networks%20for%20Direction-of-Arrival%20Estimation%20in%20Low%20SNR/" title="文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR"><img class="cover" src="https://i.ibb.co/vHV5BKD/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-27</div><div class="title">文献阅读: Deep Networks for Direction-of-Arrival Estimation in Low SNR</div></div></a></div><div><a href="/2023/10/25/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADeep%20learning%20assisted%20sound%20source%20localization%20using%20two%20orthogonal%20first-order%20differential%20microphone%20arrays/" title="文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays"><img class="cover" src="https://i.ibb.co/XVMYNX3/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-25</div><div class="title">文献阅读: Deep learning assisted sound source localization using two orthogonal first-order differential microphone arrays</div></div></a></div><div><a href="/2023/09/12/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E8%B0%B1%E5%87%8F%E6%B3%95%E9%99%8D%E5%99%AA%E5%9F%BA%E7%A1%80/" title="知识总结：谱减法降噪基础"><img class="cover" src="https://i.ibb.co/7XwHvLZ/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-12</div><div class="title">知识总结：谱减法降噪基础</div></div></a></div><div><a href="/2023/09/06/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AFA-weighting/" title="知识总结：什么是A-weighting"><img class="cover" src="https://i.ibb.co/bLcJFgv/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-06</div><div class="title">知识总结：什么是A-weighting</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.ibb.co/ch2RrDp/20230822001522.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Gavin</div><div class="author-info__description">我的过去常常追赶着我</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/alexandergwm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/alexandergwm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wenmiaogao@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">May you stay young forever, do the thing in your own zone.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text">1. 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Selective-Fixed-Filter-Active-Noise-Control-SFANC"><span class="toc-number">3.</span> <span class="toc-text">2. Selective Fixed-Filter Active Noise Control (SFANC)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Pre-training-Control-Filters"><span class="toc-number">4.</span> <span class="toc-text">3. Pre-training Control Filters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1D-CNN-For-Filter-Selection"><span class="toc-number">5.</span> <span class="toc-text">4. 1D CNN For Filter Selection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Similarity-Matching-Method"><span class="toc-number">5.1.</span> <span class="toc-text">A. Similarity Matching Method</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-Large-Margin-Softmax-Loss-Function"><span class="toc-number">5.2.</span> <span class="toc-text">B. Large-Margin Softmax Loss Function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-Fine-Tuning"><span class="toc-number">5.3.</span> <span class="toc-text">C. Fine Tuning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D-Computational-Complexity-of-CNN-Classifiers"><span class="toc-number">5.4.</span> <span class="toc-text">D. Computational Complexity of CNN Classifiers</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-SIMULATIONS"><span class="toc-number">6.</span> <span class="toc-text">5. SIMULATIONS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Training-and-Testing-of-1D-CNN-Model-in-ANC-System-A"><span class="toc-number">6.1.</span> <span class="toc-text">A. Training and Testing of 1D CNN Model in ANC System A</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-Real-World-Noise-Classification-Based-on-Similarity"><span class="toc-number">6.2.</span> <span class="toc-text">B. Real-World Noise Classification Based on Similarity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-Fine-Tuning-the-Pre-Trained-1D-CNN-Layers-in-the"><span class="toc-number">6.3.</span> <span class="toc-text">C. Fine-Tuning the Pre-Trained 1D CNN Layers in the</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D-Varying-Noise-Cancellation-on-the-Measured-Path"><span class="toc-number">6.4.</span> <span class="toc-text">D. Varying Noise Cancellation on the Measured Path</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E-Real-World-Noise-Cancellation-on-Measured-Paths"><span class="toc-number">6.5.</span> <span class="toc-text">E. Real-World Noise Cancellation on Measured Paths</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F-Influences-of-Varying-Primary-Path-on-Proposed-Algorithms"><span class="toc-number">6.6.</span> <span class="toc-text">F. Influences of Varying Primary Path on Proposed Algorithms</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#G-%E4%B8%8EFxNLMS%E7%AE%97%E6%B3%95%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-number">6.7.</span> <span class="toc-text">G. 与FxNLMS算法的比较</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-CONCLUSION"><span class="toc-number">7.</span> <span class="toc-text">6. CONCLUSION</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/06/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Transferable%20Latent%20of%20CNN-Based%20Selective%20Fixed-Filter%20Active%20Noise%20Control/" title="文献阅读: Transferable Latent of CNN-Based Selective Fixed-Filter Active Noise Control"><img src="https://i.ibb.co/xSTFTsh/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: Transferable Latent of CNN-Based Selective Fixed-Filter Active Noise Control"/></a><div class="content"><a class="title" href="/2024/05/06/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Transferable%20Latent%20of%20CNN-Based%20Selective%20Fixed-Filter%20Active%20Noise%20Control/" title="文献阅读: Transferable Latent of CNN-Based Selective Fixed-Filter Active Noise Control">文献阅读: Transferable Latent of CNN-Based Selective Fixed-Filter Active Noise Control</a><time datetime="2024-05-06T12:48:52.939Z" title="发表于 2024-05-06 20:48:52">2024-05-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/05/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADEEP%20GENERATIVE%20FIXED-FILTER%20ACTIVE%20NOISE%20CONTROL/" title="文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL"><img src="https://i.ibb.co/LSLjfkw/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL"/></a><div class="content"><a class="title" href="/2024/05/05/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADEEP%20GENERATIVE%20FIXED-FILTER%20ACTIVE%20NOISE%20CONTROL/" title="文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL">文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL</a><time datetime="2024-05-05T11:30:38.183Z" title="发表于 2024-05-05 19:30:38">2024-05-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/23/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AA%20Hybrid%20SFANC-FxNLMS%20Algorithm%20for%20Active%20Noise%20Control%20based%20on%20Deep%20Learning/" title="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning"><img src="https://i.ibb.co/5GmwJBS/image.png	" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning"/></a><div class="content"><a class="title" href="/2024/04/23/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AA%20Hybrid%20SFANC-FxNLMS%20Algorithm%20for%20Active%20Noise%20Control%20based%20on%20Deep%20Learning/" title="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning">文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning</a><time datetime="2024-04-23T13:51:09.660Z" title="发表于 2024-04-23 21:51:09">2024-04-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AMaximum%20Likelihood%20DOA%20Estimation%20of%20Multiple%20Wideband%20Sources%20in%20the%20Presence%20of%20Nonuniform%20Sensor%20Noise/" title="文献阅读: Maximum Likelihood DOA Estimation of Multiple Wideband Sources in the Presence of Nonuniform Sensor Noise"><img src="https://i.ibb.co/gtsst1D/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: Maximum Likelihood DOA Estimation of Multiple Wideband Sources in the Presence of Nonuniform Sensor Noise"/></a><div class="content"><a class="title" href="/2024/01/27/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AMaximum%20Likelihood%20DOA%20Estimation%20of%20Multiple%20Wideband%20Sources%20in%20the%20Presence%20of%20Nonuniform%20Sensor%20Noise/" title="文献阅读: Maximum Likelihood DOA Estimation of Multiple Wideband Sources in the Presence of Nonuniform Sensor Noise">文献阅读: Maximum Likelihood DOA Estimation of Multiple Wideband Sources in the Presence of Nonuniform Sensor Noise</a><time datetime="2024-01-26T16:00:00.000Z" title="发表于 2024-01-27 00:00:00">2024-01-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/13/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9F%BA%E4%BA%8E%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%9A%84%E5%A3%B0%E6%BA%90DoA%E4%BC%B0%E8%AE%A1/" title="知识总结: 基于球麦克风阵列的声源DoA估计"><img src="https://i.ibb.co/1dkyDjy/acoustic-camera-gfaitech-Sphere120-beamforming-microphone-array-3d-measurement-interior-right.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="知识总结: 基于球麦克风阵列的声源DoA估计"/></a><div class="content"><a class="title" href="/2024/01/13/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E5%9F%BA%E4%BA%8E%E7%90%83%E9%BA%A6%E5%85%8B%E9%A3%8E%E9%98%B5%E5%88%97%E7%9A%84%E5%A3%B0%E6%BA%90DoA%E4%BC%B0%E8%AE%A1/" title="知识总结: 基于球麦克风阵列的声源DoA估计">知识总结: 基于球麦克风阵列的声源DoA估计</a><time datetime="2024-01-13T00:51:54.000Z" title="发表于 2024-01-13 08:51:54">2024-01-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Gavin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Have a nice day!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
