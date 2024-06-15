@@ -1,0 +1,274 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>文献阅读: Maximization of acoustic energy difference between two spaces | Gavin</title><meta name="author" content="Gavin"><meta name="copyright" content="Gavin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Accepted 8 May 2010摘要最近，人们对在一个空间区域内可听到而在相邻区域内不可听到的声场的产生越来越感兴趣。这里提出的方法确保了对多个声源的幅度和相位的控制，以最大限度地提高相邻两个区域之间的声能量差，同时也确保使用均匀分布的声源强度。所提出的方法的性能通过计算机仿真和真实的圆形和球形扬声器阵列的实验来评估。所提出的方法在保持两个声学空间之间的声压差不变的情况下，提高了辐射到声音应">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文献阅读: Maximization of acoustic energy difference between two spaces">
+<meta property="og:url" content="http://example.com/2024/06/15/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AMaximization%20of%20acoustic%20energy%20difference%20between%20two%20spaces/index.html">
+<meta property="og:site_name" content="Gavin">
+<meta property="og:description" content="Accepted 8 May 2010摘要最近，人们对在一个空间区域内可听到而在相邻区域内不可听到的声场的产生越来越感兴趣。这里提出的方法确保了对多个声源的幅度和相位的控制，以最大限度地提高相邻两个区域之间的声能量差，同时也确保使用均匀分布的声源强度。所提出的方法的性能通过计算机仿真和真实的圆形和球形扬声器阵列的实验来评估。所提出的方法在保持两个声学空间之间的声压差不变的情况下，提高了辐射到声音应">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.ibb.co/Sd650ms/image.png">
+<meta property="article:published_time" content="2024-06-15T06:24:10.886Z">
+<meta property="article:modified_time" content="2024-06-15T08:53:10.033Z">
+<meta property="article:author" content="Gavin">
+<meta property="article:tag" content="主动噪声控制">
+<meta property="article:tag" content="开源代码">
+<meta property="article:tag" content="声场重建">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.ibb.co/Sd650ms/image.png"><link rel="shortcut icon" href="https://i.ibb.co/3BGBwps/2c8b98a62fbc3615.png"><link rel="canonical" href="http://example.com/2024/06/15/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AMaximization%20of%20acoustic%20energy%20difference%20between%20two%20spaces/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '文献阅读: Maximization of acoustic energy difference between two spaces',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-15 16:53:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.ibb.co/ch2RrDp/20230822001522.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.ibb.co/Sd650ms/image.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Gavin"><img class="site-icon" src="https://i.ibb.co/3BGBwps/2c8b98a62fbc3615.png"/><span class="site-name">Gavin</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">文献阅读: Maximization of acoustic energy difference between two spaces</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-15T06:24:10.886Z" title="发表于 2024-06-15 14:24:10">2024-06-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-15T08:53:10.033Z" title="更新于 2024-06-15 16:53:10">2024-06-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">文献阅读</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="文献阅读: Maximization of acoustic energy difference between two spaces"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Accepted-8-May-2010"><a href="#Accepted-8-May-2010" class="headerlink" title="Accepted 8 May 2010"></a>Accepted 8 May 2010</h2><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>最近，人们对在一个空间区域内可听到而在相邻区域内不可听到的声场的产生越来越感兴趣。这里提出的方法确保了对多个声源的幅度和相位的控制，以最大限度地提高相邻两个区域之间的声能量差，同时也确保使用均匀分布的声源强度。所提出的方法的性能通过计算机仿真和真实的圆形和球形扬声器阵列的实验来评估。所提出的方法在保持两个声学空间之间的声压差不变的情况下，提高了辐射到声音应该可听空间的效率。这表明与先前提出的对比控制方法相比，性能得到了改善。</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>​	对于”声音的主动控制” [1]，无论是为了控制不需要的噪声，还是为了产生想要的声场，都有相当多的研究。在第二种情况下，通常使用各种波束形成方法[2],[3]控制的声源阵列来产生期望的远场指向性方向图。Druyvesteyn和Garas[4]也对这种阵列进行了研究，目的是产生可听性和听不见[性]的相邻区域。Choi和Kim[5]以利用多个声源产生一个区域可听而另一个区域不可听的声场为目标，引入了区域的概念，分别称为高声能的”亮区”和低声能的”暗区”。在他们的研究中，有两个方法被介绍，其中的一个是指在给定输入声源能量的情况下最大化明区的能量，而另一个方法指的是最大化明区和暗区的能量比值。在过去的许多研究中主要关注于个人音频系统的发展[4] [6] ，其目的是产生一个对听者可听但是对附近的听者不可听的领域。例如，最近Elliott和Jones 提出了一个个人音频系统的实际实现，即所谓的“主动头枕”[6]。此外，Chang等人[7] 实现了一个使用声对比度控制(Acoustic Contrast Control) 的聚焦个人音频系统。</p>
+<p>​	本工作考虑了最大化两个空间区域之间的能量差的声场的产生。所提出的方法确保了对多个声源的幅度和相位的控制，以最大化两个选定的声学空间的声能量差。该方法还使用了一个“调节因子”来调节两个重要性能指标之间的平衡，也就是声能量差和多个声源传播到第一个可听区域的辐射效率。与Choi和Kim[5] 使用的方法近似的是，这里假设声场由多个单极子源生成。在这篇文章中，我们将Choi 和 Kim的方法认作为“ 声对比度最大化(Acoustic contrast maximization)” , 而本文提出的新方法认作为“声能量差异最大化(Acoustic difference maximization) ”。两个方法的主要差异在于Choi和Kim[5] 的声对比度指的是明区和暗区的均方声压的比值，而本论文中的方法关注于两个声区的均方声压的差值。通过仿真和实际实验对这两种方法进行了研究和比较。结果表明，所提出的方法可以在保持两个声学空间之间的声压差的情况下，对应声空间的声辐射效率进行改进。所提出的方法也需要更简单的计算，这也避免了与传统声学对比度控制方法相关的病态问题。此外，所需的声源强度在声源之间均匀分布，因此系统的物理实现需要最大容量较低的扬声器。</p>
+<p>​	本文首先从给定的声学问题的定义出发。基于理论公式的自由场单极子仿真被用来验证所提出的方法可以产生良好的性能。实验在消声室中进行，可以对该方法进行真实的评估。实验工作中使用了一个由40个布置在球体上的扬声器阵列组成的系统。所提出的声能量差方法的所有理论公式、仿真和实验都与先前提出的声学对比度控制方法进行了比较。</p>
+<h2 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h2><p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615145146478-20240615145256857.png"></p>
+<p>​	图1描述了所提出的控制方案的概念，两个声学空间的体积被表示为$V_1$和$V_2$，其中$V_1$和$V_2$之间的声能量差最大。在本篇文章中没有探究是否声学空间的设计影响了声音的方向。该控制方法的最终目标是在第一个声学空间中重建可听的声音并且在第二个声学空间中保持静音。假设第一个声学空间中的位置$\mathbf{x}_m$ 处压力的复数幅值由$p(\mathbf{x}_m)(m&#x3D;1,…,M)$ 表示，并且其具有$e^{jwt}$ 的时间依赖性。声源在位置$\mathbf{y}_n (n&#x3D;1,…,N)$ 的体积速度(声源强度)由$q(\mathbf{y}_n)$ 表示。源在$\mathbf{y}_n$ 和在$\mathbf{x}_m$ 处的声压可以由声学传递函数来表述为$Z(\mathbf{x}_m|\mathbf{y}_n)$ 。最终，声压矢量，$\mathbf{p}^T &#x3D; [p(\mathbf{x_1}),p(\mathbf{x}_2)…p(\mathbf{x}_M)]$ 与源强度矢量$\mathbf{q}^T &#x3D; [q(\mathbf{y_1}),q(\mathbf{y}_2)…q(\mathbf{y}_N)]$  的关系可以表现为下式。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615150339895.png" alt="image-20240615150339895"></p>
+<p>其中传递函数的矩阵被定义为：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615150428678.png" alt="image-20240615150428678"></p>
+<p>利用这个记号，与声能量密度成正比的复数声压的平方被写成</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615150507485.png" alt="image-20240615150507485"></p>
+<p>当体积$V_1$被与声波波长相距较近的离散样本近似时，体积积分可以用矩阵组合的离散求和来表示，如方程所示(3) ，因此：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615150913845.png" alt="image-20240615150913845"></p>
+<p>其中有$p(\mathbf{x}_k) &#x3D; \mathbf{Z}_k \mathbf{q}$ ，并且$\mathbf{Z_k} &#x3D; [Z(\mathbf{x}_k|\mathbf{y}_1) Z(\mathbf{x}_k|\mathbf{y}_2)…Z(\mathbf{x}_k|\mathbf{y}_N)]$ 其意味着矩阵$\mathbf{Z}$ 的第$k$ 行，$*$ 代表着复共轭，H代表着复共轭转置。矩阵$\mathbf{R}<em>1 &#x3D; \frac{1}{M} \sum</em>{k&#x3D;1}^{M}\mathbf{Z}_k^H \mathbf{Z}_k$ 可以理解为定义在第一声学空间采样点上的传递函数的空间平均相关矩阵。传递函数的个体相关矩阵$\mathbf{Z}_k^H \mathbf{Z}_k $ 表示为：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615151413421.png" alt="image-20240615151413421"></p>
+<p>最终，在每一个声学空间中的声能量可以分别表示为：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615151450643.png" alt="image-20240615151450643"></p>
+<p>其中$\mathbf{R}_2$ 为第二个声学空间中的空间平均相关矩阵。除此之外，所有源的能量可以表示为：$e_q &#x3D; \mathbf{q}^H \mathbf{q}$。</p>
+<h2 id="控制方法"><a href="#控制方法" class="headerlink" title="控制方法"></a>控制方法</h2><h4 id="A-声对比度最大化-Acoustic-Contrast-Maximization"><a href="#A-声对比度最大化-Acoustic-Contrast-Maximization" class="headerlink" title="A.声对比度最大化(Acoustic Contrast Maximization)"></a>A.声对比度最大化(Acoustic Contrast Maximization)</h4><p>​	将本文提出的声能量差最大化方法与Choi和Kim提出的声对比度最大化方法[5]进行了比较。当声场可听和不可听的空间分别对应于图1中的第一和第二声学空间时，声学对比度最大化方法中需要最大化的代价函数可以表示为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615151710599.png" alt="image-20240615151710599"></p>
+<p>其可以被重写为：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615151729863.png" alt="image-20240615151729863"></p>
+<p>通过对方程(7) 求关于$\mathbf{q}$的偏导数，可以得到使代价函数$J_c(\mathbf{q})$最大的源强度向量$\mathbf{q}$​。可以写为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615152141089.png" alt="image-20240615152141089"></p>
+<p>优化后的源强向量$\mathbf{q}_c$使得代价函数$J_c(\mathbf{q})$达到极值, 令$\part J_c(\mathbf{q})&#x2F;\part \mathbf{q} &#x3D; 0$， 并且利用复向量参数的梯度性质[8]， 方程(8)可以重写成$J_c(\mathbf{q}_c)((\mathbf{R}_1 + \mathbf{R_2})\mathbf{q}_c)^* &#x3D; (\mathbf{R_1}\mathbf{q}_c)^*$。 因此，随之而来的就有：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615152443736.png" alt="image-20240615152443736"></p>
+<p>式( 9 )与广义特征向量和特征值问题写成的形式相同$\mathbf{\lambda} \mathbf{q}_c &#x3D; \mathbf{A} \mathbf{q}_c$ ，其中$J_c(\mathbf{q}_c)$ 和$(\mathbf{R_1}+\mathbf{R_2})^{-1}\mathbf{R}_1$ 可以分别由特征值$\mathbf{\lambda}$ 和矩阵$\mathbf{A}$ 所代替。因此，优化后的源强向量$\mathbf{q}_c$是矩阵$(\mathbf{R_1} + \mathbf{R_2} )^{- 1}\mathbf{R}_1$的特征向量，它对应于代价函数$J_c(\mathbf{q}_c)$的最大特征值和最大值[9]。显然，方程(9)的最优解是和频率相关的。</p>
+<h4 id="B-声能量差异最大化"><a href="#B-声能量差异最大化" class="headerlink" title="B.声能量差异最大化"></a>B.声能量差异最大化</h4><p>​	与声学对比度最大化方法的代价函数相关，存在一个关键的概念限制。最大化对比度，即最大化两个空间之间的能量”比值”，并不总能提供具有最大分子和最小分母的理想最优解。对比度最大化试图找到最小的分母，即使分子有一个非常小的值，也最容易使成本函数最大化。</p>
+<p>​	这里提供了一个很好的替代成本函数来克服这一限制。本文提出的代价函数的基本概念不是”比”，而是两个声学空间能量的”差”。这是有效的，因为最大化的差值意味着第一空间中”被减数”能量的最大化和第二空间中” 减数”能量的最小化。</p>
+<p>​	如图1所示，它显示了第一声学空间中最大声级和第二空间中最小声级的产生。所提出的代价函数表示同时考虑声能量差和源能量的归一化能量差，写为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615153537504.png" alt="image-20240615153537504"></p>
+<p>成本函数中加入了一个调谐因子$\alpha$，它是一个正实数，用于调整声能差与多个声源辐射到第一声学空间的效率之间的相对重要性，在第一声学空间中，声音应该是可听的。例如，在公式(10)中，成本函数的最大化问题更重视第一声学空间能量的最大化(小$\alpha$的取值），即 $\mathbf{q}^H\mathbf{R_1}\mathbf{q}$ 与声源能量 $\mathbf{q}^H\mathbf{q}$ 的归一化。这反过来又与声源辐射到第一声学空间的效率有关。另一方面，大调谐因子$\alpha$ 的最大化成本函数问题更偏重于使得第二声学空间能量 $\mathbf{q}^H\mathbf{R}_2\mathbf{q}$ 的最小化问题。因此，调谐因子$\alpha$为声能差最大化方法引入了灵活性，允许根据第一声学空间的能量和两个空间的能量差来 “调谐 “解决方案。最大化声能差的最佳调谐系数可通过声能差相对于调谐系数的曲线或传统优化技术来确定[10]。</p>
+<p>​	优化后的声源强度向量$\mathbf{q}_d$使方程(10)中的代价函数最大化，其可以用与声学对比度最大化方法相同的方式计算。源强向量$\mathbf{q}_d$由方程(10) 关于源强度矢量$\mathbf{q}$ 的偏导数得到，当代价函数$J_d(\mathbf{q})$取极值时。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615155245569.png" alt="image-20240615155245569"></p>
+<p>​	其中能够使得代价函数$J_d(\mathbf{q}_d)$ 最大化的优化复源强度矢量$\mathbf{q}_d$ 可以从矩阵$\mathbf{R}_1 - \alpha \mathbf{R}_2$ 的特征值分解中的对应最大特征值的特征向量得到。</p>
+<h4 id="C-声对比度比值最大化和声对比度差值最大化的对比"><a href="#C-声对比度比值最大化和声对比度差值最大化的对比" class="headerlink" title="C.声对比度比值最大化和声对比度差值最大化的对比"></a>C.声对比度比值最大化和声对比度差值最大化的对比</h4><p>​	由声学对比度最大化方法得到的声源强度向量不能保证第一声学空间内的声能量是可听的。换句话说，辐射效率，即声源的能量与第一声学空间中的能量之比，在公式（6）中的代价函数中没有进行考虑。总感兴趣区域的声势能是亮区和暗区的能量之和[5]。因此，声学对比度最大化方法只给出了第一声学空间和总感兴趣空间之间能量比最大化的解，而第一声学空间中的声音可能没有足够的振幅可以被听到。然而，声能量差最大化方法保证了在公示(10)给出的代价函数中考虑第一声空间中的能量。</p>
+<p>​	与能量最大化方法相比，该方法还具有计算效率和鲁棒性方面的优势。因此，声学对比度最大化方法的最优解是由矩阵$(\mathbf{R}_1 + \mathbf{R}_2 )^{- 1}\mathbf{R}_1$的最大特征值对应的特征向量得到的，而该方法的最优解是由矩阵$\mathbf{R}_1 - \mathbf{R}_2$的最大特征值得到的。在能量差最大化方法中，用简单的矩阵相减代替了对比度最大化方法中的矩阵求逆运算。此外，如果矩阵$(\mathbf{R}_1 + \mathbf{R}_2)$是一个条件数很大的病态矩阵，它的求逆运算会导致较大的数值舍入误差，而矩阵元素的误差很小[11]。矩阵病态性不仅是由于区域选择引起的，而且由于传递函数在低频大波长激励下是相似的，因此矩阵元素的相似性也会引起矩阵病态性。此外，矩阵$\mathbf{R}_1 - \mathbf{R}_2$保留了Hermitian矩阵$\mathbf{R}_1$和$\mathbf{R}_2$的特性。埃尔米特矩阵的特征值是”条件完好的”  [11]，即矩阵元素的任何扰动都会导致特征值发生大致相同大小的扰动。然而矩阵$(\mathbf{R}_1 + \mathbf{R}_2 )^{- 1}\mathbf{R}_1$ 可以是病态的，矩阵中的小扰动可以给出特征值中非常大的扰动。这在测量传递函数时误差较小的情况下尤为关键。当测量的传递函数有微小的误差时，就会对获得最优解造成很大的误差。因此，当传递函数的相关矩阵病态时，所提出的方法可以提供一个很好的选择。</p>
+<p>​	因此，能量差最大化方法以矩阵相减代替矩阵求逆，提高了计算效率，避免了矩阵病态问题，具有较强的计算鲁棒性。	</p>
+<h2 id="单极子仿真"><a href="#单极子仿真" class="headerlink" title="单极子仿真"></a>单极子仿真</h2><p>​	模拟中使用的所有源都是简单的自由场单极子。因此，仿真假设自由场格林函数是由方程(12)给出的传递函数，当波数为$k$，空气密度为$\rho$.于是</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615161001262.png" alt="image-20240615161001262"></p>
+<p>其中有$D &#x3D; |\mathbf{x_m} - \mathbf{y}_m|$ 。在仿真中，所有声源都辐射100，200和300 Hz的单频声。将感兴趣的频率限制在100、200和300Hz纯音的原因之一是为了在300Hz以下的低频范围内获得与使用近似为单极子源的真实扬声器的实验可比的模拟结果。由于声源与需要控制的声学空间之间的距离以及声源之间的间隙，在此频率范围以下和以上的声场可控性无论如何都是非常有限的[3],[12]。为了说明声学对比度和能量差最大化方法的性能，我们进行了二维圆形和三维球形声源阵列模拟。利用声学对比度最大化方法优化得到的声源强度向量由式(6)中的代价函数得到。.利用声能量差最大化方法得到的声源强度矢量来自于方程(10)中的代价函数，且具有指定的调谐因子。选择的值是为了保证两个声学空间之间的最大空间平均声压差。所有仿真结果均在时间采样率为48 kHz，空间采样率为2 cm间隔下获得。对源强向量进行了归一化处理，以确保在所有情况下$\mathbf{q}^H\mathbf{q}$都等于1，因为当源强向量的总体功率为一个常数时，仿真和实验产生的所有结果都可以进行合理的比较。</p>
+<h3 id="A-2-D圆形扬声器阵列仿真"><a href="#A-2-D圆形扬声器阵列仿真" class="headerlink" title="A. 2-D圆形扬声器阵列仿真"></a>A. 2-D圆形扬声器阵列仿真</h3><p>​	2D圆形声源阵列模拟配置如图 2a 所示，10 个单极声源位于圆形的圆周上。以 0.36 $m^2$(0.6 x 0.6) 的正方形表示的两个声学空间位于二维环形声源阵列的中间，间距为 0.4 m。声学空间位置的确定是为了获得与球形阵列中每个扬声器的最大距离。每个扬声器到两个声学空间的最短距离约为 20 ° C 时 100Hz 激励信号最长波长 3.43 m 的一半，0.4 m 的间隔是根据模拟和测量平面 $2 \times 1.48  m^2$ 的大小确定的。应用声学对比度和能量差两种最大化控制方法获得声源强度矢量。圆形阵列中的10个单极子源如表1所示，源的编号从17到26。仿真声学平面为包含两个声学空间的矩形区域，与麦克风阵列覆盖的实验声学平面相匹配。二维圆源阵列模拟结果如图3所示，其灰度图代表了模拟平面内的压力场。在灰度图中，较高的声压被描绘成较浅的阴影，较低的声压被描绘成较深的阴影，其范围为50 ~ 100dB。图3所示为传统声学对比度最大化方法a，b，c与本文提出的能量差最大化方法d，e，f，在100 Hz(a),(d),200Hz(b),(e),300Hz(c),(f) 三个激励频率下的对比。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615162031423.png" alt="image-20240615162031423"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615162311081.png" alt="image-20240615162311081"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615162245465.png" alt="image-20240615162245465"></p>
+<h3 id="B-3-D-球扬声器阵列仿真"><a href="#B-3-D-球扬声器阵列仿真" class="headerlink" title="B. 3-D 球扬声器阵列仿真"></a>B. 3-D 球扬声器阵列仿真</h3><p>​	三维模拟结构如图2b所示，40个单极子源位于球体表面。这两个声学空间由$0.216 m^3 (0.6\times0.6\times0.6)$的正方体给出, 其中人体头部尺寸均位于球形源阵列中心，间距为0.4 m。表1给出了所有单极子源的坐标。图2b所描述的模拟声平面与图2a所示的二维圆形阵列结构相同。针对图2b所示的仿真布置，再次由两种最大化控制方法得到优化后的源强向量。结果如图4所示，图4将模拟平面内的声压场表示为分贝尺度上的灰度图。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615162534182.png" alt="image-20240615162534182"></p>
+<h3 id="C-讨论"><a href="#C-讨论" class="headerlink" title="C. 讨论"></a>C. 讨论</h3><p>​	对所提出的声能量差最大化方法与传统的声对比度最大化方法的三种指标测量下的性能进行了比较。第一个测量指标是辐射到第一可听空间的效率。它测量的是相同声源功率在第一可听空间产生的空间平均声压级。这表明声源辐射的声音在第一个空间是可以听到的。第二个测量值是两个声学空间之间的空间平均声压级差（dB 级）。当第一个测量值足够大时，它是生成第二部分所述的所需声场的重要测量值。第三个指标是声源强度矢量大小的标准偏差，它与实际应用中扬声器的动态范围直接相关。 </p>
+<p>​	在上述的二维和三维模拟中，对所提出的声能差最大化方法的性能与传统的声学对比度最大化方法的性能进行了比较。如图 3 和图 4 所示，与使用对比度控制方法的情况相比，建议的能量差方法从声源到第一声学空间产生的声压更高。这是因为，当可听空间的能量最大化时，能量差总是可以达到最大化，而能量对比度只能通过最大化比率达到最大化，而无需考虑可听空间的能量。表 II 显示了两种方法对单极模拟结果的比较。第一个标准显示的是每个声学空间的空间平均声压级（dB 尺度）。为了有效地表示一定声学空间内的声压级，空间平均声压级被定义为，</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615163040333.png" alt="image-20240615163040333"></p>
+<p>其中$V$为所选声学空间的体积，$p_V$为空间中的声压，$p_{ref}$为$20\mu Pa$的参考声压。体积积分可以用离散求和来表示，其中声学空间中的样本数为$M$，在$\mathbf{x}_k$处的压力描述为$p (\mathbf{x}_k)$。这在仿真和实验中都得到了一致的定义。从表II中的空间平均声压级来看，所提出的方法总是在第一个声学空间中给出更高的声压值，这意味着对于归一化的$\mathbf{q}$，对可听区域的辐射效率更好。</p>
+<p>​	基于表II，作为性能衡量指标，图5中dB尺度上表示两个声学空间相对于对比度和差值最大化控制方法的空间平均声压级。在对比度最大化方法的情况下，在一个dB尺度上的平均声压级差，即两个声学空间之间的比值，总是高于声能量差最大化方法产生的声压级差。然而，尽管两种方法中受控声源强度的功率求和均设为1，但最大声能差控制方法下的第1空间的空间平均声压级始终高于对比控制方法。因此，当应用所提出的声能量差最大化控制方法时，辐射到第一可听声空间的效率更高。此外，它还将两个声学空间的压力差维持在30 d B以上。</p>
+<p>​	表III给出了作为性能度量的源强度向量幅值关于频率的标准差，定义为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615163856644.png" alt="image-20240615163856644"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615163912895.png" alt="image-20240615163912895"></p>
+<p>它表示受控源信号的幅度范围，与所使用的扬声器的动态范围直接相关。如果该性能度量值较大，则采用幅度偏差较大的多个源信号，使得实际实现成本较高。从表III的结果来看，本文提出的声能差最大化方法总是给出了比对比最大化方法更小的源强度幅值标准差。在球形阵列的情况下，它也比圆形阵列的小得多。</p>
+<p>​	基于上述性能指标，所提出的声能量差最大化方法可以获得更高的辐射到第一声空间的效率，其中的声音应该是可听的，并且在第一和第二空间之间保持30dB以上的压力差，即使它具有较小的受控源信号幅度的标准偏差值。</p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>​	图 6 所示的实验布置是在消声室中构建的，目的是验证三维自由场声发声[13]和控制方法的性能。实验采用了与等效模拟相对应的二维圆形和三维球形阵列。在 2-D 圆形阵列实验中，只启动了中心圆的 10 个扬声器，而在 3-D 球形阵列中则使用了全部 40 个扬声器。与单极模拟相对应，所有扬声器信号的采样率均为 48 kHz。扬声器的位置如表一所示。Fazi 等人已经测量并报告了这些实验中使用的每个扬声器的辐射模式[14],[15] ，在 100 到 300Hz 的频率范围内，它们与单极声源的辐射模式相似。因此，可以预期，模拟中的单极子假设在这些真实实验中具有广泛的适用性。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615164411961.png" alt="image-20240615164411961"></p>
+<p>​	此外，如图 7 所示，实验结果是通过球形实验装置内的线阵列中平均分布的 30 个传声器测得的。相邻两个传声器之间的间距为 0.051 米，足以避免相关频率的空间混叠，因此传声器阵列的总长度为 1.48 米。线传声器阵列以 0.05 米的不连续间隔移动 2 米，以测量包括可听和不可听声学空间在内的足够区域。在图2(a) 和 2(b)中，描绘了麦克风阵列测量到的平面，并与相同的模拟平面进行了比较。压力场的测量采用与声源信号相同的时间采样率。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615164420719.png" alt="image-20240615164420719"></p>
+<p>​	图8和图9给出了实际二维和三维实验的压力场测量结果。在100、200和300 Hz频率下，再次比较了声学对比度最大化方法和提出的能量差最大化方法。由于关于单极子源自由场辐射的假设非常接近，实验结果在声压的分布形式上与模拟结果非常相似。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615164510835.png" alt="image-20240615164510835"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615164520129.png" alt="image-20240615164520129"></p>
+<p>然而，由于背景噪声、模拟和实验装置之间声源位置的不匹配以及实际扬声器的振幅和相位的相互不匹配，声学空间内的等效压力值与模拟值并不完全匹配。特别是，实验结果的性能在很大程度上取决于所有扬声器特性的相互一致，以及安装在阵列结构中的扬声器的各自特性。虽然阵列中使用的扬声器具有可接受的个别特性，但所有扬声器在相关频率范围内的幅度和相位响应应完全相同。这可能导致模拟结果与实验结果不匹配，以及模拟结果中的单极假设。此外，就对比度控制方法而言，要达到与理论最优解一致并不容易，因为理论与实际实验之间的微小误差都会因矩阵逆问题的条件不完善而导致较大误差。表 IV 列出了采用每种控制方法测量的每个声学空间的空间平均声压级。这些结果表明，拟议的声能差最大化方法在相关频率下具有理想的性能。如基于表 IV 的图 10 所示，拟议的声能差最大化方法总是能在两个空间之间产生更大的压力差，并在第一个声学空间产生更高的压力水平。这意味着从声源向可听空间辐射的效率更高，加上表 III 所示的均匀分布的声源强度矢量，这意味着使用实际扬声器的实施成本更低，尽管表 IV 中的对比度最大化方法得出的实验结果与表 II 中的单极模拟结果相比，由于声源的限制而大大降低。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615164737041.png" alt="image-20240615164737041"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/alexandergwm/blog-img@master/image-20240615164829294.png" alt="image-20240615164829294"></p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>​	本文介绍了一种多声源控制方法，它能使两个相邻空间之间的声能差达到最大。我们将所提出的方法与之前提出的一种最大化声学对比度的方法进行了比较。通过使用自由场单极模拟和扬声器阵列的实际实验，对这两种方法的相对性能进行了评估。根据不同的性能标准，如两个声学空间之间的压力差、辐射效率和声源强度分布，可以观察到前一种方法的改进。此外，由于所提出的方法不包括矩阵反演和从非Hermitian 矩阵中检索特征值和特征向量所引起的任何条件不良问题，因此确保了计算的稳健性并减少了误差。这在测量声学传递函数时尤其有用，因为矩阵元素的微小测量误差会导致结果出现意想不到的巨大误差。实验结果也从实用角度显示了所提方法的优势。分布在三维结构中的控制源比二维结构中的控制源表现出更好的性能。因此，在实际应用中，建议的方法可以很好地替代之前的方法。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Gavin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/06/15/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AMaximization%20of%20acoustic%20energy%20difference%20between%20two%20spaces/">http://example.com/2024/06/15/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AMaximization%20of%20acoustic%20energy%20difference%20between%20two%20spaces/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Gavin</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%B8%BB%E5%8A%A8%E5%99%AA%E5%A3%B0%E6%8E%A7%E5%88%B6/">主动噪声控制</a><a class="post-meta__tags" href="/tags/%E5%BC%80%E6%BA%90%E4%BB%A3%E7%A0%81/">开源代码</a><a class="post-meta__tags" href="/tags/%E5%A3%B0%E5%9C%BA%E9%87%8D%E5%BB%BA/">声场重建</a></div><div class="post_share"><div class="social-share" data-image="https://i.ibb.co/Sd650ms/image.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/05/06/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Transferable%20Latent%20of%20CNN-Based%20Selective%20Fixed-Filter%20Active%20Noise%20Control/" title="文献阅读: Transferable Latent of CNN-Based Selective Fixed-Filter Active Noise Control"><img class="cover" src="https://i.ibb.co/xSTFTsh/image.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">文献阅读: Transferable Latent of CNN-Based Selective Fixed-Filter Active Noise Control</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/05/06/%20%20%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB-%20Real-time%20implementation%20and%20explainable%20AI%20analysis%20of%20delayless%20CNN-based%20selective%20fixed-filter%20active%20noise%20control/" title="文献阅读: Real-time implementation and explainable AI analysis of delayless CNN-based selective fixed-filter active noise control"><img class="cover" src="https://i.ibb.co/rk6B9g0/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-06</div><div class="title">文献阅读: Real-time implementation and explainable AI analysis of delayless CNN-based selective fixed-filter active noise control</div></div></a></div><div><a href="/2024/05/06/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Transferable%20Latent%20of%20CNN-Based%20Selective%20Fixed-Filter%20Active%20Noise%20Control/" title="文献阅读: Transferable Latent of CNN-Based Selective Fixed-Filter Active Noise Control"><img class="cover" src="https://i.ibb.co/xSTFTsh/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-06</div><div class="title">文献阅读: Transferable Latent of CNN-Based Selective Fixed-Filter Active Noise Control</div></div></a></div><div><a href="/2024/04/23/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AA%20Hybrid%20SFANC-FxNLMS%20Algorithm%20for%20Active%20Noise%20Control%20based%20on%20Deep%20Learning/" title="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning"><img class="cover" src="https://i.ibb.co/5GmwJBS/image.png	" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-23</div><div class="title">文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning</div></div></a></div><div><a href="/2024/05/05/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADEEP%20GENERATIVE%20FIXED-FILTER%20ACTIVE%20NOISE%20CONTROL/" title="文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL"><img class="cover" src="https://i.ibb.co/LSLjfkw/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-05</div><div class="title">文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL</div></div></a></div><div><a href="/2023/09/12/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E8%B0%B1%E5%87%8F%E6%B3%95%E9%99%8D%E5%99%AA%E5%9F%BA%E7%A1%80/" title="知识总结：谱减法降噪基础"><img class="cover" src="https://i.ibb.co/7XwHvLZ/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-12</div><div class="title">知识总结：谱减法降噪基础</div></div></a></div><div><a href="/2023/09/06/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%EF%BC%9A%E4%BB%80%E4%B9%88%E6%98%AFA-weighting/" title="知识总结：什么是A-weighting"><img class="cover" src="https://i.ibb.co/bLcJFgv/image.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-06</div><div class="title">知识总结：什么是A-weighting</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.ibb.co/ch2RrDp/20230822001522.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Gavin</div><div class="author-info__description">我的过去常常追赶着我</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">29</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/alexandergwm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/alexandergwm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:wenmiaogao@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">May you stay young forever, do the thing in your own zone.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Accepted-8-May-2010"><span class="toc-number">1.</span> <span class="toc-text">Accepted 8 May 2010</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89"><span class="toc-number">4.</span> <span class="toc-text">问题定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">控制方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#A-%E5%A3%B0%E5%AF%B9%E6%AF%94%E5%BA%A6%E6%9C%80%E5%A4%A7%E5%8C%96-Acoustic-Contrast-Maximization"><span class="toc-number">5.0.1.</span> <span class="toc-text">A.声对比度最大化(Acoustic Contrast Maximization)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B-%E5%A3%B0%E8%83%BD%E9%87%8F%E5%B7%AE%E5%BC%82%E6%9C%80%E5%A4%A7%E5%8C%96"><span class="toc-number">5.0.2.</span> <span class="toc-text">B.声能量差异最大化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-%E5%A3%B0%E5%AF%B9%E6%AF%94%E5%BA%A6%E6%AF%94%E5%80%BC%E6%9C%80%E5%A4%A7%E5%8C%96%E5%92%8C%E5%A3%B0%E5%AF%B9%E6%AF%94%E5%BA%A6%E5%B7%AE%E5%80%BC%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-number">5.0.3.</span> <span class="toc-text">C.声对比度比值最大化和声对比度差值最大化的对比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E6%9E%81%E5%AD%90%E4%BB%BF%E7%9C%9F"><span class="toc-number">6.</span> <span class="toc-text">单极子仿真</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-2-D%E5%9C%86%E5%BD%A2%E6%89%AC%E5%A3%B0%E5%99%A8%E9%98%B5%E5%88%97%E4%BB%BF%E7%9C%9F"><span class="toc-number">6.1.</span> <span class="toc-text">A. 2-D圆形扬声器阵列仿真</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-3-D-%E7%90%83%E6%89%AC%E5%A3%B0%E5%99%A8%E9%98%B5%E5%88%97%E4%BB%BF%E7%9C%9F"><span class="toc-number">6.2.</span> <span class="toc-text">B. 3-D 球扬声器阵列仿真</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-%E8%AE%A8%E8%AE%BA"><span class="toc-number">6.3.</span> <span class="toc-text">C. 讨论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">7.</span> <span class="toc-text">实验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">8.</span> <span class="toc-text">结论</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/06/15/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AMaximization%20of%20acoustic%20energy%20difference%20between%20two%20spaces/" title="文献阅读: Maximization of acoustic energy difference between two spaces"><img src="https://i.ibb.co/Sd650ms/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: Maximization of acoustic energy difference between two spaces"/></a><div class="content"><a class="title" href="/2024/06/15/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AMaximization%20of%20acoustic%20energy%20difference%20between%20two%20spaces/" title="文献阅读: Maximization of acoustic energy difference between two spaces">文献阅读: Maximization of acoustic energy difference between two spaces</a><time datetime="2024-06-15T06:24:10.886Z" title="发表于 2024-06-15 14:24:10">2024-06-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/06/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Transferable%20Latent%20of%20CNN-Based%20Selective%20Fixed-Filter%20Active%20Noise%20Control/" title="文献阅读: Transferable Latent of CNN-Based Selective Fixed-Filter Active Noise Control"><img src="https://i.ibb.co/xSTFTsh/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: Transferable Latent of CNN-Based Selective Fixed-Filter Active Noise Control"/></a><div class="content"><a class="title" href="/2024/05/06/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9A%20Transferable%20Latent%20of%20CNN-Based%20Selective%20Fixed-Filter%20Active%20Noise%20Control/" title="文献阅读: Transferable Latent of CNN-Based Selective Fixed-Filter Active Noise Control">文献阅读: Transferable Latent of CNN-Based Selective Fixed-Filter Active Noise Control</a><time datetime="2024-05-06T12:48:52.939Z" title="发表于 2024-05-06 20:48:52">2024-05-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/06/%20%20%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB-%20Real-time%20implementation%20and%20explainable%20AI%20analysis%20of%20delayless%20CNN-based%20selective%20fixed-filter%20active%20noise%20control/" title="文献阅读: Real-time implementation and explainable AI analysis of delayless CNN-based selective fixed-filter active noise control"><img src="https://i.ibb.co/rk6B9g0/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: Real-time implementation and explainable AI analysis of delayless CNN-based selective fixed-filter active noise control"/></a><div class="content"><a class="title" href="/2024/05/06/%20%20%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB-%20Real-time%20implementation%20and%20explainable%20AI%20analysis%20of%20delayless%20CNN-based%20selective%20fixed-filter%20active%20noise%20control/" title="文献阅读: Real-time implementation and explainable AI analysis of delayless CNN-based selective fixed-filter active noise control">文献阅读: Real-time implementation and explainable AI analysis of delayless CNN-based selective fixed-filter active noise control</a><time datetime="2024-05-05T16:00:00.000Z" title="发表于 2024-05-06 00:00:00">2024-05-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/05/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADEEP%20GENERATIVE%20FIXED-FILTER%20ACTIVE%20NOISE%20CONTROL/" title="文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL"><img src="https://i.ibb.co/LSLjfkw/image.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL"/></a><div class="content"><a class="title" href="/2024/05/05/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9ADEEP%20GENERATIVE%20FIXED-FILTER%20ACTIVE%20NOISE%20CONTROL/" title="文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL">文献阅读: DEEP GENERATIVE FIXED-FILTER ACTIVE NOISE CONTROL</a><time datetime="2024-05-05T11:30:38.183Z" title="发表于 2024-05-05 19:30:38">2024-05-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/04/23/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AA%20Hybrid%20SFANC-FxNLMS%20Algorithm%20for%20Active%20Noise%20Control%20based%20on%20Deep%20Learning/" title="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning"><img src="https://i.ibb.co/5GmwJBS/image.png	" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning"/></a><div class="content"><a class="title" href="/2024/04/23/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB%EF%BC%9AA%20Hybrid%20SFANC-FxNLMS%20Algorithm%20for%20Active%20Noise%20Control%20based%20on%20Deep%20Learning/" title="文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning">文献阅读: A Hybrid SFANC-FxNLMS Algorithm for Active Noise Control based on Deep Learning</a><time datetime="2024-04-23T13:51:09.660Z" title="发表于 2024-04-23 21:51:09">2024-04-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Gavin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Have a nice day!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
